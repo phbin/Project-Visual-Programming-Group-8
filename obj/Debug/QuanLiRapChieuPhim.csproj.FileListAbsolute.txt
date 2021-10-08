@@ -1,0 +1,26 @@
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
