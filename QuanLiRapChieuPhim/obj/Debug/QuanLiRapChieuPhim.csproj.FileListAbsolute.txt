@@ -12,7 +12,6 @@ C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
@@ -24,3 +23,4 @@ C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
 C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
+C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources

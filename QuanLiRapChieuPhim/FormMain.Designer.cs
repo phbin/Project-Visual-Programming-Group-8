@@ -214,7 +214,7 @@ namespace QuanLiRapChieuPhim
             this.buttonAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdmin.Size = new System.Drawing.Size(260, 85);
             this.buttonAdmin.TabIndex = 5;
-            this.buttonAdmin.Text = "  Admin";
+            this.buttonAdmin.Text = "  Staff";
             this.buttonAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdmin.UseVisualStyleBackColor = true;
             this.buttonAdmin.Click += new System.EventHandler(this.buttonAdmin_Click);
@@ -345,6 +345,7 @@ namespace QuanLiRapChieuPhim
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.gradientPanelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

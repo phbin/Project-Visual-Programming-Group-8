@@ -117,8 +117,8 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.setting;
-            OpenChildForm(new FormAdmin());
-            labelHome.Text = "Setting";
+            OpenChildForm(new FormStaff());
+            labelHome.Text = "Staff";
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
