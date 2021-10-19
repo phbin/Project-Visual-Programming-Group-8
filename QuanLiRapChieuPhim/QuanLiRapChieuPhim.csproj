@@ -47,6 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill.cs" />
+    <Compile Include="BillInfo.cs" />
+    <Compile Include="FoodDrink.cs" />
+    <Compile Include="FormFDDrink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFDDrink.Designer.cs">
+      <DependentUpon>FormFDDrink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFDFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFDFood.Designer.cs">
+      <DependentUpon>FormFDFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +115,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormFDDrink.resx">
+      <DependentUpon>FormFDDrink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFDFood.resx">
+      <DependentUpon>FormFDFood.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
