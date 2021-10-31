@@ -1,5 +1,4 @@
-﻿
-namespace QuanLiRapChieuPhim
+﻿namespace QuanLiRapChieuPhim
 {
     partial class FormAdmin
     {
@@ -29,36 +28,35 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
-            this.gradientPanelAdmin = new QuanLiRapChieuPhim.GradientPanel();
+            this.ListAccountGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // gradientPanelAdmin
+            // ListAccountGrid
             // 
-            this.gradientPanelAdmin.Angle = 90F;
-            this.gradientPanelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
-            this.gradientPanelAdmin.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
-            this.gradientPanelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanelAdmin.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanelAdmin.Name = "gradientPanelAdmin";
-            this.gradientPanelAdmin.Size = new System.Drawing.Size(800, 450);
-            this.gradientPanelAdmin.TabIndex = 1;
-            this.gradientPanelAdmin.TopColor = System.Drawing.Color.Empty;
+            this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListAccountGrid.Location = new System.Drawing.Point(12, 12);
+            this.ListAccountGrid.Name = "ListAccountGrid";
+            this.ListAccountGrid.RowHeadersWidth = 62;
+            this.ListAccountGrid.RowTemplate.Height = 28;
+            this.ListAccountGrid.Size = new System.Drawing.Size(1056, 664);
+            this.ListAccountGrid.TabIndex = 0;
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.gradientPanelAdmin);
+            this.ClientSize = new System.Drawing.Size(1075, 688);
+            this.Controls.Add(this.ListAccountGrid);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
+            ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GradientPanel gradientPanelAdmin;
+        private System.Windows.Forms.DataGridView ListAccountGrid;
     }
 }
