@@ -123,7 +123,9 @@ namespace QuanLiRapChieuPhim
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.Show();
+            this.Close();
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -162,6 +164,41 @@ namespace QuanLiRapChieuPhim
         private void buttonRestoreDown_MouseMove(object sender, MouseEventArgs e)
         {
             buttonRestoreDown.BackColor = Color.FromArgb(190, 62, 66);
+        }
+
+        private void labelHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelLine_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gradientPanelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gradientPanelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelHome_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
