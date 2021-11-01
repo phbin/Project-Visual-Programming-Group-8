@@ -218,7 +218,7 @@ namespace QuanLiRapChieuPhim
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
             this.buttonAdmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdmin.Image")));
             this.buttonAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdmin.Location = new System.Drawing.Point(0, 688);
+            this.buttonAdmin.Location = new System.Drawing.Point(0, 648);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -239,7 +239,7 @@ namespace QuanLiRapChieuPhim
             this.buttonStatistic.ForeColor = System.Drawing.Color.White;
             this.buttonStatistic.Image = ((System.Drawing.Image)(resources.GetObject("buttonStatistic.Image")));
             this.buttonStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistic.Location = new System.Drawing.Point(0, 582);
+            this.buttonStatistic.Location = new System.Drawing.Point(0, 542);
             this.buttonStatistic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonStatistic.Name = "buttonStatistic";
             this.buttonStatistic.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -260,7 +260,7 @@ namespace QuanLiRapChieuPhim
             this.buttonCustomer.ForeColor = System.Drawing.Color.White;
             this.buttonCustomer.Image = ((System.Drawing.Image)(resources.GetObject("buttonCustomer.Image")));
             this.buttonCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCustomer.Location = new System.Drawing.Point(0, 476);
+            this.buttonCustomer.Location = new System.Drawing.Point(0, 436);
             this.buttonCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCustomer.Name = "buttonCustomer";
             this.buttonCustomer.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -281,7 +281,7 @@ namespace QuanLiRapChieuPhim
             this.buttonFD.ForeColor = System.Drawing.Color.White;
             this.buttonFD.Image = ((System.Drawing.Image)(resources.GetObject("buttonFD.Image")));
             this.buttonFD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFD.Location = new System.Drawing.Point(0, 370);
+            this.buttonFD.Location = new System.Drawing.Point(0, 330);
             this.buttonFD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFD.Name = "buttonFD";
             this.buttonFD.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -302,7 +302,7 @@ namespace QuanLiRapChieuPhim
             this.buttonMovie.ForeColor = System.Drawing.Color.White;
             this.buttonMovie.Image = ((System.Drawing.Image)(resources.GetObject("buttonMovie.Image")));
             this.buttonMovie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMovie.Location = new System.Drawing.Point(0, 264);
+            this.buttonMovie.Location = new System.Drawing.Point(0, 224);
             this.buttonMovie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMovie.Name = "buttonMovie";
             this.buttonMovie.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
@@ -327,7 +327,7 @@ namespace QuanLiRapChieuPhim
             this.buttonGeneral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGeneral.Name = "buttonGeneral";
             this.buttonGeneral.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonGeneral.Size = new System.Drawing.Size(292, 106);
+            this.buttonGeneral.Size = new System.Drawing.Size(292, 66);
             this.buttonGeneral.TabIndex = 0;
             this.buttonGeneral.Text = "  General";
             this.buttonGeneral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

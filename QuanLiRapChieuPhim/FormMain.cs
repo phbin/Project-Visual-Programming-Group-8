@@ -24,6 +24,7 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            this.WindowState = FormWindowState.Maximized;
         }
         private void EnableButton(object sender, Color color)
         {
@@ -71,7 +72,6 @@ namespace QuanLiRapChieuPhim
             childForm.BringToFront();
             childForm.Show();
             labelHome.Text = childForm.Text;
-
         }
         private void buttonGeneral_Click(object sender, EventArgs e)
         {

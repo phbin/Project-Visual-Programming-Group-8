@@ -101,13 +101,13 @@ namespace QuanLiRapChieuPhim
             {
                 FormAdmin frmAdmin = new FormAdmin();
                 frmAdmin.ShowDialog();
-                this.Hide();
+                this.Close();
             }
             else if(Login(Username,Password) == 0)
             {
                 FormMain frmMain = new FormMain();
                 frmMain.ShowDialog();
-                this.Hide();
+                this.Close();
             }
             else if(UsernameTextbox.Text=="" || PasswordTextbox.Text=="" || UsernameTextbox.Text=="Username" || PasswordTextbox.Text=="Password")
             {
@@ -116,11 +116,8 @@ namespace QuanLiRapChieuPhim
             else
             {
                 WrongLabel.Show();
-                //UsernameTextbox.Text = "Username";
                 PasswordTextbox.Text = "Password";
                 PasswordTextbox.UseSystemPasswordChar = true;
-                PasswordTextbox.ForeColor = Color.FromArgb(165, 70, 91);
-                //UsernameTextbox.ForeColor = Color.FromArgb(165, 70, 91);
             }
         }
 

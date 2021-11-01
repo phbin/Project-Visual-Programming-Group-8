@@ -19,7 +19,6 @@ namespace QuanLiRapChieuPhim
         private Form curChildForm;
         public FormAdmin()
         {
-            LoadAccountList();
             InitializeComponent();
             buttonBorder = new Panel();
             buttonBorder.Size = new Size(10, 80);
@@ -27,13 +26,24 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            //this.WindowState = FormWindowState.Maximized;
         }
-        
-         void LoadAccountList()
-        {
-            string query = "SELECT * FROM dbo.Account";
 
-            ListAccountGrid.DataSource = DataProvider.Instance.ExcuteQuery(query,new object[] { "admin" });
+        private void OpenChildForm(Form childForm)
+        {
+            if (curChildForm != null)
+            {
+                curChildForm.Close();
+            }
+            curChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            gradientPanelDesktop.Controls.Add(childForm);
+            gradientPanelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            labelHome.Text = childForm.Text;
         }
 
         private void EnableButton(object sender, Color color)
@@ -43,7 +53,7 @@ namespace QuanLiRapChieuPhim
                 DisableButton();
                 //convert object to same type of button
                 curBtn = (Button)sender;
-                curBtn.BackColor = Color.FromArgb(0, 0, 0);
+                curBtn.BackColor = Color.FromArgb(155, 39, 43);
                 curBtn.ForeColor = Color.White;
                 curBtn.TextAlign = ContentAlignment.MiddleCenter;
                 curBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -72,7 +82,7 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.hr;
-            //OpenChildForm(new FormGeneral());
+            OpenChildForm(new FormHRM());
             labelHome.Text = "Human Resource Manager";
         }
 
@@ -80,7 +90,7 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.statistic;
-            //OpenChildForm(new FormGeneral());
+            OpenChildForm(new FormStatistic());
             labelHome.Text = "Statistics";
         }
 
@@ -88,8 +98,9 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.customer;
-            //OpenChildForm(new FormGeneral());
+            OpenChildForm(new FormAccount());
             labelHome.Text = "Account Manager";
+
         }
         private void ShowFormLogin()
         {
@@ -101,6 +112,8 @@ namespace QuanLiRapChieuPhim
             Thread thread = new Thread(new ThreadStart(ShowFormLogin)); //Create new thread 
             thread.Start(); //Start thread
             this.Close(); //Close current form
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.Show();
         }
 
         private void buttonMaximize_Click(object sender, EventArgs e)

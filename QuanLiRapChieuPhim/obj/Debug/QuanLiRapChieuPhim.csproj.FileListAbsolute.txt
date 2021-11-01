@@ -79,3 +79,5 @@ D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\b
 D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
 D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
 D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
+D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAccount.resources
+D:\HK1 - 2122\LTTQ\DuTru\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormHRM.resources
