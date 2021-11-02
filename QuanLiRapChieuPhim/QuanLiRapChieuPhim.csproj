@@ -232,5 +232,17 @@
   <ItemGroup>
     <Folder Include="DTO\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

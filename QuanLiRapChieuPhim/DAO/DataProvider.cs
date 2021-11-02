@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim.DAO
         private DataProvider() { }
 
 
-        private string connectionSTR = @"Data Source=DESKTOP-J24RRH6\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        private string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -76,7 +76,12 @@ namespace QuanLiRapChieuPhim.DAO
                         }    
                     }    
                 }
-                data = command.ExecuteNonQuery();
+                try
+                {
+                    data = command.ExecuteNonQuery();
+                }
+                catch { }
+                
                 connection.Close();
             }
             return data;

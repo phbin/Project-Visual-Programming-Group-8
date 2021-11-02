@@ -141,5 +141,6 @@ namespace QuanLiRapChieuPhim
             PhoneNumTextbox.Text = "";
             IDPersonalTextbox.Text = "";
         }
+
     }
 }
