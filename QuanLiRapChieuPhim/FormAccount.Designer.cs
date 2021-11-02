@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccount));
             this.ListAccountGrid = new System.Windows.Forms.DataGridView();
-            this.EditLabel = new System.Windows.Forms.Label();
-            this.DeleteLabel = new System.Windows.Forms.Label();
-            this.AddLabel = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
@@ -76,45 +73,6 @@
             this.ListAccountGrid.Size = new System.Drawing.Size(489, 488);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
-            // 
-            // EditLabel
-            // 
-            this.EditLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditLabel.AutoSize = true;
-            this.EditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditLabel.ForeColor = System.Drawing.Color.White;
-            this.EditLabel.Location = new System.Drawing.Point(604, 408);
-            this.EditLabel.Name = "EditLabel";
-            this.EditLabel.Size = new System.Drawing.Size(45, 22);
-            this.EditLabel.TabIndex = 12;
-            this.EditLabel.Text = "Sửa";
-            this.EditLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DeleteLabel
-            // 
-            this.DeleteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteLabel.AutoSize = true;
-            this.DeleteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteLabel.ForeColor = System.Drawing.Color.White;
-            this.DeleteLabel.Location = new System.Drawing.Point(861, 409);
-            this.DeleteLabel.Name = "DeleteLabel";
-            this.DeleteLabel.Size = new System.Drawing.Size(45, 22);
-            this.DeleteLabel.TabIndex = 13;
-            this.DeleteLabel.Text = "Xóa";
-            this.DeleteLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AddLabel
-            // 
-            this.AddLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddLabel.AutoSize = true;
-            this.AddLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabel.ForeColor = System.Drawing.Color.White;
-            this.AddLabel.Location = new System.Drawing.Point(722, 409);
-            this.AddLabel.Name = "AddLabel";
-            this.AddLabel.Size = new System.Drawing.Size(60, 22);
-            this.AddLabel.TabIndex = 14;
-            this.AddLabel.Text = "Thêm";
-            this.AddLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddButton
             // 
@@ -322,7 +280,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(984, 598);
-            this.Controls.Add(this.AddLabel);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.IDTextbox);
@@ -333,8 +290,6 @@
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.PasswordTextbox);
             this.Controls.Add(this.UsernameTextbox);
-            this.Controls.Add(this.DeleteLabel);
-            this.Controls.Add(this.EditLabel);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.SearchButton);
@@ -358,9 +313,6 @@
         private System.Windows.Forms.DataGridView ListAccountGrid;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Label EditLabel;
-        private System.Windows.Forms.Label DeleteLabel;
-        private System.Windows.Forms.Label AddLabel;
         private System.Windows.Forms.TextBox SearchTextbox;
         private System.Windows.Forms.TextBox UsernameTextbox;
         private System.Windows.Forms.TextBox PasswordTextbox;
