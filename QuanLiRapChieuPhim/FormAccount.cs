@@ -95,7 +95,7 @@ namespace QuanLiRapChieuPhim
         private void SearchTextbox_TextChanged(object sender, EventArgs e)
         {
             DataTable filtertable = new DataTable();
-            filtertable = AccountDAO.Instance.Search(SearchTextbox.Text);
+            filtertable = AccountDAO.Instance.SearchAccount(SearchTextbox.Text);
             ListAccountGrid.DataSource = filtertable;
         }
 
@@ -136,6 +136,9 @@ namespace QuanLiRapChieuPhim
             if (MessageBox.Show("Bạn có thật sự muốn thay đổi thông tin này?","Thông báo",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
             }
             LoadAccountList();
         }

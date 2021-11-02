@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -121,11 +122,19 @@ namespace QuanLiRapChieuPhim
             labelHome.Text = "Staff";
         }
 
+        private void ShowFormLogin()
+        {
+            FormLogin frm = new FormLogin();
+            frm.ShowDialog();
+        }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            Thread thread = new Thread(new ThreadStart(ShowFormLogin)); //Create new thread 
+            thread.Start(); //Start thread
+            this.Close(); //Close current form
             FormLogin frmLogin = new FormLogin();
             frmLogin.Show();
-            this.Close();
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)

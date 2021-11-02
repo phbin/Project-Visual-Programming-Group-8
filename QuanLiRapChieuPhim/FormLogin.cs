@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using QuanLiRapChieuPhim.DAO;
+using System.Threading;
 
 namespace QuanLiRapChieuPhim
 {
@@ -93,21 +94,37 @@ namespace QuanLiRapChieuPhim
            return AccountDAO.Instance.Login(Username, Password);
         }
 
+        private void ShowFormMain()
+        {
+            FormMain frm = new FormMain();
+            frm.ShowDialog();
+        }
+
+        private void ShowFormAdmin()
+        {
+            FormAdmin frm = new FormAdmin();
+            frm.ShowDialog();
+        }
+
         private void LoginButton_Click(object sender, EventArgs e)
         {   
             string Username = UsernameTextbox.Text;
             string Password = PasswordTextbox.Text;
             if (Login(Username, Password) == 1)
             {
+                Thread thread = new Thread(new ThreadStart(ShowFormAdmin)); //Create new thread 
+                thread.Start(); //Start thread
+                this.Close(); //Close current form
                 FormAdmin frmAdmin = new FormAdmin();
-                frmAdmin.ShowDialog();
-                this.Close();
+                frmAdmin.Show();
             }
             else if(Login(Username,Password) == 0)
             {
+                Thread thread = new Thread(new ThreadStart(ShowFormMain)); //Create new thread 
+                thread.Start(); //Start thread
+                this.Close(); //Close current form
                 FormMain frmMain = new FormMain();
-                frmMain.ShowDialog();
-                this.Close();
+                frmMain.Show();
             }
             else if(UsernameTextbox.Text=="" || PasswordTextbox.Text=="" || UsernameTextbox.Text=="Username" || PasswordTextbox.Text=="Password")
             {

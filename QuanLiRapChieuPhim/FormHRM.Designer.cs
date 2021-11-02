@@ -62,6 +62,8 @@
             this.InfoStaffGridView.AllowUserToDeleteRows = false;
             this.InfoStaffGridView.AllowUserToOrderColumns = true;
             this.InfoStaffGridView.AllowUserToResizeRows = false;
+            this.InfoStaffGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoStaffGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.InfoStaffGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.InfoStaffGridView.ColumnHeadersHeight = 30;
@@ -84,7 +86,7 @@
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
             this.SearchButton.Location = new System.Drawing.Point(303, 11);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(27, 27);
             this.SearchButton.TabIndex = 7;
@@ -97,7 +99,7 @@
             this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SearchPanel.Controls.Add(this.SearchTextbox);
             this.SearchPanel.Location = new System.Drawing.Point(8, 11);
-            this.SearchPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(309, 30);
             this.SearchPanel.TabIndex = 8;
@@ -109,7 +111,7 @@
             this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
             this.SearchTextbox.Location = new System.Drawing.Point(13, 6);
-            this.SearchTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchTextbox.Multiline = true;
             this.SearchTextbox.Name = "SearchTextbox";
             this.SearchTextbox.Size = new System.Drawing.Size(270, 17);
@@ -121,6 +123,7 @@
             // 
             // AddLabel
             // 
+            this.AddLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddLabel.AutoSize = true;
             this.AddLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddLabel.ForeColor = System.Drawing.Color.White;
@@ -134,6 +137,7 @@
             // 
             // AddButton
             // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddButton.BackColor = System.Drawing.Color.Transparent;
             this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddButton.FlatAppearance.BorderSize = 0;
@@ -142,18 +146,16 @@
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.Location = new System.Drawing.Point(457, 312);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(101, 66);
-            this.AddButton.TabIndex = 26;
+            this.AddButton.TabIndex = 7;
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // IDLabel
             // 
-            this.IDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDLabel.AutoSize = true;
             this.IDLabel.BackColor = System.Drawing.Color.Transparent;
             this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,20 +168,16 @@
             // 
             // IDTextbox
             // 
-            this.IDTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDTextbox.Location = new System.Drawing.Point(448, 76);
             this.IDTextbox.Name = "IDTextbox";
             this.IDTextbox.Size = new System.Drawing.Size(190, 22);
-            this.IDTextbox.TabIndex = 38;
+            this.IDTextbox.TabIndex = 1;
             // 
             // HRMLabel
             // 
-            this.HRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.HRMLabel.AutoSize = true;
             this.HRMLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HRMLabel.ForeColor = System.Drawing.Color.White;
@@ -191,9 +189,7 @@
             // 
             // DoBLabel
             // 
-            this.DoBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DoBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DoBLabel.AutoSize = true;
             this.DoBLabel.BackColor = System.Drawing.Color.Transparent;
             this.DoBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,9 +202,7 @@
             // 
             // FullNameLabel
             // 
-            this.FullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameLabel.AutoSize = true;
             this.FullNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.FullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,28 +215,25 @@
             // 
             // FullNameTextbox
             // 
-            this.FullNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FullNameTextbox.Location = new System.Drawing.Point(448, 114);
             this.FullNameTextbox.Name = "FullNameTextbox";
             this.FullNameTextbox.Size = new System.Drawing.Size(190, 22);
-            this.FullNameTextbox.TabIndex = 32;
+            this.FullNameTextbox.TabIndex = 2;
             // 
             // DoBTextbox
             // 
-            this.DoBTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DoBTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DoBTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoBTextbox.Location = new System.Drawing.Point(448, 154);
             this.DoBTextbox.Name = "DoBTextbox";
             this.DoBTextbox.Size = new System.Drawing.Size(190, 22);
-            this.DoBTextbox.TabIndex = 31;
+            this.DoBTextbox.TabIndex = 3;
             // 
             // DeleteLabel
             // 
+            this.DeleteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteLabel.AutoSize = true;
             this.DeleteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteLabel.ForeColor = System.Drawing.Color.White;
@@ -256,6 +247,7 @@
             // 
             // EditLabel
             // 
+            this.EditLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditLabel.AutoSize = true;
             this.EditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditLabel.ForeColor = System.Drawing.Color.White;
@@ -269,6 +261,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.BackColor = System.Drawing.Color.Transparent;
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeleteButton.FlatAppearance.BorderSize = 0;
@@ -277,15 +270,16 @@
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
             this.DeleteButton.Location = new System.Drawing.Point(553, 317);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(85, 56);
-            this.DeleteButton.TabIndex = 27;
+            this.DeleteButton.TabIndex = 9;
             this.DeleteButton.UseVisualStyleBackColor = false;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.BackColor = System.Drawing.Color.Transparent;
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.FlatAppearance.BorderSize = 0;
@@ -294,18 +288,16 @@
             this.EditButton.ForeColor = System.Drawing.Color.White;
             this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
             this.EditButton.Location = new System.Drawing.Point(377, 321);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(98, 57);
-            this.EditButton.TabIndex = 25;
+            this.EditButton.TabIndex = 8;
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AdressLabel
             // 
-            this.AdressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AdressLabel.AutoSize = true;
             this.AdressLabel.BackColor = System.Drawing.Color.Transparent;
             this.AdressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,20 +310,16 @@
             // 
             // AddressTextbox
             // 
-            this.AddressTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddressTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddressTextbox.Location = new System.Drawing.Point(448, 192);
             this.AddressTextbox.Name = "AddressTextbox";
             this.AddressTextbox.Size = new System.Drawing.Size(190, 22);
-            this.AddressTextbox.TabIndex = 40;
+            this.AddressTextbox.TabIndex = 4;
             // 
             // PhoneNumLabel
             // 
-            this.PhoneNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumLabel.AutoSize = true;
             this.PhoneNumLabel.BackColor = System.Drawing.Color.Transparent;
             this.PhoneNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -344,31 +332,25 @@
             // 
             // PhoneNumTextbox
             // 
-            this.PhoneNumTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneNumTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneNumTextbox.Location = new System.Drawing.Point(448, 232);
             this.PhoneNumTextbox.Name = "PhoneNumTextbox";
             this.PhoneNumTextbox.Size = new System.Drawing.Size(190, 22);
-            this.PhoneNumTextbox.TabIndex = 43;
+            this.PhoneNumTextbox.TabIndex = 5;
             // 
             // IDPersonalTextbox
             // 
-            this.IDPersonalTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDPersonalTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDPersonalTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDPersonalTextbox.Location = new System.Drawing.Point(448, 272);
             this.IDPersonalTextbox.Name = "IDPersonalTextbox";
             this.IDPersonalTextbox.Size = new System.Drawing.Size(190, 22);
-            this.IDPersonalTextbox.TabIndex = 44;
+            this.IDPersonalTextbox.TabIndex = 6;
             // 
             // IDPersonalLabel
             // 
-            this.IDPersonalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDPersonalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDPersonalLabel.AutoSize = true;
             this.IDPersonalLabel.BackColor = System.Drawing.Color.Transparent;
             this.IDPersonalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -409,6 +391,7 @@
             this.Controls.Add(this.InfoStaffGridView);
             this.Name = "FormHRM";
             this.Text = "FormHRM";
+            this.Click += new System.EventHandler(this.FormHRM_Click_1);
             ((System.ComponentModel.ISupportInitialize)(this.InfoStaffGridView)).EndInit();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();

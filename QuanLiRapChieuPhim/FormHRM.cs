@@ -63,7 +63,7 @@ namespace QuanLiRapChieuPhim
         private void SearchTextbox_TextChanged_1(object sender, EventArgs e)
         {
             DataTable filtertable = new DataTable();
-            filtertable = AccountDAO.Instance.Search(SearchTextbox.Text);
+            filtertable = AccountDAO.Instance.SearchInfoStaff(SearchTextbox.Text);
             InfoStaffGridView.DataSource = filtertable;
         }
 
@@ -83,21 +83,19 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void FormHRM_Click(object sender, EventArgs e)
-        {
-            IDTextbox.Text = "";
-            FullNameTextbox.Text = "";
-            DoBTextbox.Text = "";
-            AddressTextbox.Text = "";
-            PhoneNumTextbox.Text = "";
-            IDPersonalTextbox.Text = "";
-        }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
+            DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
+            string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
             if (MessageBox.Show("Bạn có thật sự muốn thay đổi thông tin này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, DoBTextbox.Text, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text);
+                AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text);
+                IDTextbox.Text = "";
+                FullNameTextbox.Text = "";
+                DoBTextbox.Text = "";
+                AddressTextbox.Text = "";
+                PhoneNumTextbox.Text = "";
+                IDPersonalTextbox.Text = "";
             }
             LoadInfoStaff();
         }
@@ -117,7 +115,9 @@ namespace QuanLiRapChieuPhim
 
             if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text!="" && AddressTextbox.Text!="" && PhoneNumTextbox.Text!="" && IDPersonalTextbox.Text != "") 
             {
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text,FullNameTextbox.Text,DoBTextbox.Text,AddressTextbox.Text,PhoneNumTextbox.Text,IDPersonalTextbox.Text);
+                DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
+                string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text,FullNameTextbox.Text,sqlFormattedDate,AddressTextbox.Text,PhoneNumTextbox.Text,IDPersonalTextbox.Text);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -125,9 +125,21 @@ namespace QuanLiRapChieuPhim
                 PhoneNumTextbox.Text = "";
                 IDPersonalTextbox.Text = "";
             }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
+            }
             LoadInfoStaff();
         }
 
-       
+        private void FormHRM_Click_1(object sender, EventArgs e)
+        {
+            IDTextbox.Text = "";
+            FullNameTextbox.Text = "";
+            DoBTextbox.Text = "";
+            AddressTextbox.Text = "";
+            PhoneNumTextbox.Text = "";
+            IDPersonalTextbox.Text = "";
+        }
     }
 }

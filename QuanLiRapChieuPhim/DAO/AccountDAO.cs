@@ -50,15 +50,21 @@ namespace QuanLiRapChieuPhim.DAO
             DataProvider.Instance.ExcuteQuery(query);
         }
 
-        public DataTable Search(string Username)
+        public DataTable SearchAccount(string Username)
         {
             string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%"+Username+"%'";
             return DataProvider.Instance.ExcuteQuery(query);
         }
 
+        public DataTable SearchInfoStaff(string Fullname)
+        {
+            string query = "SELECT * FROM dbo.InfoStaff WHERE FullName LIKE '%" + Fullname + "%'";
+            return DataProvider.Instance.ExcuteQuery(query);
+        }
+
         public void AddInfoStaff(string ID, string Fullname, string DoB, string Adress, string PhoneNum, string IDPersonal)
         {
-            string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES ('" + ID + "','" + Fullname + "', CAST('" + DoB + "' AS Date),'" + Adress + "','" + PhoneNum + "','" + IDPersonal + "')";
+            string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES ('" + ID + "',N'" + Fullname + "', CAST('" + DoB + "' AS Date),N'" + Adress + "','" + PhoneNum + "','" + IDPersonal + "')";
             DataProvider.Instance.ExcuteQuery(query);        
         }
 
@@ -73,10 +79,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void EditInfoStaff(string ID, string Fullname, string DoB, string Address, string PhoneNum, string IDPersonal)
         {
-            string query0 = "UPDATE dbo.Account SET ID='" + ID + "'";
-            DataProvider.Instance.ExcuteQuery(query0);
-
-            string query = "UPDATE dbo.Account SET ID='" + ID + "', FullName='" + Fullname + "', CAST('" + DoB + "' AS Date), Address='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "'WHERE ID='" + ID + "'";
+            string query = "UPDATE dbo.InfoStaff SET FullName=N'" + Fullname + "', DoB='" + DoB + "', Addr='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "' WHERE ID='" + ID + "'";
             DataProvider.Instance.ExcuteQuery(query);
         }
     }
