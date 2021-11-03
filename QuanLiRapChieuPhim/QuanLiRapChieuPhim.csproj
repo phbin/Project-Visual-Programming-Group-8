@@ -33,14 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\Lập trình trực quan\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,35 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\FDCategoryDAO.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\MovieDAO.cs" />
-    <Compile Include="DAO\RoomDAO.cs" />
-    <Compile Include="DAO\TicketDAO.cs" />
-    <Compile Include="DTO\Customer.cs" />
-    <Compile Include="DTO\Movie.cs" />
-    <Compile Include="DTO\Room.cs" />
-    <Compile Include="DTO\ShowTime.cs" />
-    <Compile Include="DTO\Ticket.cs" />
-    <Compile Include="FormAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAccount.Designer.cs">
-      <DependentUpon>FormAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAdmin.Designer.cs">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHRM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHRM.Designer.cs">
-      <DependentUpon>FormHRM.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DAO\FoodDrinkDAO.cs" />
+    <Compile Include="DTO\FDCategory.cs" />
+    <Compile Include="DTO\FoodDrink.cs" />
+    <Compile Include="DTO\Menu.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,26 +106,11 @@
     <Compile Include="FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSeat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSeat.Designer.cs">
-      <DependentUpon>FormSeat.cs</DependentUpon>
-    </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAccount.resx">
-      <DependentUpon>FormAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmin.resx">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHRM.resx">
-      <DependentUpon>FormHRM.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,9 +134,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStatistic.resx">
       <DependentUpon>FormStatistic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSeat.resx">
-      <DependentUpon>FormSeat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -248,17 +207,5 @@
     <None Include="Resources\hide1.png" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="Resources\Delete-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Edit-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hr.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
