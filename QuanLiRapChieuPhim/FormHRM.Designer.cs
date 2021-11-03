@@ -68,14 +68,15 @@
             this.InfoStaffGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.InfoStaffGridView.ColumnHeadersHeight = 30;
             this.InfoStaffGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.InfoStaffGridView.Location = new System.Drawing.Point(12, 52);
+            this.InfoStaffGridView.Location = new System.Drawing.Point(18, 80);
+            this.InfoStaffGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.InfoStaffGridView.Name = "InfoStaffGridView";
             this.InfoStaffGridView.ReadOnly = true;
             this.InfoStaffGridView.RowHeadersVisible = false;
             this.InfoStaffGridView.RowHeadersWidth = 62;
             this.InfoStaffGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.InfoStaffGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InfoStaffGridView.Size = new System.Drawing.Size(318, 332);
+            this.InfoStaffGridView.Size = new System.Drawing.Size(477, 511);
             this.InfoStaffGridView.TabIndex = 0;
             this.InfoStaffGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InfoStaffGridView_CellClick);
             // 
@@ -85,10 +86,9 @@
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
-            this.SearchButton.Location = new System.Drawing.Point(303, 11);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchButton.Location = new System.Drawing.Point(454, 17);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(27, 27);
+            this.SearchButton.Size = new System.Drawing.Size(40, 42);
             this.SearchButton.TabIndex = 7;
             this.SearchButton.UseVisualStyleBackColor = false;
             // 
@@ -98,10 +98,9 @@
             this.SearchPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchPanel.BackgroundImage")));
             this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SearchPanel.Controls.Add(this.SearchTextbox);
-            this.SearchPanel.Location = new System.Drawing.Point(8, 11);
-            this.SearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchPanel.Location = new System.Drawing.Point(12, 17);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(309, 30);
+            this.SearchPanel.Size = new System.Drawing.Size(464, 46);
             this.SearchPanel.TabIndex = 8;
             // 
             // SearchTextbox
@@ -110,11 +109,10 @@
             this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
-            this.SearchTextbox.Location = new System.Drawing.Point(13, 6);
-            this.SearchTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchTextbox.Location = new System.Drawing.Point(20, 9);
             this.SearchTextbox.Multiline = true;
             this.SearchTextbox.Name = "SearchTextbox";
-            this.SearchTextbox.Size = new System.Drawing.Size(270, 17);
+            this.SearchTextbox.Size = new System.Drawing.Size(405, 26);
             this.SearchTextbox.TabIndex = 15;
             this.SearchTextbox.Text = "Search";
             this.SearchTextbox.TextChanged += new System.EventHandler(this.SearchTextbox_TextChanged_1);
@@ -127,10 +125,9 @@
             this.AddLabel.AutoSize = true;
             this.AddLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddLabel.ForeColor = System.Drawing.Color.White;
-            this.AddLabel.Location = new System.Drawing.Point(486, 338);
-            this.AddLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AddLabel.Location = new System.Drawing.Point(729, 520);
             this.AddLabel.Name = "AddLabel";
-            this.AddLabel.Size = new System.Drawing.Size(43, 15);
+            this.AddLabel.Size = new System.Drawing.Size(60, 22);
             this.AddLabel.TabIndex = 30;
             this.AddLabel.Text = "Thêm";
             this.AddLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,10 +142,9 @@
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
-            this.AddButton.Location = new System.Drawing.Point(457, 312);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddButton.Location = new System.Drawing.Point(686, 480);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(101, 66);
+            this.AddButton.Size = new System.Drawing.Size(152, 102);
             this.AddButton.TabIndex = 7;
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
@@ -160,9 +156,10 @@
             this.IDLabel.BackColor = System.Drawing.Color.Transparent;
             this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.IDLabel.Location = new System.Drawing.Point(414, 79);
+            this.IDLabel.Location = new System.Drawing.Point(621, 122);
+            this.IDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(23, 16);
+            this.IDLabel.Size = new System.Drawing.Size(33, 25);
             this.IDLabel.TabIndex = 39;
             this.IDLabel.Text = "ID";
             // 
@@ -170,9 +167,10 @@
             // 
             this.IDTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDTextbox.Location = new System.Drawing.Point(448, 76);
+            this.IDTextbox.Location = new System.Drawing.Point(672, 117);
+            this.IDTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IDTextbox.Name = "IDTextbox";
-            this.IDTextbox.Size = new System.Drawing.Size(190, 22);
+            this.IDTextbox.Size = new System.Drawing.Size(283, 30);
             this.IDTextbox.TabIndex = 1;
             // 
             // HRMLabel
@@ -181,9 +179,10 @@
             this.HRMLabel.AutoSize = true;
             this.HRMLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HRMLabel.ForeColor = System.Drawing.Color.White;
-            this.HRMLabel.Location = new System.Drawing.Point(356, 17);
+            this.HRMLabel.Location = new System.Drawing.Point(534, 26);
+            this.HRMLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HRMLabel.Name = "HRMLabel";
-            this.HRMLabel.Size = new System.Drawing.Size(294, 25);
+            this.HRMLabel.Size = new System.Drawing.Size(456, 40);
             this.HRMLabel.TabIndex = 36;
             this.HRMLabel.Text = "Human Resources Management";
             // 
@@ -194,9 +193,10 @@
             this.DoBLabel.BackColor = System.Drawing.Color.Transparent;
             this.DoBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoBLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.DoBLabel.Location = new System.Drawing.Point(367, 157);
+            this.DoBLabel.Location = new System.Drawing.Point(550, 242);
+            this.DoBLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DoBLabel.Name = "DoBLabel";
-            this.DoBLabel.Size = new System.Drawing.Size(70, 15);
+            this.DoBLabel.Size = new System.Drawing.Size(99, 22);
             this.DoBLabel.TabIndex = 34;
             this.DoBLabel.Text = "Ngày sinh";
             // 
@@ -207,9 +207,10 @@
             this.FullNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.FullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FullNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.FullNameLabel.Location = new System.Drawing.Point(381, 117);
+            this.FullNameLabel.Location = new System.Drawing.Point(572, 180);
+            this.FullNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(59, 16);
+            this.FullNameLabel.Size = new System.Drawing.Size(83, 25);
             this.FullNameLabel.TabIndex = 33;
             this.FullNameLabel.Text = "Họ Tên";
             // 
@@ -217,18 +218,20 @@
             // 
             this.FullNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullNameTextbox.Location = new System.Drawing.Point(448, 114);
+            this.FullNameTextbox.Location = new System.Drawing.Point(672, 175);
+            this.FullNameTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FullNameTextbox.Name = "FullNameTextbox";
-            this.FullNameTextbox.Size = new System.Drawing.Size(190, 22);
+            this.FullNameTextbox.Size = new System.Drawing.Size(283, 30);
             this.FullNameTextbox.TabIndex = 2;
             // 
             // DoBTextbox
             // 
             this.DoBTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DoBTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DoBTextbox.Location = new System.Drawing.Point(448, 154);
+            this.DoBTextbox.Location = new System.Drawing.Point(672, 237);
+            this.DoBTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DoBTextbox.Name = "DoBTextbox";
-            this.DoBTextbox.Size = new System.Drawing.Size(190, 22);
+            this.DoBTextbox.Size = new System.Drawing.Size(283, 30);
             this.DoBTextbox.TabIndex = 3;
             // 
             // DeleteLabel
@@ -237,10 +240,9 @@
             this.DeleteLabel.AutoSize = true;
             this.DeleteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteLabel.ForeColor = System.Drawing.Color.White;
-            this.DeleteLabel.Location = new System.Drawing.Point(579, 338);
-            this.DeleteLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DeleteLabel.Location = new System.Drawing.Point(868, 520);
             this.DeleteLabel.Name = "DeleteLabel";
-            this.DeleteLabel.Size = new System.Drawing.Size(32, 15);
+            this.DeleteLabel.Size = new System.Drawing.Size(45, 22);
             this.DeleteLabel.TabIndex = 29;
             this.DeleteLabel.Text = "Xóa";
             this.DeleteLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,10 +253,9 @@
             this.EditLabel.AutoSize = true;
             this.EditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditLabel.ForeColor = System.Drawing.Color.White;
-            this.EditLabel.Location = new System.Drawing.Point(408, 337);
-            this.EditLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EditLabel.Location = new System.Drawing.Point(612, 518);
             this.EditLabel.Name = "EditLabel";
-            this.EditLabel.Size = new System.Drawing.Size(32, 15);
+            this.EditLabel.Size = new System.Drawing.Size(45, 22);
             this.EditLabel.TabIndex = 28;
             this.EditLabel.Text = "Sửa";
             this.EditLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -269,10 +270,9 @@
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
-            this.DeleteButton.Location = new System.Drawing.Point(553, 317);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.Location = new System.Drawing.Point(830, 488);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(85, 56);
+            this.DeleteButton.Size = new System.Drawing.Size(128, 86);
             this.DeleteButton.TabIndex = 9;
             this.DeleteButton.UseVisualStyleBackColor = false;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
@@ -287,10 +287,9 @@
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
             this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
-            this.EditButton.Location = new System.Drawing.Point(377, 321);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditButton.Location = new System.Drawing.Point(566, 494);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(98, 57);
+            this.EditButton.Size = new System.Drawing.Size(147, 88);
             this.EditButton.TabIndex = 8;
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
@@ -302,9 +301,10 @@
             this.AdressLabel.BackColor = System.Drawing.Color.Transparent;
             this.AdressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.AdressLabel.Location = new System.Drawing.Point(385, 195);
+            this.AdressLabel.Location = new System.Drawing.Point(578, 300);
+            this.AdressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdressLabel.Name = "AdressLabel";
-            this.AdressLabel.Size = new System.Drawing.Size(52, 15);
+            this.AdressLabel.Size = new System.Drawing.Size(72, 22);
             this.AdressLabel.TabIndex = 41;
             this.AdressLabel.Text = "Địa chỉ";
             // 
@@ -312,9 +312,10 @@
             // 
             this.AddressTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressTextbox.Location = new System.Drawing.Point(448, 192);
+            this.AddressTextbox.Location = new System.Drawing.Point(672, 295);
+            this.AddressTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddressTextbox.Name = "AddressTextbox";
-            this.AddressTextbox.Size = new System.Drawing.Size(190, 22);
+            this.AddressTextbox.Size = new System.Drawing.Size(283, 30);
             this.AddressTextbox.TabIndex = 4;
             // 
             // PhoneNumLabel
@@ -324,9 +325,10 @@
             this.PhoneNumLabel.BackColor = System.Drawing.Color.Transparent;
             this.PhoneNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneNumLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.PhoneNumLabel.Location = new System.Drawing.Point(347, 235);
+            this.PhoneNumLabel.Location = new System.Drawing.Point(520, 362);
+            this.PhoneNumLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PhoneNumLabel.Name = "PhoneNumLabel";
-            this.PhoneNumLabel.Size = new System.Drawing.Size(92, 15);
+            this.PhoneNumLabel.Size = new System.Drawing.Size(128, 22);
             this.PhoneNumLabel.TabIndex = 42;
             this.PhoneNumLabel.Text = "Số điện thoại";
             // 
@@ -334,18 +336,20 @@
             // 
             this.PhoneNumTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumTextbox.Location = new System.Drawing.Point(448, 232);
+            this.PhoneNumTextbox.Location = new System.Drawing.Point(672, 357);
+            this.PhoneNumTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PhoneNumTextbox.Name = "PhoneNumTextbox";
-            this.PhoneNumTextbox.Size = new System.Drawing.Size(190, 22);
+            this.PhoneNumTextbox.Size = new System.Drawing.Size(283, 30);
             this.PhoneNumTextbox.TabIndex = 5;
             // 
             // IDPersonalTextbox
             // 
             this.IDPersonalTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDPersonalTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDPersonalTextbox.Location = new System.Drawing.Point(448, 272);
+            this.IDPersonalTextbox.Location = new System.Drawing.Point(672, 418);
+            this.IDPersonalTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IDPersonalTextbox.Name = "IDPersonalTextbox";
-            this.IDPersonalTextbox.Size = new System.Drawing.Size(190, 22);
+            this.IDPersonalTextbox.Size = new System.Drawing.Size(283, 30);
             this.IDPersonalTextbox.TabIndex = 6;
             // 
             // IDPersonalLabel
@@ -355,18 +359,19 @@
             this.IDPersonalLabel.BackColor = System.Drawing.Color.Transparent;
             this.IDPersonalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDPersonalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.IDPersonalLabel.Location = new System.Drawing.Point(350, 275);
+            this.IDPersonalLabel.Location = new System.Drawing.Point(525, 423);
+            this.IDPersonalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IDPersonalLabel.Name = "IDPersonalLabel";
-            this.IDPersonalLabel.Size = new System.Drawing.Size(89, 15);
+            this.IDPersonalLabel.Size = new System.Drawing.Size(129, 22);
             this.IDPersonalLabel.TabIndex = 45;
             this.IDPersonalLabel.Text = "CMND/CCCD";
             // 
             // FormHRM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(656, 389);
+            this.ClientSize = new System.Drawing.Size(984, 598);
             this.Controls.Add(this.IDPersonalLabel);
             this.Controls.Add(this.IDPersonalTextbox);
             this.Controls.Add(this.PhoneNumTextbox);
@@ -389,6 +394,7 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.InfoStaffGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormHRM";
             this.Text = "FormHRM";
             this.Click += new System.EventHandler(this.FormHRM_Click_1);
