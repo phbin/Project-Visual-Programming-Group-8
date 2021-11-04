@@ -17,7 +17,6 @@ namespace QuanLiRapChieuPhim
         private string name;
         private int category;
         private float price;
-        private byte[] picture;
         
         public FoodDrink(int id, string name, int category, float price)
         {
@@ -27,31 +26,12 @@ namespace QuanLiRapChieuPhim
             this.price = price;
         }
 
-        public byte[] ConvertDataRowToByteArray(DataRow data)
-        {
-            MemoryStream stream = new MemoryStream();
-            System.Runtime.Serialization.IFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            formatter.Serialize(stream, data); // dtUsers is a DataTable
-
-            byte[] bytes = stream.GetBuffer();
-            return bytes;
-        }
-
-        public Image ConvertByteArrayToImage(byte[] byteArrayIn)
-        {
-            using (var ms = new MemoryStream(byteArrayIn))
-            {
-                return Image.FromStream(ms);
-            }
-        }
-
         public FoodDrink(DataRow row)
         {
             this.iD = (int)row["ID"];
             this.name = row["NameFD"].ToString();
             this.category = (int)row["IDCategory"];
             this.price = float.Parse(row["Price"].ToString());
-            this.picture = (byte[])row["Picture"];
         }
 
         public int ID
@@ -76,11 +56,6 @@ namespace QuanLiRapChieuPhim
         {
             get { return price; }
             set { price = value; }
-        }
-
-        public Image Picture
-        {
-            get { return ConvertByteArrayToImage(picture); }
         }
     }
 }

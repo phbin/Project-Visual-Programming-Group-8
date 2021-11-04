@@ -25,6 +25,9 @@ namespace QuanLiRapChieuPhim
 
             ShowBill(BillDAO.Instance.GetLastIDBill());
             LoadFDCategory();
+
+            dgvBill.RowsDefaultCellStyle.BackColor = Color.Snow;
+            dgvBill.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 34, 46);
         }
 
         void LoadFDCategory()
@@ -41,6 +44,8 @@ namespace QuanLiRapChieuPhim
 
             fDList = FoodDrinkDAO.Instance.GetFoodDrinkByCategoryID(iD);
 
+            int indexImage = 1;
+
             foreach(FoodDrink item in fDList)
             {
                 Button picture = new Button();
@@ -51,11 +56,15 @@ namespace QuanLiRapChieuPhim
                 picture.Width = 120;
                 picture.Height = 140;
                 picture.Margin = new Padding(5, 5, 5, 5);
+                
+                ////Insert image from resources file
+                string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;          //Get the app's running path
+                string fileName = string.Format("{0}Resources\\{1}.png", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")), indexImage);
+                picture.Image = Image.FromFile(fileName);
 
-                picture.Image = item.Picture;
                 picture.ImageAlign = ContentAlignment.MiddleCenter;
                 picture.BackgroundImageLayout = ImageLayout.Stretch;
-
+                picture.BackColor = Color.White;
                 picture.FlatStyle = FlatStyle.Flat;
                 picture.FlatAppearance.BorderSize = 0;
 
@@ -67,20 +76,21 @@ namespace QuanLiRapChieuPhim
                 //Design FoodDrink Name label
                 name.Text = item.Name;
                 name.TextAlign = ContentAlignment.MiddleCenter;
-                name.BackColor = Color.FromArgb(190, 62, 66);
+                name.BackColor = Color.Transparent;
                 name.Dock = DockStyle.Top;
 
                 //Design FoodDrink Price label
                 price.Text = item.Price.ToString() + " VND";
                 price.TextAlign = ContentAlignment.MiddleCenter;
                 price.Font = new Font("Microsoft Sans Serif", 15F);
-                price.BackColor = Color.FromArgb(190, 62, 66);
+                price.BackColor = Color.Transparent;
                 price.Dock = DockStyle.Bottom;
 
                 //Add control to panel
                 picture.Controls.Add(name);
                 picture.Controls.Add(price);
                 flpFoodDrink.Controls.Add(picture);
+                indexImage++;
             }
         }
 
@@ -108,7 +118,7 @@ namespace QuanLiRapChieuPhim
                 DisableButton();
 
                 curBtn = (Button)sender;
-                curBtn.BackColor = Color.FromArgb(190, 62, 66);
+                curBtn.BackColor = Color.FromArgb(155, 39, 43);
                 curBtn.ForeColor = Color.White;
             }
         }
@@ -185,7 +195,7 @@ namespace QuanLiRapChieuPhim
             DisableButton();
         }
 
-        private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbCategorySelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cbb = (ComboBox)sender;
 
