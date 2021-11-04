@@ -33,14 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\Lập trình trực quan\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,26 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\FDCategoryDAO.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="FormAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAccount.Designer.cs">
-      <DependentUpon>FormAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAdmin.Designer.cs">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHRM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHRM.Designer.cs">
-      <DependentUpon>FormHRM.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DAO\FoodDrinkDAO.cs" />
+    <Compile Include="DTO\FDCategory.cs" />
+    <Compile Include="DTO\FoodDrink.cs" />
+    <Compile Include="DTO\Menu.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,15 +111,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAccount.resx">
-      <DependentUpon>FormAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmin.resx">
-      <DependentUpon>FormAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHRM.resx">
-      <DependentUpon>FormHRM.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,7 +207,58 @@
     <None Include="Resources\hide1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <None Include="Resources\1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
