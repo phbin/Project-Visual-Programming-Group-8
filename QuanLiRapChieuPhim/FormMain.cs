@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            this.WindowState = FormWindowState.Maximized;
         }
         private void EnableButton(object sender, Color color)
         {
@@ -71,7 +73,6 @@ namespace QuanLiRapChieuPhim
             childForm.BringToFront();
             childForm.Show();
             labelHome.Text = childForm.Text;
-
         }
         private void buttonGeneral_Click(object sender, EventArgs e)
         {
@@ -121,9 +122,19 @@ namespace QuanLiRapChieuPhim
             labelHome.Text = "Staff";
         }
 
+        private void ShowFormLogin()
+        {
+            FormLogin frm = new FormLogin();
+            frm.ShowDialog();
+        }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Thread thread = new Thread(new ThreadStart(ShowFormLogin)); //Create new thread 
+            thread.Start(); //Start thread
+            this.Close(); //Close current form
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.Show();
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -162,6 +173,41 @@ namespace QuanLiRapChieuPhim
         private void buttonRestoreDown_MouseMove(object sender, MouseEventArgs e)
         {
             buttonRestoreDown.BackColor = Color.FromArgb(190, 62, 66);
+        }
+
+        private void labelHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelLine_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gradientPanelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gradientPanelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelHome_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
