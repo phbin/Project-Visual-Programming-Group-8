@@ -25,7 +25,6 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            this.WindowState = FormWindowState.Maximized;
         }
         private void EnableButton(object sender, Color color)
         {

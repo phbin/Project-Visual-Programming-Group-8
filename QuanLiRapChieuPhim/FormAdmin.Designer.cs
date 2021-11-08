@@ -34,6 +34,7 @@ namespace QuanLiRapChieuPhim
             this.panelLine = new System.Windows.Forms.Panel();
             this.labelHome = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.buttonMaximize = new System.Windows.Forms.Button();
             this.buttonRestoreDown = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@ namespace QuanLiRapChieuPhim
             this.buttonStatistics = new System.Windows.Forms.Button();
             this.buttonHRM = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.gradientPanelMenu.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHome)).BeginInit();
@@ -103,6 +103,18 @@ namespace QuanLiRapChieuPhim
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1298, 58);
             this.panelMenu.TabIndex = 3;
+            // 
+            // gradientPanelDesktop
+            // 
+            this.gradientPanelDesktop.Angle = 0F;
+            this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.gradientPanelDesktop.BottomColor = System.Drawing.Color.Empty;
+            this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
+            this.gradientPanelDesktop.Name = "gradientPanelDesktop";
+            this.gradientPanelDesktop.Size = new System.Drawing.Size(1298, 822);
+            this.gradientPanelDesktop.TabIndex = 6;
+            this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
             // 
             // buttonMaximize
             // 
@@ -253,18 +265,6 @@ namespace QuanLiRapChieuPhim
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(260, 129);
             this.panelHome.TabIndex = 0;
-            // 
-            // gradientPanelDesktop
-            // 
-            this.gradientPanelDesktop.Angle = 0F;
-            this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.gradientPanelDesktop.BottomColor = System.Drawing.Color.Empty;
-            this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
-            this.gradientPanelDesktop.Name = "gradientPanelDesktop";
-            this.gradientPanelDesktop.Size = new System.Drawing.Size(1298, 822);
-            this.gradientPanelDesktop.TabIndex = 6;
-            this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
             // 
             // FormAdmin
             // 
