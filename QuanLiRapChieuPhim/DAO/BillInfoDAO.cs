@@ -43,7 +43,7 @@ namespace QuanLiRapChieuPhim.DAO
         public void InserttBillInfo(int iDBill, int iDFD, int count)
         {
             string query = "EXEC USP_InsertBillInfo @idBill , @idFD , @count";
-            DataProvider.Instance.ExcuteNonQuery(query, new object[] {iDBill, iDFD, count });
+            DataProvider.Instance.ExcuteNonQuery(query, new object[] { iDBill, iDFD, count });
         }
 
         public void RemoveAllBillInfoByBillID(int iDBill)

@@ -17,7 +17,7 @@ namespace QuanLiRapChieuPhim
         private string name;
         private int category;
         private float price;
-        
+
         public FoodDrink(int id, string name, int category, float price)
         {
             this.iD = id;
@@ -39,7 +39,7 @@ namespace QuanLiRapChieuPhim
             get { return iD; }
             set { iD = value; }
         }
-        
+
         public string Name
         {
             get { return name; }
@@ -51,7 +51,7 @@ namespace QuanLiRapChieuPhim
             get { return category; }
             set { category = value; }
         }
-        
+
         public float Price
         {
             get { return price; }

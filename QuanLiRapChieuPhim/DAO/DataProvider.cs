@@ -56,7 +56,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public  int ExcuteNonQuery(string query, object[] parameter = null)
         {
-            int data = 0;
+            int dataRow = 0;
             using (System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
@@ -78,13 +78,13 @@ namespace QuanLiRapChieuPhim.DAO
                 }
                 try
                 {
-                    data = command.ExecuteNonQuery();
+                    dataRow = command.ExecuteNonQuery();
                 }
                 catch { }
                 
                 connection.Close();
             }
-            return data;
+            return dataRow;
         }
 
 

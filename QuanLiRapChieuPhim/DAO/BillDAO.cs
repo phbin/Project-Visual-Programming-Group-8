@@ -19,7 +19,7 @@ namespace QuanLiRapChieuPhim.DAO
                     instance = new BillDAO();
                 return instance;
             }
-            
+
             private set { instance = value; }
         }
 
@@ -28,7 +28,7 @@ namespace QuanLiRapChieuPhim.DAO
         public void InsertBill(int iD)
         {
             string query = "EXEC USP_InsertBill @idBill";
-            DataProvider.Instance.ExcuteNonQuery(query, new object[] {iD });
+            DataProvider.Instance.ExcuteNonQuery(query, new object[] { iD });
         }
 
         public int GetStatusBill(int iDBill)

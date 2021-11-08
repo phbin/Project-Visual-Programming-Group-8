@@ -28,16 +28,16 @@ namespace QuanLiRapChieuPhim
 
         public int ID
         {
-            get{ return iD; }
+            get { return iD; }
             set { iD = value; }
         }
-        
+
         public string Date
         {
             get { return date; }
             set { date = value; }
         }
-        
+
         public int Status
         {
             get { return status; }
