@@ -47,21 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bill.cs" />
-    <Compile Include="BillInfo.cs" />
-    <Compile Include="FoodDrink.cs" />
-    <Compile Include="FormFDDrink.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFDDrink.Designer.cs">
-      <DependentUpon>FormFDDrink.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFDFood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFDFood.Designer.cs">
-      <DependentUpon>FormFDFood.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\FDCategoryDAO.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\FoodDrinkDAO.cs" />
+    <Compile Include="DTO\FDCategory.cs" />
+    <Compile Include="DTO\FoodDrink.cs" />
+    <Compile Include="DTO\Menu.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,12 +111,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormFDDrink.resx">
-      <DependentUpon>FormFDDrink.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFDFood.resx">
-      <DependentUpon>FormFDFood.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +205,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hide1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

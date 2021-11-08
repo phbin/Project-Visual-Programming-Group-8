@@ -1,78 +1,17 @@
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
-C:\Users\renyu\source\repos\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
-C:\Users\renyu\Desktop\Resources LTTQ\QuanLiRapChieuPhim\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
-D:\HK1 - 2122\Lập trình trực quan\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
-D:\HK1 - 2122\LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFDDrink.resources
-D:\IT008.M12 - LTTQ\Project-Visual-Programming-Group-8-LoginForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFDFood.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\Admin\Downloads\Project-Visual-Programming-Group-8-FDForm\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache

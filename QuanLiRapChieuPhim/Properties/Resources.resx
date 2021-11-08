@@ -166,4 +166,58 @@
   <data name="hide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
