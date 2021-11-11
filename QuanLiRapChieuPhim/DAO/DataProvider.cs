@@ -12,7 +12,7 @@ namespace QuanLiRapChieuPhim.DAO
     {
         private static DataProvider instance;
 
-        public static DataProvider Instance 
+        public static DataProvider Instance
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { DataProvider.instance = value; }
@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim.DAO
         private DataProvider() { }
 
 
-        private string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        private string connectionSTR = @"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -48,7 +48,7 @@ namespace QuanLiRapChieuPhim.DAO
                 SqlDataAdapter apdater = new SqlDataAdapter(command);
 
                 apdater.Fill(data);
-                 
+
                 connection.Close();
             }
             return data;
@@ -73,15 +73,15 @@ namespace QuanLiRapChieuPhim.DAO
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-                        }    
-                    }    
+                        }
+                    }
                 }
                 try
                 {
                     dataRow = command.ExecuteNonQuery();
                 }
                 catch { }
-                
+
                 connection.Close();
             }
             return dataRow;

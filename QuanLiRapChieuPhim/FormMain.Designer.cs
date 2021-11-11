@@ -220,7 +220,7 @@ namespace QuanLiRapChieuPhim
             this.buttonAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdmin.Size = new System.Drawing.Size(260, 85);
             this.buttonAdmin.TabIndex = 5;
-            this.buttonAdmin.Text = "  Staff";
+            this.buttonAdmin.Text = "  My Info";
             this.buttonAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdmin.UseVisualStyleBackColor = true;
             this.buttonAdmin.Click += new System.EventHandler(this.buttonAdmin_Click);
