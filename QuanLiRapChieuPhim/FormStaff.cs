@@ -39,7 +39,7 @@ namespace QuanLiRapChieuPhim
                         Birthday.Text = rows["DoB"].ToString();
                         Sex.Text = rows["Sex"].ToString();
                         Email.Text = rows["Email"].ToString();
-                        Phone.Text = rows["Phone"].ToString();
+                        Phone.Text = "0" + rows["Phone"].ToString();
                         Address.Text = rows["Addr"].ToString();
                     }
                 }

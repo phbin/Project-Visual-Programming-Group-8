@@ -362,7 +362,7 @@ namespace QuanLiRapChieuPhim
             this.Birthday.Location = new System.Drawing.Point(160, 124);
             this.Birthday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Birthday.Name = "Birthday";
-            this.Birthday.Size = new System.Drawing.Size(105, 36);
+            this.Birthday.Size = new System.Drawing.Size(109, 36);
             this.Birthday.TabIndex = 0;
             this.Birthday.Text = "B";
             // 
