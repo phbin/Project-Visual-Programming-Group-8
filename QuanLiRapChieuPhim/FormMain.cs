@@ -118,7 +118,7 @@ namespace QuanLiRapChieuPhim
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.setting;
             OpenChildForm(new FormStaff());
-            labelHome.Text = "Staff";
+            labelHome.Text = "My info";
         }
 
         private void ShowFormLogin()
