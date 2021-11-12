@@ -38,7 +38,7 @@ namespace QuanLiRapChieuPhim
             {
                 if(UsernameTextbox.Text == ListAccountGrid.Rows[i].Cells[0].Value.ToString())
                 {
-                    MessageBox.Show("Tài khoản đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
                     UsernameTextbox.Text = "";
                     UsernameTextbox.Focus();
                     return;
@@ -55,14 +55,14 @@ namespace QuanLiRapChieuPhim
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
             LoadAccountList();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn có thật sự muốn xóa tài khoản này?","Thông báo",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if(MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 AccountDAO.Instance.DeleteAccont(UsernameTextbox.Text);
                 UsernameTextbox.Text = "";
@@ -133,7 +133,7 @@ namespace QuanLiRapChieuPhim
             int admin = 0;
             if (AdminCheckbox.Checked)
                 admin = 1;
-            if (MessageBox.Show("Bạn có thật sự muốn thay đổi thông tin này?","Thông báo",MessageBoxButtons.OKCancel)==DialogResult.OK)
+            if (MessageBox.Show("Do you really want to change this information??", "Notification",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
                 UsernameTextbox.Text = "";

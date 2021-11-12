@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiRapChieuPhim.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,40 +18,21 @@ namespace QuanLiRapChieuPhim
         {
             InitializeComponent();
             LayDSNS();
-            //MessageBox.Show(FormLogin.ID_USER);
         }
         private void LayDSNS()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True");
-            try
+            string query = "SELECT * FROM InfoStaff WHERE id ='" + FormLogin.ID_USER + "'";
+            DataTable table = DataProvider.Instance.ExcuteQuery(query);
+            foreach(DataRow rows in table.Rows)
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM InfoStaff WHERE id ='" + FormLogin.ID_USER + "'", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt != null)
-                {
-                    foreach (DataRow rows in dt.Rows)
-                    {
-                        labelName.Text = rows["FullName"].ToString();
-                        ID.Text = rows["id"].ToString();
-                        PID.Text = rows["IDPersonal"].ToString();
-                        Birthday.Text = rows["DoB"].ToString();
-                        Sex.Text = rows["Sex"].ToString();
-                        Email.Text = rows["Email"].ToString();
-                        Phone.Text = "0" + rows["Phone"].ToString();
-                        Address.Text = rows["Addr"].ToString();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-            }
-            finally
-            {
-                con.Close();
+                labelName.Text = rows[1].ToString();
+                ID.Text = rows[0].ToString();
+                PID.Text = rows[7].ToString();
+                Birthday.Text = rows[2].ToString();
+                Sex.Text = rows[3].ToString();
+                Email.Text = rows[6].ToString();
+                Phone.Text = rows[5].ToString();
+                Address.Text = rows[4].ToString();
             }
         }
     }

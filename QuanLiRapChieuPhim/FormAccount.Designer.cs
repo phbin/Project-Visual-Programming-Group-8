@@ -48,8 +48,10 @@
             this.IDLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SearchPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ListAccountGrid
@@ -58,14 +60,13 @@
             this.ListAccountGrid.AllowUserToDeleteRows = false;
             this.ListAccountGrid.AllowUserToOrderColumns = true;
             this.ListAccountGrid.AllowUserToResizeRows = false;
-            this.ListAccountGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListAccountGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListAccountGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.ListAccountGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ListAccountGrid.ColumnHeadersHeight = 21;
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ListAccountGrid.Location = new System.Drawing.Point(16, 106);
+            this.ListAccountGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListAccountGrid.Location = new System.Drawing.Point(0, 0);
             this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ListAccountGrid.Name = "ListAccountGrid";
             this.ListAccountGrid.ReadOnly = true;
@@ -73,7 +74,7 @@
             this.ListAccountGrid.RowHeadersWidth = 62;
             this.ListAccountGrid.RowTemplate.Height = 28;
             this.ListAccountGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListAccountGrid.Size = new System.Drawing.Size(489, 488);
+            this.ListAccountGrid.Size = new System.Drawing.Size(497, 484);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
             // 
@@ -316,6 +317,14 @@
             this.UsernameLabel.TabIndex = 18;
             this.UsernameLabel.Text = "Username";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ListAccountGrid);
+            this.panel1.Location = new System.Drawing.Point(26, 102);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(497, 484);
+            this.panel1.TabIndex = 25;
+            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -339,13 +348,14 @@
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchPanel);
-            this.Controls.Add(this.ListAccountGrid);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAccount";
             this.Click += new System.EventHandler(this.FormAccount_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,5 +382,6 @@
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

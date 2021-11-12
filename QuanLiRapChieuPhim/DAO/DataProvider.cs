@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim.DAO
         private DataProvider() { }
 
 
-        private string connectionSTR = @"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        private string connectionSTR = @"Data Source=DESKTOP-J24RRH6\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -116,6 +116,22 @@ namespace QuanLiRapChieuPhim.DAO
                 connection.Close();
             }
             return data;
+        }
+
+        string ID;
+
+        public string GetID(string Username)
+        {
+            SqlDataReader da;
+            System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE Username='"+Username+"'",connection);
+            da = cmd.ExecuteReader();
+            while (da.Read())
+            {
+                ID = da.GetValue(2).ToString();
+            }   
+            return ID;
         }
 
     }
