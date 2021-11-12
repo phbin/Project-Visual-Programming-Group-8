@@ -64,14 +64,14 @@
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ListAccountGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListAccountGrid.Location = new System.Drawing.Point(0, 0);
-            this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ListAccountGrid.Name = "ListAccountGrid";
             this.ListAccountGrid.ReadOnly = true;
             this.ListAccountGrid.RowHeadersVisible = false;
             this.ListAccountGrid.RowHeadersWidth = 62;
             this.ListAccountGrid.RowTemplate.Height = 28;
             this.ListAccountGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListAccountGrid.Size = new System.Drawing.Size(442, 387);
+            this.ListAccountGrid.Size = new System.Drawing.Size(489, 488);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
             // 
@@ -284,15 +284,6 @@
             this.UsernameLabel.TabIndex = 18;
             this.UsernameLabel.Text = "Username";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ListAccountGrid);
-            this.panel1.Location = new System.Drawing.Point(23, 82);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 387);
-            this.panel1.TabIndex = 25;
-            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,8 +304,8 @@
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchPanel);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.ListAccountGrid);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAccount";
             this.Click += new System.EventHandler(this.FormAccount_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();

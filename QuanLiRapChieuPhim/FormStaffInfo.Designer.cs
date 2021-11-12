@@ -40,7 +40,23 @@ namespace QuanLiRapChieuPhim
             this.labelPID = new System.Windows.Forms.Label();
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
-            this.gradientPanel4 = new QuanLiRapChieuPhim.GradientPanel();
+            this.Birthday = new System.Windows.Forms.Label();
+            this.Sex = new System.Windows.Forms.Label();
+            this.labelBirthday = new System.Windows.Forms.Label();
+            this.labelPID = new System.Windows.Forms.Label();
+            this.labelPhone = new System.Windows.Forms.Label();
+            this.PID = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.pictureBoxPID = new System.Windows.Forms.PictureBox();
+            this.Email = new System.Windows.Forms.Label();
+            this.pictureBoxDoB = new System.Windows.Forms.PictureBox();
+            this.Phone = new System.Windows.Forms.Label();
+            this.pictureBoxEmail = new System.Windows.Forms.PictureBox();
+            this.labelAddress = new System.Windows.Forms.Label();
+            this.pictureBoxSex = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
+            this.Address = new System.Windows.Forms.Label();
+            this.pictureBoxAddr = new System.Windows.Forms.PictureBox();
             this.gradientPanel = new QuanLiRapChieuPhim.GradientPanel();
             this.labelID = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -69,6 +85,7 @@ namespace QuanLiRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).BeginInit();
+            this.gradientPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gradientPanelStaff
@@ -167,7 +184,7 @@ namespace QuanLiRapChieuPhim
             this.labelPhone.Text = "Phone:";
             this.labelPhone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labelPID
+            // pictureBoxEmail
             // 
             this.labelPID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -184,7 +201,7 @@ namespace QuanLiRapChieuPhim
             this.labelPID.Text = "Personal ID:";
             this.labelPID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labelBirthday
+            // labelAddress
             // 
             this.labelBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -218,7 +235,7 @@ namespace QuanLiRapChieuPhim
             this.labelSex.Text = "Sex:";
             this.labelSex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // gradientPanel4
+            // pictureBoxAddr
             // 
             this.gradientPanel4.Angle = 0F;
             this.gradientPanel4.BackColor = System.Drawing.Color.White;
@@ -264,7 +281,19 @@ namespace QuanLiRapChieuPhim
             this.labelID.Text = "ID:";
             this.labelID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labelName
+            // ID
+            // 
+            this.ID.BackColor = System.Drawing.Color.Transparent;
+            this.ID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.ForeColor = System.Drawing.Color.White;
+            this.ID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ID.Location = new System.Drawing.Point(93, 340);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(146, 29);
+            this.ID.TabIndex = 0;
+            this.ID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxAvatar
             // 
             this.labelName.AutoSize = true;
             this.labelName.BackColor = System.Drawing.Color.Transparent;
@@ -472,6 +501,7 @@ namespace QuanLiRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
+            this.gradientPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -487,7 +517,9 @@ namespace QuanLiRapChieuPhim
         private PictureBox pictureBoxEmail;
         private PictureBox pictureBoxDoB;
         private PictureBox pictureBoxPID;
+        private PictureBox pictureBoxPID;
         private Label labelEmail;
+        private Label PID;
         private Label labelPhone;
         private Label labelPID;
         private Label labelBirthday;

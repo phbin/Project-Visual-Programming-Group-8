@@ -58,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InfoStaffGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SearchPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // InfoStaffGridView
@@ -93,7 +94,7 @@
             this.IDLabel.Location = new System.Drawing.Point(552, 66);
             this.IDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(28, 20);
+            this.IDLabel.Size = new System.Drawing.Size(33, 25);
             this.IDLabel.TabIndex = 39;
             this.IDLabel.Text = "ID";
             // 
@@ -104,7 +105,7 @@
             this.IDTextbox.Location = new System.Drawing.Point(597, 64);
             this.IDTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.IDTextbox.Name = "IDTextbox";
-            this.IDTextbox.Size = new System.Drawing.Size(252, 26);
+            this.IDTextbox.Size = new System.Drawing.Size(283, 30);
             this.IDTextbox.TabIndex = 1;
             // 
             // HRMLabel
@@ -113,10 +114,10 @@
             this.HRMLabel.AutoSize = true;
             this.HRMLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HRMLabel.ForeColor = System.Drawing.Color.White;
-            this.HRMLabel.Location = new System.Drawing.Point(475, 21);
+            this.HRMLabel.Location = new System.Drawing.Point(534, 26);
             this.HRMLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HRMLabel.Name = "HRMLabel";
-            this.HRMLabel.Size = new System.Drawing.Size(378, 32);
+            this.HRMLabel.Size = new System.Drawing.Size(456, 40);
             this.HRMLabel.TabIndex = 36;
             this.HRMLabel.Text = "Human Resources Management";
             // 
@@ -155,7 +156,7 @@
             this.FullNameTextbox.Location = new System.Drawing.Point(597, 107);
             this.FullNameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.FullNameTextbox.Name = "FullNameTextbox";
-            this.FullNameTextbox.Size = new System.Drawing.Size(252, 26);
+            this.FullNameTextbox.Size = new System.Drawing.Size(283, 30);
             this.FullNameTextbox.TabIndex = 2;
             // 
             // DoBTextbox
@@ -165,7 +166,7 @@
             this.DoBTextbox.Location = new System.Drawing.Point(598, 150);
             this.DoBTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.DoBTextbox.Name = "DoBTextbox";
-            this.DoBTextbox.Size = new System.Drawing.Size(252, 26);
+            this.DoBTextbox.Size = new System.Drawing.Size(283, 30);
             this.DoBTextbox.TabIndex = 3;
             // 
             // AdressLabel
@@ -178,7 +179,7 @@
             this.AdressLabel.Location = new System.Drawing.Point(517, 198);
             this.AdressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdressLabel.Name = "AdressLabel";
-            this.AdressLabel.Size = new System.Drawing.Size(60, 18);
+            this.AdressLabel.Size = new System.Drawing.Size(72, 22);
             this.AdressLabel.TabIndex = 41;
             this.AdressLabel.Text = "Adress";
             // 
@@ -189,7 +190,7 @@
             this.AddressTextbox.Location = new System.Drawing.Point(597, 194);
             this.AddressTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.AddressTextbox.Name = "AddressTextbox";
-            this.AddressTextbox.Size = new System.Drawing.Size(252, 26);
+            this.AddressTextbox.Size = new System.Drawing.Size(283, 30);
             this.AddressTextbox.TabIndex = 4;
             // 
             // PhoneNumLabel
@@ -422,7 +423,7 @@
             // 
             // FormHRM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(875, 479);
@@ -458,6 +459,7 @@
             this.panel2.ResumeLayout(false);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
