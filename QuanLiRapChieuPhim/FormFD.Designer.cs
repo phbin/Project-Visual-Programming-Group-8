@@ -61,7 +61,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine.Location = new System.Drawing.Point(0, 0);
             this.pnlLine.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine.Name = "pnlLine";
-            this.pnlLine.Size = new System.Drawing.Size(768, 6);
+            this.pnlLine.Size = new System.Drawing.Size(864, 8);
             this.pnlLine.TabIndex = 4;
             // 
             // pnlControl
@@ -73,10 +73,10 @@ namespace QuanLiRapChieuPhim
             this.pnlControl.Controls.Add(this.btnCheckOut);
             this.pnlControl.Controls.Add(this.btnAdd);
             this.pnlControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlControl.Location = new System.Drawing.Point(0, 586);
+            this.pnlControl.Location = new System.Drawing.Point(0, 733);
             this.pnlControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Size = new System.Drawing.Size(768, 98);
+            this.pnlControl.Size = new System.Drawing.Size(864, 122);
             this.pnlControl.TabIndex = 5;
             // 
             // btnRemoveAll
@@ -106,7 +106,7 @@ namespace QuanLiRapChieuPhim
             this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(165, 34);
+            this.txtTotalPrice.Size = new System.Drawing.Size(185, 39);
             this.txtTotalPrice.TabIndex = 10;
             this.txtTotalPrice.Text = "Total: 0";
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -115,15 +115,15 @@ namespace QuanLiRapChieuPhim
             // 
             this.nmFDCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nmFDCount.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.nmFDCount.Location = new System.Drawing.Point(25, 33);
-            this.nmFDCount.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.nmFDCount.Location = new System.Drawing.Point(28, 41);
+            this.nmFDCount.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.nmFDCount.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nmFDCount.Name = "nmFDCount";
-            this.nmFDCount.Size = new System.Drawing.Size(65, 34);
+            this.nmFDCount.Size = new System.Drawing.Size(73, 39);
             this.nmFDCount.TabIndex = 9;
             this.nmFDCount.Value = new decimal(new int[] {
             1,
@@ -176,7 +176,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine5.Location = new System.Drawing.Point(0, 6);
             this.pnlLine5.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine5.Name = "pnlLine5";
-            this.pnlLine5.Size = new System.Drawing.Size(7, 580);
+            this.pnlLine5.Size = new System.Drawing.Size(8, 725);
             this.pnlLine5.TabIndex = 19;
             // 
             // pnlLine3
@@ -186,7 +186,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine3.Location = new System.Drawing.Point(761, 6);
             this.pnlLine3.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine3.Name = "pnlLine3";
-            this.pnlLine3.Size = new System.Drawing.Size(7, 580);
+            this.pnlLine3.Size = new System.Drawing.Size(8, 725);
             this.pnlLine3.TabIndex = 20;
             // 
             // cbbCategorySelection
@@ -201,7 +201,7 @@ namespace QuanLiRapChieuPhim
             this.cbbCategorySelection.Location = new System.Drawing.Point(7, 6);
             this.cbbCategorySelection.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCategorySelection.Name = "cbbCategorySelection";
-            this.cbbCategorySelection.Size = new System.Drawing.Size(754, 36);
+            this.cbbCategorySelection.Size = new System.Drawing.Size(848, 40);
             this.cbbCategorySelection.TabIndex = 21;
             this.cbbCategorySelection.TabStop = false;
             this.cbbCategorySelection.SelectedIndexChanged += new System.EventHandler(this.cbbCategorySelection_SelectedIndexChanged_1);
@@ -213,7 +213,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine4.Location = new System.Drawing.Point(7, 42);
             this.pnlLine4.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine4.Name = "pnlLine4";
-            this.pnlLine4.Size = new System.Drawing.Size(754, 6);
+            this.pnlLine4.Size = new System.Drawing.Size(848, 8);
             this.pnlLine4.TabIndex = 22;
             // 
             // pnlDisplayBill
@@ -301,9 +301,9 @@ namespace QuanLiRapChieuPhim
             // 
             // FormFD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 684);
+            this.ClientSize = new System.Drawing.Size(864, 855);
             this.ControlBox = false;
             this.Controls.Add(this.flpFoodDrink);
             this.Controls.Add(this.pnlDisplayBill);

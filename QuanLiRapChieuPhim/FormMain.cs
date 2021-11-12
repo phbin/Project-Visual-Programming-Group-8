@@ -117,7 +117,7 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.setting;
-            OpenChildForm(new FormStaffInfo());
+            OpenChildForm(new FormStaff());
             labelHome.Text = "My info";
         }
 
@@ -172,41 +172,6 @@ namespace QuanLiRapChieuPhim
         private void buttonRestoreDown_MouseMove(object sender, MouseEventArgs e)
         {
             buttonRestoreDown.BackColor = Color.FromArgb(190, 62, 66);
-        }
-
-        private void labelHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelLine_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void gradientPanelDesktop_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void gradientPanelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelHome_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -89,7 +89,6 @@ C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChie
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormHRM.resources
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
-C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
 C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
@@ -206,3 +205,4 @@ D:\Group8\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLi
 D:\Group8\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
 D:\Group8\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 D:\Group8\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources

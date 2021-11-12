@@ -67,7 +67,6 @@ namespace QuanLiRapChieuPhim
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1280, 58);
             this.panelMenu.TabIndex = 2;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // buttonMaximize
             // 
@@ -145,7 +144,6 @@ namespace QuanLiRapChieuPhim
             this.labelHome.Size = new System.Drawing.Size(65, 28);
             this.labelHome.TabIndex = 1;
             this.labelHome.Text = "Home";
-            this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
             // 
             // pictureHome
             // 
@@ -156,7 +154,6 @@ namespace QuanLiRapChieuPhim
             this.pictureHome.Size = new System.Drawing.Size(51, 50);
             this.pictureHome.TabIndex = 0;
             this.pictureHome.TabStop = false;
-            this.pictureHome.Click += new System.EventHandler(this.pictureHome_Click);
             // 
             // panelLine
             // 
@@ -167,7 +164,6 @@ namespace QuanLiRapChieuPhim
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(1280, 7);
             this.panelLine.TabIndex = 3;
-            this.panelLine.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLine_Paint);
             // 
             // gradientPanelDesktop
             // 
@@ -181,7 +177,6 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelDesktop.Size = new System.Drawing.Size(1280, 775);
             this.gradientPanelDesktop.TabIndex = 0;
             this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
-            this.gradientPanelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanelDesktop_Paint);
             // 
             // gradientPanelMenu
             // 
@@ -202,7 +197,6 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelMenu.Size = new System.Drawing.Size(260, 840);
             this.gradientPanelMenu.TabIndex = 1;
             this.gradientPanelMenu.TopColor = System.Drawing.Color.Empty;
-            this.gradientPanelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanelMenu_Paint);
             // 
             // buttonAdmin
             // 
@@ -341,7 +335,6 @@ namespace QuanLiRapChieuPhim
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(260, 126);
             this.panelHome.TabIndex = 0;
-            this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
             // FormMain
             // 
