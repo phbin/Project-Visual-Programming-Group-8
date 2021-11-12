@@ -42,11 +42,9 @@ create table InfoCustomer  -- Khách hàng
 	ID varchar(50) primary key,
 	FullName nvarchar(100) not null,
 	DoB smalldatetime not null,
-	Sex nvarchar(10) not null,
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
 	IDPersonal bigint not null unique, --cmnd/cccd
-	Email nvarchar(100),
 	Points int -- điểm tích lũy
 )
 go
@@ -291,17 +289,17 @@ GO
 CREATE PROC USP_GetCustomer  -- lấy thông tin khách hàng
 AS
 BEGIN
-	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [Số điện thoại], Email as [Email], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
+	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [Số điện thoại], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
 	FROM dbo.InfoCustomer
 END
 GO
 
 CREATE PROC USP_InsertCustomer  -- thêm khách hàng
-@id VARCHAR(50), @name NVARCHAR(100), @dob smalldatetime, @addr NVARCHAR(100), @num VARCHAR(100), @idpersonal INT, @sex nvarchar(10), @email nvarchar(100)
+@id VARCHAR(50), @name NVARCHAR(100), @dob smalldatetime, @addr NVARCHAR(100), @num VARCHAR(100), @idpersonal INT
 AS
 BEGIN
-	INSERT dbo.InfoCustomer(ID, FullName, DoB, Sex, Addr, Phone, Email, IDPersonal, Points)
-	VALUES (@id, @name, @dob, @sex, @addr, @num, @email, @idpersonal, 0)
+	INSERT dbo.InfoCustomer(ID, FullName, DoB, Addr, Phone, IDPersonal, Points)
+	VALUES (@id, @name, @dob, @addr, @num, @idpersonal, 0)
 END
 GO
 
@@ -309,7 +307,7 @@ CREATE PROC USP_SearchCustomer  -- tìm kiếm khách hàng theo tên
 @name NVARCHAR(100)
 AS
 BEGIN
-	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [Số điện thoại], Email as [Email], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
+	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [Số điện thoại], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
 	FROM dbo.InfoCustomer
 	WHERE dbo.UF_ConvertFullName(FullName) LIKE N'%' + dbo.UF_ConvertFullName(@name) + N'%'
 END
@@ -803,8 +801,8 @@ INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL10', N'Siêu nhi
 GO
 
 INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'AD00', N'Admin', N'03/02/2002',N'Nữ', N'Q3, HCM', N'039375140',N'admin@gmail.com', 23232323)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV00', N'Staff 1', N'12/09/1999', N'Q3, HCM', N'0393751111',N'staff1@gmail.com', 11111111)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV01', N'Staff 2', N'11/04/2000', N'Đồng Nai', N'097971210',N'staff2@gmail.com', 22222222)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV00', N'Staff 1', N'12/09/1999',N'Nam', N'Q3, HCM', N'0393751111',N'staff1@gmail.com', 11111111)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV01', N'Staff 2', N'11/04/2000', N'Nữ',N'Đồng Nai', N'097971210',N'staff2@gmail.com', 22222222)
 GO
 
 INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('admin', '123456', 'AD00', 1)
@@ -812,9 +810,9 @@ INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('bin', '1', 'NV
 INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('neyu', '1', 'NV01', 0)
 GO
 
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH01', N'Huỳnh Thế Vĩ', N'23/03/2002',N'Nam',N'HCM', N'0922135412',N'huynhthevi@gmail.com', 123456789, 10)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH02', N'Nguyễn Minh', N'11/05/1999',N'Nam',N'HCM', N'0210521423', N'nguyenminh@gmail.com',987654321, 0)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'Nữ',N'HCM', N'0379345121',N'ledangphuonguyen@gmail.com', 01245789, 0)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH01', N'Huỳnh Thế Vĩ', N'23/03/2002',N'HCM', N'0922135412', 123456789, 10)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH02', N'Nguyễn Minh', N'11/05/1999',N'HCM', N'0210521423',987654321, 0)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
 GO
 
 INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH01', N'2D')
