@@ -1,8 +1,8 @@
-﻿create database QuanLiRapChieuPhim
-go
-
+﻿--create database QuanLiRapChieuPhim
+--go
+--drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
-go
+--go
 
 set dateformat DMY
 go
@@ -18,9 +18,11 @@ create table InfoStaff  -- Nhân viên
 (
 	ID varchar(50) primary key,
 	FullName nvarchar(100) not null,
-	DoB date not null,
+	DoB smalldatetime not null,
+	Sex nvarchar(10) not null,
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
+	Email nvarchar(100),
 	IDPersonal int not null unique --cmnd/cccd
 )
 go
@@ -39,10 +41,12 @@ create table InfoCustomer  -- Khách hàng
 (
 	ID varchar(50) primary key,
 	FullName nvarchar(100) not null,
-	DoB date not null,
+	DoB smalldatetime not null,
+	Sex nvarchar(10) not null,
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
-	IDPersonal int not null unique, --cmnd/cccd
+	IDPersonal bigint not null unique, --cmnd/cccd
+	Email nvarchar(100),
 	Points int -- điểm tích lũy
 )
 go
@@ -53,8 +57,8 @@ create table Movie  --Phim
 	NameFilm nvarchar(100) not null,
 	Descript nvarchar(1000), --mô tả
 	TimeLimit float not null, --thời lượng
-	DatePublic date not null, 
-	DateOut date not null,
+	DatePublic smalldatetime not null, 
+	DateOut smalldatetime not null,
 	Country nvarchar(50) not null,
 	Director nvarchar(100),
 	YearFilm int not null,
@@ -113,7 +117,7 @@ go
 create table ShowTime  -- Lịch chiếu
 (
 	ID varchar(50) primary key,
-	shTime datetime not null, --thời gian chiếu
+	shTime smalldatetime not null, --thời gian chiếu
 	IDRoom varchar(50) not null, -- phòng chiếu
 	IDFormat varchar(50) not null, --định dạng phim
 	TicketPrice money not null,
@@ -158,7 +162,7 @@ go
 create table Bill
 (
 	ID int identity primary key,
-	DateBooking date not null default getdate(),
+	DateBooking smalldatetime not null default getdate(),
 	stt int not null default 0 --1: Paid, 0: Unpaid
 )
 go
@@ -206,7 +210,7 @@ CREATE PROC USP_InfoStaff -- thông tin nhân viên
 AS
 BEGIN
 	SELECT acc.UserName AS [Username], acc.AccType AS [Loại tài khoản], info.ID AS [Mã nhân viên], info.FullName AS [Họ và tên], 
-	info.DoB AS [Ngày sinh], info.Phone AS [Số điện thoại], info.IDPersonal AS [CMND/CCCD], info.Addr[Địa chỉ]
+	info.DoB AS [Ngày sinh], info.Sex as [Giới tính], info.Phone AS [Số điện thoại], info.Email as [Email], info.IDPersonal AS [CMND/CCCD], info.Addr[Địa chỉ]
 	FROM dbo.Account acc, dbo.InfoStaff info
 	WHERE info.ID = acc.ID
 END
@@ -274,7 +278,7 @@ CREATE PROC USP_SearchStaff -- Tìm kiếm nhân viên theo tên
 AS
 BEGIN
 	SELECT acc.UserName AS [Username], acc.AccType AS [Loại tài khoản], info.ID AS [Mã nhân viên], info.FullName AS [Họ và tên], 
-	info.DoB AS [Ngày sinh], info.Phone AS [Số điện thoại], info.IDPersonal AS [CMND/CCCD], info.Addr[Địa chỉ]
+	info.DoB AS [Ngày sinh], info.Sex as [Giới tính], info.Phone AS [Số điện thoại], info.Email as [Email], info.IDPersonal AS [CMND/CCCD], info.Addr[Địa chỉ]
 	FROM dbo.Account acc, dbo.InfoStaff info
 	WHERE info.ID = acc.ID AND dbo.UF_ConvertFullName(info.FullName) LIKE N'%' + dbo.UF_ConvertFullName(@fullname) + N'%'
 END
@@ -287,17 +291,17 @@ GO
 CREATE PROC USP_GetCustomer  -- lấy thông tin khách hàng
 AS
 BEGIN
-	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [Số điện thoại], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
+	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [Số điện thoại], Email as [Email], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
 	FROM dbo.InfoCustomer
 END
 GO
 
 CREATE PROC USP_InsertCustomer  -- thêm khách hàng
-@id VARCHAR(50), @name NVARCHAR(100), @dob date, @addr NVARCHAR(100), @num VARCHAR(100), @idpersonal INT
+@id VARCHAR(50), @name NVARCHAR(100), @dob smalldatetime, @addr NVARCHAR(100), @num VARCHAR(100), @idpersonal INT, @sex nvarchar(10), @email nvarchar(100)
 AS
 BEGIN
-	INSERT dbo.InfoCustomer(ID, FullName, DoB, Addr, Phone, IDPersonal, Points)
-	VALUES (@id, @name, @dob, @addr, @num, @idpersonal, 0)
+	INSERT dbo.InfoCustomer(ID, FullName, DoB, Sex, Addr, Phone, Email, IDPersonal, Points)
+	VALUES (@id, @name, @dob, @sex, @addr, @num, @email, @idpersonal, 0)
 END
 GO
 
@@ -305,7 +309,7 @@ CREATE PROC USP_SearchCustomer  -- tìm kiếm khách hàng theo tên
 @name NVARCHAR(100)
 AS
 BEGIN
-	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [Số điện thoại], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
+	SELECT ID AS [Mã khách hàng], FullName AS [Họ và tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [Số điện thoại], Email as [Email], IDPersonal AS [CMND/CCCD], Points AS [Điểm tích lũy]
 	FROM dbo.InfoCustomer
 	WHERE dbo.UF_ConvertFullName(FullName) LIKE N'%' + dbo.UF_ConvertFullName(@name) + N'%'
 END
@@ -352,7 +356,7 @@ END
 GO
 
 CREATE PROC USP_InsertMovie  -- Thêm phim
-@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic DATE, @dout DATE, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
+@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
 AS
 BEGIN
 	INSERT dbo.Movie (id , NameFilm , Descript , TimeLimit , DatePublic , DateOut , Country , Director , YearFilm, Poster)
@@ -361,7 +365,7 @@ END
 GO
 
 CREATE PROC USP_UpdateMovie  -- Cập nhật lại phim
-@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic DATE, @dout DATE, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
+@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
 AS
 BEGIN
 	UPDATE dbo.Movie SET NameFilm = @name, Descript = @des, TimeLimit = @time, DatePublic = @dpublic, DateOut = @dout, Country = @country, Director = @dir, YearFilm = @year, Poster = @poster WHERE id = @id
@@ -390,7 +394,7 @@ GO
 
 --LỊCH CHIẾU
 CREATE PROC USP_GetListShowTimesByFormatMovie
-@ID varchar(50), @Date Datetime
+@ID varchar(50), @Date smalldatetime
 AS
 BEGIN
 	select sched.id, rm.NameRoom, mv.NameFilm, sched.shTime, fmat.id as idFormat, sched.TicketPrice, sched.stt
@@ -411,7 +415,7 @@ END
 GO
 
 CREATE PROC USP_InsertShowtime -- thêm lịch chiếu
-@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu DATETIME, @giaVe FLOAT
+@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu smalldatetime, @giaVe FLOAT
 AS
 BEGIN
 	INSERT dbo.ShowTime( id , IDRoom , IDFormat, shTime  , TicketPrice , stt )
@@ -420,7 +424,7 @@ END
 GO
 
 CREATE PROC USP_UpdateShowtime -- cập nhật lịch chiếu
-@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu DATETIME, @giaVe FLOAT
+@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu smalldatetime, @giaVe FLOAT
 AS
 BEGIN
 	UPDATE dbo.ShowTime 
@@ -473,17 +477,17 @@ GO
 CREATE PROC USP_GetStaff
 AS
 BEGIN
-	SELECT id AS [Mã nhân viên], FullName AS [Họ và tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [Số điện thoại], IDPersonal AS [CMND/CCCD]
+	SELECT id AS [Mã nhân viên], FullName AS [Họ tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [SĐT], Email as [Email], IDPersonal AS [CMND]
 	FROM dbo.InfoStaff
 END
 GO
 
 CREATE PROC USP_InsertStaff
-@idStaff VARCHAR(50), @hoTen NVARCHAR(100), @ngaySinh date, @diaChi NVARCHAR(100), @sdt VARCHAR(100), @cmnd INT
+@idStaff VARCHAR(50), @hoTen NVARCHAR(100), @ngaySinh smalldatetime, @sex nvarchar(10), @diaChi NVARCHAR(100), @sdt VARCHAR(100), @email nvarchar(100), @cmnd INT
 AS
 BEGIN
-	INSERT dbo.InfoStaff(id, FullName, DoB, Addr, Phone, IDPersonal)
-	VALUES (@idStaff, @hoTen, @ngaySinh, @diaChi, @sdt, @cmnd)
+	INSERT dbo.InfoStaff(id, FullName, DoB, Sex, Addr, Phone, Email, IDPersonal)
+	VALUES (@idStaff, @hoTen, @ngaySinh, @sex, @diaChi, @sdt, @email, @cmnd)
 END
 GO
 
@@ -491,7 +495,7 @@ CREATE PROC USP_SearchStaffAsStaff -- tìm kiếm nhân viên với tư cách nh
 @hoTen NVARCHAR(100)
 AS
 BEGIN
-	SELECT id AS [Mã nhân viên], FullName AS [Họ tên], DoB AS [Ngày sinh], Addr AS [Địa chỉ], Phone AS [SĐT], IDPersonal AS [CMND]
+	SELECT id AS [Mã nhân viên], FullName AS [Họ tên], DoB AS [Ngày sinh], Sex as [Giới tính], Addr AS [Địa chỉ], Phone AS [SĐT], Email as [Email], IDPersonal AS [CMND]
 	FROM dbo.InfoStaff
 	WHERE dbo.UF_ConvertFullName(FullName) LIKE N'%' + dbo.UF_ConvertFullName(@hoTen) + N'%'
 END
@@ -552,9 +556,9 @@ ON dbo.ShowTime
 FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @idDinhDang VARCHAR(50), @ThoiGianChieu DATE, @NgayKhoiChieu DATE, @NgayKetThuc DATE
+	DECLARE @idDinhDang VARCHAR(50), @ThoiGianChieu smalldatetime, @NgayKhoiChieu smalldatetime, @NgayKetThuc smalldatetime
 
-	SELECT @idDinhDang = IDFormat, @ThoiGianChieu = CONVERT(DATE, shTime) from INSERTED
+	SELECT @idDinhDang = IDFormat, @ThoiGianChieu = CONVERT(smalldatetime, shTime) from INSERTED
 
 	SELECT @NgayKhoiChieu = P.DatePublic, @NgayKetThuc = P.DateOut
 	FROM dbo.Movie P, dbo.FormatFilm DD
@@ -573,7 +577,7 @@ ON dbo.ShowTime
 FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @count INT = 0, @count2 INT = 0, @ThoiGianChieu DATETIME, @idPhong VARCHAR(50), @idDinhDang VARCHAR(50)
+	DECLARE @count INT = 0, @count2 INT = 0, @ThoiGianChieu smalldatetime, @idPhong VARCHAR(50), @idDinhDang VARCHAR(50)
 
 	SELECT @idPhong = IDRoom, @ThoiGianChieu = shTime, @idDinhDang = Inserted.IDFormat from INSERTED
 
@@ -798,9 +802,9 @@ INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL09', N'Tâm Lý'
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL10', N'Siêu nhiên', NULL)
 GO
 
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES (N'AD00', N'Admin', CAST(N'2002-02-03' AS Date), N'Q3, HCM', 0393751400, 23232323)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES (N'NV00', N'Staff 1', CAST(N'2002-02-03' AS Date), N'Q3, HCM', 0393751111, 11111111)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES (N'NV01', N'Staff 2', CAST(N'2000-04-11' AS Date), N'Đồng Nai', 097971210, 22222222)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'AD00', N'Admin', N'03/02/2002',N'Nữ', N'Q3, HCM', N'039375140',N'admin@gmail.com', 23232323)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV00', N'Staff 1', N'12/09/1999', N'Q3, HCM', N'0393751111',N'staff1@gmail.com', 11111111)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV01', N'Staff 2', N'11/04/2000', N'Đồng Nai', N'097971210',N'staff2@gmail.com', 22222222)
 GO
 
 INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('admin', '123456', 'AD00', 1)
@@ -808,9 +812,9 @@ INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('bin', '1', 'NV
 INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('neyu', '1', 'NV01', 0)
 GO
 
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH01', N'Huỳnh Thế Vĩ', CAST(N'2002-03-23' AS Date),N'HCM', N'0922135412', 123456789, 10)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH02', N'Nguyễn Minh', CAST(N'1999-05-11' AS Date),N'HCM', N'0210521423', 987654321, 0)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', CAST(N'2002-02-03' AS Date),N'HCM', N'0379345121', 01245789, 0)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH01', N'Huỳnh Thế Vĩ', N'23/03/2002',N'Nam',N'HCM', N'0922135412',N'huynhthevi@gmail.com', 123456789, 10)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH02', N'Nguyễn Minh', N'11/05/1999',N'Nam',N'HCM', N'0210521423', N'nguyenminh@gmail.com',987654321, 0)
+INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'Nữ',N'HCM', N'0379345121',N'ledangphuonguyen@gmail.com', 01245789, 0)
 GO
 
 INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH01', N'2D')
@@ -825,9 +829,9 @@ INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', N'MH02', 130, 1, 10, 13)
 INSERT dbo.Room VALUES (N'PC04', N'CINEMA 04', N'MH03', 104, 1, 8, 13)
 GO
 
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, CAST(N'2021-04-10' AS Date), CAST(N'2021-05-31' AS Date), N'Anh', N'David Yates', 2021)
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, CAST(N'2021-04-23' AS Date), CAST(N'2021-06-01' AS Date), N'Nhật Bản', N'Tomoka Nagaoka', 2021)
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV03', N'VENOM: ĐỐI MẶT TỬ THÙ', N'Chưa có', 120, CAST(N'2021-11-12' AS Date), CAST(N'2021-12-31' AS Date), N'Mỹ', N'Andy Serkis', 2021)
+INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, N'10/04/2021', N'31/05/2021', N'Anh', N'David Yates', 2021)
+INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, N'23/04/2021', N'01/06/2021', N'Nhật Bản', N'Tomoka Nagaoka', 2021)
+INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV03', N'VENOM: ĐỐI MẶT TỬ THÙ', N'Chưa có', 120, N'12/11/2021', N'31/12/2021', N'Mỹ', N'Andy Serkis', 2021)
 GO
 
 INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL01')
@@ -852,8 +856,8 @@ INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F06', N'MV03', 
 INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F07', N'MV03', N'MH01')
 GO
 
-INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST01', CAST(N'2021-12-02T15:20:00' AS DateTime), N'PC01', N'F07', 110000, 1)
-INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST02', CAST(N'2021-12-02T13:00:00' AS DateTime), N'PC02', N'F06', 110000, 0)
+INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST01', N'02/12/2021 15:20:00', N'PC01', N'F07', 110000, 1)
+INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST02', N'02/12/2021 13:00:00', N'PC02', N'F06', 110000, 0)
 GO
 
 SET IDENTITY_INSERT [dbo].[Ticket] ON
@@ -872,3 +876,4 @@ GO
 
 SET IDENTITY_INSERT [dbo].[Ticket] OFF
 GO
+
