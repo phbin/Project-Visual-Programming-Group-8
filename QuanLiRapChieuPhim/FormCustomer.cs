@@ -27,7 +27,7 @@ namespace QuanLiRapChieuPhim
 
         private void DeleteButton_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có thật sự muốn xóa thông tin khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you really want to delete this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
                 DataProvider.Instance.ExcuteQuery(query);
@@ -88,7 +88,7 @@ namespace QuanLiRapChieuPhim
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn sửa thông tin này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
@@ -111,7 +111,7 @@ namespace QuanLiRapChieuPhim
             {
                 if (IDTextbox.Text == ListCustomerGrid.Rows[i].Cells[0].Value.ToString())
                 {
-                    MessageBox.Show("Thông tin khách hàng đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("This infomation already exist", "Thông báo", MessageBoxButtons.OK);
                     IDTextbox.Text = "";
                     FullNameTextbox.Text = "";
                     DoBTextbox.Text = "";
@@ -139,7 +139,7 @@ namespace QuanLiRapChieuPhim
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
             LoadInfoCustomer();
         }
@@ -153,6 +153,21 @@ namespace QuanLiRapChieuPhim
             PhoneNumTextbox.Text = "";
             IDPersonalTextbox.Text = "";
             PointTextbox.Text = "";
+        }
+
+        private void AddButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
+        }
+
+        private void DeleteButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
+        }
+
+        private void EditButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
         }
     }
 

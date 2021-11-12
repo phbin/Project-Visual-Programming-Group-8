@@ -51,8 +51,8 @@ namespace QuanLiRapChieuPhim
                 Label price = new Label();
 
                 //Design button
-                picture.Width = 120;
-                picture.Height = 140;
+                picture.Width = 160;
+                picture.Height = 180;
                 picture.Margin = new Padding(5, 5, 5, 5);
 
                 ////Insert image from resources file
@@ -74,14 +74,14 @@ namespace QuanLiRapChieuPhim
                 //Design FoodDrink Name label
                 name.Text = item.Name;
                 name.TextAlign = ContentAlignment.MiddleCenter;
-                name.Font = new Font("Nirmala UI", 8F);
+                name.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
                 name.BackColor = Color.Transparent;
                 name.Dock = DockStyle.Top;
 
                 //Design FoodDrink Price label
                 price.Text = item.Price.ToString() + " VND";
                 price.TextAlign = ContentAlignment.MiddleCenter;
-                price.Font = new Font("Nirmala UI", 12F);
+                price.Font = new Font("Times New Roman", 12F);
                 price.BackColor = Color.Transparent;
                 price.Dock = DockStyle.Bottom;
 
@@ -107,7 +107,7 @@ namespace QuanLiRapChieuPhim
                 dgvBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
             }
 
-            txtTotalPrice.Text = total.ToString() + " VND";
+            txtTotalPrice.Text = "Total: " +total.ToString() + " VND";
         }
 
         private void EnableButton(object sender)
@@ -212,17 +212,17 @@ namespace QuanLiRapChieuPhim
 
         private void btnAdd_MouseLeave(object sender, EventArgs e)
         {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
         }
 
         private void btnRemoveAll_MouseLeave(object sender, EventArgs e)
         {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
         }
 
         private void btnCheckOut_MouseLeave(object sender, EventArgs e)
         {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
         }
 
         private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -239,5 +239,6 @@ namespace QuanLiRapChieuPhim
             else
                 LoadFoodDrinkByCategoryID(1);
         }
+
     }
 }

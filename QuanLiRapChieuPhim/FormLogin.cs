@@ -106,7 +106,7 @@ namespace QuanLiRapChieuPhim
             frm.ShowDialog();
         }
 
-        public static string ID_USER = " ";//Tao 1 bien chua id
+        public static string ID_USER = "";//Tao 1 bien chua id
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string Username = UsernameTextbox.Text;
@@ -139,30 +139,30 @@ namespace QuanLiRapChieuPhim
             }
 
             //Lay id dua theo username va pass
-            SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True");
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE UserName ='" + Username + "' and Pass ='" + Password + "'", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt != null)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        ID_USER = dr["ID"].ToString();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-            }
-            finally
-            {
-                con.Close();
-            }
+            //SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True");
+            //try
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE UserName ='" + Username + "' and Pass ='" + Password + "'", con);
+            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    if (dt != null)
+            //    {
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            ID_USER = dr["ID"].ToString();
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
+            //}
+            //finally
+            //{
+            //    con.Close();
+            //}
         }
 
         private void HideButton_Click(object sender, EventArgs e)
@@ -199,7 +199,6 @@ namespace QuanLiRapChieuPhim
         {
             ShowButton.BackColor = Color.Transparent;
         }
-
 
         private void Wrong()
         {

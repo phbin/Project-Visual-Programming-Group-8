@@ -40,7 +40,6 @@ namespace QuanLiRapChieuPhim
             this.pnlLine3 = new System.Windows.Forms.Panel();
             this.cbbCategorySelection = new System.Windows.Forms.ComboBox();
             this.pnlLine4 = new System.Windows.Forms.Panel();
-            this.flpFoodDrink = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlDisplayBill = new System.Windows.Forms.Panel();
             this.dgvBill = new System.Windows.Forms.DataGridView();
             this.dgvColumnNameFD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +47,7 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColumnTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLine2 = new System.Windows.Forms.Panel();
+            this.flpFoodDrink = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFDCount)).BeginInit();
             this.pnlDisplayBill.SuspendLayout();
@@ -59,7 +59,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlLine.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLine.Location = new System.Drawing.Point(0, 0);
-            this.pnlLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLine.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine.Name = "pnlLine";
             this.pnlLine.Size = new System.Drawing.Size(768, 6);
             this.pnlLine.TabIndex = 4;
@@ -82,14 +82,15 @@ namespace QuanLiRapChieuPhim
             // btnRemoveAll
             // 
             this.btnRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.btnRemoveAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnRemoveAll.FlatAppearance.BorderSize = 0;
             this.btnRemoveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveAll.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveAll.Location = new System.Drawing.Point(455, 14);
+            this.btnRemoveAll.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveAll.Location = new System.Drawing.Point(455, 16);
             this.btnRemoveAll.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.btnRemoveAll.Name = "btnRemoveAll";
-            this.btnRemoveAll.Size = new System.Drawing.Size(133, 74);
+            this.btnRemoveAll.Size = new System.Drawing.Size(133, 65);
             this.btnRemoveAll.TabIndex = 11;
             this.btnRemoveAll.Text = "Remove All";
             this.btnRemoveAll.UseVisualStyleBackColor = false;
@@ -102,12 +103,12 @@ namespace QuanLiRapChieuPhim
             this.txtTotalPrice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtTotalPrice.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPrice.Location = new System.Drawing.Point(271, 34);
-            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(165, 34);
             this.txtTotalPrice.TabIndex = 10;
-            this.txtTotalPrice.Text = "0";
+            this.txtTotalPrice.Text = "Total: 0";
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nmFDCount
@@ -133,14 +134,15 @@ namespace QuanLiRapChieuPhim
             // btnCheckOut
             // 
             this.btnCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.btnCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnCheckOut.FlatAppearance.BorderSize = 0;
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckOut.Location = new System.Drawing.Point(615, 12);
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
+            this.btnCheckOut.Location = new System.Drawing.Point(615, 16);
             this.btnCheckOut.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(133, 74);
+            this.btnCheckOut.Size = new System.Drawing.Size(133, 65);
             this.btnCheckOut.TabIndex = 8;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = false;
@@ -151,14 +153,15 @@ namespace QuanLiRapChieuPhim
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(117, 12);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(117, 16);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(133, 74);
+            this.btnAdd.Size = new System.Drawing.Size(133, 65);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -171,7 +174,7 @@ namespace QuanLiRapChieuPhim
             this.pnlLine5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlLine5.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLine5.Location = new System.Drawing.Point(0, 6);
-            this.pnlLine5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLine5.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine5.Name = "pnlLine5";
             this.pnlLine5.Size = new System.Drawing.Size(7, 580);
             this.pnlLine5.TabIndex = 19;
@@ -181,20 +184,22 @@ namespace QuanLiRapChieuPhim
             this.pnlLine3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlLine3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlLine3.Location = new System.Drawing.Point(761, 6);
-            this.pnlLine3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLine3.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine3.Name = "pnlLine3";
             this.pnlLine3.Size = new System.Drawing.Size(7, 580);
             this.pnlLine3.TabIndex = 20;
             // 
             // cbbCategorySelection
             // 
-            this.cbbCategorySelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.cbbCategorySelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.cbbCategorySelection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbbCategorySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCategorySelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbCategorySelection.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.cbbCategorySelection.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCategorySelection.ForeColor = System.Drawing.Color.White;
             this.cbbCategorySelection.FormattingEnabled = true;
             this.cbbCategorySelection.Location = new System.Drawing.Point(7, 6);
-            this.cbbCategorySelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbCategorySelection.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCategorySelection.Name = "cbbCategorySelection";
             this.cbbCategorySelection.Size = new System.Drawing.Size(754, 36);
             this.cbbCategorySelection.TabIndex = 21;
@@ -206,23 +211,10 @@ namespace QuanLiRapChieuPhim
             this.pnlLine4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlLine4.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLine4.Location = new System.Drawing.Point(7, 42);
-            this.pnlLine4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLine4.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine4.Name = "pnlLine4";
             this.pnlLine4.Size = new System.Drawing.Size(754, 6);
             this.pnlLine4.TabIndex = 22;
-            // 
-            // flpFoodDrink
-            // 
-            this.flpFoodDrink.AutoScroll = true;
-            this.flpFoodDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.flpFoodDrink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFoodDrink.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpFoodDrink.ForeColor = System.Drawing.Color.Black;
-            this.flpFoodDrink.Location = new System.Drawing.Point(7, 48);
-            this.flpFoodDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.flpFoodDrink.Name = "flpFoodDrink";
-            this.flpFoodDrink.Size = new System.Drawing.Size(418, 538);
-            this.flpFoodDrink.TabIndex = 24;
             // 
             // pnlDisplayBill
             // 
@@ -230,10 +222,10 @@ namespace QuanLiRapChieuPhim
             this.pnlDisplayBill.Controls.Add(this.dgvBill);
             this.pnlDisplayBill.Controls.Add(this.pnlLine2);
             this.pnlDisplayBill.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDisplayBill.Location = new System.Drawing.Point(425, 48);
-            this.pnlDisplayBill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDisplayBill.Location = new System.Drawing.Point(446, 48);
+            this.pnlDisplayBill.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplayBill.Name = "pnlDisplayBill";
-            this.pnlDisplayBill.Size = new System.Drawing.Size(336, 538);
+            this.pnlDisplayBill.Size = new System.Drawing.Size(315, 538);
             this.pnlDisplayBill.TabIndex = 23;
             // 
             // dgvBill
@@ -249,15 +241,15 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnTotalPrice});
             this.dgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBill.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvBill.Location = new System.Drawing.Point(7, 0);
-            this.dgvBill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBill.Location = new System.Drawing.Point(10, 0);
+            this.dgvBill.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBill.Name = "dgvBill";
             this.dgvBill.RowHeadersVisible = false;
             this.dgvBill.RowHeadersWidth = 51;
             this.dgvBill.RowTemplate.ReadOnly = true;
             this.dgvBill.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBill.Size = new System.Drawing.Size(329, 538);
+            this.dgvBill.Size = new System.Drawing.Size(305, 538);
             this.dgvBill.TabIndex = 4;
             // 
             // dgvColumnNameFD
@@ -289,10 +281,23 @@ namespace QuanLiRapChieuPhim
             this.pnlLine2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlLine2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLine2.Location = new System.Drawing.Point(0, 0);
-            this.pnlLine2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLine2.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLine2.Name = "pnlLine2";
-            this.pnlLine2.Size = new System.Drawing.Size(7, 538);
+            this.pnlLine2.Size = new System.Drawing.Size(10, 538);
             this.pnlLine2.TabIndex = 0;
+            // 
+            // flpFoodDrink
+            // 
+            this.flpFoodDrink.AutoScroll = true;
+            this.flpFoodDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.flpFoodDrink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFoodDrink.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpFoodDrink.ForeColor = System.Drawing.Color.Black;
+            this.flpFoodDrink.Location = new System.Drawing.Point(7, 48);
+            this.flpFoodDrink.Margin = new System.Windows.Forms.Padding(4);
+            this.flpFoodDrink.Name = "flpFoodDrink";
+            this.flpFoodDrink.Size = new System.Drawing.Size(439, 538);
+            this.flpFoodDrink.TabIndex = 24;
             // 
             // FormFD
             // 
@@ -310,7 +315,7 @@ namespace QuanLiRapChieuPhim
             this.Controls.Add(this.pnlLine);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormFD";
             this.Text = "FormFD";
             this.pnlControl.ResumeLayout(false);
@@ -335,7 +340,6 @@ namespace QuanLiRapChieuPhim
         private System.Windows.Forms.Panel pnlLine3;
         private System.Windows.Forms.ComboBox cbbCategorySelection;
         private System.Windows.Forms.Panel pnlLine4;
-        private System.Windows.Forms.FlowLayoutPanel flpFoodDrink;
         private System.Windows.Forms.Panel pnlDisplayBill;
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColumnNameFD;
@@ -343,5 +347,6 @@ namespace QuanLiRapChieuPhim
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColumnPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColumnTotalPrice;
         private System.Windows.Forms.Panel pnlLine2;
+        private System.Windows.Forms.FlowLayoutPanel flpFoodDrink;
     }
 }

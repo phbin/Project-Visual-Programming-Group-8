@@ -95,11 +95,11 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStaff.cs">
+    <Compile Include="FormStaffInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStaff.Designer.cs">
-      <DependentUpon>FormStaff.cs</DependentUpon>
+    <Compile Include="FormStaffInfo.Designer.cs">
+      <DependentUpon>FormStaffInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCustomer.cs">
       <SubType>Form</SubType>
@@ -151,8 +151,8 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStaff.resx">
-      <DependentUpon>FormStaff.cs</DependentUpon>
+    <EmbeddedResource Include="FormStaffInfo.resx">
+      <DependentUpon>FormStaffInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
@@ -253,28 +253,31 @@
     <None Include="Resources\hr.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Poster1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Poster2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Poster3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Poster4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Poster5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\circle.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new-moon1.png" />
+    <None Include="Resources\icon-id-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-birth-date-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-gender-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-mail-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-phone-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-address-30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_11.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1_2.png" />
@@ -328,22 +331,25 @@
     <None Include="Resources\3_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-id-30.png" />
+    <None Include="Resources\Poster1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-birth-date-30.png" />
+    <None Include="Resources\Poster2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-gender-30.png" />
+    <None Include="Resources\Poster3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-mail-30.png" />
+    <None Include="Resources\Poster4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-phone-30.png" />
+    <None Include="Resources\Poster5.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon-address-30.png" />
+    <None Include="Resources\new-moon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

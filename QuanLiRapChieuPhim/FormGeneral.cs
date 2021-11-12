@@ -29,6 +29,7 @@ namespace QuanLiRapChieuPhim
                         curBtn = btn1;
                         preBtn = btn5;
                         preBtn.Image= Properties.Resources.circle;
+                        curBtn.BackColor = Color.FromArgb(33, 34, 46);
                         break;
                     case 1:
                         curBtn = btn2;
@@ -108,6 +109,16 @@ namespace QuanLiRapChieuPhim
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureBoxPoster.Image = Properties.Resources.Poster4;
             count = 3;
+        }
+
+        private void btn1_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(17, 17, 17);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btn5_Click(object sender, EventArgs e)
