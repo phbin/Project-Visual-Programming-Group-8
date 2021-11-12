@@ -111,14 +111,30 @@ namespace QuanLiRapChieuPhim
             count = 3;
         }
 
-        private void btn1_MouseMove(object sender, MouseEventArgs e)
+
+        private void btn1_MouseMove_1(object sender, MouseEventArgs e)
         {
-            (sender as Button).BackColor = Color.FromArgb(17, 17, 17);
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btn2_MouseMove(object sender, MouseEventArgs e)
         {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
+        }
 
+        private void btn3_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
+        }
+
+        private void btn4_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
+        }
+
+        private void btn5_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
         }
 
         private void btn5_Click(object sender, EventArgs e)

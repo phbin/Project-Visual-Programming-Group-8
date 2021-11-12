@@ -48,7 +48,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SearchPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ListAccountGrid
@@ -62,8 +61,7 @@
             this.ListAccountGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ListAccountGrid.ColumnHeadersHeight = 21;
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ListAccountGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListAccountGrid.Location = new System.Drawing.Point(0, 0);
+            this.ListAccountGrid.Location = new System.Drawing.Point(0, 80);
             this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ListAccountGrid.Name = "ListAccountGrid";
             this.ListAccountGrid.ReadOnly = true;
@@ -71,7 +69,7 @@
             this.ListAccountGrid.RowHeadersWidth = 62;
             this.ListAccountGrid.RowTemplate.Height = 28;
             this.ListAccountGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListAccountGrid.Size = new System.Drawing.Size(489, 488);
+            this.ListAccountGrid.Size = new System.Drawing.Size(755, 407);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
             // 
@@ -85,7 +83,7 @@
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.Add_01;
-            this.AddButton.Location = new System.Drawing.Point(585, 300);
+            this.AddButton.Location = new System.Drawing.Point(943, 300);
             this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(135, 81);
@@ -104,10 +102,10 @@
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.Delete_01;
-            this.DeleteButton.Location = new System.Drawing.Point(744, 303);
+            this.DeleteButton.Location = new System.Drawing.Point(1101, 303);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(130, 75);
+            this.DeleteButton.Size = new System.Drawing.Size(131, 75);
             this.DeleteButton.TabIndex = 7;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -119,7 +117,7 @@
             this.SearchButton.FlatAppearance.BorderSize = 0;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
-            this.SearchButton.Location = new System.Drawing.Point(413, 28);
+            this.SearchButton.Location = new System.Drawing.Point(413, 20);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(36, 34);
@@ -132,7 +130,7 @@
             this.SearchPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchPanel.BackgroundImage")));
             this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SearchPanel.Controls.Add(this.SearchTextbox);
-            this.SearchPanel.Location = new System.Drawing.Point(5, 28);
+            this.SearchPanel.Location = new System.Drawing.Point(5, 20);
             this.SearchPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(429, 37);
@@ -144,7 +142,7 @@
             this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
-            this.SearchTextbox.Location = new System.Drawing.Point(18, 7);
+            this.SearchTextbox.Location = new System.Drawing.Point(19, 7);
             this.SearchTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchTextbox.Multiline = true;
             this.SearchTextbox.Name = "SearchTextbox";
@@ -159,8 +157,8 @@
             // 
             this.UsernameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTextbox.Location = new System.Drawing.Point(595, 106);
-            this.UsernameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsernameTextbox.Location = new System.Drawing.Point(969, 106);
+            this.UsernameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.UsernameTextbox.Name = "UsernameTextbox";
             this.UsernameTextbox.Size = new System.Drawing.Size(252, 26);
             this.UsernameTextbox.TabIndex = 1;
@@ -169,8 +167,8 @@
             // 
             this.PasswordTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextbox.Location = new System.Drawing.Point(595, 153);
-            this.PasswordTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PasswordTextbox.Location = new System.Drawing.Point(969, 153);
+            this.PasswordTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.PasswordTextbox.Name = "PasswordTextbox";
             this.PasswordTextbox.Size = new System.Drawing.Size(252, 26);
             this.PasswordTextbox.TabIndex = 2;
@@ -181,7 +179,7 @@
             this.AccountLabel.AutoSize = true;
             this.AccountLabel.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccountLabel.ForeColor = System.Drawing.Color.White;
-            this.AccountLabel.Location = new System.Drawing.Point(572, 28);
+            this.AccountLabel.Location = new System.Drawing.Point(947, 28);
             this.AccountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AccountLabel.Name = "AccountLabel";
             this.AccountLabel.Size = new System.Drawing.Size(183, 46);
@@ -192,8 +190,8 @@
             // 
             this.AdminCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AdminCheckbox.AutoSize = true;
-            this.AdminCheckbox.Location = new System.Drawing.Point(597, 258);
-            this.AdminCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AdminCheckbox.Location = new System.Drawing.Point(973, 258);
+            this.AdminCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.AdminCheckbox.Name = "AdminCheckbox";
             this.AdminCheckbox.Size = new System.Drawing.Size(18, 17);
             this.AdminCheckbox.TabIndex = 4;
@@ -203,8 +201,8 @@
             // 
             this.IDTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.IDTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDTextbox.Location = new System.Drawing.Point(595, 199);
-            this.IDTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IDTextbox.Location = new System.Drawing.Point(969, 199);
+            this.IDTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.IDTextbox.Name = "IDTextbox";
             this.IDTextbox.Size = new System.Drawing.Size(252, 26);
             this.IDTextbox.TabIndex = 3;
@@ -219,10 +217,10 @@
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
             this.EditButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.Edit_01;
-            this.EditButton.Location = new System.Drawing.Point(428, 305);
+            this.EditButton.Location = new System.Drawing.Point(785, 305);
             this.EditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(130, 75);
+            this.EditButton.Size = new System.Drawing.Size(131, 75);
             this.EditButton.TabIndex = 6;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = false;
@@ -235,7 +233,7 @@
             this.AcctypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.AcctypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcctypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.AcctypeLabel.Location = new System.Drawing.Point(519, 256);
+            this.AcctypeLabel.Location = new System.Drawing.Point(893, 256);
             this.AcctypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AcctypeLabel.Name = "AcctypeLabel";
             this.AcctypeLabel.Size = new System.Drawing.Size(61, 20);
@@ -249,7 +247,7 @@
             this.IDLabel.BackColor = System.Drawing.Color.Transparent;
             this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.IDLabel.Location = new System.Drawing.Point(556, 203);
+            this.IDLabel.Location = new System.Drawing.Point(931, 203);
             this.IDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(28, 20);
@@ -263,7 +261,7 @@
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.PasswordLabel.Location = new System.Drawing.Point(485, 156);
+            this.PasswordLabel.Location = new System.Drawing.Point(860, 156);
             this.PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(91, 20);
@@ -277,19 +275,26 @@
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.UsernameLabel.Location = new System.Drawing.Point(485, 110);
+            this.UsernameLabel.Location = new System.Drawing.Point(860, 110);
             this.UsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(94, 20);
             this.UsernameLabel.TabIndex = 18;
             this.UsernameLabel.Text = "Username";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 0;
+            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(875, 478);
+            this.ClientSize = new System.Drawing.Size(1249, 478);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.IDTextbox);
@@ -311,7 +316,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

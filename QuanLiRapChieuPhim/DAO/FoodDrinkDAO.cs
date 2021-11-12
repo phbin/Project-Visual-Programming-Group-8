@@ -31,7 +31,7 @@ namespace QuanLiRapChieuPhim.DAO
             List<FoodDrink> fDList = new List<FoodDrink>();
 
             string query = "SELECT * FROM FoodDrink WHERE IDCategory = " + iDCate;
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {

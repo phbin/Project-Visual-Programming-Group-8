@@ -24,7 +24,7 @@ namespace QuanLiRapChieuPhim
         void LoadInfoStaff()
         {
             string query = "SELECT * FROM InfoStaff";
-            InfoStaffGridView.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            InfoStaffGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

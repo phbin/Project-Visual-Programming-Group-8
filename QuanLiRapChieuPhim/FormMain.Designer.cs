@@ -38,7 +38,6 @@ namespace QuanLiRapChieuPhim
             this.labelHome = new System.Windows.Forms.Label();
             this.pictureHome = new System.Windows.Forms.PictureBox();
             this.panelLine = new System.Windows.Forms.Panel();
-            this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.gradientPanelMenu = new QuanLiRapChieuPhim.GradientPanel();
             this.buttonAdmin = new System.Windows.Forms.Button();
             this.buttonStatistic = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@ namespace QuanLiRapChieuPhim
             this.buttonMovie = new System.Windows.Forms.Button();
             this.buttonGeneral = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
+            this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHome)).BeginInit();
             this.gradientPanelMenu.SuspendLayout();
@@ -75,10 +75,11 @@ namespace QuanLiRapChieuPhim
             this.buttonMaximize.FlatAppearance.BorderSize = 0;
             this.buttonMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMaximize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximize.Image")));
-            this.buttonMaximize.Location = new System.Drawing.Point(1190, 8);
+            this.buttonMaximize.Location = new System.Drawing.Point(1189, 7);
+            this.buttonMaximize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMaximize.Name = "buttonMaximize";
-            this.buttonMaximize.Padding = new System.Windows.Forms.Padding(0, 0, 2, 1);
-            this.buttonMaximize.Size = new System.Drawing.Size(40, 40);
+            this.buttonMaximize.Padding = new System.Windows.Forms.Padding(0, 0, 3, 1);
+            this.buttonMaximize.Size = new System.Drawing.Size(40, 39);
             this.buttonMaximize.TabIndex = 4;
             this.buttonMaximize.UseVisualStyleBackColor = false;
             this.buttonMaximize.Click += new System.EventHandler(this.buttonMaximize_Click);
@@ -91,10 +92,11 @@ namespace QuanLiRapChieuPhim
             this.buttonRestoreDown.FlatAppearance.BorderSize = 0;
             this.buttonRestoreDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestoreDown.Image = ((System.Drawing.Image)(resources.GetObject("buttonRestoreDown.Image")));
-            this.buttonRestoreDown.Location = new System.Drawing.Point(1190, 8);
+            this.buttonRestoreDown.Location = new System.Drawing.Point(1189, 7);
+            this.buttonRestoreDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRestoreDown.Name = "buttonRestoreDown";
             this.buttonRestoreDown.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
-            this.buttonRestoreDown.Size = new System.Drawing.Size(40, 40);
+            this.buttonRestoreDown.Size = new System.Drawing.Size(40, 39);
             this.buttonRestoreDown.TabIndex = 6;
             this.buttonRestoreDown.UseVisualStyleBackColor = false;
             this.buttonRestoreDown.Click += new System.EventHandler(this.buttonRestoreDown_Click);
@@ -107,10 +109,11 @@ namespace QuanLiRapChieuPhim
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimize.Image = global::QuanLiRapChieuPhim.Properties.Resources.minimize;
-            this.buttonMinimize.Location = new System.Drawing.Point(1150, 9);
+            this.buttonMinimize.Location = new System.Drawing.Point(1149, 9);
+            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.buttonMinimize.Size = new System.Drawing.Size(40, 40);
+            this.buttonMinimize.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.buttonMinimize.Size = new System.Drawing.Size(40, 39);
             this.buttonMinimize.TabIndex = 5;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
@@ -124,10 +127,11 @@ namespace QuanLiRapChieuPhim
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::QuanLiRapChieuPhim.Properties.Resources.close;
-            this.buttonClose.Location = new System.Drawing.Point(1230, 8);
+            this.buttonClose.Location = new System.Drawing.Point(1229, 7);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Padding = new System.Windows.Forms.Padding(0, 0, 3, 1);
-            this.buttonClose.Size = new System.Drawing.Size(40, 40);
+            this.buttonClose.Size = new System.Drawing.Size(40, 39);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -165,19 +169,6 @@ namespace QuanLiRapChieuPhim
             this.panelLine.Size = new System.Drawing.Size(1280, 7);
             this.panelLine.TabIndex = 3;
             // 
-            // gradientPanelDesktop
-            // 
-            this.gradientPanelDesktop.Angle = 90F;
-            this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
-            this.gradientPanelDesktop.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
-            this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
-            this.gradientPanelDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gradientPanelDesktop.Name = "gradientPanelDesktop";
-            this.gradientPanelDesktop.Size = new System.Drawing.Size(1280, 775);
-            this.gradientPanelDesktop.TabIndex = 0;
-            this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
-            // 
             // gradientPanelMenu
             // 
             this.gradientPanelMenu.Angle = 60F;
@@ -194,7 +185,7 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelMenu.Location = new System.Drawing.Point(0, 0);
             this.gradientPanelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gradientPanelMenu.Name = "gradientPanelMenu";
-            this.gradientPanelMenu.Size = new System.Drawing.Size(260, 840);
+            this.gradientPanelMenu.Size = new System.Drawing.Size(260, 839);
             this.gradientPanelMenu.TabIndex = 1;
             this.gradientPanelMenu.TopColor = System.Drawing.Color.Empty;
             // 
@@ -211,7 +202,7 @@ namespace QuanLiRapChieuPhim
             this.buttonAdmin.Location = new System.Drawing.Point(0, 551);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdmin.Name = "buttonAdmin";
-            this.buttonAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonAdmin.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonAdmin.Size = new System.Drawing.Size(260, 85);
             this.buttonAdmin.TabIndex = 5;
             this.buttonAdmin.Text = "  My Info";
@@ -232,7 +223,7 @@ namespace QuanLiRapChieuPhim
             this.buttonStatistic.Location = new System.Drawing.Point(0, 466);
             this.buttonStatistic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonStatistic.Name = "buttonStatistic";
-            this.buttonStatistic.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonStatistic.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonStatistic.Size = new System.Drawing.Size(260, 85);
             this.buttonStatistic.TabIndex = 4;
             this.buttonStatistic.Text = "  Statistic";
@@ -253,7 +244,7 @@ namespace QuanLiRapChieuPhim
             this.buttonCustomer.Location = new System.Drawing.Point(0, 381);
             this.buttonCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCustomer.Name = "buttonCustomer";
-            this.buttonCustomer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonCustomer.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonCustomer.Size = new System.Drawing.Size(260, 85);
             this.buttonCustomer.TabIndex = 3;
             this.buttonCustomer.Text = "  Customer";
@@ -274,7 +265,7 @@ namespace QuanLiRapChieuPhim
             this.buttonFD.Location = new System.Drawing.Point(0, 296);
             this.buttonFD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFD.Name = "buttonFD";
-            this.buttonFD.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonFD.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonFD.Size = new System.Drawing.Size(260, 85);
             this.buttonFD.TabIndex = 2;
             this.buttonFD.Text = "  Food and Drink";
@@ -295,7 +286,7 @@ namespace QuanLiRapChieuPhim
             this.buttonMovie.Location = new System.Drawing.Point(0, 211);
             this.buttonMovie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMovie.Name = "buttonMovie";
-            this.buttonMovie.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonMovie.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonMovie.Size = new System.Drawing.Size(260, 85);
             this.buttonMovie.TabIndex = 1;
             this.buttonMovie.Text = "  Movie";
@@ -316,7 +307,7 @@ namespace QuanLiRapChieuPhim
             this.buttonGeneral.Location = new System.Drawing.Point(0, 126);
             this.buttonGeneral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGeneral.Name = "buttonGeneral";
-            this.buttonGeneral.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonGeneral.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonGeneral.Size = new System.Drawing.Size(260, 85);
             this.buttonGeneral.TabIndex = 0;
             this.buttonGeneral.Text = "  General";
@@ -336,11 +327,26 @@ namespace QuanLiRapChieuPhim
             this.panelHome.Size = new System.Drawing.Size(260, 126);
             this.panelHome.TabIndex = 0;
             // 
+            // gradientPanelDesktop
+            // 
+            this.gradientPanelDesktop.Angle = 90F;
+            this.gradientPanelDesktop.BackColor = System.Drawing.Color.Transparent;
+            this.gradientPanelDesktop.BackgroundImage = global::QuanLiRapChieuPhim.Properties.Resources.CinemaPic;
+            this.gradientPanelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gradientPanelDesktop.BottomColor = System.Drawing.Color.Transparent;
+            this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
+            this.gradientPanelDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gradientPanelDesktop.Name = "gradientPanelDesktop";
+            this.gradientPanelDesktop.Size = new System.Drawing.Size(1280, 774);
+            this.gradientPanelDesktop.TabIndex = 0;
+            this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1540, 840);
+            this.ClientSize = new System.Drawing.Size(1540, 839);
             this.Controls.Add(this.gradientPanelDesktop);
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.panelMenu);

@@ -23,7 +23,7 @@ namespace QuanLiRapChieuPhim
         {
             string query = "SELECT * FROM dbo.Account";
 
-            ListAccountGrid.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            ListAccountGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
 
             //ListAccountGrid.ClearSelection();
         }
@@ -99,27 +99,6 @@ namespace QuanLiRapChieuPhim
             ListAccountGrid.DataSource = filtertable;
         }
 
-        private void ListAccountGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                //gets a collection that contains all the rows
-                DataGridViewRow row = this.ListAccountGrid.Rows[e.RowIndex];
-                //populate the textbox from specific value of the coordinates of column and row.
-                UsernameTextbox.Text = row.Cells[0].Value.ToString();
-                PasswordTextbox.Text = row.Cells[1].Value.ToString();
-                IDTextbox.Text = row.Cells[2].Value.ToString();
-                if(row.Cells[3].Value.ToString() == "1")
-                {
-                    AdminCheckbox.Checked = true;
-                }   
-                else
-                {
-                    AdminCheckbox.Checked = false;
-                }    
-            }
-        }
-
         private void FormAccount_Click(object sender, EventArgs e)
         {
             UsernameTextbox.Text = "";
@@ -141,6 +120,24 @@ namespace QuanLiRapChieuPhim
                 IDTextbox.Text = "";
             }
             LoadAccountList();
+        }
+
+        private void ListAccountGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //gets a collection that contains all the rows
+                DataGridViewRow row = this.ListAccountGrid.Rows[e.RowIndex];
+                //populate the textbox from specific value of the coordinates of column and row.
+                UsernameTextbox.Text = row.Cells[0].Value.ToString();
+                PasswordTextbox.Text = row.Cells[1].Value.ToString();
+                IDTextbox.Text = row.Cells[2].Value.ToString();
+
+                if (row.Cells[3].Value.ToString() == "1")
+                    AdminCheckbox.Checked = true;
+                else
+                    AdminCheckbox.Checked = false;
+            }
         }
     }
 }
