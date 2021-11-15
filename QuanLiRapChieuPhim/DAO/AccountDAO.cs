@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,10 @@ namespace QuanLiRapChieuPhim.DAO
             query = "SELECT * FROM dbo.Account WHERE Username='" + Username + "' AND Pass='" + Password + "'AND AccType='" + 0 + "'";
             DataTable result0 = DataProvider.Instance.ExcuteQuery(query);
             if (result0.Rows.Count > 0)
+            {
+                FormLogin.ID_USER = DataProvider.Instance.GetID(Username);
                 return 0;
+            }
             return -1;
         }
         
@@ -62,9 +66,9 @@ namespace QuanLiRapChieuPhim.DAO
             return DataProvider.Instance.ExcuteQuery(query);
         }
 
-        public void AddInfoStaff(string ID, string Fullname, string DoB, string Adress, string PhoneNum, string IDPersonal)
+        public void AddInfoStaff(string ID, string Fullname, string DoB, string Adress, string PhoneNum, string IDPersonal, string Email, string Sex)
         {
-            string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal]) VALUES ('" + ID + "',N'" + Fullname + "', CAST('" + DoB + "' AS Date),N'" + Adress + "','" + PhoneNum + "','" + IDPersonal + "')";
+            string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES ('" + ID + "',N'" + Fullname + "', CAST('" + DoB + "' AS Date),N'" + Sex + "','" + Adress + "','" + PhoneNum + "','" + Email + "','" + IDPersonal + "')";
             DataProvider.Instance.ExcuteQuery(query);        
         }
 
@@ -77,9 +81,9 @@ namespace QuanLiRapChieuPhim.DAO
             DataProvider.Instance.ExcuteQuery(query);
         }
 
-        public void EditInfoStaff(string ID, string Fullname, string DoB, string Address, string PhoneNum, string IDPersonal)
+        public void EditInfoStaff(string ID, string Fullname, string DoB, string Address, string PhoneNum, string IDPersonal, string Email, string Sex)
         {
-            string query = "UPDATE dbo.InfoStaff SET FullName=N'" + Fullname + "', DoB='" + DoB + "', Addr='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "' WHERE ID='" + ID + "'";
+            string query = "UPDATE dbo.InfoStaff SET FullName=N'" + Fullname + "', DoB='" + DoB + "', Addr='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "', Sex='" + Sex + "', Email='" + Email + "' WHERE ID='" + ID + "'";
             DataProvider.Instance.ExcuteQuery(query);
         }
     }

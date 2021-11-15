@@ -25,23 +25,6 @@ namespace QuanLiRapChieuPhim
             ListCustomerGrid.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
 
-        private void DeleteButton_Click_1(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có thật sự muốn xóa thông tin khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                PointTextbox.Text = "";
-                LoadInfoCustomer();
-            }
-        }
-
         private void SearchTextbox_Enter(object sender, EventArgs e)
         {
             if (SearchTextbox.Text == "Search")
@@ -88,7 +71,7 @@ namespace QuanLiRapChieuPhim
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn sửa thông tin này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
@@ -111,7 +94,7 @@ namespace QuanLiRapChieuPhim
             {
                 if (IDTextbox.Text == ListCustomerGrid.Rows[i].Cells[0].Value.ToString())
                 {
-                    MessageBox.Show("Thông tin khách hàng đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("This infomation already exist", "Thông báo", MessageBoxButtons.OK);
                     IDTextbox.Text = "";
                     FullNameTextbox.Text = "";
                     DoBTextbox.Text = "";
@@ -138,13 +121,29 @@ namespace QuanLiRapChieuPhim
                 IDPersonalTextbox.Text = "";
             }
             else
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK);
-            }
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
+           
             LoadInfoCustomer();
         }
 
-        private void FormCustomer_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
+                DataProvider.Instance.ExcuteQuery(query);
+                IDTextbox.Text = "";
+                FullNameTextbox.Text = "";
+                DoBTextbox.Text = "";
+                AddressTextbox.Text = "";
+                PhoneNumTextbox.Text = "";
+                IDPersonalTextbox.Text = "";
+                PointTextbox.Text = "";
+                LoadInfoCustomer();
+            }
+        }
+
+        private void CustomerLabel_Click(object sender, EventArgs e)
         {
             IDTextbox.Text = "";
             FullNameTextbox.Text = "";
@@ -155,5 +154,4 @@ namespace QuanLiRapChieuPhim
             PointTextbox.Text = "";
         }
     }
-
 }

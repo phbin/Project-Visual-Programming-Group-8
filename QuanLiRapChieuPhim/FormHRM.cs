@@ -19,27 +19,13 @@ namespace QuanLiRapChieuPhim
             LoadInfoStaff();
         }
 
+        string Sex;
+
         void LoadInfoStaff()
         {
             string query = "SELECT * FROM InfoStaff";
             InfoStaffGridView.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có thật sự muốn xóa thông tin này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                AccountDAO.Instance.DeleteInfoStaff(IDTextbox.Text);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                LoadInfoStaff();
-            }
-        }
-
 
         private void SearchTextbox_Enter_1(object sender, EventArgs e)
         {
@@ -77,62 +63,118 @@ namespace QuanLiRapChieuPhim
                 IDTextbox.Text = row.Cells[0].Value.ToString();
                 FullNameTextbox.Text = row.Cells[1].Value.ToString();
                 DoBTextbox.Text = row.Cells[2].Value.ToString();
-                AddressTextbox.Text = row.Cells[3].Value.ToString();
-                PhoneNumTextbox.Text = row.Cells[4].Value.ToString();
-                IDPersonalTextbox.Text = row.Cells[5].Value.ToString();
+                if (row.Cells[3].Value.ToString() == "Nam")
+                {
+                    MaleCheckbox.Checked = true;
+                    FemaleCheckbox.Checked = false;
+                }
+                else
+                {
+                    FemaleCheckbox.Checked = true;
+                    MaleCheckbox.Checked = false;
+                }
+                    AddressTextbox.Text = row.Cells[4].Value.ToString();
+                PhoneNumTextbox.Text = row.Cells[5].Value.ToString();
+                EmailTextbox.Text = row.Cells[6].Value.ToString();
+                IDPersonalTextbox.Text = row.Cells[7].Value.ToString();
             }
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        private void EditButton_Click_1(object sender, EventArgs e)
         {
+            if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
+            {
+                MessageBox.Show("Wrong sex!", "Notification", MessageBoxButtons.OK);
+                return;
+            }
+            else if (MaleCheckbox.Checked)
+                Sex = "Nam";
+            else
+                Sex = "Nữ";
+
             DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
             string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            if (MessageBox.Show("Bạn có thật sự muốn thay đổi thông tin này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you really want to change this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text);
+                AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
                 AddressTextbox.Text = "";
                 PhoneNumTextbox.Text = "";
                 IDPersonalTextbox.Text = "";
+                EmailTextbox.Text = "";
+                MaleCheckbox.Checked = false;
+                FemaleCheckbox.Checked = false;
             }
+           
             LoadInfoStaff();
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private void AddButton_Click_1(object sender, EventArgs e)
         {
             for (int i = 0; i < InfoStaffGridView.Rows.Count; i++)
             {
                 if (IDTextbox.Text == InfoStaffGridView.Rows[i].Cells[0].Value.ToString())
                 {
-                    MessageBox.Show("Tài khoản đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
                     IDTextbox.Text = "";
                     IDTextbox.Focus();
                     return;
                 }
             }
 
-            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text!="" && AddressTextbox.Text!="" && PhoneNumTextbox.Text!="" && IDPersonalTextbox.Text != "") 
+
+            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text != "" && AddressTextbox.Text != "" && PhoneNumTextbox.Text != "" && IDPersonalTextbox.Text != "")
             {
+                if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
+                {
+                    MessageBox.Show("Wrong sex!", "Notification", MessageBoxButtons.OK);
+                    return;
+                }
+                else if (MaleCheckbox.Checked)
+                    Sex = "Nam";
+                else
+                    Sex = "Nữ";
+
                 DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text,FullNameTextbox.Text,sqlFormattedDate,AddressTextbox.Text,PhoneNumTextbox.Text,IDPersonalTextbox.Text);
+                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
                 AddressTextbox.Text = "";
                 PhoneNumTextbox.Text = "";
                 IDPersonalTextbox.Text = "";
+                EmailTextbox.Text = "";
+                MaleCheckbox.Checked = false;
+                FemaleCheckbox.Checked = false;
             }
             else
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
-            }
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
+            
             LoadInfoStaff();
         }
 
-        private void FormHRM_Click_1(object sender, EventArgs e)
+        private void DeleteButton_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                AccountDAO.Instance.DeleteInfoStaff(IDTextbox.Text);
+                IDTextbox.Text = "";
+                FullNameTextbox.Text = "";
+                DoBTextbox.Text = "";
+                AddressTextbox.Text = "";
+                PhoneNumTextbox.Text = "";
+                IDPersonalTextbox.Text = "";
+                EmailTextbox.Text = "";
+                MaleCheckbox.Checked = false;
+                FemaleCheckbox.Checked = false;
+                LoadInfoStaff();
+            }
+        }
+
+        private void HRMLabel_Click(object sender, EventArgs e)
         {
             IDTextbox.Text = "";
             FullNameTextbox.Text = "";
@@ -140,6 +182,9 @@ namespace QuanLiRapChieuPhim
             AddressTextbox.Text = "";
             PhoneNumTextbox.Text = "";
             IDPersonalTextbox.Text = "";
+            EmailTextbox.Text = "";
+            MaleCheckbox.Checked = false;
+            FemaleCheckbox.Checked = false;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace QuanLiRapChieuPhim.DAO
     {
         private static DataProvider instance;
 
-        public static DataProvider Instance 
+        public static DataProvider Instance
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { DataProvider.instance = value; }
@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim.DAO
         private DataProvider() { }
 
 
-        private string connectionSTR = @"Data Source=DESKTOP-J24RRH6\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -48,7 +48,7 @@ namespace QuanLiRapChieuPhim.DAO
                 SqlDataAdapter apdater = new SqlDataAdapter(command);
 
                 apdater.Fill(data);
-                 
+
                 connection.Close();
             }
             return data;
@@ -56,7 +56,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public  int ExcuteNonQuery(string query, object[] parameter = null)
         {
-            int data = 0;
+            int dataRow = 0;
             using (System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
@@ -73,13 +73,18 @@ namespace QuanLiRapChieuPhim.DAO
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
-                        }    
-                    }    
+                        }
+                    }
                 }
-                data = command.ExecuteNonQuery();
+                try
+                {
+                    dataRow = command.ExecuteNonQuery();
+                }
+                catch { }
+
                 connection.Close();
             }
-            return data;
+            return dataRow;
         }
 
 
@@ -111,6 +116,22 @@ namespace QuanLiRapChieuPhim.DAO
                 connection.Close();
             }
             return data;
+        }
+
+        string ID;
+
+        public string GetID(string Username)
+        {
+            SqlDataReader da;
+            System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE Username='"+Username+"'",connection);
+            da = cmd.ExecuteReader();
+            while (da.Read())
+            {
+                ID = da.GetValue(2).ToString();
+            }   
+            return ID;
         }
 
     }

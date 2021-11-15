@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiRapChieuPhim.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace QuanLiRapChieuPhim
         public FormStaff()
         {
             InitializeComponent();
+            LayDSNS();
         }
+        private void LayDSNS()
+        {
+            string query = "SELECT * FROM InfoStaff WHERE id ='" + FormLogin.ID_USER + "'";
+            DataTable table = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                labelName.Text = rows[1].ToString();
+                lbID.Text = rows[0].ToString();
+                txtPID.Text = rows[7].ToString();
+                txtDOB.Text = rows[2].ToString();
+                txtSex.Text = rows[3].ToString();
+                txtEmail.Text = rows[6].ToString();
+                txtPhoneNum.Text = rows[5].ToString();
+                txtAddr.Text = rows[4].ToString();
+            }
+        }
+
     }
 }
