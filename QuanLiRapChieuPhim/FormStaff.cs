@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim
         private void LayDSNS()
         {
             string query = "SELECT * FROM InfoStaff WHERE id ='" + FormLogin.ID_USER + "'";
-            DataTable table = DataProvider.Instance.ExcuteQuery(query);
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow rows in table.Rows)
             {
                 labelName.Text = rows[1].ToString();

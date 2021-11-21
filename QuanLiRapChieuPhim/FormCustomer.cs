@@ -22,7 +22,7 @@ namespace QuanLiRapChieuPhim
         void LoadInfoCustomer()
         {
             string query = "SELECT * FROM dbo.InfoCustomer";
-            ListCustomerGrid.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            ListCustomerGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void DeleteButton_Click_1(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace QuanLiRapChieuPhim
             if (MessageBox.Show("Do you really want to delete this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
+                DataProvider.Instance.ExecuteQuery(query);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -65,7 +65,7 @@ namespace QuanLiRapChieuPhim
         {
             DataTable filtertable = new DataTable();
             string query = "SELECT * FROM dbo.InfoCustomer WHERE FullName LIKE '%" + SearchTextbox.Text + "%'";
-            filtertable = DataProvider.Instance.ExcuteQuery(query);
+            filtertable = DataProvider.Instance.ExecuteQuery(query);
             ListCustomerGrid.DataSource = filtertable;
         }
 
@@ -93,7 +93,7 @@ namespace QuanLiRapChieuPhim
                 DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 string query = "UPDATE dbo.InfoCustomer SET FullName=N'" + FullNameTextbox.Text + "', DoB='" + sqlFormattedDate + "', Addr='" + AddressTextbox.Text + "', Phone='" + PhoneNumTextbox.Text + "', IDPersonal='" + IDPersonalTextbox.Text + "', Points=" + int.Parse(PointTextbox.Text) + " WHERE ID='" + IDTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
+                DataProvider.Instance.ExecuteQuery(query);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -129,7 +129,7 @@ namespace QuanLiRapChieuPhim
                 DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 string query = "INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES ('" + IDTextbox.Text + ",N'" + FullNameTextbox.Text + ",'" + sqlFormattedDate + ",'" + AddressTextbox.Text + ",'" + PhoneNumTextbox.Text + ",'" + IDPersonalTextbox.Text + ",'" + PointTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
+                DataProvider.Instance.ExecuteQuery(query);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";

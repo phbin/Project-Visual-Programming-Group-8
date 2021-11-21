@@ -156,7 +156,6 @@ namespace QuanLiRapChieuPhim
         private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
         {
             buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
-
         }
 
         private void buttonClose_MouseMove(object sender, MouseEventArgs e)

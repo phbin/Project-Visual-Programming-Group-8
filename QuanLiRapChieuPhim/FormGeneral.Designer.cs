@@ -87,6 +87,7 @@ namespace QuanLiRapChieuPhim
             this.btn1.TabIndex = 1;
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn1_MouseMove_1);
             // 
             // btn2
             // 
@@ -101,6 +102,7 @@ namespace QuanLiRapChieuPhim
             this.btn2.TabIndex = 2;
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.btn2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn2_MouseMove);
             // 
             // btn3
             // 
@@ -115,6 +117,7 @@ namespace QuanLiRapChieuPhim
             this.btn3.TabIndex = 3;
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            this.btn3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn3_MouseMove);
             // 
             // btn4
             // 
@@ -129,6 +132,7 @@ namespace QuanLiRapChieuPhim
             this.btn4.TabIndex = 4;
             this.btn4.UseVisualStyleBackColor = true;
             this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.btn4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn4_MouseMove);
             // 
             // btn5
             // 
@@ -143,6 +147,7 @@ namespace QuanLiRapChieuPhim
             this.btn5.TabIndex = 5;
             this.btn5.UseVisualStyleBackColor = true;
             this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            this.btn5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn5_MouseMove);
             // 
             // gradientPanelGeneral
             // 
