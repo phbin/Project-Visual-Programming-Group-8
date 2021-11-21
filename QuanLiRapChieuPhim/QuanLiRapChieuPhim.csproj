@@ -79,6 +79,8 @@
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\FoodDrinkDAO.cs" />
     <Compile Include="DTO\FDCategory.cs" />
     <Compile Include="DTO\FoodDrink.cs" />
     <Compile Include="DTO\Genre.cs" />
@@ -96,6 +98,12 @@
     </Compile>
     <Compile Include="FormAdmin\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFD.cs">
       <SubType>Form</SubType>
@@ -189,8 +197,14 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff.resx">
+      <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFD.resx">
+      <DependentUpon>FormFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGeneral.resx">
       <DependentUpon>FormGeneral.cs</DependentUpon>

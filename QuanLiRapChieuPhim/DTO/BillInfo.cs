@@ -13,7 +13,7 @@ namespace QuanLiRapChieuPhim
         private int iDBill;
         private int iDFoodDrink;
         private int quantity;
-
+        
         public BillInfo(int id, int idBill, int idFD, int qty)
         {
             this.iD = id;
@@ -35,19 +35,19 @@ namespace QuanLiRapChieuPhim
             get { return iD; }
             set { iD = value; }
         }
-
+        
         public int IDBill
         {
             get { return iDBill; }
             set { iDBill = value; }
         }
-
+        
         public int IDFoodDrink
         {
             get { return iDFoodDrink; }
             set { iDFoodDrink = value; }
         }
-
+        
         public int Quantity
         {
             get { return quantity; }

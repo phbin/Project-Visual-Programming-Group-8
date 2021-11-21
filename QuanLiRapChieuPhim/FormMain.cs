@@ -72,6 +72,7 @@ namespace QuanLiRapChieuPhim
             childForm.BringToFront();
             childForm.Show();
             labelHome.Text = childForm.Text;
+
         }
         private void buttonGeneral_Click(object sender, EventArgs e)
         {
@@ -156,6 +157,7 @@ namespace QuanLiRapChieuPhim
         private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
         {
             buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
+
         }
 
         private void buttonClose_MouseMove(object sender, MouseEventArgs e)

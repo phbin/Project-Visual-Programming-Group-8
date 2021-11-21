@@ -16,10 +16,14 @@ namespace QuanLiRapChieuPhim.DAO
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { DataProvider.instance = value; }
+            }
+            
+            private set { instance = value; }
         }
 
         private DataProvider() { }
 
+        private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
 
         private string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
@@ -27,6 +31,7 @@ namespace QuanLiRapChieuPhim.DAO
             DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
+
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
@@ -42,15 +47,16 @@ namespace QuanLiRapChieuPhim.DAO
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
-                    }
                 }
-
+                }
+                
                 SqlDataAdapter apdater = new SqlDataAdapter(command);
 
                 apdater.Fill(data);
-
+                
                 connection.Close();
             }
+
             return data;
         }
 
@@ -59,6 +65,7 @@ namespace QuanLiRapChieuPhim.DAO
             int dataRow = 0;
             using (System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR))
             {
+
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection);
@@ -74,16 +81,17 @@ namespace QuanLiRapChieuPhim.DAO
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
-                    }
+                }
                 }
                 try
                 {
-                    dataRow = command.ExecuteNonQuery();
+                dataRow = command.ExecuteNonQuery();
                 }
                 catch { }
 
                 connection.Close();
             }
+
             return dataRow;
         }
 
@@ -104,15 +112,17 @@ namespace QuanLiRapChieuPhim.DAO
                     string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
-                    {
+                        if (item.Contains('@'))
+                        {
                         if (item.Contains("@"))
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
-                    }
+                }
                 }
                 data = command.ExecuteScalar();
+
                 connection.Close();
             }
             return data;

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,19 +18,21 @@ namespace QuanLiRapChieuPhim
     {
         private Button curBtn;
         List<FoodDrink> fDList;
+
         public FormFD()
         {
             InitializeComponent();
 
             ShowBill(BillDAO.Instance.GetLastIDBill());
             LoadFDCategory();
-            this.DoubleBuffered = true;
+
+            dgvBill.RowsDefaultCellStyle.BackColor = Color.Snow;
         }
 
         void LoadFDCategory()
         {
             List<FDCategory> fDCategoryList = FDCategoryDAO.Instance.GetFDCategory();
-
+            
             cbbCategorySelection.DataSource = fDCategoryList;
             cbbCategorySelection.DisplayMember = "Name";
         }
@@ -42,17 +45,17 @@ namespace QuanLiRapChieuPhim
 
             int indexImage = 1;
 
-            foreach (FoodDrink item in fDList)
+            foreach(FoodDrink item in fDList)
             {
                 Button picture = new Button();
                 Label name = new Label();
                 Label price = new Label();
 
                 //Design button
-                picture.Width = 160;
-                picture.Height = 180;
+                picture.Width = 120;
+                picture.Height = 140;
                 picture.Margin = new Padding(5, 5, 5, 5);
-
+                
                 ////Insert image from resources file
                 string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;          //Get the app's running path
                 string fileName = string.Format("{0}Resources\\{1}_{2}.png", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")), iD, indexImage);
@@ -73,16 +76,16 @@ namespace QuanLiRapChieuPhim
                 picture.DoubleClick += Picture_DoubleClick;
 
                 //Design FoodDrink Name label
-                name.Text = item.Name;
+                name.Text = item.Name;               
                 name.TextAlign = ContentAlignment.MiddleCenter;
-                name.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
+                name.Font = new Font("Nirmala UI", 8F);
                 name.BackColor = Color.Transparent;
                 name.Dock = DockStyle.Top;
 
                 //Design FoodDrink Price label
                 price.Text = item.Price.ToString() + " VND";
                 price.TextAlign = ContentAlignment.MiddleCenter;
-                price.Font = new Font("Times New Roman", 12F);
+                price.Font = new Font("Nirmala UI", 12F);
                 price.BackColor = Color.Transparent;
                 price.Dock = DockStyle.Bottom;
 
@@ -122,13 +125,13 @@ namespace QuanLiRapChieuPhim
 
             foreach (FDMenu item in menuList)
             {
-
+              
                 total += item.TotalPrice;
 
-                dgvBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
+                dgvBill.Rows.Add(new object[] {item.Name, item.Quantity, item.Price, item.TotalPrice });
             }
-
-            txtTotalPrice.Text = "Total: " +total.ToString() + " VND";
+            
+            txtTotalPrice.Text = total.ToString() + " VND";
         }
 
         private void EnableButton(object sender)
@@ -170,7 +173,7 @@ namespace QuanLiRapChieuPhim
                 MessageBox.Show("You have not selected the FoodDrink!");
                 return;
             }
-
+            
             int iDFD = (curBtn.Tag as FoodDrink).ID;
             int iDBill = BillDAO.Instance.GetLastIDBill();
             int count = Convert.ToInt32(nmFDCount.Value);
@@ -189,6 +192,21 @@ namespace QuanLiRapChieuPhim
             DisableButton();
             ShowBill(iDBill);
         }
+
+        private void btnRemoveAll_Click(object sender, EventArgs e)
+        {
+            int iD = BillDAO.Instance.GetLastIDBill();
+            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
+            ShowBill(iD);
+
+            //Set default for panel
+            cbbCategorySelection.SelectedIndex = 0;
+            nmFDCount.Value = 1;
+            dgvBill.Rows.Clear();
+            txtTotalPrice.Clear();
+            DisableButton();
+        }
+
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             BillDAO.Instance.CheckOut(BillDAO.Instance.GetLastIDBill());
@@ -197,11 +215,11 @@ namespace QuanLiRapChieuPhim
             cbbCategorySelection.SelectedIndex = 0;
             nmFDCount.Value = 1;
             dgvBill.Rows.Clear();
-            txtTotalPrice.Text = "Total: 0 VND";
+            txtTotalPrice.Clear();
             DisableButton();
         }
 
-        private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbCategorySelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cbb = (ComboBox)sender;
 
@@ -216,18 +234,34 @@ namespace QuanLiRapChieuPhim
                 LoadFoodDrinkByCategoryID(1);
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnAdd_MouseMove(object sender, MouseEventArgs e)
         {
-            int iD = BillDAO.Instance.GetLastIDBill();
-            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
-            ShowBill(iD);
+            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
+        }
 
-            //Set default for panel
-            cbbCategorySelection.SelectedIndex = 0;
-            nmFDCount.Value = 1;
-            dgvBill.Rows.Clear();
-            txtTotalPrice.Text = "Total: 0 VND";
-            DisableButton();
+        private void btnRemoveAll_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
+        }
+
+        private void btnCheckOut_MouseMove(object sender, MouseEventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
+        }
+
+        private void btnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+        }
+
+        private void btnRemoveAll_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+        }
+
+        private void btnCheckOut_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
         }
     }
 }

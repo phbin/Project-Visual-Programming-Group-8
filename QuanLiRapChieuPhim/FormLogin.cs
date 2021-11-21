@@ -130,7 +130,7 @@ namespace QuanLiRapChieuPhim
             else if(UsernameTextbox.Text=="" || PasswordTextbox.Text=="" || UsernameTextbox.Text=="Username" || PasswordTextbox.Text=="Password")
             {
                 UsernameTextbox.Focus();
-            }
+            }    
             else
             {
                 WrongLabel.Show();

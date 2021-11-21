@@ -33,7 +33,7 @@ namespace QuanLiRapChieuPhim.DAO
 
             string query = "SELECT FD.NameFD, BI.Num, FD.Price, FD.Price*BI.Num AS TotalPrice FROM Bill B, BillInfo BI, FoodDrink FD WHERE B.ID = BI.IDBill AND BI.IDFoodDrink = FD.ID AND BI.IDBill = " + iDBill;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
-
+            
             foreach (DataRow item in data.Rows)
             {
                 FDMenu menu = new FDMenu(item);

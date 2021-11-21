@@ -31,13 +31,13 @@ namespace QuanLiRapChieuPhim
             get { return iD; }
             set { iD = value; }
         }
-
+        
         public string Date
         {
             get { return date; }
             set { date = value; }
         }
-
+        
         public int Status
         {
             get { return status; }

@@ -39,8 +39,10 @@ namespace QuanLiRapChieuPhim
             this.buttonRestoreDown = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.labelHome = new System.Windows.Forms.Label();
             this.pictureHome = new System.Windows.Forms.PictureBox();
             this.panelLine = new System.Windows.Forms.Panel();
+            this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.gradientPanelMenu = new QuanLiRapChieuPhim.GradientPanel();
             this.buttonAdmin = new System.Windows.Forms.Button();
             this.buttonStatistic = new System.Windows.Forms.Button();
@@ -51,6 +53,7 @@ namespace QuanLiRapChieuPhim
             this.panelHome = new System.Windows.Forms.Panel();
             this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHome)).BeginInit();
             this.gradientPanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHome)).BeginInit();
             this.SuspendLayout();
@@ -198,6 +201,18 @@ namespace QuanLiRapChieuPhim
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             this.buttonClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.buttonClose_MouseMove);
             // 
+            // labelHome
+            // 
+            this.labelHome.AutoSize = true;
+            this.labelHome.BackColor = System.Drawing.Color.Transparent;
+            this.labelHome.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHome.ForeColor = System.Drawing.Color.White;
+            this.labelHome.Location = new System.Drawing.Point(60, 15);
+            this.labelHome.Name = "labelHome";
+            this.labelHome.Size = new System.Drawing.Size(65, 28);
+            this.labelHome.TabIndex = 1;
+            this.labelHome.Text = "Home";
+            // 
             // pictureHome
             // 
             this.pictureHome.Image = ((System.Drawing.Image)(resources.GetObject("pictureHome.Image")));
@@ -217,6 +232,19 @@ namespace QuanLiRapChieuPhim
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(1280, 7);
             this.panelLine.TabIndex = 3;
+            // 
+            // gradientPanelDesktop
+            // 
+            this.gradientPanelDesktop.Angle = 90F;
+            this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
+            this.gradientPanelDesktop.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(220)))), ((int)(((byte)(214)))));
+            this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
+            this.gradientPanelDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gradientPanelDesktop.Name = "gradientPanelDesktop";
+            this.gradientPanelDesktop.Size = new System.Drawing.Size(1280, 781);
+            this.gradientPanelDesktop.TabIndex = 0;
+            this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
             // 
             // gradientPanelMenu
             // 
@@ -411,6 +439,7 @@ namespace QuanLiRapChieuPhim
             this.panelMenu.PerformLayout();
             this.gradientPanelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureHome)).EndInit();
+            this.gradientPanelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

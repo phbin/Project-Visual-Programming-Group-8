@@ -19,7 +19,7 @@ namespace QuanLiRapChieuPhim.DAO
                     instance = new BillDAO();
                 return instance;
             }
-
+            
             private set { instance = value; }
         }
 
