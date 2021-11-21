@@ -28,51 +28,6 @@ namespace QuanLiRapChieuPhim
             //ListAccountGrid.ClearSelection();
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            int admin = 0;
-            if (AdminCheckbox.Checked)
-                admin = 1;
-
-            for(int i=0;i<ListAccountGrid.Rows.Count;i++)
-            {
-                if(UsernameTextbox.Text == ListAccountGrid.Rows[i].Cells[0].Value.ToString())
-                {
-                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
-                    UsernameTextbox.Text = "";
-                    UsernameTextbox.Focus();
-                    return;
-                }
-            }    
-           
-            if(UsernameTextbox.Text!="" && PasswordTextbox.Text!="")
-            {
-                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                UsernameTextbox.Text = "";
-                PasswordTextbox.Text = "";
-                IDTextbox.Text = "";
-                AdminCheckbox.Checked = false;
-            }
-            else
-            {
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-            }
-            LoadAccountList();
-        }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                AccountDAO.Instance.DeleteAccont(UsernameTextbox.Text);
-                UsernameTextbox.Text = "";
-                PasswordTextbox.Text = "";
-                IDTextbox.Text = "";
-                AdminCheckbox.Checked = false;
-                LoadAccountList();
-            }   
-        }
-
         private void SearchTextbox_Enter(object sender, EventArgs e)
         {
             if (SearchTextbox.Text == "Search")
@@ -109,23 +64,12 @@ namespace QuanLiRapChieuPhim
                 UsernameTextbox.Text = row.Cells[0].Value.ToString();
                 PasswordTextbox.Text = row.Cells[1].Value.ToString();
                 IDTextbox.Text = row.Cells[2].Value.ToString();
+                
                 if(row.Cells[3].Value.ToString() == "1")
-                {
-                    AdminCheckbox.Checked = true;
-                }   
+                    AdminCheckbox.Checked = true;  
                 else
-                {
-                    AdminCheckbox.Checked = false;
-                }    
+                    AdminCheckbox.Checked = false;   
             }
-        }
-
-        private void FormAccount_Click(object sender, EventArgs e)
-        {
-            UsernameTextbox.Text = "";
-            PasswordTextbox.Text = "";
-            IDTextbox.Text = "";
-            AdminCheckbox.Checked = false;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -133,7 +77,7 @@ namespace QuanLiRapChieuPhim
             int admin = 0;
             if (AdminCheckbox.Checked)
                 admin = 1;
-            if (MessageBox.Show("Do you really want to change this information??", "Notification",MessageBoxButtons.OKCancel)==DialogResult.OK)
+            if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
                 UsernameTextbox.Text = "";
@@ -141,6 +85,57 @@ namespace QuanLiRapChieuPhim
                 IDTextbox.Text = "";
             }
             LoadAccountList();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            int admin = 0;
+            if (AdminCheckbox.Checked)
+                admin = 1;
+
+            for (int i = 0; i < ListAccountGrid.Rows.Count; i++)
+            {
+                if (UsernameTextbox.Text == ListAccountGrid.Rows[i].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
+                    UsernameTextbox.Text = "";
+                    UsernameTextbox.Focus();
+                    return;
+                }
+            }
+
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "")
+            {
+                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
+                AdminCheckbox.Checked = false;
+            }
+            else
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
+            LoadAccountList();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                AccountDAO.Instance.DeleteAccont(UsernameTextbox.Text);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
+                AdminCheckbox.Checked = false;
+                LoadAccountList();
+            }
+        }
+
+        private void AccountLabel_Click(object sender, EventArgs e)
+        {
+            UsernameTextbox.Text = "";
+            PasswordTextbox.Text = "";
+            IDTextbox.Text = "";
+            AdminCheckbox.Checked = false;
         }
     }
 }

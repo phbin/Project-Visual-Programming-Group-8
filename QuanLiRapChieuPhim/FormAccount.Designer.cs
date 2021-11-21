@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccount));
             this.ListAccountGrid = new System.Windows.Forms.DataGridView();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchTextbox = new System.Windows.Forms.TextBox();
-            this.UsernameTextbox = new System.Windows.Forms.TextBox();
-            this.PasswordTextbox = new System.Windows.Forms.TextBox();
-            this.AccountLabel = new System.Windows.Forms.Label();
-            this.AdminCheckbox = new System.Windows.Forms.CheckBox();
-            this.IDTextbox = new System.Windows.Forms.TextBox();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.AcctypeLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlInfo = new System.Windows.Forms.Panel();
+            this.AddButton = new System.Windows.Forms.Button();
             this.IDLabel = new System.Windows.Forms.Label();
+            this.IDTextbox = new System.Windows.Forms.TextBox();
+            this.AdminCheckbox = new System.Windows.Forms.CheckBox();
+            this.AccountLabel = new System.Windows.Forms.Label();
+            this.AcctypeLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.UsernameTextbox = new System.Windows.Forms.TextBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
@@ -56,10 +59,22 @@
             this.ListAccountGrid.AllowUserToDeleteRows = false;
             this.ListAccountGrid.AllowUserToOrderColumns = true;
             this.ListAccountGrid.AllowUserToResizeRows = false;
+            this.ListAccountGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ListAccountGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListAccountGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.ListAccountGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
             this.ListAccountGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListAccountGrid.ColumnHeadersHeight = 21;
+            this.ListAccountGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.ListAccountGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListAccountGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.ListAccountGrid.ColumnHeadersHeight = 25;
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ListAccountGrid.Location = new System.Drawing.Point(0, 65);
             this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
@@ -114,7 +129,10 @@
             // SearchButton
             // 
             this.SearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
             this.SearchButton.Location = new System.Drawing.Point(310, 16);
@@ -153,7 +171,7 @@
             this.SearchTextbox.Enter += new System.EventHandler(this.SearchTextbox_Enter);
             this.SearchTextbox.Leave += new System.EventHandler(this.SearchTextbox_Leave);
             // 
-            // UsernameTextbox
+            // panel1
             // 
             this.UsernameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,7 +180,7 @@
             this.UsernameTextbox.Size = new System.Drawing.Size(190, 22);
             this.UsernameTextbox.TabIndex = 1;
             // 
-            // PasswordTextbox
+            // pnlInfo
             // 
             this.PasswordTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,7 +189,7 @@
             this.PasswordTextbox.Size = new System.Drawing.Size(190, 22);
             this.PasswordTextbox.TabIndex = 2;
             // 
-            // AccountLabel
+            // AddButton
             // 
             this.AccountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AccountLabel.AutoSize = true;
@@ -183,7 +201,7 @@
             this.AccountLabel.TabIndex = 21;
             this.AccountLabel.Text = "ACCOUNT";
             // 
-            // AdminCheckbox
+            // IDLabel
             // 
             this.AdminCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AdminCheckbox.AutoSize = true;
@@ -202,7 +220,7 @@
             this.IDTextbox.Size = new System.Drawing.Size(190, 22);
             this.IDTextbox.TabIndex = 3;
             // 
-            // EditButton
+            // AccountLabel
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.BackColor = System.Drawing.Color.Transparent;
@@ -303,12 +321,10 @@
             this.Controls.Add(this.ListAccountGrid);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormAccount";
-            this.Click += new System.EventHandler(this.FormAccount_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -317,19 +333,20 @@
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.DataGridView ListAccountGrid;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlInfo;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.TextBox SearchTextbox;
-        private System.Windows.Forms.TextBox UsernameTextbox;
-        private System.Windows.Forms.TextBox PasswordTextbox;
-        private System.Windows.Forms.Label AccountLabel;
-        private System.Windows.Forms.CheckBox AdminCheckbox;
-        private System.Windows.Forms.TextBox IDTextbox;
-        private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Label AcctypeLabel;
         private System.Windows.Forms.Label IDLabel;
+        private System.Windows.Forms.TextBox IDTextbox;
+        private System.Windows.Forms.CheckBox AdminCheckbox;
+        private System.Windows.Forms.Label AccountLabel;
+        private System.Windows.Forms.Label AcctypeLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Label UsernameLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.TextBox UsernameTextbox;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.TextBox SearchTextbox;
     }
 }

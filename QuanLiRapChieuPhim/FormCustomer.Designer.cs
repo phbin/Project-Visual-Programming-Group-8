@@ -29,12 +29,23 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
-            this.CustomerLabel = new System.Windows.Forms.Label();
+            this.ListCustomerGrid = new System.Windows.Forms.DataGridView();
+            this.SearchPanel = new System.Windows.Forms.Panel();
+            this.SearchTextbox = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.pnlInfo = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PhoneNumTextbox = new System.Windows.Forms.TextBox();
+            this.PointLabel = new System.Windows.Forms.Label();
+            this.PointTextbox = new System.Windows.Forms.TextBox();
             this.IDPersonalLabel = new System.Windows.Forms.Label();
             this.IDPersonalTextbox = new System.Windows.Forms.TextBox();
             this.AdressLabel = new System.Windows.Forms.Label();
             this.AddressTextbox = new System.Windows.Forms.TextBox();
+            this.AddButton = new System.Windows.Forms.Button();
             this.IDLabel = new System.Windows.Forms.Label();
             this.IDTextbox = new System.Windows.Forms.TextBox();
             this.DoBLabel = new System.Windows.Forms.Label();
@@ -57,7 +68,7 @@ namespace QuanLiRapChieuPhim
             this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CustomerLabel
+            // ListCustomerGrid
             // 
             this.CustomerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerLabel.AutoSize = true;
@@ -68,6 +79,121 @@ namespace QuanLiRapChieuPhim
             this.CustomerLabel.Size = new System.Drawing.Size(267, 30);
             this.CustomerLabel.TabIndex = 41;
             this.CustomerLabel.Text = "CUSTOMER INFOMATION";
+            // 
+            // SearchPanel
+            // 
+            this.SearchPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SearchPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchPanel.BackgroundImage")));
+            this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SearchPanel.Controls.Add(this.SearchTextbox);
+            this.SearchPanel.Controls.Add(this.SearchButton);
+            this.SearchPanel.Location = new System.Drawing.Point(4, 15);
+            this.SearchPanel.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.SearchPanel.Name = "SearchPanel";
+            this.SearchPanel.Size = new System.Drawing.Size(451, 30);
+            this.SearchPanel.TabIndex = 33;
+            // 
+            // SearchTextbox
+            // 
+            this.SearchTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
+            this.SearchTextbox.Location = new System.Drawing.Point(14, 6);
+            this.SearchTextbox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.SearchTextbox.Multiline = true;
+            this.SearchTextbox.Name = "SearchTextbox";
+            this.SearchTextbox.Size = new System.Drawing.Size(400, 17);
+            this.SearchTextbox.TabIndex = 33;
+            this.SearchTextbox.Text = "Search";
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
+            this.SearchButton.Location = new System.Drawing.Point(424, 0);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(27, 30);
+            this.SearchButton.TabIndex = 32;
+            this.SearchButton.UseVisualStyleBackColor = false;
+            // 
+            // pnlInfo
+            // 
+            this.pnlInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.pnlInfo.Controls.Add(this.label2);
+            this.pnlInfo.Controls.Add(this.PhoneNumTextbox);
+            this.pnlInfo.Controls.Add(this.PointLabel);
+            this.pnlInfo.Controls.Add(this.PointTextbox);
+            this.pnlInfo.Controls.Add(this.IDPersonalLabel);
+            this.pnlInfo.Controls.Add(this.IDPersonalTextbox);
+            this.pnlInfo.Controls.Add(this.AdressLabel);
+            this.pnlInfo.Controls.Add(this.AddressTextbox);
+            this.pnlInfo.Controls.Add(this.AddButton);
+            this.pnlInfo.Controls.Add(this.IDLabel);
+            this.pnlInfo.Controls.Add(this.IDTextbox);
+            this.pnlInfo.Controls.Add(this.DoBLabel);
+            this.pnlInfo.Controls.Add(this.FullNameLabel);
+            this.pnlInfo.Controls.Add(this.FullNameTextbox);
+            this.pnlInfo.Controls.Add(this.DoBTextbox);
+            this.pnlInfo.Controls.Add(this.DeleteButton);
+            this.pnlInfo.Controls.Add(this.EditButton);
+            this.pnlInfo.Controls.Add(this.CustomerLabel);
+            this.pnlInfo.Location = new System.Drawing.Point(462, 14);
+            this.pnlInfo.Name = "pnlInfo";
+            this.pnlInfo.Size = new System.Drawing.Size(360, 564);
+            this.pnlInfo.TabIndex = 68;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.label2.Location = new System.Drawing.Point(20, 208);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 15);
+            this.label2.TabIndex = 85;
+            this.label2.Text = "Phone Number";
+            // 
+            // PhoneNumTextbox
+            // 
+            this.PhoneNumTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneNumTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumTextbox.Location = new System.Drawing.Point(129, 205);
+            this.PhoneNumTextbox.Name = "PhoneNumTextbox";
+            this.PhoneNumTextbox.Size = new System.Drawing.Size(190, 22);
+            this.PhoneNumTextbox.TabIndex = 84;
+            // 
+            // PointLabel
+            // 
+            this.PointLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PointLabel.AutoSize = true;
+            this.PointLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PointLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PointLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.PointLabel.Location = new System.Drawing.Point(83, 274);
+            this.PointLabel.Name = "PointLabel";
+            this.PointLabel.Size = new System.Drawing.Size(40, 15);
+            this.PointLabel.TabIndex = 83;
+            this.PointLabel.Text = "Point";
+            // 
+            // PointTextbox
+            // 
+            this.PointTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PointTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PointTextbox.Location = new System.Drawing.Point(129, 271);
+            this.PointTextbox.Name = "PointTextbox";
+            this.PointTextbox.Size = new System.Drawing.Size(190, 22);
+            this.PointTextbox.TabIndex = 82;
             // 
             // IDPersonalLabel
             // 
@@ -112,6 +238,27 @@ namespace QuanLiRapChieuPhim
             this.AddressTextbox.Name = "AddressTextbox";
             this.AddressTextbox.Size = new System.Drawing.Size(190, 22);
             this.AddressTextbox.TabIndex = 49;
+            // 
+            // AddButton
+            // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddButton.BackColor = System.Drawing.Color.Transparent;
+            this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(86)))));
+            this.AddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.Add_01;
+            this.AddButton.Location = new System.Drawing.Point(130, 314);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(101, 66);
+            this.AddButton.TabIndex = 74;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // IDLabel
             // 
@@ -279,6 +426,8 @@ namespace QuanLiRapChieuPhim
             this.DeleteButton.BackColor = System.Drawing.Color.Transparent;
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeleteButton.FlatAppearance.BorderSize = 0;
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(86)))));
+            this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
@@ -290,8 +439,7 @@ namespace QuanLiRapChieuPhim
             this.DeleteButton.TabIndex = 54;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click_1);
-            this.DeleteButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DeleteButton_MouseMove);
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -299,6 +447,8 @@ namespace QuanLiRapChieuPhim
             this.EditButton.BackColor = System.Drawing.Color.Transparent;
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.FlatAppearance.BorderSize = 0;
+            this.EditButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(50)))), ((int)(((byte)(86)))));
+            this.EditButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
@@ -339,7 +489,7 @@ namespace QuanLiRapChieuPhim
             this.SearchPanel.Size = new System.Drawing.Size(322, 30);
             this.SearchPanel.TabIndex = 33;
             // 
-            // SearchTextbox
+            // CustomerLabel
             // 
             this.SearchTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -386,20 +536,23 @@ namespace QuanLiRapChieuPhim
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
-            this.Click += new System.EventHandler(this.FormCustomer_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ListCustomerGrid)).EndInit();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label CustomerLabel;
-        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Panel SearchPanel;
+        private System.Windows.Forms.DataGridView ListCustomerGrid;
+        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.TextBox SearchTextbox;
+        private System.Windows.Forms.Panel pnlInfo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox PhoneNumTextbox;
+        private System.Windows.Forms.Label PointLabel;
+        private System.Windows.Forms.TextBox PointTextbox;
         private System.Windows.Forms.Label IDPersonalLabel;
         private System.Windows.Forms.TextBox IDPersonalTextbox;
         private System.Windows.Forms.Label AdressLabel;
@@ -413,11 +566,6 @@ namespace QuanLiRapChieuPhim
         private System.Windows.Forms.TextBox DoBTextbox;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Label PointLabel;
-        private System.Windows.Forms.TextBox PointTextbox;
-        private System.Windows.Forms.TextBox PhoneNumTextbox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView ListCustomerGrid;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label CustomerLabel;
     }
 }
