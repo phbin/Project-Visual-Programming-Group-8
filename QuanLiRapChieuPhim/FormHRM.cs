@@ -27,25 +27,6 @@ namespace QuanLiRapChieuPhim
             InfoStaffGridView.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                AccountDAO.Instance.DeleteInfoStaff(IDTextbox.Text);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                EmailTextbox.Text = "";
-                MaleCheckbox.Checked = false;
-                FemaleCheckbox.Checked = false;
-                LoadInfoStaff();
-            }
-        }
-
-
         private void SearchTextbox_Enter_1(object sender, EventArgs e)
         {
             if (SearchTextbox.Text == "Search")
@@ -99,7 +80,7 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        private void EditButton_Click_1(object sender, EventArgs e)
         {
             if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
             {
@@ -126,10 +107,11 @@ namespace QuanLiRapChieuPhim
                 MaleCheckbox.Checked = false;
                 FemaleCheckbox.Checked = false;
             }
+           
             LoadInfoStaff();
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private void AddButton_Click_1(object sender, EventArgs e)
         {
             for (int i = 0; i < InfoStaffGridView.Rows.Count; i++)
             {
@@ -157,7 +139,7 @@ namespace QuanLiRapChieuPhim
 
                 DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text,FullNameTextbox.Text,sqlFormattedDate,AddressTextbox.Text,PhoneNumTextbox.Text,IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
+                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -169,13 +151,30 @@ namespace QuanLiRapChieuPhim
                 FemaleCheckbox.Checked = false;
             }
             else
-            {
                 MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-            }
+            
             LoadInfoStaff();
         }
 
-        private void FormHRM_Click_1(object sender, EventArgs e)
+        private void DeleteButton_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                AccountDAO.Instance.DeleteInfoStaff(IDTextbox.Text);
+                IDTextbox.Text = "";
+                FullNameTextbox.Text = "";
+                DoBTextbox.Text = "";
+                AddressTextbox.Text = "";
+                PhoneNumTextbox.Text = "";
+                IDPersonalTextbox.Text = "";
+                EmailTextbox.Text = "";
+                MaleCheckbox.Checked = false;
+                FemaleCheckbox.Checked = false;
+                LoadInfoStaff();
+            }
+        }
+
+        private void HRMLabel_Click(object sender, EventArgs e)
         {
             IDTextbox.Text = "";
             FullNameTextbox.Text = "";
@@ -186,21 +185,6 @@ namespace QuanLiRapChieuPhim
             EmailTextbox.Text = "";
             MaleCheckbox.Checked = false;
             FemaleCheckbox.Checked = false;
-        }
-
-        private void DeleteButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
-        }
-
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
-        }
-
-        private void EditButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
         }
     }
 }
