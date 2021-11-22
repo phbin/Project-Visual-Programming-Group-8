@@ -24,8 +24,6 @@ namespace QuanLiRapChieuPhim
             ShowBill(BillDAO.Instance.GetLastIDBill());
             LoadFDCategory();
             this.DoubleBuffered = true;
-
-            dgvBill.RowsDefaultCellStyle.BackColor = Color.Snow;
         }
 
         void LoadFDCategory()
@@ -65,11 +63,14 @@ namespace QuanLiRapChieuPhim
                 picture.BackColor = Color.White;
                 picture.FlatStyle = FlatStyle.Flat;
                 picture.FlatAppearance.BorderSize = 0;
+                picture.FlatAppearance.MouseDownBackColor = Color.Salmon;
+                picture.FlatAppearance.MouseOverBackColor = Color.FromArgb(229, 70, 70);
 
                 picture.Tag = (object)item;
 
                 //Add events to button
                 picture.Click += picture_Click;
+                picture.DoubleClick += Picture_DoubleClick;
 
                 //Design FoodDrink Name label
                 name.Text = item.Name;
@@ -91,6 +92,26 @@ namespace QuanLiRapChieuPhim
                 flpFoodDrink.Controls.Add(picture);
                 indexImage++;
             }
+        }
+
+        private void Picture_DoubleClick(object sender, EventArgs e)
+        {
+            int iDFD = ((sender as Button).Tag as FoodDrink).ID;
+            int iDBill = BillDAO.Instance.GetLastIDBill();
+            int count = 1;
+            int status = BillDAO.Instance.GetStatusBill(iDBill);
+
+            if (status == 0)
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+            else
+            {
+                BillDAO.Instance.InsertBill(iDBill);
+                iDBill = BillDAO.Instance.GetLastIDBill();
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+            }
+
+            nmFDCount.Value = 1;
+            ShowBill(iDBill);
         }
 
         void ShowBill(int iDBill)
@@ -168,21 +189,6 @@ namespace QuanLiRapChieuPhim
             DisableButton();
             ShowBill(iDBill);
         }
-
-        private void btnRemoveAll_Click(object sender, EventArgs e)
-        {
-            int iD = BillDAO.Instance.GetLastIDBill();
-            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
-            ShowBill(iD);
-
-            //Set default for panel
-            cbbCategorySelection.SelectedIndex = 0;
-            nmFDCount.Value = 1;
-            dgvBill.Rows.Clear();
-            txtTotalPrice.Clear();
-            DisableButton();
-        }
-
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             BillDAO.Instance.CheckOut(BillDAO.Instance.GetLastIDBill());
@@ -191,38 +197,8 @@ namespace QuanLiRapChieuPhim
             cbbCategorySelection.SelectedIndex = 0;
             nmFDCount.Value = 1;
             dgvBill.Rows.Clear();
-            txtTotalPrice.Clear();
+            txtTotalPrice.Text = "Total: 0 VND";
             DisableButton();
-        }
-
-        private void btnAdd_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
-
-        private void btnRemoveAll_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
-
-        private void btnCheckOut_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
-
-        private void btnAdd_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
-        }
-
-        private void btnRemoveAll_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
-        }
-
-        private void btnCheckOut_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(229, 70, 70);
         }
 
         private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -240,5 +216,18 @@ namespace QuanLiRapChieuPhim
                 LoadFoodDrinkByCategoryID(1);
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int iD = BillDAO.Instance.GetLastIDBill();
+            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
+            ShowBill(iD);
+
+            //Set default for panel
+            cbbCategorySelection.SelectedIndex = 0;
+            nmFDCount.Value = 1;
+            dgvBill.Rows.Clear();
+            txtTotalPrice.Text = "Total: 0 VND";
+            DisableButton();
+        }
     }
 }

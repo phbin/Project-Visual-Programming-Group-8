@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLiRapChieuPhim.DTO;
 
 namespace QuanLiRapChieuPhim
 {
     public partial class FormCustomer : Form
     {
+        public Customer customer;
+
         public FormCustomer()
         {
             InitializeComponent();
@@ -138,13 +141,29 @@ namespace QuanLiRapChieuPhim
                 IDPersonalTextbox.Text = "";
             }
             else
-            {
                 MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-            }
+           
             LoadInfoCustomer();
         }
 
-        private void FormCustomer_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
+                DataProvider.Instance.ExcuteQuery(query);
+                IDTextbox.Text = "";
+                FullNameTextbox.Text = "";
+                DoBTextbox.Text = "";
+                AddressTextbox.Text = "";
+                PhoneNumTextbox.Text = "";
+                IDPersonalTextbox.Text = "";
+                PointTextbox.Text = "";
+                LoadInfoCustomer();
+            }
+        }
+
+        private void CustomerLabel_Click(object sender, EventArgs e)
         {
             IDTextbox.Text = "";
             FullNameTextbox.Text = "";
@@ -154,21 +173,5 @@ namespace QuanLiRapChieuPhim
             IDPersonalTextbox.Text = "";
             PointTextbox.Text = "";
         }
-
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
-        }
-
-        private void DeleteButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
-        }
-
-        private void EditButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(33, 34, 46);
-        }
     }
-
 }
