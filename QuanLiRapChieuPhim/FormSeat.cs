@@ -159,7 +159,7 @@ namespace QuanLiRapChieuPhim
             }
             else if (btnSeat.BackColor == Color.Red)
             {
-                MessageBox.Show("Ghế số [" + btnSeat.Text + "] đã có người mua");
+                MessageBox.Show("Seat [" + btnSeat.Text + "] has been sold");
             }
             LoadBill();
             if (listSeatSelected.Count > 0)
@@ -187,8 +187,8 @@ namespace QuanLiRapChieuPhim
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn hủy tất cả những vé đã chọn không?",
-                "Hủy Mua Vé", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure to cancel all the selected tickets?",
+                "Cancel Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No) return;
             foreach (Button btn in listSeatSelected)
             {
@@ -222,16 +222,16 @@ namespace QuanLiRapChieuPhim
         {
             if (listSeatSelected.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn vé trước khi thanh toán!");
+                MessageBox.Show("Please select your ticket before paying!");
                 return;
             }
-            string message = "Bạn có chắc chắn mua những vé: \n";
+            string message = "Are you sure to buy these tickets: \n";
             foreach (Button btn in listSeatSelected)
             {
                 message += "[" + btn.Text + "] ";
             }
-            message += "\nKhông?";
-            DialogResult result = MessageBox.Show(message, "Hỏi Mua",
+            message += "\nNo?";
+            DialogResult result = MessageBox.Show(message, "Confirm",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
@@ -258,7 +258,7 @@ namespace QuanLiRapChieuPhim
                 }
                 if (ret == listSeatSelected.Count)
                 {
-                    MessageBox.Show("Bạn đã mua vé thành công!");
+                    MessageBox.Show("Complete!");
                 }
             }
             RestoreDefault();
@@ -350,19 +350,19 @@ namespace QuanLiRapChieuPhim
 
             if (freeTickets > listSeat.Count)
             {
-                MessageBox.Show("BẠN CHỈ ĐỔI ĐƯỢC TỐT ĐA [" + listSeatSelected.Count + "] VÉ", "THÔNG BÁO");
+                MessageBox.Show("You can only exchange up to [" + listSeatSelected.Count + "] ticket(s)", "Notification");
                 return;
             }
             int pointFreeTicket = freeTickets * 20;
             if (customer.Points < pointFreeTicket)
             {
-                MessageBox.Show("BẠN KHÔNG ĐỦ ĐIỂM TÍCH LŨY ĐỂ ĐỔI [" + freeTickets + "] VÉ", "THÔNG BÁO");
+                MessageBox.Show("You don't enough points to exchange [" + freeTickets + "] ticket(s)", "Notification");
                 return;
             }
             else
             {
-                DialogResult result = MessageBox.Show("BẠN CÓ MUỐN DÙNG ĐIỂM TÍCH LŨY ĐỂ ĐỔI [" + freeTickets + "] VÉ MIỄN PHÍ KHÔNG?",
-                                        "THÔNG   BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Do you want to use points to exchange [" + freeTickets + "] ticket(s)?",
+                                        "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     customer.Points -= pointFreeTicket;
@@ -370,7 +370,7 @@ namespace QuanLiRapChieuPhim
 
                     if (CustomerDAO.UpdatePointCustomer(customer.ID, customer.Points))
                     {
-                        MessageBox.Show("BẠN ĐÃ DỔI ĐƯỢC [" + freeTickets + "] VÉ MIỄN PHÍ THÀNH CÔNG", "THÔNG BÁO");
+                        MessageBox.Show("You have been exchanged [" + freeTickets + "] ticket(s)", "Notification");
                     }
                     lblPoint.Text = "" + customer.Points;
                     lblPlusPoint.Text = "" + plusPoint;
