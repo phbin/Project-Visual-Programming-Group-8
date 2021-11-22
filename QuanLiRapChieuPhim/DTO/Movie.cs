@@ -13,7 +13,7 @@ namespace QuanLiRapChieuPhim.DTO
         private string iD;
         private string name;
         private string desc;
-        private float timelimit;
+        public float timelimit;
         DateTime datepublic;
         DateTime dateout;
         string country;

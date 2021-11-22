@@ -21,8 +21,9 @@ namespace QuanLiRapChieuPhim.DAO
         private DataProvider() { }
 
 
-        private string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
-        public DataTable ExecuteQuery(string query, object[] parameter = null)
+        private static string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        //private string connectionSTR = @"Data Source=LTVT\SQLEXPRESS;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+        public static DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionSTR))
@@ -54,7 +55,7 @@ namespace QuanLiRapChieuPhim.DAO
             return data;
         }
 
-        public  int ExecuteNonQuery(string query, object[] parameter = null)
+        public static int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int dataRow = 0;
             using (System.Data.SqlClient.SqlConnection connection = new SqlConnection(connectionSTR))
