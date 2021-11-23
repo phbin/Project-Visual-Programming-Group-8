@@ -1,4 +1,5 @@
-﻿using QuanLiRapChieuPhim.DAO;
+﻿using QuanLiRapChieuPhim.AddForms;
+using QuanLiRapChieuPhim.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,6 @@ namespace QuanLiRapChieuPhim
             InitializeComponent();
             LoadInfoStaff();
         }
-
-        string Sex;
 
         void LoadInfoStaff()
         {
@@ -57,134 +56,52 @@ namespace QuanLiRapChieuPhim
         {
             if (e.RowIndex >= 0)
             {
-                //gets a collection that contains all the rows
-                DataGridViewRow row = this.InfoStaffGridView.Rows[e.RowIndex];
-                //populate the textbox from specific value of the coordinates of column and row.
-                IDTextbox.Text = row.Cells[0].Value.ToString();
-                FullNameTextbox.Text = row.Cells[1].Value.ToString();
-                DoBTextbox.Text = row.Cells[2].Value.ToString();
-                if (row.Cells[3].Value.ToString() == "Nam")
+                DataGridViewRow row = InfoStaffGridView.Rows[e.RowIndex];
+
+                if (InfoStaffGridView.Columns[e.ColumnIndex].HeaderText == "Delete")
                 {
-                    MaleCheckbox.Checked = true;
-                    FemaleCheckbox.Checked = false;
+                    if (MessageBox.Show("Do you really want to delete this staff infomation?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        AccountDAO.Instance.DeleteInfoStaff(row.Cells["ID"].Value.ToString());
+                        LoadInfoStaff();
+                    }
                 }
-                else
+
+                string ID, FullName, DoB, Sex, Address, PhoneNum, Email, IDPersonal;
+                ID = row.Cells["ID"].Value.ToString();
+                FullName = row.Cells["FUllName"].Value.ToString();
+                DoB = row.Cells["DoB"].Value.ToString();
+                Sex = row.Cells["Sexx"].Value.ToString();
+                Address = row.Cells["Address"].Value.ToString();
+                PhoneNum = row.Cells["Phone"].Value.ToString();
+                Email = row.Cells["Email"].Value.ToString();
+                IDPersonal = row.Cells["IDPersonal"].Value.ToString();
+
+                if (InfoStaffGridView.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
-                    FemaleCheckbox.Checked = true;
-                    MaleCheckbox.Checked = false;
+                    FormAddInfoStaff frm = new FormAddInfoStaff(ID, FullName, DoB, Sex, Address, PhoneNum, Email, IDPersonal);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    LoadInfoStaff();
                 }
-                    AddressTextbox.Text = row.Cells[4].Value.ToString();
-                PhoneNumTextbox.Text = row.Cells[5].Value.ToString();
-                EmailTextbox.Text = row.Cells[6].Value.ToString();
-                IDPersonalTextbox.Text = row.Cells[7].Value.ToString();
             }
         }
 
-        private void EditButton_Click_1(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
-            {
-                MessageBox.Show("Wrong sex!", "Notification", MessageBoxButtons.OK);
-                return;
-            }
-            else if (MaleCheckbox.Checked)
-                Sex = "Nam";
-            else
-                Sex = "Nữ";
-
-            DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
-            string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            if (MessageBox.Show("Do you really want to change this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                EmailTextbox.Text = "";
-                MaleCheckbox.Checked = false;
-                FemaleCheckbox.Checked = false;
-            }
-           
-            LoadInfoStaff();
+            FormAddInfoStaff frm = new FormAddInfoStaff(InfoStaffGridView);
+            frm.Owner = this;
+            frm.ShowDialog();
         }
 
-        private void AddButton_Click_1(object sender, EventArgs e)
+        private void AddButton_MouseMove(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < InfoStaffGridView.Rows.Count; i++)
-            {
-                if (IDTextbox.Text == InfoStaffGridView.Rows[i].Cells[0].Value.ToString())
-                {
-                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
-                    IDTextbox.Text = "";
-                    IDTextbox.Focus();
-                    return;
-                }
-            }
-
-
-            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text != "" && AddressTextbox.Text != "" && PhoneNumTextbox.Text != "" && IDPersonalTextbox.Text != "")
-            {
-                if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
-                {
-                    MessageBox.Show("Wrong sex!", "Notification", MessageBoxButtons.OK);
-                    return;
-                }
-                else if (MaleCheckbox.Checked)
-                    Sex = "Nam";
-                else
-                    Sex = "Nữ";
-
-                DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
-                string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneNumTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                EmailTextbox.Text = "";
-                MaleCheckbox.Checked = false;
-                FemaleCheckbox.Checked = false;
-            }
-            else
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-            
-            LoadInfoStaff();
+            AddButton.BackColor = Color.FromArgb(199, 80, 87);
         }
 
-        private void DeleteButton_Click_1(object sender, EventArgs e)
+        private void AddButton_MouseLeave(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                AccountDAO.Instance.DeleteInfoStaff(IDTextbox.Text);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                EmailTextbox.Text = "";
-                MaleCheckbox.Checked = false;
-                FemaleCheckbox.Checked = false;
-                LoadInfoStaff();
-            }
-        }
-
-        private void HRMLabel_Click(object sender, EventArgs e)
-        {
-            IDTextbox.Text = "";
-            FullNameTextbox.Text = "";
-            DoBTextbox.Text = "";
-            AddressTextbox.Text = "";
-            PhoneNumTextbox.Text = "";
-            IDPersonalTextbox.Text = "";
-            EmailTextbox.Text = "";
-            MaleCheckbox.Checked = false;
-            FemaleCheckbox.Checked = false;
+            AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
     }
 }

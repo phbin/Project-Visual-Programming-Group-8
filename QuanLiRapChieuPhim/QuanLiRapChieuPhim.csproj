@@ -53,6 +53,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForms\FormAddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\FormAddAccount.Designer.cs">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FormAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\FormAddCustomer.Designer.cs">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FormAddEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\FormAddEditCategory.Designer.cs">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FormAddEditFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\FormAddEditFD.Designer.cs">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FormAddInfoStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\FormAddInfoStaff.Designer.cs">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
@@ -70,6 +100,12 @@
     </Compile>
     <Compile Include="FormAccount.Designer.cs">
       <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddFD.Designer.cs">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
@@ -136,8 +172,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChildForms\FormAddAccount.resx">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FormAddCustomer.resx">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FormAddEditCategory.resx">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FormAddEditFD.resx">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FormAddInfoStaff.resx">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddFD.resx">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>

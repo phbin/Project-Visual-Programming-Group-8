@@ -29,8 +29,8 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlControl = new System.Windows.Forms.Panel();
             this.btnRemove = new System.Windows.Forms.Button();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
@@ -51,7 +51,8 @@ namespace QuanLiRapChieuPhim
             // 
             // pnlControl
             // 
-            this.pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.pnlControl.Controls.Add(this.btnRemove);
@@ -59,10 +60,10 @@ namespace QuanLiRapChieuPhim
             this.pnlControl.Controls.Add(this.nmFDCount);
             this.pnlControl.Controls.Add(this.btnCheckOut);
             this.pnlControl.Controls.Add(this.btnAdd);
-            this.pnlControl.Location = new System.Drawing.Point(5, 549);
-            this.pnlControl.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.pnlControl.Location = new System.Drawing.Point(8, 845);
+            this.pnlControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Size = new System.Drawing.Size(839, 79);
+            this.pnlControl.Size = new System.Drawing.Size(1258, 122);
             this.pnlControl.TabIndex = 5;
             // 
             // btnRemove
@@ -76,10 +77,10 @@ namespace QuanLiRapChieuPhim
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(581, 14);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.btnRemove.Location = new System.Drawing.Point(872, 22);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(14, 12, 14, 12);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(120, 42);
+            this.btnRemove.Size = new System.Drawing.Size(180, 65);
             this.btnRemove.TabIndex = 11;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -89,10 +90,11 @@ namespace QuanLiRapChieuPhim
             // 
             this.txtTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtTotalPrice.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPrice.Location = new System.Drawing.Point(264, 26);
+            this.txtTotalPrice.Location = new System.Drawing.Point(396, 40);
+            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(191, 29);
+            this.txtTotalPrice.Size = new System.Drawing.Size(284, 39);
             this.txtTotalPrice.TabIndex = 10;
             this.txtTotalPrice.Text = "Total: 0 VND";
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -103,10 +105,10 @@ namespace QuanLiRapChieuPhim
             | System.Windows.Forms.AnchorStyles.Left)));
             this.nmFDCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nmFDCount.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.nmFDCount.Location = new System.Drawing.Point(19, 27);
-            this.nmFDCount.Margin = new System.Windows.Forms.Padding(10);
+            this.nmFDCount.Location = new System.Drawing.Point(28, 42);
+            this.nmFDCount.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.nmFDCount.Name = "nmFDCount";
-            this.nmFDCount.Size = new System.Drawing.Size(49, 29);
+            this.nmFDCount.Size = new System.Drawing.Size(74, 39);
             this.nmFDCount.TabIndex = 9;
             this.nmFDCount.Value = new decimal(new int[] {
             1,
@@ -125,10 +127,10 @@ namespace QuanLiRapChieuPhim
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.Color.White;
-            this.btnCheckOut.Location = new System.Drawing.Point(719, 14);
-            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.btnCheckOut.Location = new System.Drawing.Point(1078, 22);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(14, 12, 14, 12);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(120, 42);
+            this.btnCheckOut.Size = new System.Drawing.Size(180, 65);
             this.btnCheckOut.TabIndex = 8;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = false;
@@ -144,10 +146,10 @@ namespace QuanLiRapChieuPhim
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(87, 18);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.btnAdd.Location = new System.Drawing.Point(130, 28);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(14, 12, 14, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 42);
+            this.btnAdd.Size = new System.Drawing.Size(180, 65);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -163,46 +165,45 @@ namespace QuanLiRapChieuPhim
             this.cbbCategorySelection.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCategorySelection.ForeColor = System.Drawing.Color.White;
             this.cbbCategorySelection.FormattingEnabled = true;
-            this.cbbCategorySelection.Location = new System.Drawing.Point(5, 5);
-            this.cbbCategorySelection.Margin = new System.Windows.Forms.Padding(5);
+            this.cbbCategorySelection.Location = new System.Drawing.Point(8, 8);
+            this.cbbCategorySelection.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.cbbCategorySelection.Name = "cbbCategorySelection";
-            this.cbbCategorySelection.Size = new System.Drawing.Size(839, 29);
+            this.cbbCategorySelection.Size = new System.Drawing.Size(1256, 40);
             this.cbbCategorySelection.TabIndex = 21;
             this.cbbCategorySelection.TabStop = false;
             this.cbbCategorySelection.SelectedIndexChanged += new System.EventHandler(this.cbbCategorySelection_SelectedIndexChanged_1);
             // 
             // flpFoodDrink
             // 
-            this.flpFoodDrink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flpFoodDrink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpFoodDrink.AutoScroll = true;
             this.flpFoodDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.flpFoodDrink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpFoodDrink.ForeColor = System.Drawing.Color.Black;
-            this.flpFoodDrink.Location = new System.Drawing.Point(5, 39);
+            this.flpFoodDrink.Location = new System.Drawing.Point(8, 60);
+            this.flpFoodDrink.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flpFoodDrink.Name = "flpFoodDrink";
-            this.flpFoodDrink.Size = new System.Drawing.Size(542, 506);
+            this.flpFoodDrink.Size = new System.Drawing.Size(835, 777);
             this.flpFoodDrink.TabIndex = 24;
             // 
             // dgvBill
             // 
             this.dgvBill.AllowUserToAddRows = false;
             this.dgvBill.AllowUserToDeleteRows = false;
-            this.dgvBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBill.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.dgvBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBill.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBill.ColumnHeadersHeight = 25;
             this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -210,17 +211,18 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnQuantity,
             this.dgvColumnPrice,
             this.dgvColumnTotalPrice});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Salmon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBill.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBill.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBill.EnableHeadersVisualStyles = false;
             this.dgvBill.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
-            this.dgvBill.Location = new System.Drawing.Point(571, 39);
+            this.dgvBill.Location = new System.Drawing.Point(851, 60);
+            this.dgvBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvBill.Name = "dgvBill";
             this.dgvBill.ReadOnly = true;
             this.dgvBill.RowHeadersVisible = false;
@@ -228,7 +230,7 @@ namespace QuanLiRapChieuPhim
             this.dgvBill.RowTemplate.ReadOnly = true;
             this.dgvBill.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBill.Size = new System.Drawing.Size(273, 506);
+            this.dgvBill.Size = new System.Drawing.Size(415, 778);
             this.dgvBill.TabIndex = 26;
             // 
             // dgvColumnNameFD
@@ -265,10 +267,10 @@ namespace QuanLiRapChieuPhim
             // 
             // FormFD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(849, 629);
+            this.ClientSize = new System.Drawing.Size(1274, 968);
             this.ControlBox = false;
             this.Controls.Add(this.dgvBill);
             this.Controls.Add(this.flpFoodDrink);
@@ -276,6 +278,7 @@ namespace QuanLiRapChieuPhim
             this.Controls.Add(this.pnlControl);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormFD";
             this.Text = "FormFD";
             this.pnlControl.ResumeLayout(false);

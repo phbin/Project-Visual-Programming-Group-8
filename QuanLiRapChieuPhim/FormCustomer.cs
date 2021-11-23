@@ -1,4 +1,5 @@
-﻿using QuanLiRapChieuPhim.DAO;
+﻿using QuanLiRapChieuPhim.ChildForms;
+using QuanLiRapChieuPhim.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,102 +57,43 @@ namespace QuanLiRapChieuPhim
         {
             if (e.RowIndex >= 0)
             {
-                //gets a collection that contains all the rows
-                DataGridViewRow row = this.ListCustomerGrid.Rows[e.RowIndex];
-                //populate the textbox from specific value of the coordinates of column and row.
-                IDTextbox.Text = row.Cells[0].Value.ToString();
-                FullNameTextbox.Text = row.Cells[1].Value.ToString();
-                DoBTextbox.Text = row.Cells[2].Value.ToString();
-                AddressTextbox.Text = row.Cells[3].Value.ToString();
-                PhoneNumTextbox.Text = row.Cells[4].Value.ToString();
-                IDPersonalTextbox.Text = row.Cells[5].Value.ToString();
-                PointTextbox.Text = row.Cells[6].Value.ToString();
-            }
-        }
+                DataGridViewRow row = ListCustomerGrid.Rows[e.RowIndex];
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
-                string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                string query = "UPDATE dbo.InfoCustomer SET FullName=N'" + FullNameTextbox.Text + "', DoB='" + sqlFormattedDate + "', Addr='" + AddressTextbox.Text + "', Phone='" + PhoneNumTextbox.Text + "', IDPersonal='" + IDPersonalTextbox.Text + "', Points=" + int.Parse(PointTextbox.Text) + " WHERE ID='" + IDTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                PointTextbox.Text = "";
+                if (ListCustomerGrid.Columns[e.ColumnIndex].HeaderText == "Delete")
+                {
+                    if (MessageBox.Show("Do you really want to delete this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + row.Cells["ID"].Value.ToString() + "'";
+                        DataProvider.Instance.ExcuteQuery(query);
+                        LoadInfoCustomer();
+                    }
+                }
+
+                if (ListCustomerGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
+                {
+                    FormAddCustomer frm = new FormAddCustomer(row.Cells["ID"].Value.ToString(), row.Cells["FullName"].Value.ToString(), row.Cells["DoB"].Value.ToString(), row.Cells["Address"].Value.ToString(), row.Cells["Phone"].Value.ToString(), row.Cells["IDPersonal"].Value.ToString(), row.Cells["Points"].Value.ToString());
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    LoadInfoCustomer();
+                }
             }
-            LoadInfoCustomer();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < ListCustomerGrid.Rows.Count; i++)
-            {
-                if (IDTextbox.Text == ListCustomerGrid.Rows[i].Cells[0].Value.ToString())
-                {
-                    MessageBox.Show("This infomation already exist", "Thông báo", MessageBoxButtons.OK);
-                    IDTextbox.Text = "";
-                    FullNameTextbox.Text = "";
-                    DoBTextbox.Text = "";
-                    AddressTextbox.Text = "";
-                    PhoneNumTextbox.Text = "";
-                    IDPersonalTextbox.Text = "";
-                    PointTextbox.Text = "";
-                    IDTextbox.Focus();
-                    return;
-                }
-            }
-
-            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text != "" && AddressTextbox.Text != "" && PhoneNumTextbox.Text != "" && IDPersonalTextbox.Text != "")
-            {
-                DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
-                string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                string query = "INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES ('" + IDTextbox.Text + ",N'" + FullNameTextbox.Text + ",'" + sqlFormattedDate + ",'" + AddressTextbox.Text + ",'" + PhoneNumTextbox.Text + ",'" + IDPersonalTextbox.Text + ",'" + PointTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-            }
-            else
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-           
-            LoadInfoCustomer();
+            FormAddCustomer frm = new FormAddCustomer(ListCustomerGrid);
+            frm.Owner = this;
+            frm.ShowDialog();
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void AddButton_MouseMove(object sender, MouseEventArgs e)
         {
-            if (MessageBox.Show("Do you really want to delete this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                string query = "DELETE FROM dbo.InfoCustomer WHERE ID='" + IDTextbox.Text + "'";
-                DataProvider.Instance.ExcuteQuery(query);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneNumTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                PointTextbox.Text = "";
-                LoadInfoCustomer();
-            }
+            AddButton.BackColor = Color.FromArgb(199, 80, 87);
         }
 
-        private void CustomerLabel_Click(object sender, EventArgs e)
+        private void AddButton_MouseLeave(object sender, EventArgs e)
         {
-            IDTextbox.Text = "";
-            FullNameTextbox.Text = "";
-            DoBTextbox.Text = "";
-            AddressTextbox.Text = "";
-            PhoneNumTextbox.Text = "";
-            IDPersonalTextbox.Text = "";
-            PointTextbox.Text = "";
+            AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
     }
 }

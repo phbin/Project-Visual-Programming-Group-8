@@ -26,7 +26,7 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void OpenChildForm(Form childForm)
@@ -131,6 +131,14 @@ namespace QuanLiRapChieuPhim
         {
             WindowState = FormWindowState.Normal;
             buttonMaximize.BringToFront();
+        }
+
+        private void ButtonFD_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.customer;
+            OpenChildForm(new FormAddFD());
+            labelHome.Text = "Food Drink";
         }
     }
 }

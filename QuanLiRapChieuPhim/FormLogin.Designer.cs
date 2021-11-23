@@ -31,17 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.WrongLabel = new System.Windows.Forms.Label();
-            this.ShowButton = new System.Windows.Forms.Button();
             this.LoginButton = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PasswordTextbox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.UsernameTextbox = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ShowButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.LoginPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // LoginPanel
@@ -49,12 +52,12 @@
             this.LoginPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginPanel.BackgroundImage")));
             this.LoginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LoginPanel.Controls.Add(this.WrongLabel);
-            this.LoginPanel.Controls.Add(this.ShowButton);
             this.LoginPanel.Controls.Add(this.LoginButton);
             this.LoginPanel.Controls.Add(this.buttonClose);
             this.LoginPanel.Controls.Add(this.panel2);
             this.LoginPanel.Controls.Add(this.panel1);
-            this.LoginPanel.Controls.Add(this.HideButton);
+            this.LoginPanel.Controls.Add(this.panel3);
+            this.LoginPanel.Controls.Add(this.panel4);
             this.LoginPanel.Location = new System.Drawing.Point(-5, -2);
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(888, 532);
@@ -66,27 +69,11 @@
             this.WrongLabel.BackColor = System.Drawing.Color.Transparent;
             this.WrongLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WrongLabel.ForeColor = System.Drawing.Color.White;
-            this.WrongLabel.Location = new System.Drawing.Point(273, 348);
+            this.WrongLabel.Location = new System.Drawing.Point(274, 313);
             this.WrongLabel.Name = "WrongLabel";
             this.WrongLabel.Size = new System.Drawing.Size(341, 20);
             this.WrongLabel.TabIndex = 8;
             this.WrongLabel.Text = "Sai tài khoản hoặc mật khẩu, vui lòng nhập lại";
-            // 
-            // ShowButton
-            // 
-            this.ShowButton.BackColor = System.Drawing.Color.Transparent;
-            this.ShowButton.FlatAppearance.BorderSize = 0;
-            this.ShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowButton.ForeColor = System.Drawing.Color.Transparent;
-            this.ShowButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.show;
-            this.ShowButton.Location = new System.Drawing.Point(563, 232);
-            this.ShowButton.Name = "ShowButton";
-            this.ShowButton.Size = new System.Drawing.Size(39, 38);
-            this.ShowButton.TabIndex = 5;
-            this.ShowButton.UseVisualStyleBackColor = false;
-            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
-            this.ShowButton.MouseLeave += new System.EventHandler(this.ShowButton_MouseLeave);
-            this.ShowButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ShowButton_MouseMove);
             // 
             // LoginButton
             // 
@@ -176,6 +163,40 @@
             this.UsernameTextbox.Enter += new System.EventHandler(this.UsernameTextbox_Enter);
             this.UsernameTextbox.Leave += new System.EventHandler(this.UsernameTextbox_Leave);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
+            this.panel3.Location = new System.Drawing.Point(336, 152);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(268, 57);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
+            this.panel4.Controls.Add(this.ShowButton);
+            this.panel4.Controls.Add(this.HideButton);
+            this.panel4.Location = new System.Drawing.Point(336, 224);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(268, 56);
+            this.panel4.TabIndex = 3;
+            // 
+            // ShowButton
+            // 
+            this.ShowButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShowButton.FlatAppearance.BorderSize = 0;
+            this.ShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowButton.ForeColor = System.Drawing.Color.Transparent;
+            this.ShowButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.show;
+            this.ShowButton.Location = new System.Drawing.Point(226, 9);
+            this.ShowButton.Name = "ShowButton";
+            this.ShowButton.Size = new System.Drawing.Size(39, 38);
+            this.ShowButton.TabIndex = 5;
+            this.ShowButton.UseVisualStyleBackColor = false;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
+            this.ShowButton.MouseLeave += new System.EventHandler(this.ShowButton_MouseLeave);
+            this.ShowButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ShowButton_MouseMove);
+            // 
             // HideButton
             // 
             this.HideButton.BackColor = System.Drawing.Color.Transparent;
@@ -183,7 +204,7 @@
             this.HideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HideButton.ForeColor = System.Drawing.Color.Transparent;
             this.HideButton.Image = global::QuanLiRapChieuPhim.Properties.Resources.hide1;
-            this.HideButton.Location = new System.Drawing.Point(565, 232);
+            this.HideButton.Location = new System.Drawing.Point(226, 9);
             this.HideButton.Name = "HideButton";
             this.HideButton.Size = new System.Drawing.Size(39, 38);
             this.HideButton.TabIndex = 6;
@@ -211,6 +232,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -227,5 +249,7 @@
         private System.Windows.Forms.Button ShowButton;
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Label WrongLabel;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

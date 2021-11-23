@@ -50,7 +50,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void EditAccount(string Username, string Password, string ID, int Acctype)
         {
-            string query = "UPDATE dbo.Account SET Username='" + Username + "', Pass='" + Password + "', ID='" + ID + "', Acctype='" + Acctype + "'WHERE Username='" + Username + "'";
+            string query = "UPDATE dbo.Account SET Username='" + Username + "', Pass='" + Password + "', ID='" + ID + "', Acctype='" + Acctype + "'WHERE ID='" + ID + "'";
             DataProvider.Instance.ExcuteQuery(query);
         }
 
