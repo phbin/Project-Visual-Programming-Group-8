@@ -54,7 +54,7 @@ create table Movie  --Phim
 	ID varchar(50) primary key,
 	NameFilm nvarchar(100) not null,
 	Descript nvarchar(1000), --mô tả
-	TimeLimit float not null, --thời lượng
+	TimeLimit int not null, --thời lượng
 	DatePublic smalldatetime not null, 
 	DateOut smalldatetime not null,
 	Country nvarchar(50) not null,
@@ -64,37 +64,18 @@ create table Movie  --Phim
 )
 go
 
-create table ScreenType -- loại màn hình
-(
-	ID varchar(50) primary key,
-	ScreenName nvarchar(100) --2D || 3D || 4D
-)
-go
-
 create table Room  --Phòng chiếu
 (
 	ID varchar(50) primary key,
 	NameRoom nvarchar(100) not null,
-	IDScreen varchar(50),
 	NumOfSeat int not null,
 	Stt int not null default 1, -- 0: không hoạt động, 1: đang hoạt động
 	RowOfSeat int not null, --số hàng ghế 
 	SeatOfRow int not null, --số ghế của 1 hàng
-	constraint FK_Room_IDScreen foreign key (IDScreen) references dbo.ScreenType(ID)
 )
 go
 
-create table FormatFilm --Định dạng phim | hỗ trợ 3D hay không?
-(
-	ID varchar(50) not null primary key,
-	IDMovie varchar(50) not null,
-	IDScreenType varchar(50) not null,
-	constraint FK_FormatFilm_IDMovie foreign key (IDMovie) references dbo.Movie(ID),
-	constraint FK_FormatFilm_IDScreenType foreign key (IDScreenType) references dbo.ScreenType(ID)
-)
-go
-
-create table MovieKind  -- Thế loại
+create table MovieKind  -- Thế loại/Genre
 (
 	ID varchar(50) primary key,
 	TypeName nvarchar(100) not null,
@@ -115,27 +96,12 @@ go
 create table ShowTime  -- Lịch chiếu
 (
 	ID varchar(50) primary key,
+	IDMovie varchar(50) not null,
 	shTime smalldatetime not null, --thời gian chiếu
 	IDRoom varchar(50) not null, -- phòng chiếu
-	IDFormat varchar(50) not null, --định dạng phim
 	TicketPrice money not null,
-	stt int not null default '0', --0: Chưa tạo vé cho lịch chiếu || 1: Đã tạo vé
-	constraint FK_ShowTime_IDKind foreign key (IDRoom) references dbo.Room(ID),
-	constraint FK_ShowTime_IDFormat foreign key (IDFormat) references dbo.FormatFilm(ID)
-)
-go
-
-create table Ticket -- Vé
-(
-	ID int identity(1,1) primary key,
-	TicketType int default '0', --0: Vé người lớn || 1: Vé học sinh - sinh viên || 2: vé trẻ em
-	IDShowTime varchar(50),
-	SeatCode varchar(50),
-	IDCustomer varchar(50),
-	stt int not null default '0', --0: 'Chưa Bán' || 1: 'Đã Bán'
-	TicketPrice money default '0',
-	constraint FK_Ticket_IDShowTime foreign key (IDShowTime) references dbo.ShowTime(ID),
-	constraint FK_Ticket_IDCustomer foreign key (IDCustomer) references dbo.InfoCustomer(ID)
+	constraint FK_ShowTime_IDRoom foreign key (IDRoom) references dbo.Room(ID),
+	constraint FK_ShowTime_IDMovie foreign key (IDMovie) references dbo.Movie(ID),
 )
 go
 
@@ -177,7 +143,7 @@ create table BillInfo
 go
 
 ---------------------------------------------------------------------------------------------------------------------
-
+--auto id
 
 --Đăng nhập
 CREATE PROC USP_Login
@@ -324,16 +290,6 @@ END
 GO
 
 
---LOẠI MÀN HÌNH
-CREATE PROC USP_InsertScreenType
-@id VARCHAR(50), @name NVARCHAR(100)
-AS
-BEGIN
-	INSERT dbo.ScreenType( id, ScreenName )
-	VALUES  (@id, @name)
-END
-GO
-
 --PHIM
 CREATE PROC USP_GetMovie 
 AS
@@ -343,18 +299,28 @@ BEGIN
 END
 GO
 
-CREATE PROC USP_GetClassify 
+CREATE PROC USP_GetGenreByMovie --thể loại theo từng phim
 @id VARCHAR(50)
 AS
 BEGIN
+SELECT distinct  ( SELECT  A.TypeName +', ' AS [text()]
+            FROM (
+	SELECT dbo.MovieKind.id, TypeName, dbo.MovieKind.Descript
+	FROM dbo.Classify, dbo.MovieKind
+	WHERE IDMovie = @id AND dbo.Classify.IDKind = dbo.MovieKind.ID) as A
+            FOR XML PATH(''))[TypeName]
+    , dbo.MovieKind.id, dbo.MovieKind.Descript
+	FROM (
 	SELECT dbo.MovieKind.id, TypeName, dbo.MovieKind.Descript
 	FROM dbo. Classify, dbo.MovieKind
-	WHERE ID = @id AND dbo. Classify.IDKind = dbo.MovieKind.ID
+	WHERE IDMovie = @id AND dbo.Classify.IDKind = dbo.MovieKind.ID) as B, dbo.Classify, dbo.MovieKind
+	WHERE IDMovie = @id AND dbo.Classify.IDKind = dbo.MovieKind.ID
 END
 GO
 
+
 CREATE PROC USP_InsertMovie  -- Thêm phim
-@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
+@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time int, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
 AS
 BEGIN
 	INSERT dbo.Movie (id , NameFilm , Descript , TimeLimit , DatePublic , DateOut , Country , Director , YearFilm, Poster)
@@ -363,70 +329,52 @@ END
 GO
 
 CREATE PROC USP_UpdateMovie  -- Cập nhật lại phim
-@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time FLOAT, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
+@id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time int, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
 AS
 BEGIN
 	UPDATE dbo.Movie SET NameFilm = @name, Descript = @des, TimeLimit = @time, DatePublic = @dpublic, DateOut = @dout, Country = @country, Director = @dir, YearFilm = @year, Poster = @poster WHERE id = @id
 END
 GO
 
---ĐỊNH DẠNG PHIM
-CREATE PROC USP_GetFormatMovie 
-AS
-BEGIN
-	SELECT dbo.FormatFilm.ID AS [Mã định dạng], dbo.Movie.id AS [Mã phim], dbo.Movie.NameFilm AS [Tên phim], dbo.ScreenType.id AS [Mã màn hình], dbo.ScreenType.ScreenName AS [Tên màn hình]
-	FROM dbo.FormatFilm, dbo.Movie, dbo.ScreenType
-	WHERE dbo.FormatFilm.IDMovie = dbo.Movie.id AND dbo.FormatFilm.IDScreenType = dbo.ScreenType.id
-END
-GO
-
-CREATE PROC USP_InsertFormatMovie  -- Thêm định dạng
-@id VARCHAR(50), @idmovie VARCHAR(50), @idscr VARCHAR(50)
-AS
-BEGIN
-	INSERT dbo.FormatFilm( id, IDMovie, IDScreenType )
-	VALUES  ( @id, @idmovie, @idscr )
-END
-GO
-
 
 --LỊCH CHIẾU
-CREATE PROC USP_GetListShowTimesByFormatMovie
-@ID varchar(50), @Date smalldatetime
-AS
-BEGIN
-	select sched.id, rm.NameRoom, mv.NameFilm, sched.shTime, fmat.id as idFormat, sched.TicketPrice, sched.stt
-	from Movie mv ,FormatFilm fmat, ShowTime sched, Room rm
-	where mv.id = fmat.IDMovie and fmat.id = sched.IDFormat and sched.IDRoom = rm.id
-	and fmat.id = @ID and CONVERT(DATE, @Date) = CONVERT(DATE, sched.shTime)
-	order by sched.shTime
-END
-GO
+
 
 CREATE PROC USP_GetShowtime
 AS
 BEGIN
-	SELECT LC.id AS [Mã lịch chiếu], LC.IDRoom AS [Mã phòng], P.NameFilm AS [Tên phim], MH.ScreenName AS [Màn hình], LC.shTime AS [Thời gian chiếu], LC.TicketPrice AS [Giá vé]
-	FROM dbo.ShowTime AS LC, dbo.FormatFilm AS DD, Movie AS P, dbo.ScreenType AS MH
-	WHERE LC.IDFormat = DD.id AND DD.IDMovie = P.id AND DD.IDScreenType = MH.id
+	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	FROM dbo.ShowTime AS LC, Movie AS P
+	where lc.idmovie=p.id
 END
 GO
 
-CREATE PROC USP_InsertShowtime -- thêm lịch chiếu
-@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu smalldatetime, @giaVe FLOAT
+CREATE PROC USP_GetShowtimeByRoom
+@idPC varchar(50)
 AS
 BEGIN
-	INSERT dbo.ShowTime( id , IDRoom , IDFormat, shTime  , TicketPrice , stt )
-	VALUES  ( @id , @idPhong , @idDinhDang, @thoiGianChieu  , @giaVe , 0 )
+	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	FROM dbo.ShowTime AS LC, Movie AS P
+	where lc.idmovie=p.id and lc.IDRoom=@idPC
+END
+GO
+
+GO
+CREATE PROC USP_InsertShowtime -- thêm lịch chiếu
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe FLOAT 
+AS
+BEGIN
+	INSERT dbo.ShowTime( id , idmovie, shTime  , IDRoom , TicketPrice  )
+	VALUES  ( @id , @idmovie , @thoiGianChieu  ,@idPhong, @giaVe )
 END
 GO
 
 CREATE PROC USP_UpdateShowtime -- cập nhật lịch chiếu
-@id VARCHAR(50), @idPhong VARCHAR(50), @idDinhDang VARCHAR(50), @thoiGianChieu smalldatetime, @giaVe FLOAT
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe FLOAT 
 AS
 BEGIN
 	UPDATE dbo.ShowTime 
-	SET IDRoom = @idPhong, IDFormat = @idDinhDang, shTime = @thoiGianChieu , TicketPrice = @giaVe
+	SET IDRoom = @idPhong,shTime = @thoiGianChieu , TicketPrice = @giaVe
 	WHERE id = @id
 END
 GO
@@ -435,41 +383,12 @@ CREATE PROC USP_SearchShowtimeByMovieName -- tìm các suất chiếu phim theo 
 @tenPhim NVARCHAR(100)
 AS
 BEGIN
-	SELECT LC.id AS [Mã lịch chiếu], LC.IDRoom AS [Mã phòng], P.NameFilm AS [Tên phim], MH.ScreenName AS [Màn hình], LC.shTime AS [Thời gian chiếu], LC.TicketPrice AS [Giá vé]
-	FROM dbo.ShowTime AS LC, dbo.FormatFilm AS DD, Movie AS P, dbo.ScreenType AS MH
-	WHERE LC.IDFormat = DD.id AND DD.IDMovie = P.id AND DD.IDScreenType = MH.id AND dbo.UF_ConvertFullName(P.NameFilm) LIKE N'%' + dbo.UF_ConvertFullName(@tenPhim) + N'%'
+	SELECT LC.id AS [Mã lịch chiếu], LC.IDRoom AS [Mã phòng], P.NameFilm AS [Tên phim], LC.shTime AS [Thời gian chiếu], LC.TicketPrice AS [Giá vé]
+	FROM dbo.ShowTime AS LC, Movie AS P
+	WHERE  lc.IDMovie = P.id  AND dbo.UF_ConvertFullName(P.NameFilm) LIKE N'%' + dbo.UF_ConvertFullName(@tenPhim) + N'%'
 END
 GO
 
-CREATE PROC USP_GetAllListShowTimes -- hiển thị danh sách lịch chiếu
-AS
-BEGIN
-	select l.id, pc.NameRoom, p.NameFilm, l.shTime, d.id as idFormat, l.TicketPrice, l.stt
-	from Movie p , FormatFilm d, ShowTime l, Room pc
-	where p.id = d.IDMovie and d.id = l.idFormat and l.IDRoom = pc.id
-	order by l.shTime
-END
-GO
-
-CREATE PROC USP_GetListShowTimesNotCreateTickets -- hiển thị danh sách lịch chiếu chưa tạo vé để bán
-AS
-BEGIN
-	select l.id, pc.NameRoom, p.NameFilm, l.shTime, d.id as idFormat, l.TicketPrice, l.stt
-	from Movie p ,FormatFilm d, ShowTime l, Room pc
-	where p.id = d.IDMovie and d.id = l.idFormat and l.IDRoom = pc.id and l.stt = 0
-	order by l.shTime
-END
-GO
-
-create PROC USP_UpdateStatusShowTimes -- cập nhật lịch chiếu
-@idLichChieu NVARCHAR(50), @status int
-AS
-BEGIN
-	UPDATE dbo.ShowTime
-	SET stt = @status
-	WHERE id = @idLichChieu
-END
-GO
 
 -- STAFF
 CREATE PROC USP_GetStaff
@@ -499,68 +418,18 @@ BEGIN
 END
 GO
 
-
---PHÒNG CHIẾU
-CREATE PROC USP_GetRoom 
-AS
-BEGIN
-	SELECT PC.id AS [Mã phòng], NameRoom AS [Tên phòng], ScreenName AS [Tên màn hình], PC.NumOfSeat AS [Số chỗ ngồi], PC.stt AS [Tình trạng], PC.RowOfSeat AS [Số hàng ghế], PC.SeatOfRow AS [Ghế mỗi hàng]
-	FROM dbo.Room AS PC, dbo.ScreenType AS MH
-	WHERE PC.IDScreen = MH.id
-END
-GO
-
-CREATE PROC USP_InsertCinema
-@idCinema VARCHAR(50), @tenPhong NVARCHAR(100), @idMH VARCHAR(50), @soChoNgoi INT, @tinhTrang INT, @soHangGhe INT, @soGheMotHang INT
-AS
-BEGIN
-	INSERT dbo.Room( id , NameRoom , IDScreen , NumOfSeat , Stt , RowOfSeat , SeatOfRow)
-	VALUES (@idCinema , @tenPhong , @idMH , @soChoNgoi , @tinhTrang , @soHangGhe , @soGheMotHang)
-END
-GO
-
-
---VÉ
-CREATE PROC USP_InsertTicketByShowTimes
-@idlichChieu VARCHAR(50), @maGheNgoi VARCHAR(50)
-AS
-BEGIN
-	INSERT INTO dbo.Ticket
-	(
-		id,
-		SeatCode,
-		IDCustomer
-	)
-	VALUES
-	(
-		@idlichChieu,
-		@maGheNgoi,
-		NULL
-	)
-END
-GO
-
-CREATE PROC USP_DeleteTicketsByShowTimes -- xóa vé sau khi bán
-@idlichChieu VARCHAR(50)
-AS
-BEGIN
-	DELETE FROM dbo.Ticket
-	WHERE ID = @idlichChieu
-END
-GO
-
 CREATE TRIGGER UTG_INSERT_CheckDateShowTime
 ON dbo.ShowTime
 FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @idDinhDang VARCHAR(50), @ThoiGianChieu smalldatetime, @NgayKhoiChieu smalldatetime, @NgayKetThuc smalldatetime
+	DECLARE @ThoiGianChieu smalldatetime, @NgayKhoiChieu smalldatetime, @NgayKetThuc smalldatetime
 
-	SELECT @idDinhDang = IDFormat, @ThoiGianChieu = CONVERT(smalldatetime, shTime) from INSERTED
+	SELECT @ThoiGianChieu = CONVERT(smalldatetime, shTime) from INSERTED
 
 	SELECT @NgayKhoiChieu = P.DatePublic, @NgayKetThuc = P.DateOut
-	FROM dbo.Movie P, dbo.FormatFilm DD
-	WHERE @idDinhDang = DD.id AND DD.IDMovie = P.id
+	FROM dbo.Movie P, dbo.ShowTime 
+	WHERE P.ID=ShowTime.IDMovie
 
 	IF ( @ThoiGianChieu > @NgayKetThuc or @ThoiGianChieu < @NgayKhoiChieu)
 	BEGIN
@@ -575,17 +444,17 @@ ON dbo.ShowTime
 FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @count INT = 0, @count2 INT = 0, @ThoiGianChieu smalldatetime, @idPhong VARCHAR(50), @idDinhDang VARCHAR(50)
+	DECLARE @count INT = 0, @count2 INT = 0, @ThoiGianChieu smalldatetime, @idPhong VARCHAR(50)
 
-	SELECT @idPhong = IDRoom, @ThoiGianChieu = shTime, @idDinhDang = Inserted.IDFormat from INSERTED
+	SELECT @idPhong = IDRoom, @ThoiGianChieu = shTime from INSERTED
 
 	SELECT @count = COUNT(*)
-	FROM dbo.ShowTime LC, dbo.FormatFilm DD, dbo.Movie P
-	WHERE LC.IDRoom = @idPhong AND LC.IDFormat = DD.id AND DD.IDMovie = P.id AND (@ThoiGianChieu >= LC.shTime AND @ThoiGianChieu <= DATEADD(MINUTE, P.TimeLimit, LC.shTime))
+	FROM dbo.ShowTime LC, dbo.Movie P
+	WHERE LC.IDRoom = @idPhong  AND IDMovie = P.id AND (@ThoiGianChieu >= LC.shTime AND @ThoiGianChieu <= DATEADD(MINUTE, P.TimeLimit, LC.shTime))
 
 	SELECT @count2 = COUNT(*)
-	FROM dbo.ShowTime LC, dbo.FormatFilm DD, dbo.Movie P
-	WHERE @idPhong = LC.IDRoom AND @idDinhDang = DD.id AND DD.IDMovie = P.id AND (LC.shTime >= @ThoiGianChieu AND LC.shTime <= DATEADD(MINUTE, P.TimeLimit, @ThoiGianChieu))
+	FROM dbo.ShowTime LC,  dbo.Movie P
+	WHERE @idPhong = LC.IDRoom AND IDMovie = P.id AND (LC.shTime >= @ThoiGianChieu AND LC.shTime <= DATEADD(MINUTE, P.TimeLimit, @ThoiGianChieu))
 
 	IF (@count > 1 OR @count2 > 1)
 	BEGIN
@@ -791,12 +660,12 @@ GO
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL01', N'Hành động', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL02', N'Hoạt hình', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL03', N'Hài kịch', NULL)
-INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL04', N'Khoa học viễn Tưởng', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL04', N'Khoa học viễn tưởng', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL05', N'Phiêu lưu', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL06', N'Gia đình', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL07', N'Tình cảm', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL08', N'Trinh thám', NULL)
-INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL09', N'Tâm Lý', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL09', N'Tâm lý', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL10', N'Siêu nhiên', NULL)
 GO
 
@@ -815,21 +684,14 @@ INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal],
 INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
 GO
 
-INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH01', N'2D')
-INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH02', N'3D')
-INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH03', N'4D')
-INSERT dbo.ScreenType ([id], [ScreenName]) VALUES (N'MH04', N'4DX')
-GO
-
-INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', N'MH01', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', N'MH01', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', N'MH02', 130, 1, 10, 13)
-INSERT dbo.Room VALUES (N'PC04', N'CINEMA 04', N'MH03', 104, 1, 8, 13)
+INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', 180, 1, 12, 15)
+INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', 180, 1, 12, 15)
+INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', 180, 1, 12, 15)
 GO
 
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, N'10/04/2021', N'31/05/2021', N'Anh', N'David Yates', 2021)
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, N'23/04/2021', N'01/06/2021', N'Nhật Bản', N'Tomoka Nagaoka', 2021)
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV03', N'VENOM: ĐỐI MẶT TỬ THÙ', N'Chưa có', 120, N'12/11/2021', N'31/12/2021', N'Mỹ', N'Andy Serkis', 2021)
+INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV03', N'VENOM: ĐỐI MẶT TỬ THÙ', N'Chưa có', 120, N'12/12/2021', N'31/12/2021', N'Mỹ', N'Andy Serkis', 2021)
 GO
 
 INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL01')
@@ -845,33 +707,24 @@ INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV03', N'TL04')
 INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV03', N'TL05')
 GO
 
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F01', N'MV01', N'MH01')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F02', N'MV01', N'MH04')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F03', N'MV02', N'MH01')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F04', N'MV02', N'MH03')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F05', N'MV02', N'MH01')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F06', N'MV03', N'MH02')
-INSERT dbo.FormatFilm([id], [IDMovie], [IDScreenType]) VALUES (N'F07', N'MV03', N'MH01')
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST01', N'13/12/2021 15:20:00',N'MV03', N'PC01', 110000)
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST02', N'12/12/2021 13:00:00',N'MV03', N'PC02', 110000)
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST03', N'19/12/2021 16:00:00',N'MV03', N'PC02', 110000)
+
 GO
 
-INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST01', N'02/12/2021 15:20:00', N'PC01', N'F07', 110000, 1)
-INSERT dbo.ShowTime([id], [shTime], [IDRoom], [IDFormat], [TicketPrice], [stt]) VALUES (N'ST02', N'02/12/2021 13:00:00', N'PC02', N'F06', 110000, 0)
-GO
 
-SET IDENTITY_INSERT [dbo].[Ticket] ON
-GO
+update Movie
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\HP.png', single_blob) as img) where ID='MV01'
+update Movie
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Conan.png', single_blob) as img) where ID='MV02'
+update Movie
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Venom.png', single_blob) as img) where ID='MV03'
 
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (1, 0, N'ST01', N'A1', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (2, 0, N'ST01', N'A2', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (3, 0, N'ST01', N'A3', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (4, 0, N'ST01', N'A4', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (5, 0, N'ST01', N'A5', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (6, 0, N'ST01', N'A6', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (7, 0, N'ST01', N'A7', NULL, 0, 0.0000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (8, 0, N'ST01', N'A8', NULL, 0, 110000)
-INSERT dbo.Ticket ([id], [TicketType], [IDShowTime], [SeatCode], [IDCustomer], [stt], [TicketPrice]) VALUES (9, 0, N'ST01', N'A9', NULL, 0, 110000)
-GO
+INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV04', N'HARRY POTTER',N'Chưa có', 133, N'2/11/2021', N'31/12/2021', N'Anh', N'JK', 2021)
 
-SET IDENTITY_INSERT [dbo].[Ticket] OFF
-GO
+update Movie
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Poster2.png', single_blob) as img) where ID='MV04'
 
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)

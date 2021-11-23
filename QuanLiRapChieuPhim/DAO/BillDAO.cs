@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLiRapChieuPhim.DAO
+﻿namespace QuanLiRapChieuPhim.DAO
 {
     class BillDAO
     {
@@ -28,13 +21,13 @@ namespace QuanLiRapChieuPhim.DAO
         public void InsertBill(int iD)
         {
             string query = "EXEC USP_InsertBill @idBill";
-            DataProvider.Instance.ExcuteNonQuery(query, new object[] { iD });
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { iD });
         }
 
         public int GetStatusBill(int iDBill)
         {
             string query = "SELECT stt FROM Bill WHERE ID = " + iDBill;
-            int data = (int)DataProvider.Instance.ExcuteScalar(query);
+            int data = (int)DataProvider.Instance.ExecuteScalar(query);
             return data;
         }
 
@@ -43,7 +36,7 @@ namespace QuanLiRapChieuPhim.DAO
             try
             {
                 string query = "SELECT max(ID) FROM Bill";
-                int data = (int)DataProvider.Instance.ExcuteScalar(query);
+                int data = (int)DataProvider.Instance.ExecuteScalar(query);
                 return data;
             }
             catch
@@ -55,7 +48,7 @@ namespace QuanLiRapChieuPhim.DAO
         public void CheckOut(int iDBill)
         {
             string query = "UPDATE Bill SET stt = 1 WHERE ID = " + iDBill;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
 }
