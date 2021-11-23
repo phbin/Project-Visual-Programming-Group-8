@@ -26,7 +26,7 @@ namespace QuanLiRapChieuPhim
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         private void OpenChildForm(Form childForm)
@@ -86,13 +86,7 @@ namespace QuanLiRapChieuPhim
             labelHome.Text = "Human Resource Manager";
         }
 
-        private void buttonStatistics_Click(object sender, EventArgs e)
-        {
-            EnableButton(sender, Color.FromArgb(17, 17, 17));
-            pictureHome.Image = Properties.Resources.statistic;
-            OpenChildForm(new FormStatistic());
-            labelHome.Text = "Statistics";
-        }
+     
 
         private void buttonAccount_Click(object sender, EventArgs e)
         {
@@ -131,6 +125,30 @@ namespace QuanLiRapChieuPhim
         {
             WindowState = FormWindowState.Normal;
             buttonMaximize.BringToFront();
+        }
+
+        private void Movie_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.movie;
+            OpenChildForm(new  FormMovieManage());
+            labelHome.Text = "Movie Manage";
+        }
+
+        private void buttonStatistics_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.statistic;
+            OpenChildForm(new FormStatistic());
+            labelHome.Text = "Statistics";
+        }
+
+        private void buttonShowtime_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.deadline;
+            OpenChildForm(new FormShowtime());
+            labelHome.Text = "Showtime Manage";
         }
 
         private void ButtonFD_Click(object sender, EventArgs e)

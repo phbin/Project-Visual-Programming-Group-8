@@ -41,8 +41,10 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelDesktop = new QuanLiRapChieuPhim.GradientPanel();
             this.gradientPanelMenu = new QuanLiRapChieuPhim.GradientPanel();
             this.ButtonFD = new System.Windows.Forms.Button();
-            this.buttonAccount = new System.Windows.Forms.Button();
             this.buttonStatistics = new System.Windows.Forms.Button();
+            this.buttonShowtime = new System.Windows.Forms.Button();
+            this.Movie = new System.Windows.Forms.Button();
+            this.buttonAccount = new System.Windows.Forms.Button();
             this.buttonHRM = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
@@ -54,10 +56,10 @@ namespace QuanLiRapChieuPhim
             // 
             this.panelLine.BackColor = System.Drawing.Color.DimGray;
             this.panelLine.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLine.Location = new System.Drawing.Point(292, 72);
-            this.panelLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelLine.Location = new System.Drawing.Point(260, 58);
+            this.panelLine.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(1274, 9);
+            this.panelLine.Size = new System.Drawing.Size(1298, 7);
             this.panelLine.TabIndex = 4;
             // 
             // labelHome
@@ -66,9 +68,9 @@ namespace QuanLiRapChieuPhim
             this.labelHome.BackColor = System.Drawing.Color.Transparent;
             this.labelHome.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHome.ForeColor = System.Drawing.Color.White;
-            this.labelHome.Location = new System.Drawing.Point(76, 25);
+            this.labelHome.Location = new System.Drawing.Point(68, 20);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(80, 32);
+            this.labelHome.Size = new System.Drawing.Size(65, 28);
             this.labelHome.TabIndex = 1;
             this.labelHome.Text = "Home";
             // 
@@ -82,10 +84,10 @@ namespace QuanLiRapChieuPhim
             this.panelMenu.Controls.Add(this.labelHome);
             this.panelMenu.Controls.Add(this.pictureHome);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.Location = new System.Drawing.Point(292, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMenu.Location = new System.Drawing.Point(260, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1274, 72);
+            this.panelMenu.Size = new System.Drawing.Size(1298, 58);
             this.panelMenu.TabIndex = 3;
             // 
             // buttonMaximize
@@ -95,11 +97,11 @@ namespace QuanLiRapChieuPhim
             this.buttonMaximize.FlatAppearance.BorderSize = 0;
             this.buttonMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMaximize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximize.Image")));
-            this.buttonMaximize.Location = new System.Drawing.Point(1170, 9);
-            this.buttonMaximize.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonMaximize.Location = new System.Drawing.Point(1207, 7);
+            this.buttonMaximize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMaximize.Name = "buttonMaximize";
-            this.buttonMaximize.Padding = new System.Windows.Forms.Padding(0, 0, 2, 2);
-            this.buttonMaximize.Size = new System.Drawing.Size(45, 49);
+            this.buttonMaximize.Padding = new System.Windows.Forms.Padding(0, 0, 1, 1);
+            this.buttonMaximize.Size = new System.Drawing.Size(40, 39);
             this.buttonMaximize.TabIndex = 4;
             this.buttonMaximize.UseVisualStyleBackColor = false;
             this.buttonMaximize.Click += new System.EventHandler(this.buttonMaximize_Click);
@@ -111,11 +113,11 @@ namespace QuanLiRapChieuPhim
             this.buttonRestoreDown.FlatAppearance.BorderSize = 0;
             this.buttonRestoreDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestoreDown.Image = ((System.Drawing.Image)(resources.GetObject("buttonRestoreDown.Image")));
-            this.buttonRestoreDown.Location = new System.Drawing.Point(1170, 9);
-            this.buttonRestoreDown.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonRestoreDown.Location = new System.Drawing.Point(1207, 7);
+            this.buttonRestoreDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRestoreDown.Name = "buttonRestoreDown";
-            this.buttonRestoreDown.Padding = new System.Windows.Forms.Padding(0, 0, 4, 5);
-            this.buttonRestoreDown.Size = new System.Drawing.Size(45, 49);
+            this.buttonRestoreDown.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
+            this.buttonRestoreDown.Size = new System.Drawing.Size(40, 39);
             this.buttonRestoreDown.TabIndex = 6;
             this.buttonRestoreDown.UseVisualStyleBackColor = false;
             this.buttonRestoreDown.Click += new System.EventHandler(this.buttonRestoreDown_Click);
@@ -127,11 +129,11 @@ namespace QuanLiRapChieuPhim
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimize.Image = global::QuanLiRapChieuPhim.Properties.Resources.minimize;
-            this.buttonMinimize.Location = new System.Drawing.Point(1128, 11);
-            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonMinimize.Location = new System.Drawing.Point(1169, 9);
+            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.buttonMinimize.Size = new System.Drawing.Size(45, 49);
+            this.buttonMinimize.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.buttonMinimize.Size = new System.Drawing.Size(40, 39);
             this.buttonMinimize.TabIndex = 5;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
@@ -144,11 +146,11 @@ namespace QuanLiRapChieuPhim
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::QuanLiRapChieuPhim.Properties.Resources.close;
-            this.buttonClose.Location = new System.Drawing.Point(1218, 9);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonClose.Location = new System.Drawing.Point(1249, 7);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Padding = new System.Windows.Forms.Padding(0, 0, 3, 2);
-            this.buttonClose.Size = new System.Drawing.Size(45, 49);
+            this.buttonClose.Padding = new System.Windows.Forms.Padding(0, 0, 3, 1);
+            this.buttonClose.Size = new System.Drawing.Size(40, 39);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -156,10 +158,10 @@ namespace QuanLiRapChieuPhim
             // pictureHome
             // 
             this.pictureHome.Image = ((System.Drawing.Image)(resources.GetObject("pictureHome.Image")));
-            this.pictureHome.Location = new System.Drawing.Point(8, 11);
-            this.pictureHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureHome.Location = new System.Drawing.Point(7, 9);
+            this.pictureHome.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.pictureHome.Name = "pictureHome";
-            this.pictureHome.Size = new System.Drawing.Size(64, 78);
+            this.pictureHome.Size = new System.Drawing.Size(57, 63);
             this.pictureHome.TabIndex = 0;
             this.pictureHome.TabStop = false;
             // 
@@ -169,9 +171,9 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.gradientPanelDesktop.BottomColor = System.Drawing.Color.Empty;
             this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanelDesktop.Location = new System.Drawing.Point(292, 81);
+            this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
             this.gradientPanelDesktop.Name = "gradientPanelDesktop";
-            this.gradientPanelDesktop.Size = new System.Drawing.Size(1274, 968);
+            this.gradientPanelDesktop.Size = new System.Drawing.Size(1298, 822);
             this.gradientPanelDesktop.TabIndex = 6;
             this.gradientPanelDesktop.TopColor = System.Drawing.Color.Empty;
             // 
@@ -181,15 +183,17 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.gradientPanelMenu.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.gradientPanelMenu.Controls.Add(this.ButtonFD);
-            this.gradientPanelMenu.Controls.Add(this.buttonAccount);
             this.gradientPanelMenu.Controls.Add(this.buttonStatistics);
+            this.gradientPanelMenu.Controls.Add(this.buttonShowtime);
+            this.gradientPanelMenu.Controls.Add(this.Movie);
+            this.gradientPanelMenu.Controls.Add(this.buttonAccount);
             this.gradientPanelMenu.Controls.Add(this.buttonHRM);
             this.gradientPanelMenu.Controls.Add(this.panelHome);
             this.gradientPanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.gradientPanelMenu.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gradientPanelMenu.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.gradientPanelMenu.Name = "gradientPanelMenu";
-            this.gradientPanelMenu.Size = new System.Drawing.Size(292, 1049);
+            this.gradientPanelMenu.Size = new System.Drawing.Size(260, 887);
             this.gradientPanelMenu.TabIndex = 2;
             this.gradientPanelMenu.TopColor = System.Drawing.Color.Empty;
             // 
@@ -203,37 +207,16 @@ namespace QuanLiRapChieuPhim
             this.ButtonFD.ForeColor = System.Drawing.Color.White;
             this.ButtonFD.Image = global::QuanLiRapChieuPhim.Properties.Resources.fd;
             this.ButtonFD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonFD.Location = new System.Drawing.Point(0, 537);
-            this.ButtonFD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonFD.Location = new System.Drawing.Point(0, 629);
+            this.ButtonFD.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.ButtonFD.Name = "ButtonFD";
-            this.ButtonFD.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ButtonFD.Size = new System.Drawing.Size(292, 125);
-            this.ButtonFD.TabIndex = 6;
+            this.ButtonFD.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.ButtonFD.Size = new System.Drawing.Size(260, 100);
+            this.ButtonFD.TabIndex = 11;
             this.ButtonFD.Text = "  FoodDrink";
             this.ButtonFD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonFD.UseVisualStyleBackColor = true;
             this.ButtonFD.Click += new System.EventHandler(this.ButtonFD_Click);
-            // 
-            // buttonAccount
-            // 
-            this.buttonAccount.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAccount.FlatAppearance.BorderSize = 0;
-            this.buttonAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAccount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAccount.ForeColor = System.Drawing.Color.White;
-            this.buttonAccount.Image = global::QuanLiRapChieuPhim.Properties.Resources.customer;
-            this.buttonAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAccount.Location = new System.Drawing.Point(0, 412);
-            this.buttonAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAccount.Name = "buttonAccount";
-            this.buttonAccount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonAccount.Size = new System.Drawing.Size(292, 125);
-            this.buttonAccount.TabIndex = 5;
-            this.buttonAccount.Text = "  Account";
-            this.buttonAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAccount.UseVisualStyleBackColor = true;
-            this.buttonAccount.Click += new System.EventHandler(this.buttonAccount_Click);
             // 
             // buttonStatistics
             // 
@@ -245,16 +228,79 @@ namespace QuanLiRapChieuPhim
             this.buttonStatistics.ForeColor = System.Drawing.Color.White;
             this.buttonStatistics.Image = ((System.Drawing.Image)(resources.GetObject("buttonStatistics.Image")));
             this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistics.Location = new System.Drawing.Point(0, 287);
-            this.buttonStatistics.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonStatistics.Location = new System.Drawing.Point(0, 529);
+            this.buttonStatistics.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonStatistics.Size = new System.Drawing.Size(292, 125);
-            this.buttonStatistics.TabIndex = 4;
+            this.buttonStatistics.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.buttonStatistics.Size = new System.Drawing.Size(260, 100);
+            this.buttonStatistics.TabIndex = 9;
             this.buttonStatistics.Text = "  Statistics";
             this.buttonStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonStatistics.UseVisualStyleBackColor = true;
             this.buttonStatistics.Click += new System.EventHandler(this.buttonStatistics_Click);
+            // 
+            // buttonShowtime
+            // 
+            this.buttonShowtime.BackColor = System.Drawing.Color.Transparent;
+            this.buttonShowtime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonShowtime.FlatAppearance.BorderSize = 0;
+            this.buttonShowtime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShowtime.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowtime.ForeColor = System.Drawing.Color.White;
+            this.buttonShowtime.Image = global::QuanLiRapChieuPhim.Properties.Resources.deadline;
+            this.buttonShowtime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonShowtime.Location = new System.Drawing.Point(0, 429);
+            this.buttonShowtime.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.buttonShowtime.Name = "buttonShowtime";
+            this.buttonShowtime.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.buttonShowtime.Size = new System.Drawing.Size(260, 100);
+            this.buttonShowtime.TabIndex = 8;
+            this.buttonShowtime.Text = "  Showtime";
+            this.buttonShowtime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonShowtime.UseVisualStyleBackColor = true;
+            this.buttonShowtime.Click += new System.EventHandler(this.buttonShowtime_Click);
+            // 
+            // Movie
+            // 
+            this.Movie.BackColor = System.Drawing.Color.Transparent;
+            this.Movie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Movie.FlatAppearance.BorderSize = 0;
+            this.Movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Movie.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Movie.ForeColor = System.Drawing.Color.White;
+            this.Movie.Image = global::QuanLiRapChieuPhim.Properties.Resources.movie;
+            this.Movie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Movie.Location = new System.Drawing.Point(0, 329);
+            this.Movie.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.Movie.Name = "Movie";
+            this.Movie.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.Movie.Size = new System.Drawing.Size(260, 100);
+            this.Movie.TabIndex = 6;
+            this.Movie.Text = "  Movie";
+            this.Movie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Movie.UseVisualStyleBackColor = true;
+            this.Movie.Click += new System.EventHandler(this.Movie_Click);
+            // 
+            // buttonAccount
+            // 
+            this.buttonAccount.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAccount.FlatAppearance.BorderSize = 0;
+            this.buttonAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAccount.ForeColor = System.Drawing.Color.White;
+            this.buttonAccount.Image = global::QuanLiRapChieuPhim.Properties.Resources.customer;
+            this.buttonAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAccount.Location = new System.Drawing.Point(0, 229);
+            this.buttonAccount.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.buttonAccount.Name = "buttonAccount";
+            this.buttonAccount.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.buttonAccount.Size = new System.Drawing.Size(260, 100);
+            this.buttonAccount.TabIndex = 5;
+            this.buttonAccount.Text = "  Account";
+            this.buttonAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAccount.UseVisualStyleBackColor = true;
+            this.buttonAccount.Click += new System.EventHandler(this.buttonAccount_Click);
             // 
             // buttonHRM
             // 
@@ -266,11 +312,11 @@ namespace QuanLiRapChieuPhim
             this.buttonHRM.ForeColor = System.Drawing.Color.White;
             this.buttonHRM.Image = global::QuanLiRapChieuPhim.Properties.Resources.hr;
             this.buttonHRM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHRM.Location = new System.Drawing.Point(0, 162);
-            this.buttonHRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHRM.Location = new System.Drawing.Point(0, 129);
+            this.buttonHRM.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.buttonHRM.Name = "buttonHRM";
-            this.buttonHRM.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonHRM.Size = new System.Drawing.Size(292, 125);
+            this.buttonHRM.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.buttonHRM.Size = new System.Drawing.Size(260, 100);
             this.buttonHRM.TabIndex = 3;
             this.buttonHRM.Text = "  HR Manager";
             this.buttonHRM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -284,22 +330,23 @@ namespace QuanLiRapChieuPhim
             this.panelHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHome.Location = new System.Drawing.Point(0, 0);
-            this.panelHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelHome.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(292, 162);
+            this.panelHome.Size = new System.Drawing.Size(260, 129);
             this.panelHome.TabIndex = 0;
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1566, 1049);
+            this.ClientSize = new System.Drawing.Size(1558, 887);
             this.Controls.Add(this.gradientPanelDesktop);
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.gradientPanelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";
@@ -314,18 +361,20 @@ namespace QuanLiRapChieuPhim
         #endregion
         private GradientPanel gradientPanelMenu;
         private System.Windows.Forms.Button buttonAccount;
-        private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.Button buttonHRM;
         private System.Windows.Forms.Panel panelHome;
         private System.Windows.Forms.Panel panelLine;
         private System.Windows.Forms.PictureBox pictureHome;
         private System.Windows.Forms.Label labelHome;
-        private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button buttonMinimize;
-        private System.Windows.Forms.Button buttonRestoreDown;
-        private System.Windows.Forms.Button buttonMaximize;
         private System.Windows.Forms.Panel panelMenu;
         private GradientPanel gradientPanelDesktop;
+        private System.Windows.Forms.Button Movie;
+        private System.Windows.Forms.Button buttonStatistics;
+        private System.Windows.Forms.Button buttonShowtime;
         private System.Windows.Forms.Button ButtonFD;
+        private System.Windows.Forms.Button buttonMaximize;
+        private System.Windows.Forms.Button buttonRestoreDown;
+        private System.Windows.Forms.Button buttonMinimize;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
