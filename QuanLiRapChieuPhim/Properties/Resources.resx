@@ -136,6 +136,9 @@
   <data name="icon-birth-date-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-birth-date-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TrashIcon-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrashIcon-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,9 +169,6 @@
   <data name="3_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hide1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon-mail-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-mail-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +183,9 @@
   </data>
   <data name="icon-phone-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-phone-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deadline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deadline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="statistic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\statistic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,6 +232,12 @@
   <data name="Poster1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Poster1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="back (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CinemaPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CinemaPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Poster2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Poster2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -240,6 +249,9 @@
   </data>
   <data name="1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-gender-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-gender-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,8 +277,8 @@
   <data name="3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hide1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-id-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-id-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,7 +286,7 @@
   <data name="1_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CinemaPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CinemaPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EditIcon-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditIcon-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
