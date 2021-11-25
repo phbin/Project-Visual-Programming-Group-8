@@ -15,11 +15,12 @@ namespace QuanLiRapChieuPhim.DAO
         public static FoodDrinkDAO Instance
         {
             get
-            { if (instance == null)
+            {
+                if (instance == null)
                     instance = new FoodDrinkDAO();
                 return instance;
             }
-            
+
             private set { instance = value; }
         }
 
@@ -29,16 +30,23 @@ namespace QuanLiRapChieuPhim.DAO
         {
             List<FoodDrink> fDList = new List<FoodDrink>();
 
-            string query = "SELECT * FROM FoodDrink WHERE IDCategory = " + iDCate; 
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            string query = "SELECT * FROM FoodDrink WHERE IDCategory = " + iDCate;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
-            foreach(DataRow item in data.Rows)
+            foreach (DataRow item in data.Rows)
             {
                 FoodDrink fD = new FoodDrink(item);
                 fDList.Add(fD);
             }
 
             return fDList;
+        }
+
+        public int GetIDFoodDrinkByName(string name)
+        {
+            string query = "SELECT ID FROM FoodDrink WHERE NameFD = N'" + name + "'";
+            int data = (int)DataProvider.Instance.ExecuteScalar(query);
+            return data;
         }
     }
 }

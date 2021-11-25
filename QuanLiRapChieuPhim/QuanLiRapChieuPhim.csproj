@@ -33,9 +33,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,99 +92,243 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FillForm\FormAddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddAccount.Designer.cs">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddCustomer.Designer.cs">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditCategory.Designer.cs">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditFD.Designer.cs">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddInfoStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddInfoStaff.Designer.cs">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FDCategoryDAO.cs" />
+    <Compile Include="DAO\FoodDrinkDAO.cs" />
+    <Compile Include="DAO\GenreDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DAO\MovieByGenreDAO.cs" />
+    <Compile Include="DAO\MovieDAO.cs" />
+    <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\ShowtimeDAO.cs" />
+    <Compile Include="DAO\TicketDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\FoodDrinkDAO.cs" />
     <Compile Include="DTO\FDCategory.cs" />
     <Compile Include="DTO\FoodDrink.cs" />
-    <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\Genre.cs" />
+    <Compile Include="DTO\FDMenu.cs" />
+    <Compile Include="DTO\Movie.cs" />
+    <Compile Include="DTO\MovieByGenre.cs" />
+    <Compile Include="DTO\Room.cs" />
+    <Compile Include="DTO\Showtime.cs" />
+    <Compile Include="DTO\Ticket.cs" />
+    <Compile Include="FormAdmin\FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddFD.Designer.cs">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdmin\FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormPrintBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormPrintBill.Designer.cs">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormFD.Designer.cs">
+      <DependentUpon>FormFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdmin\FormHRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormHRM.Designer.cs">
+      <DependentUpon>FormHRM.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStaff.cs">
+    <Compile Include="FormStaff\FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStaff.Designer.cs">
-      <DependentUpon>FormStaff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCustomer.Designer.cs">
+    <Compile Include="FormStaff\FormCustomer.Designer.cs">
       <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFD.cs">
+    <Compile Include="FormStaff\FormGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFD.Designer.cs">
-      <DependentUpon>FormFD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGeneral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGeneral.Designer.cs">
+    <Compile Include="FormStaff\FormGeneral.Designer.cs">
       <DependentUpon>FormGeneral.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormStaff\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="FormStaff\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMovie.cs">
+    <Compile Include="FormStaff\FormMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMovie.Designer.cs">
+    <Compile Include="FormStaff\FormMovie.Designer.cs">
       <DependentUpon>FormMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStatistic.cs">
+    <Compile Include="FormAdmin\FormMovieManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatistic.Designer.cs">
+    <Compile Include="FormAdmin\FormMovieManage.Designer.cs">
+      <DependentUpon>FormMovieManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdmin\FormShowtime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormShowtime.Designer.cs">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormStaff.Designer.cs">
+      <DependentUpon>FormStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FillForm\MovieControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\MovieControls.Designer.cs">
+      <DependentUpon>MovieControls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FillForm\ShowtimeControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\ShowtimeControls.Designer.cs">
+      <DependentUpon>ShowtimeControls.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FillForm\FormAddAccount.resx">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddCustomer.resx">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddEditCategory.resx">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddEditFD.resx">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddInfoStaff.resx">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddFD.resx">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormPrintBill.resx">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\Report.rdlc" />
+    <EmbeddedResource Include="FormStaff\FormFD.resx">
+      <DependentUpon>FormFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormHRM.resx">
+      <DependentUpon>FormHRM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStaff.resx">
-      <DependentUpon>FormStaff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCustomer.resx">
+    <EmbeddedResource Include="FormStaff\FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFD.resx">
-      <DependentUpon>FormFD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGeneral.resx">
+    <EmbeddedResource Include="FormStaff\FormGeneral.resx">
       <DependentUpon>FormGeneral.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="FormStaff\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMovie.resx">
+    <EmbeddedResource Include="FormStaff\FormMovie.resx">
       <DependentUpon>FormMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatistic.resx">
+    <EmbeddedResource Include="FormAdmin\FormMovieManage.resx">
+      <DependentUpon>FormMovieManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormShowtime.resx">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormStaff.resx">
+      <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormStatistic.resx">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\MovieControls.resx">
+      <DependentUpon>MovieControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
+      <DependentUpon>ShowtimeControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Bill.datasource" />
+    <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -207,7 +396,43 @@
     <None Include="Resources\hide1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Delete-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-id-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-birth-date-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-gender-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-mail-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-phone-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-address-30.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_11.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1_2.png" />
@@ -259,6 +484,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poster1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poster2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poster3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poster4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poster5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-moon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CinemaPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonMaximize.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5269554541547546467.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

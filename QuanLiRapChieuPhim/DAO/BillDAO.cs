@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace QuanLiRapChieuPhim.DAO
 {
@@ -19,7 +14,7 @@ namespace QuanLiRapChieuPhim.DAO
                     instance = new BillDAO();
                 return instance;
             }
-            
+
             private set { instance = value; }
         }
 
@@ -28,34 +23,50 @@ namespace QuanLiRapChieuPhim.DAO
         public void InsertBill(int iD)
         {
             string query = "EXEC USP_InsertBill @idBill";
-            DataProvider.Instance.ExcuteNonQuery(query, new object[] {iD });
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { iD });
         }
 
-        public int GetStatusBill(int iDBill)
-        {
-            string query = "SELECT stt FROM Bill WHERE ID = " + iDBill;
-            int data = (int)DataProvider.Instance.ExcuteScalar(query);
-            return data;
-        }
+        //public int GetStatusBill(int iDBill)
+        //{
+        //    string query = "SELECT stt FROM Bill WHERE ID = " + iDBill;
+        //    int data = (int)DataProvider.Instance.ExecuteScalar(query);
+        //    return data;
+        //}
 
         public int GetLastIDBill()
         {
             try
             {
-                string query = "SELECT max(ID) FROM Bill";
-                int data = (int)DataProvider.Instance.ExcuteScalar(query);
+                string query = "SELECT * FROM Bill WHERE ID = (SELECT max(ID) FROM Bill)";
+                int data = (int)DataProvider.Instance.ExecuteScalar(query);
                 return data;
             }
-            catch
+            catch   //No bill exists in database
             {
-                return 1;
+                return 0;
             }
         }
 
         public void CheckOut(int iDBill)
         {
             string query = "UPDATE Bill SET stt = 1 WHERE ID = " + iDBill;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
+
+        public Bill GetLastBill()
+        {
+            try
+            {
+                string query = "SELECT * FROM Bill WHERE ID = (SELECT max(ID) FROM Bill)";
+                DataTable data = DataProvider.Instance.ExecuteQuery(query);
+                Bill b = new Bill(data.Rows[0]);
+
+                return b;
+            }
+            catch   //No bill exists in database
+            {
+                return null;
+            }
         }
     }
 }

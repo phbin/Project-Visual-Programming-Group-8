@@ -29,7 +29,7 @@ namespace QuanLiRapChieuPhim.DAO
         {
             List<BillInfo> billInfoList = new List<BillInfo>();
             string query = "SELECT * FROM BillInfo WHERE IDBill = " + iDBill;
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {
@@ -43,13 +43,13 @@ namespace QuanLiRapChieuPhim.DAO
         public void InserttBillInfo(int iDBill, int iDFD, int count)
         {
             string query = "EXEC USP_InsertBillInfo @idBill , @idFD , @count";
-            DataProvider.Instance.ExcuteNonQuery(query, new object[] {iDBill, iDFD, count });
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { iDBill, iDFD, count });
         }
 
-        public void RemoveAllBillInfoByBillID(int iDBill)
+        public void RemoveFoodDrinkByIDFoodDrink(int iDBill, int iDFD)
         {
-            string query = "DELETE FROM BillInfo WHERE IDBill = " + iDBill;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            string query = "DELETE FROM BillInfo WHERE IDBill = " + iDBill + "AND IDFoodDrink = " + iDFD;
+            DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
 }

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,21 +17,19 @@ namespace QuanLiRapChieuPhim
     {
         private Button curBtn;
         List<FoodDrink> fDList;
-
         public FormFD()
         {
             InitializeComponent();
 
             ShowBill(BillDAO.Instance.GetLastIDBill());
             LoadFDCategory();
-
-            dgvBill.RowsDefaultCellStyle.BackColor = Color.Snow;
+            this.DoubleBuffered = true;
         }
 
         void LoadFDCategory()
         {
             List<FDCategory> fDCategoryList = FDCategoryDAO.Instance.GetFDCategory();
-            
+
             cbbCategorySelection.DataSource = fDCategoryList;
             cbbCategorySelection.DisplayMember = "Name";
         }
@@ -45,17 +42,17 @@ namespace QuanLiRapChieuPhim
 
             int indexImage = 1;
 
-            foreach(FoodDrink item in fDList)
+            foreach (FoodDrink item in fDList)
             {
                 Button picture = new Button();
                 Label name = new Label();
                 Label price = new Label();
 
                 //Design button
-                picture.Width = 120;
-                picture.Height = 140;
+                picture.Width = 160;
+                picture.Height = 180;
                 picture.Margin = new Padding(5, 5, 5, 5);
-                
+
                 ////Insert image from resources file
                 string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;          //Get the app's running path
                 string fileName = string.Format("{0}Resources\\{1}_{2}.png", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")), iD, indexImage);
@@ -66,23 +63,26 @@ namespace QuanLiRapChieuPhim
                 picture.BackColor = Color.White;
                 picture.FlatStyle = FlatStyle.Flat;
                 picture.FlatAppearance.BorderSize = 0;
+                picture.FlatAppearance.MouseDownBackColor = Color.Salmon;
+                picture.FlatAppearance.MouseOverBackColor = Color.FromArgb(229, 70, 70);
 
                 picture.Tag = (object)item;
 
                 //Add events to button
                 picture.Click += picture_Click;
+                picture.DoubleClick += Picture_DoubleClick;
 
                 //Design FoodDrink Name label
-                name.Text = item.Name;               
+                name.Text = item.Name;
                 name.TextAlign = ContentAlignment.MiddleCenter;
-                name.Font = new Font("Nirmala UI", 8F);
+                name.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
                 name.BackColor = Color.Transparent;
                 name.Dock = DockStyle.Top;
 
                 //Design FoodDrink Price label
                 price.Text = item.Price.ToString() + " VND";
                 price.TextAlign = ContentAlignment.MiddleCenter;
-                price.Font = new Font("Nirmala UI", 12F);
+                price.Font = new Font("Times New Roman", 12F);
                 price.BackColor = Color.Transparent;
                 price.Dock = DockStyle.Bottom;
 
@@ -94,6 +94,26 @@ namespace QuanLiRapChieuPhim
             }
         }
 
+        private void Picture_DoubleClick(object sender, EventArgs e)
+        {
+            int iDFD = ((sender as Button).Tag as FoodDrink).ID;
+            int iDBill = BillDAO.Instance.GetLastIDBill();
+            int count = 1;
+            int status = BillDAO.Instance.GetStatusBill(iDBill);
+
+            if (status == 0)
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+            else
+            {
+                BillDAO.Instance.InsertBill(iDBill);
+                iDBill = BillDAO.Instance.GetLastIDBill();
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+            }
+
+            nmFDCount.Value = 1;
+            ShowBill(iDBill);
+        }
+
         void ShowBill(int iDBill)
         {
             dgvBill.Rows.Clear();
@@ -102,13 +122,13 @@ namespace QuanLiRapChieuPhim
 
             foreach (FDMenu item in menuList)
             {
-              
+
                 total += item.TotalPrice;
 
-                dgvBill.Rows.Add(new object[] {item.Name, item.Quantity, item.Price, item.TotalPrice });
+                dgvBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
             }
-            
-            txtTotalPrice.Text = total.ToString() + " VND";
+
+            txtTotalPrice.Text = "Total: " +total.ToString() + " VND";
         }
 
         private void EnableButton(object sender)
@@ -136,6 +156,7 @@ namespace QuanLiRapChieuPhim
         private void picture_Click(object sender, EventArgs e)
         {
             //If button has not selected yet, highlight it, else unhighlight 
+            nmFDCount.Value = 1;
             if (curBtn != (Button)sender)
                 EnableButton(sender);
             else
@@ -149,7 +170,7 @@ namespace QuanLiRapChieuPhim
                 MessageBox.Show("You have not selected the FoodDrink!");
                 return;
             }
-            
+
             int iDFD = (curBtn.Tag as FoodDrink).ID;
             int iDBill = BillDAO.Instance.GetLastIDBill();
             int count = Convert.ToInt32(nmFDCount.Value);
@@ -168,21 +189,6 @@ namespace QuanLiRapChieuPhim
             DisableButton();
             ShowBill(iDBill);
         }
-
-        private void btnRemoveAll_Click(object sender, EventArgs e)
-        {
-            int iD = BillDAO.Instance.GetLastIDBill();
-            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
-            ShowBill(iD);
-
-            //Set default for panel
-            cbbCategorySelection.SelectedIndex = 0;
-            nmFDCount.Value = 1;
-            dgvBill.Rows.Clear();
-            txtTotalPrice.Clear();
-            DisableButton();
-        }
-
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             BillDAO.Instance.CheckOut(BillDAO.Instance.GetLastIDBill());
@@ -191,11 +197,11 @@ namespace QuanLiRapChieuPhim
             cbbCategorySelection.SelectedIndex = 0;
             nmFDCount.Value = 1;
             dgvBill.Rows.Clear();
-            txtTotalPrice.Clear();
+            txtTotalPrice.Text = "Total: 0 VND";
             DisableButton();
         }
 
-        private void cbbCategorySelection_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ComboBox cbb = (ComboBox)sender;
 
@@ -210,34 +216,18 @@ namespace QuanLiRapChieuPhim
                 LoadFoodDrinkByCategoryID(1);
         }
 
-        private void btnAdd_MouseMove(object sender, MouseEventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
+            int iD = BillDAO.Instance.GetLastIDBill();
+            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
+            ShowBill(iD);
 
-        private void btnRemoveAll_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
-
-        private void btnCheckOut_MouseMove(object sender, MouseEventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(155, 39, 43);
-        }
-
-        private void btnAdd_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
-        }
-
-        private void btnRemoveAll_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
-        }
-
-        private void btnCheckOut_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).BackColor = Color.FromArgb(203, 98, 101);
+            //Set default for panel
+            cbbCategorySelection.SelectedIndex = 0;
+            nmFDCount.Value = 1;
+            dgvBill.Rows.Clear();
+            txtTotalPrice.Text = "Total: 0 VND";
+            DisableButton();
         }
     }
 }

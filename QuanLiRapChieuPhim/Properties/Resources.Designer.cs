@@ -65,7 +65,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_1 {
             get {
-                object obj = ResourceManager.GetObject("_1_1", resourceCulture);
+                object obj = ResourceManager.GetObject("1_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_10 {
             get {
-                object obj = ResourceManager.GetObject("_1_10", resourceCulture);
+                object obj = ResourceManager.GetObject("1_10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_2 {
             get {
-                object obj = ResourceManager.GetObject("_1_2", resourceCulture);
+                object obj = ResourceManager.GetObject("1_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_3 {
             get {
-                object obj = ResourceManager.GetObject("_1_3", resourceCulture);
+                object obj = ResourceManager.GetObject("1_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +105,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_4 {
             get {
-                object obj = ResourceManager.GetObject("_1_4", resourceCulture);
+                object obj = ResourceManager.GetObject("1_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_5 {
             get {
-                object obj = ResourceManager.GetObject("_1_5", resourceCulture);
+                object obj = ResourceManager.GetObject("1_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +125,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_6 {
             get {
-                object obj = ResourceManager.GetObject("_1_6", resourceCulture);
+                object obj = ResourceManager.GetObject("1_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,7 +135,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_7 {
             get {
-                object obj = ResourceManager.GetObject("_1_7", resourceCulture);
+                object obj = ResourceManager.GetObject("1_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +145,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_8 {
             get {
-                object obj = ResourceManager.GetObject("_1_8", resourceCulture);
+                object obj = ResourceManager.GetObject("1_8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,7 +155,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1_9 {
             get {
-                object obj = ResourceManager.GetObject("_1_9", resourceCulture);
+                object obj = ResourceManager.GetObject("1_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,7 +165,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _2_1 {
             get {
-                object obj = ResourceManager.GetObject("_2_1", resourceCulture);
+                object obj = ResourceManager.GetObject("2_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -175,7 +175,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _2_2 {
             get {
-                object obj = ResourceManager.GetObject("_2_2", resourceCulture);
+                object obj = ResourceManager.GetObject("2_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -185,7 +185,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _2_3 {
             get {
-                object obj = ResourceManager.GetObject("_2_3", resourceCulture);
+                object obj = ResourceManager.GetObject("2_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -195,7 +195,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_1 {
             get {
-                object obj = ResourceManager.GetObject("_3_1", resourceCulture);
+                object obj = ResourceManager.GetObject("3_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -205,7 +205,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_2 {
             get {
-                object obj = ResourceManager.GetObject("_3_2", resourceCulture);
+                object obj = ResourceManager.GetObject("3_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -215,7 +215,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_3 {
             get {
-                object obj = ResourceManager.GetObject("_3_3", resourceCulture);
+                object obj = ResourceManager.GetObject("3_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -225,7 +225,7 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_4 {
             get {
-                object obj = ResourceManager.GetObject("_3_4", resourceCulture);
+                object obj = ResourceManager.GetObject("3_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -235,7 +235,57 @@ namespace QuanLiRapChieuPhim.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_5 {
             get {
-                object obj = ResourceManager.GetObject("_3_5", resourceCulture);
+                object obj = ResourceManager.GetObject("3_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_01 {
+            get {
+                object obj = ResourceManager.GetObject("Add-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap avatar {
+            get {
+                object obj = ResourceManager.GetObject("avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back__1_ {
+            get {
+                object obj = ResourceManager.GetObject("back (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CinemaPic {
+            get {
+                object obj = ResourceManager.GetObject("CinemaPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle {
+            get {
+                object obj = ResourceManager.GetObject("circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +303,59 @@ namespace QuanLiRapChieuPhim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_black {
+            get {
+                object obj = ResourceManager.GetObject("close_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customer {
             get {
                 object obj = ResourceManager.GetObject("customer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deadline {
+            get {
+                object obj = ResourceManager.GetObject("deadline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete_01 {
+            get {
+                object obj = ResourceManager.GetObject("Delete-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_01 {
+            get {
+                object obj = ResourceManager.GetObject("Edit-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditIcon_01 {
+            get {
+                object obj = ResourceManager.GetObject("EditIcon-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +423,106 @@ namespace QuanLiRapChieuPhim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hr {
+            get {
+                object obj = ResourceManager.GetObject("hr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_addfd {
+            get {
+                object obj = ResourceManager.GetObject("icon_addfd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_address_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-address-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_birth_date_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-birth-date-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_gender_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-gender-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_id_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-id-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_mail_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-mail-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_new {
+            get {
+                object obj = ResourceManager.GetObject("icon_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_phone_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon-phone-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_save {
+            get {
+                object obj = ResourceManager.GetObject("icon_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Loginn_01 {
             get {
                 object obj = ResourceManager.GetObject("Loginn-01", resourceCulture);
@@ -363,6 +563,66 @@ namespace QuanLiRapChieuPhim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap new_moon {
+            get {
+                object obj = ResourceManager.GetObject("new-moon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poster1 {
+            get {
+                object obj = ResourceManager.GetObject("Poster1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poster2 {
+            get {
+                object obj = ResourceManager.GetObject("Poster2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poster3 {
+            get {
+                object obj = ResourceManager.GetObject("Poster3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poster4 {
+            get {
+                object obj = ResourceManager.GetObject("Poster4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Poster5 {
+            get {
+                object obj = ResourceManager.GetObject("Poster5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap restore_down1 {
             get {
                 object obj = ResourceManager.GetObject("restore-down1", resourceCulture);
@@ -396,6 +656,16 @@ namespace QuanLiRapChieuPhim.Properties {
         internal static System.Drawing.Bitmap statistic {
             get {
                 object obj = ResourceManager.GetObject("statistic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrashIcon_01 {
+            get {
+                object obj = ResourceManager.GetObject("TrashIcon-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

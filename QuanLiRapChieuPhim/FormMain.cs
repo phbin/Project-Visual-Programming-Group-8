@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -71,7 +72,6 @@ namespace QuanLiRapChieuPhim
             childForm.BringToFront();
             childForm.Show();
             labelHome.Text = childForm.Text;
-
         }
         private void buttonGeneral_Click(object sender, EventArgs e)
         {
@@ -118,12 +118,22 @@ namespace QuanLiRapChieuPhim
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.setting;
             OpenChildForm(new FormStaff());
-            labelHome.Text = "Staff";
+            labelHome.Text = "My info";
+        }
+
+        private void ShowFormLogin()
+        {
+            FormLogin frm = new FormLogin();
+            frm.ShowDialog();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Thread thread = new Thread(new ThreadStart(ShowFormLogin)); //Create new thread 
+            thread.Start(); //Start thread
+            this.Close(); //Close current form
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.Show();
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -146,7 +156,6 @@ namespace QuanLiRapChieuPhim
         private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
         {
             buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
-
         }
 
         private void buttonClose_MouseMove(object sender, MouseEventArgs e)

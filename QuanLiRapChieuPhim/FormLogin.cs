@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using QuanLiRapChieuPhim.DAO;
+using System.Threading;
 
 namespace QuanLiRapChieuPhim
 {
@@ -16,6 +19,7 @@ namespace QuanLiRapChieuPhim
         {
             InitializeComponent();
             this.AcceptButton = LoginButton;
+            WrongLabel.Hide();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -85,23 +89,80 @@ namespace QuanLiRapChieuPhim
         {
             LoginButton.BackColor = Color.Transparent;
         }
+        int Login(string Username, string Password)
+        {
+           return AccountDAO.Instance.Login(Username, Password);
+        }
 
+        private void ShowFormMain()
+        {
+            FormMain frm = new FormMain();
+            frm.ShowDialog();
+        }
+
+        private void ShowFormAdmin()
+        {
+            FormAdmin frm = new FormAdmin();
+            frm.ShowDialog();
+        }
+
+        public static string ID_USER = "";//Tao 1 bien chua id
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextbox.Text == "admin" && PasswordTextbox.Text == "123456")
+            string Username = UsernameTextbox.Text;
+            string Password = PasswordTextbox.Text;
+            if (Login(Username, Password) == 1)
             {
+                Thread thread = new Thread(new ThreadStart(ShowFormAdmin)); //Create new thread 
+                thread.Start(); //Start thread
+                this.Close(); //Close current form
+                FormAdmin frmAdmin = new FormAdmin();
+                frmAdmin.Show();
+            }
+            else if(Login(Username,Password) == 0)
+            {
+                Thread thread = new Thread(new ThreadStart(ShowFormMain)); //Create new thread 
+                thread.Start(); //Start thread
+                this.Close(); //Close current form
                 FormMain frmMain = new FormMain();
-                frmMain.ShowDialog();
-                this.Hide();
+                frmMain.Show();
             }
             else if(UsernameTextbox.Text=="" || PasswordTextbox.Text=="" || UsernameTextbox.Text=="Username" || PasswordTextbox.Text=="Password")
             {
                 UsernameTextbox.Focus();
-            }    
+            }
             else
             {
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK);
+                WrongLabel.Show();
+                PasswordTextbox.Text = "Password";
+                PasswordTextbox.UseSystemPasswordChar = true;
             }
+
+            //Lay id dua theo username va pass
+            //SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True");
+            //try
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE UserName ='" + Username + "' and Pass ='" + Password + "'", con);
+            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    if (dt != null)
+            //    {
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            ID_USER = dr["ID"].ToString();
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
+            //}
+            //finally
+            //{
+            //    con.Close();
+            //}
         }
 
         private void HideButton_Click(object sender, EventArgs e)
@@ -121,7 +182,7 @@ namespace QuanLiRapChieuPhim
 
         private void HideButton_MouseMove(object sender, MouseEventArgs e)
         {
-            HideButton.BackColor = Color.FromArgb(155, 39, 43);
+            HideButton.BackColor = Color.FromArgb(188, 121, 129);
         }
 
         private void HideButton_MouseLeave(object sender, EventArgs e)
@@ -131,12 +192,19 @@ namespace QuanLiRapChieuPhim
 
         private void ShowButton_MouseMove(object sender, MouseEventArgs e)
         {
-            ShowButton.BackColor = Color.FromArgb(155, 39, 43);
+            ShowButton.BackColor = Color.FromArgb(188, 121, 129);
         }
 
         private void ShowButton_MouseLeave(object sender, EventArgs e)
         {
             ShowButton.BackColor = Color.Transparent;
+        }
+
+        private void Wrong()
+        {
+            Form WrongForm = new Form();
+            WrongForm.StartPosition = FormStartPosition.CenterScreen;
+            WrongForm.Size = new Size(50, 20);
         }
     }
     
