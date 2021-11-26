@@ -261,7 +261,10 @@ D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanL
 D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
 D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb

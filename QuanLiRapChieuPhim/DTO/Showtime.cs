@@ -14,7 +14,11 @@ namespace QuanLiRapChieuPhim.DTO
         private DateTime time;
         private string idRoom;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         private int ticketPrice;
+=======
+        public int ticketPrice;
+>>>>>>> Stashed changes
 =======
         public int ticketPrice;
 >>>>>>> Stashed changes

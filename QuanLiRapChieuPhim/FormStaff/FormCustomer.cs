@@ -1,6 +1,10 @@
 ﻿using QuanLiRapChieuPhim.ChildForms;
 using QuanLiRapChieuPhim.DAO;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+using QuanLiRapChieuPhim.DTO;
+>>>>>>> Stashed changes
 =======
 using QuanLiRapChieuPhim.DTO;
 >>>>>>> Stashed changes
@@ -19,6 +23,11 @@ namespace QuanLiRapChieuPhim
     public partial class FormCustomer : Form
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        public Customer customer;
+
+>>>>>>> Stashed changes
 =======
         public Customer customer;
 

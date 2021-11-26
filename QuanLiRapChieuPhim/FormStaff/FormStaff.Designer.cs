@@ -39,9 +39,12 @@ namespace QuanLiRapChieuPhim
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.txtSex = new System.Windows.Forms.TextBox();
             this.txtDOB = new System.Windows.Forms.TextBox();
             this.txtPID = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             this.pictureBoxAddr = new System.Windows.Forms.PictureBox();
@@ -57,6 +60,12 @@ namespace QuanLiRapChieuPhim
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+            this.txtSex = new System.Windows.Forms.TextBox();
+            this.txtDOB = new System.Windows.Forms.TextBox();
+            this.txtPID = new System.Windows.Forms.TextBox();
+>>>>>>> Stashed changes
 =======
             this.txtSex = new System.Windows.Forms.TextBox();
             this.txtDOB = new System.Windows.Forms.TextBox();
@@ -184,6 +193,7 @@ namespace QuanLiRapChieuPhim
             this.txtEmail.TabIndex = 9;
             // 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             // txtSex
             // 
             this.txtSex.Enabled = false;
@@ -214,6 +224,8 @@ namespace QuanLiRapChieuPhim
             this.txtPID.Size = new System.Drawing.Size(261, 34);
             this.txtPID.TabIndex = 6;
             // 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             // pictureBoxAddr
@@ -385,7 +397,10 @@ namespace QuanLiRapChieuPhim
             this.labelSex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
             // txtSex
             // 
             this.txtSex.Enabled = false;
@@ -416,6 +431,9 @@ namespace QuanLiRapChieuPhim
             this.txtPID.Size = new System.Drawing.Size(261, 34);
             this.txtPID.TabIndex = 6;
             // 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             // gradientPanel4
             // 
@@ -461,6 +479,10 @@ namespace QuanLiRapChieuPhim
             this.pictureBoxAvatar.TabIndex = 7;
             this.pictureBoxAvatar.TabStop = false;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+            this.pictureBoxAvatar.DoubleClick += new System.EventHandler(this.pictureBoxAvatar_DoubleClick);
+>>>>>>> Stashed changes
 =======
             this.pictureBoxAvatar.DoubleClick += new System.EventHandler(this.pictureBoxAvatar_DoubleClick);
 >>>>>>> Stashed changes

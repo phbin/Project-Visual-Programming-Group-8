@@ -5,6 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+using System.IO;
+>>>>>>> Stashed changes
 =======
 using System.IO;
 >>>>>>> Stashed changes
@@ -18,6 +22,11 @@ namespace QuanLiRapChieuPhim
     public partial class FormStaff : Form
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        string str;
+
+>>>>>>> Stashed changes
 =======
         string str;
 
@@ -42,10 +51,13 @@ namespace QuanLiRapChieuPhim
                 txtPhoneNum.Text = rows[5].ToString();
                 txtAddr.Text = rows[4].ToString();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             }
         }
 
 =======
+=======
+>>>>>>> Stashed changes
                 MemoryStream ms = new MemoryStream((byte[])rows[8]);
                 pictureBoxAvatar.Image = new Bitmap(ms);
             }
@@ -74,6 +86,9 @@ namespace QuanLiRapChieuPhim
             fs.Close();
             return picbyte;
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }
