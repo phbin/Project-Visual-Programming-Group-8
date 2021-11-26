@@ -38,9 +38,12 @@ namespace QuanLiRapChieuPhim
             this.txtAddr = new System.Windows.Forms.TextBox();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+<<<<<<< Updated upstream
             this.txtSex = new System.Windows.Forms.TextBox();
             this.txtDOB = new System.Windows.Forms.TextBox();
             this.txtPID = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> Stashed changes
             this.pictureBoxAddr = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
             this.pictureBoxSex = new System.Windows.Forms.PictureBox();
@@ -53,6 +56,12 @@ namespace QuanLiRapChieuPhim
             this.labelPID = new System.Windows.Forms.Label();
             this.labelBirthday = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
+<<<<<<< Updated upstream
+=======
+            this.txtSex = new System.Windows.Forms.TextBox();
+            this.txtDOB = new System.Windows.Forms.TextBox();
+            this.txtPID = new System.Windows.Forms.TextBox();
+>>>>>>> Stashed changes
             this.gradientPanel4 = new QuanLiRapChieuPhim.GradientPanel();
             this.gradientPanel = new QuanLiRapChieuPhim.GradientPanel();
             this.pictureBoxAvatar = new System.Windows.Forms.PictureBox();
@@ -174,6 +183,7 @@ namespace QuanLiRapChieuPhim
             this.txtEmail.Size = new System.Drawing.Size(261, 34);
             this.txtEmail.TabIndex = 9;
             // 
+<<<<<<< Updated upstream
             // txtSex
             // 
             this.txtSex.Enabled = false;
@@ -204,6 +214,8 @@ namespace QuanLiRapChieuPhim
             this.txtPID.Size = new System.Drawing.Size(261, 34);
             this.txtPID.TabIndex = 6;
             // 
+=======
+>>>>>>> Stashed changes
             // pictureBoxAddr
             // 
             this.pictureBoxAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -372,6 +384,39 @@ namespace QuanLiRapChieuPhim
             this.labelSex.Text = "Sex:";
             this.labelSex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+<<<<<<< Updated upstream
+=======
+            // txtSex
+            // 
+            this.txtSex.Enabled = false;
+            this.txtSex.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSex.ForeColor = System.Drawing.Color.White;
+            this.txtSex.Location = new System.Drawing.Point(228, 251);
+            this.txtSex.Name = "txtSex";
+            this.txtSex.Size = new System.Drawing.Size(261, 34);
+            this.txtSex.TabIndex = 8;
+            // 
+            // txtDOB
+            // 
+            this.txtDOB.Enabled = false;
+            this.txtDOB.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDOB.ForeColor = System.Drawing.Color.White;
+            this.txtDOB.Location = new System.Drawing.Point(228, 153);
+            this.txtDOB.Name = "txtDOB";
+            this.txtDOB.Size = new System.Drawing.Size(261, 34);
+            this.txtDOB.TabIndex = 7;
+            // 
+            // txtPID
+            // 
+            this.txtPID.Enabled = false;
+            this.txtPID.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPID.ForeColor = System.Drawing.Color.White;
+            this.txtPID.Location = new System.Drawing.Point(228, 52);
+            this.txtPID.Name = "txtPID";
+            this.txtPID.Size = new System.Drawing.Size(261, 34);
+            this.txtPID.TabIndex = 6;
+            // 
+>>>>>>> Stashed changes
             // gradientPanel4
             // 
             this.gradientPanel4.Angle = 0F;
@@ -415,6 +460,10 @@ namespace QuanLiRapChieuPhim
             this.pictureBoxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAvatar.TabIndex = 7;
             this.pictureBoxAvatar.TabStop = false;
+<<<<<<< Updated upstream
+=======
+            this.pictureBoxAvatar.DoubleClick += new System.EventHandler(this.pictureBoxAvatar_DoubleClick);
+>>>>>>> Stashed changes
             // 
             // lbID
             // 

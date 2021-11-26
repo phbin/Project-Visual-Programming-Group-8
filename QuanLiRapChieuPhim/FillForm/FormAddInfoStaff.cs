@@ -118,6 +118,11 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 EmailTextbox.Text = "";
                 EmailTextbox.ForeColor = Color.White;
+<<<<<<< Updated upstream
+=======
+                label1.ForeColor = Color.White;
+                label1.Text = "@gmail.com";
+>>>>>>> Stashed changes
             }
         }
 
@@ -235,7 +240,11 @@ namespace QuanLiRapChieuPhim.AddForms
 
                 DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
+<<<<<<< Updated upstream
                 AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
+=======
+                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
+>>>>>>> Stashed changes
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -278,11 +287,57 @@ namespace QuanLiRapChieuPhim.AddForms
                         Sex = "Nữ";
                     }
 
+<<<<<<< Updated upstream
                     AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
+=======
+                    AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
+>>>>>>> Stashed changes
 
                     this.Close();
                 }
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private bool IsLetter(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] < 'a' || str[i] > 'z')
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsNumber(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((str[i] < '0' && str[i] != '.') || (str[i] > '9' && str[i] != '.'))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void EmailTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsNumber(EmailTextbox.Text) && !IsLetter(EmailTextbox.Text))
+            {
+                MessageBox.Show("Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
