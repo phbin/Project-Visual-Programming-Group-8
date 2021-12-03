@@ -13,15 +13,9 @@ namespace QuanLiRapChieuPhim.DTO
         private string iDMovie;
         private DateTime time;
         private string idRoom;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        private int ticketPrice;
-=======
+
         public int ticketPrice;
->>>>>>> Stashed changes
-=======
-        public int ticketPrice;
->>>>>>> Stashed changes
+
 
         public Showtime(string id, string idmovie, DateTime time, string idroom, int ticketprice)
         {

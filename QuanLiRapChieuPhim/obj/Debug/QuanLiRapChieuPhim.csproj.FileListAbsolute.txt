@@ -261,11 +261,35 @@ D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanL
 D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
 D:\Project\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 =======
 >>>>>>> Stashed changes
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 C:\Users\ltvti\Desktop\Project-Visual-Programming-Group-8-main\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
->>>>>>> Stashed changes
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddAccount.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddCustomer.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddInfoStaff.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAccount.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAddFD.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormHRM.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovieManage.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormShowtime.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.MovieControls.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ShowtimeControls.resources
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb

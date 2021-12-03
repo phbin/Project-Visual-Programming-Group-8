@@ -10,21 +10,6 @@ namespace QuanLiRapChieuPhim.DAO
 {
     public class RoomDAO
     {
-<<<<<<< Updated upstream
-        //public static Room GetCinemaByName(string nameRoom)
-        //{
-        //    //string query = "select * from dbo.Room where NameRoom = '" + nameRoom + "'";
-        //    //DataTable data = DataProvider.ExecuteQuery(query);
-        //    //if (data.Rows.Count > 0)
-        //    //{
-        //    //    return new Room(data.Rows[0]);
-        //    //}
-        //    //else
-        //    //{
-        //    //    return null;
-        //    //}
-        //}
-=======
         public static Room GetCinemaByName(string nameRoom)
         {
             string query = "select * from dbo.Room where NameRoom = '" + nameRoom + "'";
@@ -38,6 +23,5 @@ namespace QuanLiRapChieuPhim.DAO
                 return null;
             }
         }
->>>>>>> Stashed changes
     }
 }

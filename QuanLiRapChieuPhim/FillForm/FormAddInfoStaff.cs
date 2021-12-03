@@ -118,16 +118,9 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 EmailTextbox.Text = "";
                 EmailTextbox.ForeColor = Color.White;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
                 label1.ForeColor = Color.White;
                 label1.Text = "@gmail.com";
->>>>>>> Stashed changes
-=======
-                label1.ForeColor = Color.White;
-                label1.Text = "@gmail.com";
->>>>>>> Stashed changes
             }
         }
 
@@ -245,15 +238,8 @@ namespace QuanLiRapChieuPhim.AddForms
 
                 DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-=======
+
                 AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
->>>>>>> Stashed changes
-=======
-                AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
->>>>>>> Stashed changes
                 IDTextbox.Text = "";
                 FullNameTextbox.Text = "";
                 DoBTextbox.Text = "";
@@ -296,25 +282,14 @@ namespace QuanLiRapChieuPhim.AddForms
                         Sex = "Nữ";
                     }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-=======
+
                     AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
->>>>>>> Stashed changes
-=======
-                    AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
->>>>>>> Stashed changes
 
                     this.Close();
                 }
             }
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
 
         private bool IsLetter(string str)
         {
@@ -354,9 +329,5 @@ namespace QuanLiRapChieuPhim.AddForms
 
             }
         }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 }

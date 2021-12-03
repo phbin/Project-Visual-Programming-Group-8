@@ -132,17 +132,11 @@ namespace QuanLiRapChieuPhim.AddForms
 
             if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text!="")
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-=======
                 string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
->>>>>>> Stashed changes
-=======
-                string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
-                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
->>>>>>> Stashed changes
+
                 UsernameTextbox.Text = "";
                 PasswordTextbox.Text = "";
                 IDTextbox.Text = "";
@@ -179,17 +173,12 @@ namespace QuanLiRapChieuPhim.AddForms
                     int admin = 0;
                     if (AdminCheckbox.Checked)
                         admin = 1;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-=======
                     string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
->>>>>>> Stashed changes
-=======
-                    string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
-                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
->>>>>>> Stashed changes
+
+
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }

@@ -1,13 +1,8 @@
 ﻿using QuanLiRapChieuPhim.ChildForms;
 using QuanLiRapChieuPhim.DAO;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
 using QuanLiRapChieuPhim.DTO;
->>>>>>> Stashed changes
-=======
-using QuanLiRapChieuPhim.DTO;
->>>>>>> Stashed changes
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +17,9 @@ namespace QuanLiRapChieuPhim
 {
     public partial class FormCustomer : Form
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
         public Customer customer;
 
->>>>>>> Stashed changes
-=======
-        public Customer customer;
-
->>>>>>> Stashed changes
         public FormCustomer()
         {
             InitializeComponent();
