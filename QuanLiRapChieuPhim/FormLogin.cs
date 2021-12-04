@@ -110,7 +110,7 @@ namespace QuanLiRapChieuPhim
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string Username = UsernameTextbox.Text;
-            string Password = Cryptography.Decrypt(PasswordTextbox.Text);
+            string Password = PasswordTextbox.Text;
 
             if (Login(Username, Password) == 1)
             {

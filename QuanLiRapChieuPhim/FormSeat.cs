@@ -326,7 +326,7 @@ namespace QuanLiRapChieuPhim
                 FormCustomer frm = new FormCustomer();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    customer = frm.customer;
+                   //customer = frm.customer;
                     lblCustomerName.Text = customer.FullName;
                     lblPoint.Text = customer.Points + "";
                     ShowOrHideLablePoint();

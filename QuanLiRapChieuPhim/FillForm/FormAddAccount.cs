@@ -134,8 +134,6 @@ namespace QuanLiRapChieuPhim.AddForms
             {
 
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
-                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
 
                 UsernameTextbox.Text = "";
                 PasswordTextbox.Text = "";
@@ -175,7 +173,7 @@ namespace QuanLiRapChieuPhim.AddForms
                         admin = 1;
 
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                    string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
+                    string password = PasswordTextbox.Text.ToString();
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
 
 

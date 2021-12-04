@@ -15,7 +15,6 @@ namespace QuanLiRapChieuPhim
 {
     public partial class FormCustomer : Form
     {
-        internal Customer customer;
 
         public FormCustomer()
         {
