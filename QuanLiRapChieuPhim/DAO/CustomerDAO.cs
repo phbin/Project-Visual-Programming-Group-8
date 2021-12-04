@@ -11,7 +11,7 @@ namespace QuanLiRapChieuPhim.DAO
         public static bool UpdatePointCustomer(string id, int point)
         {
             string command = string.Format("UPDATE dbo.InfoCustomer SET  Points = {0} WHERE ID = '{1}'", point, id);
-            int result = DataProvider.ExecuteNonQuery(command);
+            int result = DataProvider.Instance.ExecuteNonQuery(command);
             return result > 0;
         }
     }

@@ -23,7 +23,11 @@ namespace QuanLiRapChieuPhim
         void LoadInfoCustomer()
         {
             string query = "SELECT * FROM dbo.InfoCustomer";
+<<<<<<<< HEAD:QuanLiRapChieuPhim/FormStaff/FormCustomer.cs
             ListCustomerGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
+========
+            ListCustomerGrid.DataSource = DataProvider.Instance.ExcuteQuery(query);
+>>>>>>>> fcbfc94f706abb1a5cd0e01a29272b54b70fbefc:QuanLiRapChieuPhim/FormCustomer.cs
         }
 
         private void SearchTextbox_Enter(object sender, EventArgs e)
@@ -49,7 +53,7 @@ namespace QuanLiRapChieuPhim
         {
             DataTable filtertable = new DataTable();
             string query = "SELECT * FROM dbo.InfoCustomer WHERE FullName LIKE '%" + SearchTextbox.Text + "%'";
-            filtertable = DataProvider.Instance.ExecuteQuery(query);
+            filtertable = DataProvider.Instance.ExcuteQuery(query);
             ListCustomerGrid.DataSource = filtertable;
         }
 
