@@ -33,7 +33,7 @@ namespace QuanLiRapChieuPhim
                 DisableButton();
                 //convert object to same type of button
                 curBtn = (Button)sender;
-                curBtn.BackColor = Color.FromArgb(155,39,43);
+                curBtn.BackColor = Color.FromArgb(155, 39, 43);
                 curBtn.ForeColor = Color.White;
                 curBtn.TextAlign = ContentAlignment.MiddleCenter;
                 curBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -136,15 +136,15 @@ namespace QuanLiRapChieuPhim
             frmLogin.Show();
         }
 
-        private void buttonMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
         private void buttonMaximize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
             buttonRestoreDown.BringToFront();
+        }
+
+        private void buttonMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
 
         private void buttonRestoreDown_Click(object sender, EventArgs e)
@@ -153,14 +153,14 @@ namespace QuanLiRapChieuPhim
             buttonMaximize.BringToFront();
         }
 
-        private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
-        {
-            buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
-        }
-
         private void buttonClose_MouseMove(object sender, MouseEventArgs e)
         {
             buttonClose.BackColor = Color.FromArgb(190, 62, 66);
+        }
+
+        private void buttonRestoreDown_MouseMove(object sender, MouseEventArgs e)
+        {
+            buttonRestoreDown.BackColor = Color.FromArgb(190, 62, 66);
         }
 
         private void buttonMaximize_MouseMove(object sender, MouseEventArgs e)
@@ -168,9 +168,9 @@ namespace QuanLiRapChieuPhim
             buttonMaximize.BackColor = Color.FromArgb(190, 62, 66);
         }
 
-        private void buttonRestoreDown_MouseMove(object sender, MouseEventArgs e)
+        private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
         {
-            buttonRestoreDown.BackColor = Color.FromArgb(190, 62, 66);
+            buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
         }
     }
 }

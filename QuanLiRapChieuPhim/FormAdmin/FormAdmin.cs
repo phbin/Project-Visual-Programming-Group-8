@@ -150,5 +150,13 @@ namespace QuanLiRapChieuPhim
             OpenChildForm(new FormShowtime());
             labelHome.Text = "Showtime Manage";
         }
+
+        private void ButtonFD_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.customer;
+            OpenChildForm(new FormAddFD());
+            labelHome.Text = "Food Drink";
+        }
     }
 }

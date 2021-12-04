@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\Lập trình trực quan\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -53,19 +50,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ShowtimeDAO.cs" />
-    <Compile Include="DTO\Showtime.cs" />
-    <Compile Include="FormShowtime.cs">
+    <Compile Include="FillForm\FormAddAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormShowtime.Designer.cs">
-      <DependentUpon>FormShowtime.cs</DependentUpon>
+    <Compile Include="FillForm\FormAddAccount.Designer.cs">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="MovieControls.cs">
+    <Compile Include="FillForm\FormAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovieControls.Designer.cs">
-      <DependentUpon>MovieControls.cs</DependentUpon>
+    <Compile Include="FillForm\FormAddCustomer.Designer.cs">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditCategory.Designer.cs">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddEditFD.Designer.cs">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FillForm\FormAddInfoStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\FormAddInfoStaff.Designer.cs">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
@@ -77,6 +90,9 @@
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\MovieByGenreDAO.cs" />
     <Compile Include="DAO\MovieDAO.cs" />
+    <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\ShowtimeDAO.cs" />
+    <Compile Include="DAO\TicketDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\FDCategory.cs" />
@@ -85,11 +101,20 @@
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="DTO\MovieByGenre.cs" />
+    <Compile Include="DTO\Room.cs" />
+    <Compile Include="DTO\Showtime.cs" />
+    <Compile Include="DTO\Ticket.cs" />
     <Compile Include="FormAdmin\FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAdmin\FormAccount.Designer.cs">
       <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdmin\FormAddFD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormAddFD.Designer.cs">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\FormAdmin.cs">
       <SubType>Form</SubType>
@@ -97,10 +122,10 @@
     <Compile Include="FormAdmin\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFD.cs">
+    <Compile Include="FormStaff\FormFD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFD.Designer.cs">
+    <Compile Include="FormStaff\FormFD.Designer.cs">
       <DependentUpon>FormFD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\FormHRM.cs">
@@ -115,72 +140,96 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCustomer.cs">
+    <Compile Include="FormStaff\FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCustomer.Designer.cs">
+    <Compile Include="FormStaff\FormCustomer.Designer.cs">
       <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGeneral.cs">
+    <Compile Include="FormStaff\FormGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGeneral.Designer.cs">
+    <Compile Include="FormStaff\FormGeneral.Designer.cs">
       <DependentUpon>FormGeneral.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormStaff\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="FormStaff\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMovie.cs">
+    <Compile Include="FormStaff\FormMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMovie.Designer.cs">
+    <Compile Include="FormStaff\FormMovie.Designer.cs">
       <DependentUpon>FormMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMovieManage.cs">
+    <Compile Include="FormAdmin\FormMovieManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMovieManage.Designer.cs">
+    <Compile Include="FormAdmin\FormMovieManage.Designer.cs">
       <DependentUpon>FormMovieManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStaff.cs">
+    <Compile Include="FormAdmin\FormShowtime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStaff.Designer.cs">
+    <Compile Include="FormAdmin\FormShowtime.Designer.cs">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormStaff.Designer.cs">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStatistic.cs">
+    <Compile Include="FormStaff\FormStatistic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatistic.Designer.cs">
+    <Compile Include="FormStaff\FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowtimeControls.cs">
+    <Compile Include="FillForm\MovieControls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowtimeControls.Designer.cs">
+    <Compile Include="FillForm\MovieControls.Designer.cs">
+      <DependentUpon>MovieControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FillForm\ShowtimeControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillForm\ShowtimeControls.Designer.cs">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormShowtime.resx">
-      <DependentUpon>FormShowtime.cs</DependentUpon>
+    <EmbeddedResource Include="FillForm\FormAddAccount.resx">
+      <DependentUpon>FormAddAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MovieControls.resx">
-      <DependentUpon>MovieControls.cs</DependentUpon>
+    <EmbeddedResource Include="FillForm\FormAddCustomer.resx">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddEditCategory.resx">
+      <DependentUpon>FormAddEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddEditFD.resx">
+      <DependentUpon>FormAddEditFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\FormAddInfoStaff.resx">
+      <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormAddFD.resx">
+      <DependentUpon>FormAddFD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFD.resx">
+    <EmbeddedResource Include="FormStaff\FormFD.resx">
       <DependentUpon>FormFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormHRM.resx">
@@ -189,33 +238,39 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCustomer.resx">
+    <EmbeddedResource Include="FormStaff\FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGeneral.resx">
+    <EmbeddedResource Include="FormStaff\FormGeneral.resx">
       <DependentUpon>FormGeneral.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="FormStaff\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMovie.resx">
+    <EmbeddedResource Include="FormStaff\FormMovie.resx">
       <DependentUpon>FormMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMovieManage.resx">
+    <EmbeddedResource Include="FormAdmin\FormMovieManage.resx">
       <DependentUpon>FormMovieManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStaff.resx">
+    <EmbeddedResource Include="FormAdmin\FormShowtime.resx">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatistic.resx">
+    <EmbeddedResource Include="FormStaff\FormStatistic.resx">
       <DependentUpon>FormStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FillForm\MovieControls.resx">
+      <DependentUpon>MovieControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowtimeControls.resx">
+    <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -399,16 +454,8 @@
     <None Include="Resources\CinemaPic.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back %281%29.png" />
+    <None Include="Resources\buttonMaximize.Image.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\deadline.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TrashIcon-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EditIcon-01.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

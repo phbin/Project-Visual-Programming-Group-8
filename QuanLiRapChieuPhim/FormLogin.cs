@@ -110,7 +110,8 @@ namespace QuanLiRapChieuPhim
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string Username = UsernameTextbox.Text;
-            string Password = PasswordTextbox.Text;
+            string Password = Cryptography.Decrypt(PasswordTextbox.Text);
+
             if (Login(Username, Password) == 1)
             {
                 Thread thread = new Thread(new ThreadStart(ShowFormAdmin)); //Create new thread 
@@ -182,7 +183,7 @@ namespace QuanLiRapChieuPhim
 
         private void HideButton_MouseMove(object sender, MouseEventArgs e)
         {
-            HideButton.BackColor = Color.FromArgb(155, 39, 43);
+            HideButton.BackColor = Color.FromArgb(188, 121, 129);
         }
 
         private void HideButton_MouseLeave(object sender, EventArgs e)
@@ -192,7 +193,7 @@ namespace QuanLiRapChieuPhim
 
         private void ShowButton_MouseMove(object sender, MouseEventArgs e)
         {
-            ShowButton.BackColor = Color.FromArgb(155, 39, 43);
+            ShowButton.BackColor = Color.FromArgb(188, 121, 129);
         }
 
         private void ShowButton_MouseLeave(object sender, EventArgs e)
