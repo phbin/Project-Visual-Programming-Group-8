@@ -293,3 +293,6 @@ C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiR
 C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
 C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\HuyDanhGiay\Documents\GitHub\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb

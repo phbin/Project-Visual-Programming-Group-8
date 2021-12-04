@@ -38,6 +38,11 @@ namespace QuanLiRapChieuPhim
         {
             string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement, but the decryption key should be same as encryption key    
             cipherText = cipherText.Replace(" ", "+");
+            int mod4 = cipherText.Length % 4;
+            if (mod4 > 0)
+            {
+                cipherText += new string('=', 4 - mod4);
+            }
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             using (Aes encryptor = Aes.Create())
             {
