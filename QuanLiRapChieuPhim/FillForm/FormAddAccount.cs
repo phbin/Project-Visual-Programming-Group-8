@@ -132,7 +132,11 @@ namespace QuanLiRapChieuPhim.AddForms
 
             if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text!="")
             {
+
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
+                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
+
                 UsernameTextbox.Text = "";
                 PasswordTextbox.Text = "";
                 IDTextbox.Text = "";
@@ -169,7 +173,12 @@ namespace QuanLiRapChieuPhim.AddForms
                     int admin = 0;
                     if (AdminCheckbox.Checked)
                         admin = 1;
+
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                    string password = Cryptography.Encrypt(PasswordTextbox.Text.ToString());
+                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
+
+
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }
@@ -179,6 +188,7 @@ namespace QuanLiRapChieuPhim.AddForms
         private void buttonClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
+            FormAccount.ActiveForm.Activate();
         }
 
         private void buttonClose_MouseMove(object sender, MouseEventArgs e)

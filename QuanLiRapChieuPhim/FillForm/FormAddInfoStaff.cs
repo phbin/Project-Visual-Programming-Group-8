@@ -118,6 +118,9 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 EmailTextbox.Text = "";
                 EmailTextbox.ForeColor = Color.White;
+
+                label1.ForeColor = Color.White;
+                label1.Text = "@gmail.com";
             }
         }
 
@@ -280,8 +283,50 @@ namespace QuanLiRapChieuPhim.AddForms
 
                     AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
 
+                    AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text + "@gmail.com", Sex);
+
                     this.Close();
                 }
+            }
+        }
+
+
+        private bool IsLetter(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] < 'a' || str[i] > 'z')
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsNumber(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((str[i] < '0' && str[i] != '.') || (str[i] > '9' && str[i] != '.'))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void EmailTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsNumber(EmailTextbox.Text) && !IsLetter(EmailTextbox.Text))
+            {
+                MessageBox.Show("Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+
             }
         }
     }

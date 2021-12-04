@@ -13,7 +13,9 @@ namespace QuanLiRapChieuPhim.DTO
         private string iDMovie;
         private DateTime time;
         private string idRoom;
-        private int ticketPrice;
+
+        public int ticketPrice;
+
 
         public Showtime(string id, string idmovie, DateTime time, string idroom, int ticketprice)
         {
