@@ -1,42 +1,63 @@
-﻿using QuanLiRapChieuPhim.DAO;
+﻿using Bunifu.UI.WinForms;
+using QuanLiRapChieuPhim.DAO;
 using QuanLiRapChieuPhim.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLiRapChieuPhim
 {
     public partial class FormFD : Form
     {
-        private Button curBtn;
-        List<FoodDrink> fDList;
+        private BunifuImageButton curFDBtn;
+        private List<FoodDrink> fDList;
+        private TimeSpan doubleClickMaxTime;
+        private Timer clickTimer;
+        private bool inDoubleClick;
+        private DateTime lastClick;
         public FormFD()
         {
             InitializeComponent();
 
-            ShowBill(BillDAO.Instance.GetLastIDBill());
-            LoadFDCategory();
             this.DoubleBuffered = true;
+
+            //Prepare for Double Click Event
+            doubleClickMaxTime = TimeSpan.FromMilliseconds(SystemInformation.DoubleClickTime);
+
+            clickTimer = new Timer();
+            clickTimer.Interval = SystemInformation.DoubleClickTime;
+            clickTimer.Tick += ClickTimer_Tick;
+        }
+        #region Method
+        private void EnableButton(object sender)
+        {
+            if (sender != null)
+            {
+                DisableButton();
+
+                curFDBtn = (BunifuImageButton)sender;
+                curFDBtn.BackColor = Color.FromArgb(155, 39, 43);
+                curFDBtn.ForeColor = Color.White;
+            }
         }
 
-        void LoadFDCategory()
+        private void DisableButton()
         {
-            List<FDCategory> fDCategoryList = FDCategoryDAO.Instance.GetFDCategory();
-
-            cbbCategorySelection.DataSource = fDCategoryList;
-            cbbCategorySelection.DisplayMember = "Name";
+            if (curFDBtn != null)
+            {
+                curFDBtn.BackColor = Color.White;
+                curFDBtn.ForeColor = Color.Black;
+                curFDBtn = null;
+                nmFDCount.Value = 1;
+            }
         }
 
-        void LoadFoodDrinkByCategoryID(int iD)
+        private void LoadFoodDrinkByCategoryID(int iD)
         {
-            flpFoodDrink.Controls.Clear();
+            flowLayoutPanel.Controls.Clear();
 
             fDList = FoodDrinkDAO.Instance.GetFoodDrinkByCategoryID(iD);
 
@@ -44,33 +65,30 @@ namespace QuanLiRapChieuPhim
 
             foreach (FoodDrink item in fDList)
             {
-                Button picture = new Button();
+                BunifuImageButton btn = new BunifuImageButton();
                 Label name = new Label();
                 Label price = new Label();
+                Button add = new Button();
 
                 //Design button
-                picture.Width = 160;
-                picture.Height = 180;
-                picture.Margin = new Padding(5, 5, 5, 5);
+                btn.Width = 160;
+                btn.Height = 180;
+                btn.Margin = new Padding(5, 5, 5, 5);
 
                 ////Insert image from resources file
-                string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;          //Get the app's running path
+                string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;
                 string fileName = string.Format("{0}Resources\\{1}_{2}.png", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")), iD, indexImage);
-                picture.Image = Image.FromFile(fileName);
+                btn.Image = Image.FromFile(fileName);
 
-                picture.ImageAlign = ContentAlignment.MiddleCenter;
-                picture.BackgroundImageLayout = ImageLayout.Stretch;
-                picture.BackColor = Color.White;
-                picture.FlatStyle = FlatStyle.Flat;
-                picture.FlatAppearance.BorderSize = 0;
-                picture.FlatAppearance.MouseDownBackColor = Color.Salmon;
-                picture.FlatAppearance.MouseOverBackColor = Color.FromArgb(229, 70, 70);
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
+                btn.BackColor = Color.White;
+                btn.AllowZooming = false;
 
-                picture.Tag = (object)item;
+                btn.Tag = (object)item;
 
                 //Add events to button
-                picture.Click += picture_Click;
-                picture.DoubleClick += Picture_DoubleClick;
+                btn.Click += btn_Click;
+                btn.MouseDown += btn_MouseDown;
 
                 //Design FoodDrink Name label
                 name.Text = item.Name;
@@ -87,147 +105,215 @@ namespace QuanLiRapChieuPhim
                 price.Dock = DockStyle.Bottom;
 
                 //Add control to panel
-                picture.Controls.Add(name);
-                picture.Controls.Add(price);
-                flpFoodDrink.Controls.Add(picture);
+                btn.Controls.Add(name);
+                btn.Controls.Add(price);
+                flowLayoutPanel.Controls.Add(btn);
                 indexImage++;
             }
         }
 
-        private void Picture_DoubleClick(object sender, EventArgs e)
+        private void ShowBill(int iDBill)
         {
-            int iDFD = ((sender as Button).Tag as FoodDrink).ID;
-            int iDBill = BillDAO.Instance.GetLastIDBill();
-            int count = 1;
-            int status = BillDAO.Instance.GetStatusBill(iDBill);
-
-            if (status == 0)
-                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
-            else
-            {
-                BillDAO.Instance.InsertBill(iDBill);
-                iDBill = BillDAO.Instance.GetLastIDBill();
-                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
-            }
-
-            nmFDCount.Value = 1;
-            ShowBill(iDBill);
-        }
-
-        void ShowBill(int iDBill)
-        {
-            dgvBill.Rows.Clear();
+            datagridviewBill.Rows.Clear();
             List<FDMenu> menuList = MenuDAO.Instance.GetListMenuByBillID(iDBill);
             float total = 0;
 
             foreach (FDMenu item in menuList)
             {
-
+                datagridviewBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
                 total += item.TotalPrice;
-
-                dgvBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
             }
 
-            txtTotalPrice.Text = "Total: " +total.ToString() + " VND";
+            lbSubTotalDeTail.Text = total.ToString() + " VND";
+            lbTaxDeTail.Text = (total * 0.1).ToString() + " VND";
+            lbTotalDetail.Text = (total + total * 0.1).ToString();
         }
 
-        private void EnableButton(object sender)
+        private void DoubleClickAction(object sender)
         {
-            if (sender != null)
+            int iDFD = ((sender as BunifuImageButton).Tag as FoodDrink).ID;
+            int iDBill = BillDAO.Instance.GetLastIDBill();
+            int count = 1;
+
+            BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+
+            ShowBill(iDBill);
+        }
+        #endregion
+
+        #region Events
+        private void dgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
             {
+                int iDBill = BillDAO.Instance.GetLastIDBill();
+
+                if (e.RowIndex >= 0)
+                {
+                    //Gets a collection that contains all the rows
+                    DataGridViewRow row = this.datagridviewBill.Rows[e.RowIndex];
+
+                    if (datagridviewBill.Columns[e.ColumnIndex].HeaderText == "")
+                    {
+                        //Populate the textbox from specific value of the coordinates of column and row.
+                        string nameFD = row.Cells[0].Value.ToString();
+                        int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
+                        BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
+                    }
+                }
+
+                else
+                    MessageBox.Show("You have not selected the FoodDrink to Remove!");
+
+                ShowBill(iDBill);
+                //cbbCategorySelection.SelectedIndex = 0;
+                nmFDCount.Value = 1;
                 DisableButton();
-
-                curBtn = (Button)sender;
-                curBtn.BackColor = Color.FromArgb(155, 39, 43);
-                curBtn.ForeColor = Color.White;
             }
-        }
-
-        private void DisableButton()
-        {
-            if (curBtn != null)
+            catch
             {
-                curBtn.BackColor = Color.White;
-                curBtn.ForeColor = Color.Black;
-                curBtn = null;
+                MessageBox.Show("Bill is null!");
             }
         }
+       
+        private void ClickTimer_Tick(object sender, EventArgs e)
+        {
 
-        private void picture_Click(object sender, EventArgs e)
+            // Clear double click watcher and timer
+            inDoubleClick = false;
+            clickTimer.Stop();
+        }
+
+        private void btn_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (inDoubleClick)
+            {
+                inDoubleClick = false;
+
+                TimeSpan length = DateTime.Now - lastClick;
+
+                // If double click is valid, respond
+                if (length < doubleClickMaxTime)
+                {
+                    clickTimer.Stop();
+                    DoubleClickAction(sender);
+                }
+                return;
+            }
+
+            // Double click was invalid, restart 
+            clickTimer.Stop();
+            clickTimer.Start();
+            lastClick = DateTime.Now;
+            inDoubleClick = true;
+        }
+
+        private void btn_Click(object sender, EventArgs e)
         {
             //If button has not selected yet, highlight it, else unhighlight 
             nmFDCount.Value = 1;
-            if (curBtn != (Button)sender)
+            if (curFDBtn != (BunifuImageButton)sender)
                 EnableButton(sender);
             else
                 DisableButton();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (curBtn == null)
+            try
+            {
+                int index = datagridviewBill.CurrentRow.Index;
+                int iDBill = BillDAO.Instance.GetLastIDBill();
+
+                if (index >= 0)
+                {
+                    //Gets a collection that contains all the rows
+                    DataGridViewRow row = this.datagridviewBill.Rows[index];
+
+                    //Populate the textbox from specific value of the coordinates of column and row.
+                    string nameFD = row.Cells[0].Value.ToString();
+                    int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
+                    BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
+                }
+
+                else
+                    MessageBox.Show("You have not selected the FoodDrink to Remove!");
+
+                ShowBill(iDBill);
+                //cbbCategorySelection.SelectedIndex = 0;
+                nmFDCount.Value = 1;
+                DisableButton();
+            }
+            catch
+            {
+                MessageBox.Show("Bill is null!");
+            }
+        }
+
+        private void bunifuButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (curFDBtn == null)
             {
                 MessageBox.Show("You have not selected the FoodDrink!");
                 return;
             }
 
-            int iDFD = (curBtn.Tag as FoodDrink).ID;
+            int iDFD = (curFDBtn.Tag as FoodDrink).ID;
             int iDBill = BillDAO.Instance.GetLastIDBill();
             int count = Convert.ToInt32(nmFDCount.Value);
-            int status = BillDAO.Instance.GetStatusBill(iDBill);
 
-            if (status == 0)
-                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
-            else
-            {
-                BillDAO.Instance.InsertBill(iDBill);
-                iDBill = BillDAO.Instance.GetLastIDBill();
-                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
-            }
+            BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
 
             nmFDCount.Value = 1;
             DisableButton();
             ShowBill(iDBill);
         }
-        private void btnCheckOut_Click(object sender, EventArgs e)
+
+
+        private void bunifuImageButtonNew_Click(object sender, EventArgs e)
         {
-            BillDAO.Instance.CheckOut(BillDAO.Instance.GetLastIDBill());
+            Bill bill = BillDAO.Instance.GetLastBill();
 
-            //Set default for panel
-            cbbCategorySelection.SelectedIndex = 0;
-            nmFDCount.Value = 1;
-            dgvBill.Rows.Clear();
-            txtTotalPrice.Text = "Total: 0 VND";
-            DisableButton();
-        }
-
-        private void cbbCategorySelection_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            ComboBox cbb = (ComboBox)sender;
-
-            if (cbb == null)
-                return;
-
-            FDCategory selected = cbb.SelectedItem as FDCategory;
-
-            if (selected != null)
-                LoadFoodDrinkByCategoryID(selected.ID);
+            //Insert a new bill when the last bill checked out
+            if (bill != null && bill.Status == 0)
+                MessageBox.Show("Please complete the old bill first");
             else
-                LoadFoodDrinkByCategoryID(1);
+            {
+                BillDAO.Instance.InsertBill(bill.ID + 1);
+                ShowBill(bill.ID + 1);
+            }
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void bunifuImageButtonSave_Click(object sender, EventArgs e)
         {
-            int iD = BillDAO.Instance.GetLastIDBill();
-            BillInfoDAO.Instance.RemoveAllBillInfoByBillID(iD);
-            ShowBill(iD);
+            Bill bill = BillDAO.Instance.GetLastBill();
 
-            //Set default for panel
-            cbbCategorySelection.SelectedIndex = 0;
-            nmFDCount.Value = 1;
-            dgvBill.Rows.Clear();
-            txtTotalPrice.Text = "Total: 0 VND";
-            DisableButton();
+            FormPrintBill frm = new FormPrintBill(bill);
+            frm.ShowDialog();
+        }
+
+        private void bunifuButtonFood_Click(object sender, EventArgs e)
+        {
+            curFDBtn = null;
+            LoadFoodDrinkByCategoryID(1);
+        }
+
+        private void bunifuButtonDrink_Click(object sender, EventArgs e)
+        {
+            curFDBtn = null;
+            LoadFoodDrinkByCategoryID(2);
+        }
+
+        private void bunifuButtonCombo_Click(object sender, EventArgs e)
+        {
+            curFDBtn = null;
+            LoadFoodDrinkByCategoryID(3);
+        }
+        #endregion
+
+        private void lbTotal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,6 +33,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -124,17 +151,23 @@
     <Compile Include="FormAdmin\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSeat.cs">
+    <Compile Include="FormStaff\FormPrintBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSeat.Designer.cs">
-      <DependentUpon>FormSeat.cs</DependentUpon>
+    <Compile Include="FormStaff\FormPrintBill.Designer.cs">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStaff\FormFD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormStaff\FormFD.Designer.cs">
       <DependentUpon>FormFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSeat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSeat.Designer.cs">
+      <DependentUpon>FormSeat.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\FormHRM.cs">
       <SubType>Form</SubType>
@@ -213,6 +246,7 @@
     <Compile Include="FillForm\ShowtimeControls.Designer.cs">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FillForm\FormAddAccount.resx">
       <DependentUpon>FormAddAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,11 +271,14 @@
     <EmbeddedResource Include="FormAdmin\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStaff\FormFD.resx">
-      <DependentUpon>FormFD.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormHRM.resx">
       <DependentUpon>FormHRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormPrintBill.resx">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormFD.resx">
+      <DependentUpon>FormFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -273,6 +310,7 @@
     <EmbeddedResource Include="FillForm\MovieControls.resx">
       <DependentUpon>MovieControls.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -281,6 +319,9 @@
     <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -464,6 +505,14 @@
   <ItemGroup>
     <None Include="Resources\buttonMaximize.Image.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icon_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

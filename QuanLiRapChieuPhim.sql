@@ -1,5 +1,5 @@
-﻿--create database QuanLiRapChieuPhim
---go
+﻿create database QuanLiRapChieuPhim
+go
 --drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
 --go
@@ -23,8 +23,7 @@ create table InfoStaff  -- Nhân viên
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
 	Email nvarchar(100),
-	IDPersonal int not null unique, --cmnd/cccd
-	Avatar image
+	IDPersonal int not null unique --cmnd/cccd
 )
 go
 
@@ -630,7 +629,7 @@ INSERT	dbo.Bill
           stt
         )
 VALUES  ( GETDATE() , -- date
-		  0 -- status - int
+		  1 -- status - int
         )
 
 INSERT	dbo.Bill

@@ -473,9 +473,29 @@ namespace QuanLiRapChieuPhim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_new {
+            get {
+                object obj = ResourceManager.GetObject("icon_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_phone_30 {
             get {
                 object obj = ResourceManager.GetObject("icon-phone-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_save {
+            get {
+                object obj = ResourceManager.GetObject("icon_save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

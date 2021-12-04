@@ -1,0 +1,139 @@
+﻿
+namespace QuanLiRapChieuPhim
+{
+    partial class FormPrintBill
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pnlControl = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pnlControl.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // pnlControl
+            // 
+            this.pnlControl.BackColor = System.Drawing.Color.White;
+            this.pnlControl.Controls.Add(this.btnBack);
+            this.pnlControl.Controls.Add(this.btnPrint);
+            this.pnlControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlControl.Location = new System.Drawing.Point(0, 540);
+            this.pnlControl.Name = "pnlControl";
+            this.pnlControl.Size = new System.Drawing.Size(300, 60);
+            this.pnlControl.TabIndex = 5;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.Silver;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(120)))), ((int)(((byte)(193)))));
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(120)))), ((int)(((byte)(193)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(160, 10);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(120, 40);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.BackColor = System.Drawing.Color.Blue;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(74)))), ((int)(((byte)(213)))));
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(20, 10);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(20, 10, 10, 10);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(120, 40);
+            this.btnPrint.TabIndex = 13;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(300, 32);
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "Payment Invoice";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reportViewer
+            // 
+            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "QuanLiRapChieuPhim.Report.rdlc";
+            this.reportViewer.Location = new System.Drawing.Point(0, 32);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.Size = new System.Drawing.Size(300, 508);
+            this.reportViewer.TabIndex = 8;
+            // 
+            // FormPrintBill
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(300, 600);
+            this.ControlBox = false;
+            this.Controls.Add(this.reportViewer);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlControl);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FormPrintBill";
+            this.Text = "FormPrintBill";
+            this.Load += new System.EventHandler(this.FormPrintBill_Load);
+            this.pnlControl.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlControl;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label lblTitle;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+    }
+}
