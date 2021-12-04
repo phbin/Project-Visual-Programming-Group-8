@@ -1,9 +1,9 @@
 ﻿create database QuanLiRapChieuPhim
-go
+--go
 --drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
 --go
-
+select * from account
 set dateformat DMY
 go
 --Account
@@ -12,6 +12,8 @@ go
 --FDCategory
 --Food&Drink
 --Bill
+
+select day(datebooking) as 'day', month(datebooking) as 'month', year(datebooking) as 'year' from bill 
 
 
 create table InfoStaff  -- Nhân viên
@@ -75,6 +77,7 @@ create table Room  --Phòng chiếu
 )
 go
 
+
 create table MovieKind  -- Thế loại/Genre
 (
 	ID varchar(50) primary key,
@@ -126,8 +129,12 @@ go
 create table Bill
 (
 	ID int identity primary key,
+	IDStaff varchar(50) not null,
 	DateBooking smalldatetime not null default getdate(),
-	stt int not null default 0 --1: Paid, 0: Unpaid
+	stt int not null default 0, --1: Paid, 0: Unpaid
+	Total int
+	
+	constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
 )
 go
 
@@ -141,6 +148,10 @@ create table BillInfo
 	constraint FK_BillInfo_IDFoodDrink foreign key (IDFoodDrink) references FoodDrink(ID)
 )
 go
+
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------
 --auto id
@@ -629,7 +640,7 @@ INSERT	dbo.Bill
           stt
         )
 VALUES  ( GETDATE() , -- date
-		  1 -- status - int
+		  0 -- status - int
         )
 
 INSERT	dbo.Bill

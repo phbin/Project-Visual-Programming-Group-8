@@ -41,6 +41,7 @@ namespace QuanLiRapChieuPhim.DAO
 
             return fDList;
         }
+
         public int GetIDFoodDrinkByName(string name)
         {
             string query = "SELECT ID FROM FoodDrink WHERE NameFD = N'" + name + "'";

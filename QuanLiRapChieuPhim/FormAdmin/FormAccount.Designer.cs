@@ -35,10 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccount));
             this.ListAccountGrid = new System.Windows.Forms.DataGridView();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -46,6 +42,9 @@
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchTextbox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
@@ -80,7 +79,6 @@
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ListAccountGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Username,
-            this.Password,
             this.ID,
             this.AccType,
             this.Edit,
@@ -117,38 +115,6 @@
             this.ListAccountGrid.Size = new System.Drawing.Size(1226, 784);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 8;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Pass";
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 8;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // AccType
-            // 
-            this.AccType.DataPropertyName = "AccType";
-            this.AccType.HeaderText = "Acc type";
-            this.AccType.MinimumWidth = 8;
-            this.AccType.Name = "AccType";
-            this.AccType.ReadOnly = true;
             // 
             // panel1
             // 
@@ -241,6 +207,30 @@
             this.SearchButton.TabIndex = 5;
             this.SearchButton.UseVisualStyleBackColor = false;
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 8;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // AccType
+            // 
+            this.AccType.DataPropertyName = "AccType";
+            this.AccType.HeaderText = "Acc type";
+            this.AccType.MinimumWidth = 8;
+            this.AccType.Name = "AccType";
+            this.AccType.ReadOnly = true;
+            // 
             // Edit
             // 
             this.Edit.FillWeight = 50F;
@@ -287,13 +277,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox SearchTextbox;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccType;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

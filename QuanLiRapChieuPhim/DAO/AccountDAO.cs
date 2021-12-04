@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,9 +21,35 @@ namespace QuanLiRapChieuPhim.DAO
 
         private AccountDAO() { }
 
+        public static string Encrypt(string toEncrypt)
+        {
+            bool useHashing = true;
+            byte[] keyArray;
+            byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
+
+            if (useHashing)
+            {
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(toEncrypt));
+            }
+            else
+                keyArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
+
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cTransform = tdes.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
         public int Login(string Username, string Password)
         {
-            string query = "SELECT * FROM dbo.Account WHERE Username='"+Username+"' AND Pass='"+Password+"'AND AccType='"+ 1 +"'";
+            Password = Encrypt(Password);
+            string query = "SELECT * FROM dbo.Account WHERE Username='" + Username + "' AND Pass='" + Password + "'AND AccType='" + 1 + "'";
             DataTable result1 = DataProvider.Instance.ExecuteQuery(query);
             if (result1.Rows.Count > 0)
                 return 1;
@@ -35,9 +62,10 @@ namespace QuanLiRapChieuPhim.DAO
             }
             return -1;
         }
-        
+
         public void AddAcount(string Username, string Password, string ID, int Acctype)
         {
+            Password = Encrypt(Password);
             string query = "INSERT dbo.Account([UserName], [Pass], [id], [AccType]) VALUES ('" + Username + "','" + Password + "','" + ID + "','" + Acctype + "')";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
         }
@@ -50,13 +78,14 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void EditAccount(string Username, string Password, string ID, int Acctype)
         {
+            Password = Encrypt(Password);
             string query = "UPDATE dbo.Account SET Username='" + Username + "', Pass='" + Password + "', ID='" + ID + "', Acctype='" + Acctype + "'WHERE Username='" + Username + "'";
             DataProvider.Instance.ExecuteQuery(query);
         }
 
         public DataTable SearchAccount(string Username)
         {
-            string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%"+Username+"%'";
+            string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%" + Username + "%'";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -69,7 +98,7 @@ namespace QuanLiRapChieuPhim.DAO
         public void AddInfoStaff(string ID, string Fullname, string DoB, string Adress, string PhoneNum, string IDPersonal, string Email, string Sex)
         {
             string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES ('" + ID + "',N'" + Fullname + "', CAST('" + DoB + "' AS Date),N'" + Sex + "','" + Adress + "','" + PhoneNum + "','" + Email + "','" + IDPersonal + "')";
-            DataProvider.Instance.ExecuteQuery(query);        
+            DataProvider.Instance.ExecuteQuery(query);
         }
 
         public void DeleteInfoStaff(string ID)

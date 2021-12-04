@@ -303,6 +303,16 @@ namespace QuanLiRapChieuPhim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_black {
+            get {
+                object obj = ResourceManager.GetObject("close_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customer {
             get {
                 object obj = ResourceManager.GetObject("customer", resourceCulture);
@@ -416,6 +426,16 @@ namespace QuanLiRapChieuPhim.Properties {
         internal static System.Drawing.Bitmap hr {
             get {
                 object obj = ResourceManager.GetObject("hr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_addfd {
+            get {
+                object obj = ResourceManager.GetObject("icon_addfd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

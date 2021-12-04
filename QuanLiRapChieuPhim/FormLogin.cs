@@ -111,7 +111,6 @@ namespace QuanLiRapChieuPhim
         {
             string Username = UsernameTextbox.Text;
             string Password = PasswordTextbox.Text;
-
             if (Login(Username, Password) == 1)
             {
                 Thread thread = new Thread(new ThreadStart(ShowFormAdmin)); //Create new thread 

@@ -92,7 +92,7 @@
             this.EditButton.Location = new System.Drawing.Point(223, 511);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(170, 46);
-            this.EditButton.TabIndex = 38;
+            this.EditButton.TabIndex = 5;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);

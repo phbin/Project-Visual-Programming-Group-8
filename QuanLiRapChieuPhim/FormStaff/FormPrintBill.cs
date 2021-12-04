@@ -56,7 +56,7 @@ namespace QuanLiRapChieuPhim
 
             this.reportViewer.RefreshReport();
         }
-
+     
         public static void PrintToPrinter(LocalReport report)
         {
             PageSettings pageSettings = new PageSettings();

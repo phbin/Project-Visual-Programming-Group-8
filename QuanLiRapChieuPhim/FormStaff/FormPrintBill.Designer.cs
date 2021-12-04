@@ -29,13 +29,66 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pnlControlBox = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlControl = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pnlControlBox.SuspendLayout();
             this.pnlControl.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // reportViewer
+            // 
+            this.reportViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "QuanLiRapChieuPhim.FormStaff.Report.rdlc";
+            this.reportViewer.Location = new System.Drawing.Point(0, 32);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.Size = new System.Drawing.Size(300, 508);
+            this.reportViewer.TabIndex = 6;
+            // 
+            // pnlControlBox
+            // 
+            this.pnlControlBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlControlBox.Controls.Add(this.buttonClose);
+            this.pnlControlBox.Controls.Add(this.lblTitle);
+            this.pnlControlBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlControlBox.Location = new System.Drawing.Point(0, 0);
+            this.pnlControlBox.Name = "pnlControlBox";
+            this.pnlControlBox.Size = new System.Drawing.Size(300, 32);
+            this.pnlControlBox.TabIndex = 5;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = global::QuanLiRapChieuPhim.Properties.Resources.close_black;
+            this.buttonClose.Location = new System.Drawing.Point(270, 0);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(30, 32);
+            this.buttonClose.TabIndex = 6;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(300, 32);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "Payment Invoice";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlControl
             // 
@@ -46,7 +99,7 @@ namespace QuanLiRapChieuPhim
             this.pnlControl.Location = new System.Drawing.Point(0, 540);
             this.pnlControl.Name = "pnlControl";
             this.pnlControl.Size = new System.Drawing.Size(300, 60);
-            this.pnlControl.TabIndex = 5;
+            this.pnlControl.TabIndex = 4;
             // 
             // btnBack
             // 
@@ -88,41 +141,20 @@ namespace QuanLiRapChieuPhim
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // lblTitle
-            // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(300, 32);
-            this.lblTitle.TabIndex = 7;
-            this.lblTitle.Text = "Payment Invoice";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reportViewer
-            // 
-            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "QuanLiRapChieuPhim.Report.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(0, 32);
-            this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(300, 508);
-            this.reportViewer.TabIndex = 8;
-            // 
             // FormPrintBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 600);
-            this.ControlBox = false;
             this.Controls.Add(this.reportViewer);
-            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlControlBox);
             this.Controls.Add(this.pnlControl);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrintBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrintBill";
             this.Load += new System.EventHandler(this.FormPrintBill_Load);
+            this.pnlControlBox.ResumeLayout(false);
             this.pnlControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -130,10 +162,12 @@ namespace QuanLiRapChieuPhim
 
         #endregion
 
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+        private System.Windows.Forms.Panel pnlControlBox;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlControl;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Label lblTitle;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
     }
 }

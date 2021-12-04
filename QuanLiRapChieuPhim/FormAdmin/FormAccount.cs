@@ -6,8 +6,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace QuanLiRapChieuPhim
@@ -20,9 +22,34 @@ namespace QuanLiRapChieuPhim
             LoadAccountList();
         }
 
+        public static string Decrypt(string toDecrypt)
+        {
+            bool useHashing = true;
+            byte[] keyArray;
+            byte[] toEncryptArray = Convert.FromBase64String(toDecrypt);
+
+            if (useHashing)
+            {
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes("111"));
+            }
+            else
+                keyArray = UTF8Encoding.UTF8.GetBytes(toDecrypt);
+
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cTransform = tdes.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+            return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
         public void LoadAccountList()
         {
-            string query = "SELECT * FROM dbo.Account";
+            string query = "SELECT Username, ID, AccType FROM dbo.Account";
             ListAccountGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -32,17 +59,17 @@ namespace QuanLiRapChieuPhim
             {
                 SearchTextbox.Text = "";
                 SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }    
+            }
         }
 
         private void SearchTextbox_Leave(object sender, EventArgs e)
         {
-            if(SearchTextbox.Text=="")
+            if (SearchTextbox.Text == "")
             {
                 SearchTextbox.Text = "Search";
                 SearchTextbox.ForeColor = Color.Gray;
                 LoadAccountList();
-            }    
+            }
         }
 
         private void SearchTextbox_TextChanged(object sender, EventArgs e)
@@ -57,6 +84,7 @@ namespace QuanLiRapChieuPhim
             FormAddAccount frm = new FormAddAccount(ListAccountGrid);
             frm.Owner = this;
             frm.ShowDialog();
+            LoadAccountList();
         }
 
         private void ListAccountGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,7 +104,7 @@ namespace QuanLiRapChieuPhim
 
                 if (ListAccountGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
-                    FormAddAccount frm = new FormAddAccount(row.Cells["Username"].Value.ToString(), row.Cells["Password"].Value.ToString(), row.Cells["ID"].Value.ToString(), Convert.ToInt32(ListAccountGrid.CurrentRow.Cells["AccType"].Value));
+                    FormAddAccount frm = new FormAddAccount(row.Cells["Username"].Value.ToString()/*, row.Cells["Password"].Value.ToString()*/, row.Cells["ID"].Value.ToString(), Convert.ToInt32(ListAccountGrid.CurrentRow.Cells["AccType"].Value));
                     frm.Owner = this;
                     frm.ShowDialog();
                     LoadAccountList();

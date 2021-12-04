@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,13 +29,13 @@ namespace QuanLiRapChieuPhim.AddForms
             IDTextbox.ReadOnly = false;
         }
 
-        public FormAddAccount(string Username, string Password, string ID, int AccType)
+        public FormAddAccount(string Username/*, string Password*/, string ID, int AccType)
         {
             InitializeComponent();
             UsernameTextbox.Text = Username;
             UsernameTextbox.ForeColor = Color.White;
-            PasswordTextbox.Text = Password;
-            PasswordTextbox.ForeColor = Color.White;
+            //PasswordTextbox.Text = Password;
+            //PasswordTextbox.ForeColor = Color.White;
             IDTextbox.Text = ID;
             IDTextbox.ForeColor = Color.White;
             if (AccType == 1)
@@ -107,7 +108,7 @@ namespace QuanLiRapChieuPhim.AddForms
         {
             int admin = 0;
             if (AdminCheckbox.Checked)
-                admin = ListAccountGrid.Rows.Count;
+                admin = 1;
 
             for (int i = 0; i < ListAccountGrid.Rows.Count; i++)
             {
@@ -130,11 +131,9 @@ namespace QuanLiRapChieuPhim.AddForms
                 }
             }
 
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text!="")
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
             {
-
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-
                 UsernameTextbox.Text = "";
                 PasswordTextbox.Text = "";
                 IDTextbox.Text = "";
@@ -164,22 +163,21 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "" && PasswordTextbox.Text != "Password")
             {
                 if (MessageBox.Show("Do you really want to change this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     int admin = 0;
                     if (AdminCheckbox.Checked)
                         admin = 1;
-
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                    string password = PasswordTextbox.Text.ToString();
-                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
-
-
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
         }
 

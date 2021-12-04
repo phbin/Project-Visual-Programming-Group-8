@@ -33,11 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
       <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
+      <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
       <HintPath>..\..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
@@ -58,13 +71,15 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,8 +92,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CustomerDAO.cs" />
-    <Compile Include="DTO\Customer.cs" />
     <Compile Include="FillForm\FormAddAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,7 +140,7 @@
     <Compile Include="DTO\FDCategory.cs" />
     <Compile Include="DTO\FoodDrink.cs" />
     <Compile Include="DTO\Genre.cs" />
-    <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\FDMenu.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="DTO\MovieByGenre.cs" />
     <Compile Include="DTO\Room.cs" />
@@ -139,10 +152,10 @@
     <Compile Include="FormAdmin\FormAccount.Designer.cs">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdmin\FormAddFD.cs">
+    <Compile Include="FillForm\FormAddFD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdmin\FormAddFD.Designer.cs">
+    <Compile Include="FillForm\FormAddFD.Designer.cs">
       <DependentUpon>FormAddFD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\FormAdmin.cs">
@@ -162,12 +175,6 @@
     </Compile>
     <Compile Include="FormStaff\FormFD.Designer.cs">
       <DependentUpon>FormFD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSeat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSeat.Designer.cs">
-      <DependentUpon>FormSeat.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\FormHRM.cs">
       <SubType>Form</SubType>
@@ -246,7 +253,6 @@
     <Compile Include="FillForm\ShowtimeControls.Designer.cs">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FillForm\FormAddAccount.resx">
       <DependentUpon>FormAddAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,20 +271,21 @@
     <EmbeddedResource Include="FormAdmin\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmin\FormAddFD.resx">
+    <EmbeddedResource Include="FillForm\FormAddFD.resx">
       <DependentUpon>FormAddFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmin\FormHRM.resx">
-      <DependentUpon>FormHRM.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormStaff\FormPrintBill.resx">
       <DependentUpon>FormPrintBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\Report.rdlc" />
     <EmbeddedResource Include="FormStaff\FormFD.resx">
       <DependentUpon>FormFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormHRM.resx">
+      <DependentUpon>FormHRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -319,8 +326,8 @@
     <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -506,13 +513,16 @@
     <None Include="Resources\buttonMaximize.Image.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_new.png" />
+    <None Include="Resources\close_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5269554541547546467.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
+    <None Include="Resources\icon_new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

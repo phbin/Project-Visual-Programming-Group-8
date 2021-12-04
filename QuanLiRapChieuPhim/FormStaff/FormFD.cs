@@ -119,7 +119,7 @@ namespace QuanLiRapChieuPhim
             float total = 0;
 
             foreach (FDMenu item in menuList)
-            {
+            {   
                 datagridviewBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
                 total += item.TotalPrice;
             }
@@ -175,7 +175,6 @@ namespace QuanLiRapChieuPhim
                 MessageBox.Show("Bill is null!");
             }
         }
-       
         private void ClickTimer_Tick(object sender, EventArgs e)
         {
 
@@ -224,7 +223,7 @@ namespace QuanLiRapChieuPhim
             {
                 int index = datagridviewBill.CurrentRow.Index;
                 int iDBill = BillDAO.Instance.GetLastIDBill();
-
+            
                 if (index >= 0)
                 {
                     //Gets a collection that contains all the rows
@@ -247,7 +246,7 @@ namespace QuanLiRapChieuPhim
             catch
             {
                 MessageBox.Show("Bill is null!");
-            }
+            }          
         }
 
         private void bunifuButtonAdd_Click(object sender, EventArgs e)
@@ -310,10 +309,5 @@ namespace QuanLiRapChieuPhim
             LoadFoodDrinkByCategoryID(3);
         }
         #endregion
-
-        private void lbTotal_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
