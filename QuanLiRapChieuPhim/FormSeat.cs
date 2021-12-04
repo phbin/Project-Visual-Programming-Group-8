@@ -45,12 +45,12 @@ namespace QuanLiRapChieuPhim
 
         private void frmTheatre_Load(object sender, EventArgs e)
         {
-            ticketPrice = time.ticketPrice;
+            ticketPrice = time.TicketPrice;
 
-            lblInformation.Text = time.IDRoom + " | " + time.iDMovie;
-            lblTime.Text = time.time.ToShortDateString() + " | "
-                + time.time.ToShortTimeString() + " - "
-                + time.time.AddMinutes(movie.timelimit).ToShortTimeString();
+            lblInformation.Text = time.IDRoom + " | " + time.IDMovie;
+            lblTime.Text = time.Time.ToShortDateString() + " | "
+                + time.Time.ToShortTimeString() + " - "
+                + time.Time.AddMinutes(movie.Timelimit).ToShortTimeString();
             if (movie.Poster != null)
             {
                 picFilm.Image = MovieDAO.byteArrayToImage(movie.Poster);

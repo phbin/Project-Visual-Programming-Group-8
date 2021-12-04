@@ -13,7 +13,7 @@ namespace QuanLiRapChieuPhim.DAO
         public static Room GetCinemaByName(string nameRoom)
         {
             string query = "select * from dbo.Room where NameRoom = '" + nameRoom + "'";
-            DataTable data = DataProvider.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {
                 return new Room(data.Rows[0]);

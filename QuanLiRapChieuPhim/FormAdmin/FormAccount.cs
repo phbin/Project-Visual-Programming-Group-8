@@ -23,7 +23,7 @@ namespace QuanLiRapChieuPhim
         public void LoadAccountList()
         {
             string query = "SELECT * FROM dbo.Account";
-            ListAccountGrid.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            ListAccountGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void SearchTextbox_Enter(object sender, EventArgs e)

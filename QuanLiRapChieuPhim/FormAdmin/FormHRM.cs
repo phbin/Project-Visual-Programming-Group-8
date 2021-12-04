@@ -23,7 +23,7 @@ namespace QuanLiRapChieuPhim
         void LoadInfoStaff()
         {
             string query = "SELECT * FROM InfoStaff";
-            InfoStaffGridView.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            InfoStaffGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void SearchTextbox_Enter_1(object sender, EventArgs e)
