@@ -46,7 +46,8 @@ namespace QuanLiRapChieuPhim.DAO
         }
         public int Login(string Username, string Password)
         {
-            string query = "SELECT * FROM dbo.Account WHERE Username='"+Username+"' AND Pass='"+Password+"'AND AccType='"+ 1 +"'";
+            Password = Encrypt(Password);
+            string query = "SELECT * FROM dbo.Account WHERE Username='" + Username + "' AND Pass='" + Password + "'AND AccType='" + 1 + "'";
             DataTable result1 = DataProvider.Instance.ExecuteQuery(query);
             if (result1.Rows.Count > 0)
                 return 1;
@@ -59,9 +60,10 @@ namespace QuanLiRapChieuPhim.DAO
             }
             return -1;
         }
-        
+
         public void AddAcount(string Username, string Password, string ID, int Acctype)
         {
+            Password = Encrypt(Password);
             string query = "INSERT dbo.Account([UserName], [Pass], [id], [AccType]) VALUES ('" + Username + "','" + Password + "','" + ID + "','" + Acctype + "')";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
         }
@@ -74,13 +76,14 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void EditAccount(string Username, string Password, string ID, int Acctype)
         {
+            Password = Encrypt(Password);
             string query = "UPDATE dbo.Account SET Username='" + Username + "', Pass='" + Password + "', ID='" + ID + "', Acctype='" + Acctype + "'WHERE Username='" + Username + "'";
             DataProvider.Instance.ExecuteQuery(query);
         }
 
         public DataTable SearchAccount(string Username)
         {
-            string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%"+Username+"%'";
+            string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%" + Username + "%'";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -93,7 +96,7 @@ namespace QuanLiRapChieuPhim.DAO
         public void AddInfoStaff(string ID, string Fullname, string DoB, string Adress, string PhoneNum, string IDPersonal, string Email, string Sex)
         {
             string query = "INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES ('" + ID + "',N'" + Fullname + "', CAST('" + DoB + "' AS Date),N'" + Sex + "','" + Adress + "','" + PhoneNum + "','" + Email + "','" + IDPersonal + "')";
-            DataProvider.Instance.ExecuteQuery(query);        
+            DataProvider.Instance.ExecuteQuery(query);
         }
 
         public void DeleteInfoStaff(string ID)

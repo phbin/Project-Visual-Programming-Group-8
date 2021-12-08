@@ -456,7 +456,7 @@ namespace QuanLiRapChieuPhim
             this.bunifuPanelSubBelow.Size = new System.Drawing.Size(368, 105);
             this.bunifuPanelSubBelow.TabIndex = 57;
             // 
-            // nmFDCount
+            // bunifuButtonFood
             // 
             this.nmFDCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nmFDCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -747,6 +747,7 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnNameFD.MinimumWidth = 6;
             this.dgvColumnNameFD.Name = "dgvColumnNameFD";
             this.dgvColumnNameFD.ReadOnly = true;
+            this.dgvColumnNameFD.Width = 140;
             // 
             // dgvColumnQuantity
             // 
@@ -755,6 +756,7 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnQuantity.MinimumWidth = 6;
             this.dgvColumnQuantity.Name = "dgvColumnQuantity";
             this.dgvColumnQuantity.ReadOnly = true;
+            this.dgvColumnQuantity.Width = 26;
             // 
             // dgvColumnPrice
             // 
@@ -763,6 +765,7 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnPrice.MinimumWidth = 6;
             this.dgvColumnPrice.Name = "dgvColumnPrice";
             this.dgvColumnPrice.ReadOnly = true;
+            this.dgvColumnPrice.Width = 60;
             // 
             // dgvColumnTotalPrice
             // 
@@ -771,6 +774,319 @@ namespace QuanLiRapChieuPhim
             this.dgvColumnTotalPrice.MinimumWidth = 6;
             this.dgvColumnTotalPrice.Name = "dgvColumnTotalPrice";
             this.dgvColumnTotalPrice.ReadOnly = true;
+            this.dgvColumnTotalPrice.Width = 70;
+            // 
+            // dgvColumnRemove
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.dgvColumnRemove.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvColumnRemove.FillWeight = 50F;
+            this.dgvColumnRemove.HeaderText = "";
+            this.dgvColumnRemove.Image = global::QuanLiRapChieuPhim.Properties.Resources.TrashIcon_01;
+            this.dgvColumnRemove.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dgvColumnRemove.MinimumWidth = 8;
+            this.dgvColumnRemove.Name = "dgvColumnRemove";
+            this.dgvColumnRemove.ReadOnly = true;
+            this.dgvColumnRemove.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvColumnRemove.Width = 20;
+            // 
+            // bunifuPanelSubBelow
+            // 
+            this.bunifuPanelSubBelow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuPanelSubBelow.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.bunifuPanelSubBelow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanelSubBelow.BackgroundImage")));
+            this.bunifuPanelSubBelow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanelSubBelow.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanelSubBelow.BorderRadius = 0;
+            this.bunifuPanelSubBelow.BorderThickness = 0;
+            this.bunifuPanelSubBelow.Controls.Add(this.nmFDCount);
+            this.bunifuPanelSubBelow.Controls.Add(this.bunifuButtonAdd);
+            this.bunifuPanelSubBelow.Controls.Add(this.bunifuImageButtonSave);
+            this.bunifuPanelSubBelow.Controls.Add(this.bunifuImageButtonNew);
+            this.bunifuPanelSubBelow.Location = new System.Drawing.Point(520, 531);
+            this.bunifuPanelSubBelow.Name = "bunifuPanelSubBelow";
+            this.bunifuPanelSubBelow.ShowBorders = false;
+            this.bunifuPanelSubBelow.Size = new System.Drawing.Size(318, 85);
+            this.bunifuPanelSubBelow.TabIndex = 57;
+            // 
+            // nmFDCount
+            // 
+            this.nmFDCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nmFDCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nmFDCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nmFDCount.Location = new System.Drawing.Point(15, 28);
+            this.nmFDCount.Margin = new System.Windows.Forms.Padding(10);
+            this.nmFDCount.Name = "nmFDCount";
+            this.nmFDCount.Size = new System.Drawing.Size(48, 29);
+            this.nmFDCount.TabIndex = 41;
+            this.nmFDCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // bunifuButtonAdd
+            // 
+            this.bunifuButtonAdd.AllowAnimations = false;
+            this.bunifuButtonAdd.AllowMouseEffects = true;
+            this.bunifuButtonAdd.AllowToggling = true;
+            this.bunifuButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuButtonAdd.AnimationSpeed = 200;
+            this.bunifuButtonAdd.AutoGenerateColors = false;
+            this.bunifuButtonAdd.AutoRoundBorders = false;
+            this.bunifuButtonAdd.AutoSizeLeftIcon = true;
+            this.bunifuButtonAdd.AutoSizeRightIcon = true;
+            this.bunifuButtonAdd.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuButtonAdd.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButtonAdd.BackgroundImage")));
+            this.bunifuButtonAdd.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButtonAdd.ButtonText = "Add";
+            this.bunifuButtonAdd.ButtonTextMarginLeft = 0;
+            this.bunifuButtonAdd.ColorContrastOnClick = 45;
+            this.bunifuButtonAdd.ColorContrastOnHover = 45;
+            this.bunifuButtonAdd.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.bunifuButtonAdd.CustomizableEdges = borderEdges4;
+            this.bunifuButtonAdd.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuButtonAdd.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButtonAdd.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButtonAdd.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButtonAdd.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.bunifuButtonAdd.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.bunifuButtonAdd.ForeColor = System.Drawing.Color.White;
+            this.bunifuButtonAdd.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuButtonAdd.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButtonAdd.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.bunifuButtonAdd.IconMarginLeft = 11;
+            this.bunifuButtonAdd.IconPadding = 10;
+            this.bunifuButtonAdd.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bunifuButtonAdd.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButtonAdd.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.bunifuButtonAdd.IconSize = 25;
+            this.bunifuButtonAdd.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.IdleBorderRadius = 40;
+            this.bunifuButtonAdd.IdleBorderThickness = 1;
+            this.bunifuButtonAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.IdleIconLeftImage = null;
+            this.bunifuButtonAdd.IdleIconRightImage = null;
+            this.bunifuButtonAdd.IndicateFocus = true;
+            this.bunifuButtonAdd.Location = new System.Drawing.Point(74, 21);
+            this.bunifuButtonAdd.Margin = new System.Windows.Forms.Padding(5, 10, 5, 0);
+            this.bunifuButtonAdd.Name = "bunifuButtonAdd";
+            this.bunifuButtonAdd.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButtonAdd.OnDisabledState.BorderRadius = 40;
+            this.bunifuButtonAdd.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButtonAdd.OnDisabledState.BorderThickness = 1;
+            this.bunifuButtonAdd.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButtonAdd.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButtonAdd.OnDisabledState.IconLeftImage = null;
+            this.bunifuButtonAdd.OnDisabledState.IconRightImage = null;
+            this.bunifuButtonAdd.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.onHoverState.BorderRadius = 40;
+            this.bunifuButtonAdd.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButtonAdd.onHoverState.BorderThickness = 1;
+            this.bunifuButtonAdd.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButtonAdd.onHoverState.IconLeftImage = null;
+            this.bunifuButtonAdd.onHoverState.IconRightImage = null;
+            this.bunifuButtonAdd.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.OnIdleState.BorderRadius = 40;
+            this.bunifuButtonAdd.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButtonAdd.OnIdleState.BorderThickness = 1;
+            this.bunifuButtonAdd.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButtonAdd.OnIdleState.IconLeftImage = null;
+            this.bunifuButtonAdd.OnIdleState.IconRightImage = null;
+            this.bunifuButtonAdd.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.OnPressedState.BorderRadius = 40;
+            this.bunifuButtonAdd.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButtonAdd.OnPressedState.BorderThickness = 1;
+            this.bunifuButtonAdd.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.bunifuButtonAdd.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButtonAdd.OnPressedState.IconLeftImage = null;
+            this.bunifuButtonAdd.OnPressedState.IconRightImage = null;
+            this.bunifuButtonAdd.Size = new System.Drawing.Size(120, 40);
+            this.bunifuButtonAdd.TabIndex = 42;
+            this.bunifuButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuButtonAdd.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bunifuButtonAdd.TextMarginLeft = 0;
+            this.bunifuButtonAdd.TextPadding = new System.Windows.Forms.Padding(0);
+            this.bunifuButtonAdd.UseDefaultRadiusAndThickness = true;
+            this.bunifuButtonAdd.Click += new System.EventHandler(this.bunifuButtonAdd_Click);
+            // 
+            // bunifuImageButtonSave
+            // 
+            this.bunifuImageButtonSave.ActiveImage = null;
+            this.bunifuImageButtonSave.AllowAnimations = true;
+            this.bunifuImageButtonSave.AllowBuffering = true;
+            this.bunifuImageButtonSave.AllowToggling = true;
+            this.bunifuImageButtonSave.AllowZooming = false;
+            this.bunifuImageButtonSave.AllowZoomingOnFocus = false;
+            this.bunifuImageButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButtonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.bunifuImageButtonSave.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuImageButtonSave.ErrorImage = null;
+            this.bunifuImageButtonSave.FadeWhenInactive = false;
+            this.bunifuImageButtonSave.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.bunifuImageButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButtonSave.Image")));
+            this.bunifuImageButtonSave.ImageActive = null;
+            this.bunifuImageButtonSave.ImageLocation = null;
+            this.bunifuImageButtonSave.ImageMargin = 20;
+            this.bunifuImageButtonSave.ImageSize = new System.Drawing.Size(30, 40);
+            this.bunifuImageButtonSave.ImageZoomSize = new System.Drawing.Size(50, 60);
+            this.bunifuImageButtonSave.InitialImage = null;
+            this.bunifuImageButtonSave.Location = new System.Drawing.Point(259, 11);
+            this.bunifuImageButtonSave.Name = "bunifuImageButtonSave";
+            this.bunifuImageButtonSave.Rotation = 0;
+            this.bunifuImageButtonSave.ShowActiveImage = true;
+            this.bunifuImageButtonSave.ShowCursorChanges = true;
+            this.bunifuImageButtonSave.ShowImageBorders = true;
+            this.bunifuImageButtonSave.ShowSizeMarkers = false;
+            this.bunifuImageButtonSave.Size = new System.Drawing.Size(50, 60);
+            this.bunifuImageButtonSave.TabIndex = 40;
+            this.bunifuImageButtonSave.ToolTipText = "";
+            this.bunifuImageButtonSave.WaitOnLoad = false;
+            this.bunifuImageButtonSave.Zoom = 20;
+            this.bunifuImageButtonSave.ZoomSpeed = 10;
+            this.bunifuImageButtonSave.Click += new System.EventHandler(this.bunifuImageButtonSave_Click);
+            // 
+            // bunifuImageButtonNew
+            // 
+            this.bunifuImageButtonNew.ActiveImage = null;
+            this.bunifuImageButtonNew.AllowAnimations = true;
+            this.bunifuImageButtonNew.AllowBuffering = true;
+            this.bunifuImageButtonNew.AllowToggling = true;
+            this.bunifuImageButtonNew.AllowZooming = false;
+            this.bunifuImageButtonNew.AllowZoomingOnFocus = false;
+            this.bunifuImageButtonNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButtonNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.bunifuImageButtonNew.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuImageButtonNew.ErrorImage = null;
+            this.bunifuImageButtonNew.FadeWhenInactive = false;
+            this.bunifuImageButtonNew.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.bunifuImageButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButtonNew.Image")));
+            this.bunifuImageButtonNew.ImageActive = null;
+            this.bunifuImageButtonNew.ImageLocation = null;
+            this.bunifuImageButtonNew.ImageMargin = 20;
+            this.bunifuImageButtonNew.ImageSize = new System.Drawing.Size(30, 40);
+            this.bunifuImageButtonNew.ImageZoomSize = new System.Drawing.Size(50, 60);
+            this.bunifuImageButtonNew.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButtonNew.InitialImage")));
+            this.bunifuImageButtonNew.Location = new System.Drawing.Point(203, 11);
+            this.bunifuImageButtonNew.Name = "bunifuImageButtonNew";
+            this.bunifuImageButtonNew.Rotation = 0;
+            this.bunifuImageButtonNew.ShowActiveImage = true;
+            this.bunifuImageButtonNew.ShowCursorChanges = true;
+            this.bunifuImageButtonNew.ShowImageBorders = true;
+            this.bunifuImageButtonNew.ShowSizeMarkers = false;
+            this.bunifuImageButtonNew.Size = new System.Drawing.Size(50, 60);
+            this.bunifuImageButtonNew.TabIndex = 39;
+            this.bunifuImageButtonNew.ToolTipText = "";
+            this.bunifuImageButtonNew.WaitOnLoad = false;
+            this.bunifuImageButtonNew.Zoom = 20;
+            this.bunifuImageButtonNew.ZoomSpeed = 10;
+            this.bunifuImageButtonNew.Click += new System.EventHandler(this.bunifuImageButtonNew_Click);
+            // 
+            // lbTotalDetail
+            // 
+            this.lbTotalDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTotalDetail.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(71)))), ((int)(((byte)(65)))));
+            this.lbTotalDetail.Location = new System.Drawing.Point(635, 477);
+            this.lbTotalDetail.Name = "lbTotalDetail";
+            this.lbTotalDetail.Size = new System.Drawing.Size(180, 37);
+            this.lbTotalDetail.TabIndex = 56;
+            this.lbTotalDetail.Text = "0 VND";
+            this.lbTotalDetail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pnlLine
+            // 
+            this.pnlLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.pnlLine.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlLine.Location = new System.Drawing.Point(528, 472);
+            this.pnlLine.Name = "pnlLine";
+            this.pnlLine.Size = new System.Drawing.Size(310, 5);
+            this.pnlLine.TabIndex = 54;
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbTotal.Location = new System.Drawing.Point(542, 489);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(41, 19);
+            this.lbTotal.TabIndex = 55;
+            this.lbTotal.Text = "Total:";
+            this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbTaxDeTail
+            // 
+            this.lbTaxDeTail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTaxDeTail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTaxDeTail.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbTaxDeTail.Location = new System.Drawing.Point(632, 417);
+            this.lbTaxDeTail.Name = "lbTaxDeTail";
+            this.lbTaxDeTail.Size = new System.Drawing.Size(180, 37);
+            this.lbTaxDeTail.TabIndex = 53;
+            this.lbTaxDeTail.Text = "0 VND";
+            this.lbTaxDeTail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbTax
+            // 
+            this.lbTax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTax.AutoSize = true;
+            this.lbTax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTax.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbTax.Location = new System.Drawing.Point(543, 451);
+            this.lbTax.Name = "lbTax";
+            this.lbTax.Size = new System.Drawing.Size(27, 15);
+            this.lbTax.TabIndex = 52;
+            this.lbTax.Text = "Tax:";
+            this.lbTax.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbSubTotalDeTail
+            // 
+            this.lbSubTotalDeTail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubTotalDeTail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubTotalDeTail.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbSubTotalDeTail.Location = new System.Drawing.Point(632, 440);
+            this.lbSubTotalDeTail.Name = "lbSubTotalDeTail";
+            this.lbSubTotalDeTail.Size = new System.Drawing.Size(180, 37);
+            this.lbSubTotalDeTail.TabIndex = 51;
+            this.lbSubTotalDeTail.Text = "0 VND";
+            this.lbSubTotalDeTail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbSubTotal
+            // 
+            this.lbSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubTotal.AutoSize = true;
+            this.lbSubTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubTotal.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbSubTotal.Location = new System.Drawing.Point(543, 428);
+            this.lbSubTotal.Name = "lbSubTotal";
+            this.lbSubTotal.Size = new System.Drawing.Size(59, 15);
+            this.lbSubTotal.TabIndex = 50;
+            this.lbSubTotal.Text = "Sub Total:";
+            this.lbSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgvColumnRemove
             // 

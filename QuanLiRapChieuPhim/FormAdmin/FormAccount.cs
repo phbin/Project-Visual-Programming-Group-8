@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace QuanLiRapChieuPhim
@@ -56,17 +57,17 @@ namespace QuanLiRapChieuPhim
             {
                 SearchTextbox.Text = "";
                 SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }    
+            }
         }
 
         private void SearchTextbox_Leave(object sender, EventArgs e)
         {
-            if(SearchTextbox.Text=="")
+            if (SearchTextbox.Text == "")
             {
                 SearchTextbox.Text = "Search";
                 SearchTextbox.ForeColor = Color.Gray;
                 LoadAccountList();
-            }    
+            }
         }
 
         private void SearchTextbox_TextChanged(object sender, EventArgs e)

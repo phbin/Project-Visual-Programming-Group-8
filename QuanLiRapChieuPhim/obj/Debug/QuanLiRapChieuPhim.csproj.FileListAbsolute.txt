@@ -446,8 +446,20 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8-FDForm\QuanLiRapChieuP
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+<<<<<<< HEAD
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+=======
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.SqlServer.Types.dll
+>>>>>>> 8d1be29239cf9d1ccdba9139a6f4739e4cecb09f
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\EnvDTE.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
@@ -520,5 +532,183 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ShowtimeControls.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe.licenses
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
+<<<<<<< HEAD
+=======
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\EnvDTE.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\stdole.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.MSXML.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddAccount.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddCustomer.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddInfoStaff.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAccount.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAddFD.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormPrintBill.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormHRM.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovieManage.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormShowtime.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.MovieControls.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ShowtimeControls.resources
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe.licenses
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\EnvDTE.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\stdole.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.MSXML.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddAccount.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddCustomer.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddInfoStaff.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAccount.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAddFD.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAdmin.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormPrintBill.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormFD.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormHRM.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormLogin.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormCustomer.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormGeneral.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMain.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovie.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormMovieManage.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormShowtime.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStaff.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormStatistic.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.MovieControls.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.Properties.Resources.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ShowtimeControls.resources
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.GenerateResource.cache
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe.licenses
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
+D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
+>>>>>>> 8d1be29239cf9d1ccdba9139a6f4739e4cecb09f

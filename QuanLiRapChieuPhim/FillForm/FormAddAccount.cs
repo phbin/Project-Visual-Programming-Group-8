@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -130,7 +131,7 @@ namespace QuanLiRapChieuPhim.AddForms
                 }
             }
 
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text!="")
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
             {
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
                 UsernameTextbox.Text = "";
@@ -162,7 +163,7 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "" && PasswordTextbox.Text != "Password")
             {
                 if (MessageBox.Show("Do you really want to change this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -173,6 +174,10 @@ namespace QuanLiRapChieuPhim.AddForms
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
         }
 

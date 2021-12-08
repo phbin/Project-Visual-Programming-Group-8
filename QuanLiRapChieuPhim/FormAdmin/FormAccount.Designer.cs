@@ -80,7 +80,6 @@
             this.ListAccountGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ListAccountGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Username,
-            this.Password,
             this.ID,
             this.AccType,
             this.Edit,
@@ -294,7 +293,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccType;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
