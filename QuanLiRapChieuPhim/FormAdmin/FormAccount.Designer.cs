@@ -35,10 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccount));
             this.ListAccountGrid = new System.Windows.Forms.DataGridView();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -46,8 +42,12 @@
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchTextbox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.AccType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
@@ -95,8 +95,8 @@
             this.ListAccountGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.ListAccountGrid.EnableHeadersVisualStyles = false;
             this.ListAccountGrid.GridColor = System.Drawing.SystemColors.HotTrack;
-            this.ListAccountGrid.Location = new System.Drawing.Point(12, 116);
-            this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.ListAccountGrid.Location = new System.Drawing.Point(11, 93);
+            this.ListAccountGrid.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ListAccountGrid.MultiSelect = false;
             this.ListAccountGrid.Name = "ListAccountGrid";
             this.ListAccountGrid.ReadOnly = true;
@@ -114,41 +114,9 @@
             this.ListAccountGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.ListAccountGrid.RowTemplate.Height = 28;
             this.ListAccountGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListAccountGrid.Size = new System.Drawing.Size(1226, 784);
+            this.ListAccountGrid.Size = new System.Drawing.Size(1090, 627);
             this.ListAccountGrid.TabIndex = 4;
             this.ListAccountGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListAccountGrid_CellClick);
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 8;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Pass";
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 8;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // AccType
-            // 
-            this.AccType.DataPropertyName = "AccType";
-            this.AccType.HeaderText = "Acc type";
-            this.AccType.MinimumWidth = 8;
-            this.AccType.Name = "AccType";
-            this.AccType.ReadOnly = true;
             // 
             // panel1
             // 
@@ -168,9 +136,10 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(1021, 12);
+            this.AddButton.Location = new System.Drawing.Point(908, 10);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(217, 55);
+            this.AddButton.Size = new System.Drawing.Size(193, 44);
             this.AddButton.TabIndex = 29;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -205,9 +174,10 @@
             this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SearchPanel.Controls.Add(this.SearchTextbox);
             this.SearchPanel.Controls.Add(this.SearchButton);
-            this.SearchPanel.Location = new System.Drawing.Point(12, 12);
+            this.SearchPanel.Location = new System.Drawing.Point(11, 10);
+            this.SearchPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(674, 46);
+            this.SearchPanel.Size = new System.Drawing.Size(599, 37);
             this.SearchPanel.TabIndex = 6;
             // 
             // SearchTextbox
@@ -216,10 +186,11 @@
             this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
-            this.SearchTextbox.Location = new System.Drawing.Point(21, 9);
+            this.SearchTextbox.Location = new System.Drawing.Point(19, 7);
+            this.SearchTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchTextbox.Multiline = true;
             this.SearchTextbox.Name = "SearchTextbox";
-            this.SearchTextbox.Size = new System.Drawing.Size(600, 26);
+            this.SearchTextbox.Size = new System.Drawing.Size(533, 21);
             this.SearchTextbox.TabIndex = 15;
             this.SearchTextbox.Text = "Search";
             this.SearchTextbox.TextChanged += new System.EventHandler(this.SearchTextbox_TextChanged);
@@ -235,21 +206,12 @@
             this.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
-            this.SearchButton.Location = new System.Drawing.Point(634, 0);
+            this.SearchButton.Location = new System.Drawing.Point(563, 0);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(40, 46);
+            this.SearchButton.Size = new System.Drawing.Size(36, 37);
             this.SearchButton.TabIndex = 5;
             this.SearchButton.UseVisualStyleBackColor = false;
-            // 
-            // Edit
-            // 
-            this.Edit.FillWeight = 50F;
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
             // 
             // Delete
             // 
@@ -261,16 +223,58 @@
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             // 
+            // Edit
+            // 
+            this.Edit.FillWeight = 50F;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            // 
+            // AccType
+            // 
+            this.AccType.DataPropertyName = "AccType";
+            this.AccType.HeaderText = "Acc type";
+            this.AccType.MinimumWidth = 8;
+            this.AccType.Name = "AccType";
+            this.AccType.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Pass";
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 8;
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 8;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
             // FormAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(1250, 908);
+            this.ClientSize = new System.Drawing.Size(1111, 726);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.ListAccountGrid);
-            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAccount";
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).EndInit();
             this.SearchPanel.ResumeLayout(false);
@@ -287,13 +291,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox SearchTextbox;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccType;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

@@ -289,4 +289,16 @@
   <data name="EditIcon-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EditIcon-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="close_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_addfd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5269554541547546467.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

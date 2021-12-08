@@ -1,6 +1,5 @@
 ﻿using QuanLiRapChieuPhim.ChildForms;
 using QuanLiRapChieuPhim.DAO;
-using QuanLiRapChieuPhim.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +14,6 @@ namespace QuanLiRapChieuPhim
 {
     public partial class FormCustomer : Form
     {
-
         public FormCustomer()
         {
             InitializeComponent();

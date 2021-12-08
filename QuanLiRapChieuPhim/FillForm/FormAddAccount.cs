@@ -28,13 +28,13 @@ namespace QuanLiRapChieuPhim.AddForms
             IDTextbox.ReadOnly = false;
         }
 
-        public FormAddAccount(string Username, string Password, string ID, int AccType)
+        public FormAddAccount(string Username/*, string Password*/, string ID, int AccType)
         {
             InitializeComponent();
             UsernameTextbox.Text = Username;
             UsernameTextbox.ForeColor = Color.White;
-            PasswordTextbox.Text = Password;
-            PasswordTextbox.ForeColor = Color.White;
+            //PasswordTextbox.Text = Password;
+            //PasswordTextbox.ForeColor = Color.White;
             IDTextbox.Text = ID;
             IDTextbox.ForeColor = Color.White;
             if (AccType == 1)
@@ -107,7 +107,7 @@ namespace QuanLiRapChieuPhim.AddForms
         {
             int admin = 0;
             if (AdminCheckbox.Checked)
-                admin = ListAccountGrid.Rows.Count;
+                admin = 1;
 
             for (int i = 0; i < ListAccountGrid.Rows.Count; i++)
             {
@@ -132,9 +132,7 @@ namespace QuanLiRapChieuPhim.AddForms
 
             if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text!="")
             {
-
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-
                 UsernameTextbox.Text = "";
                 PasswordTextbox.Text = "";
                 IDTextbox.Text = "";
@@ -171,12 +169,7 @@ namespace QuanLiRapChieuPhim.AddForms
                     int admin = 0;
                     if (AdminCheckbox.Checked)
                         admin = 1;
-
                     AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                    string password = PasswordTextbox.Text.ToString();
-                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, password, IDTextbox.Text, admin);
-
-
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }

@@ -36,6 +36,17 @@ namespace QuanLiRapChieuPhim.DAO
             }
             return genreList;
         }
+        public static List<Genre> GetGenre(string id)
+        {
+            List<Genre> genreList = new List<Genre>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetGenre @id", new object[] { id });
+            foreach (DataRow item in data.Rows)
+            {
+                Genre genre = new Genre(item);
+                genreList.Add(genre);
+            }
+            return genreList;
+        }
         public static void InsertMovie_Genre(string movieID, List<Genre> genreList)
         {
             foreach (Genre item in genreList)

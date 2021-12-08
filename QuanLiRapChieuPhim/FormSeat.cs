@@ -45,12 +45,12 @@ namespace QuanLiRapChieuPhim
 
         private void frmTheatre_Load(object sender, EventArgs e)
         {
-            ticketPrice = time.TicketPrice;
+            ticketPrice = time.ticketPrice;
 
-            lblInformation.Text = time.IDRoom + " | " + time.IDMovie;
-            lblTime.Text = time.Time.ToShortDateString() + " | "
-                + time.Time.ToShortTimeString() + " - "
-                + time.Time.AddMinutes(movie.Timelimit).ToShortTimeString();
+            lblInformation.Text = time.IDRoom + " | " + time.iDMovie;
+            lblTime.Text = time.time.ToShortDateString() + " | "
+                + time.time.ToShortTimeString() + " - "
+                + time.time.AddMinutes(movie.timelimit).ToShortTimeString();
             if (movie.Poster != null)
             {
                 picFilm.Image = MovieDAO.byteArrayToImage(movie.Poster);
@@ -326,7 +326,7 @@ namespace QuanLiRapChieuPhim
                 FormCustomer frm = new FormCustomer();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                   //customer = frm.customer;
+                    customer = frm.customer;
                     lblCustomerName.Text = customer.FullName;
                     lblPoint.Text = customer.Points + "";
                     ShowOrHideLablePoint();

@@ -84,7 +84,7 @@
             this.PhoneTextbox.Location = new System.Drawing.Point(12, 15);
             this.PhoneTextbox.Name = "PhoneTextbox";
             this.PhoneTextbox.Size = new System.Drawing.Size(346, 28);
-            this.PhoneTextbox.TabIndex = 1;
+            this.PhoneTextbox.TabIndex = 5;
             this.PhoneTextbox.Text = "Phone Number";
             this.PhoneTextbox.Enter += new System.EventHandler(this.PhoneTextbox_Enter);
             this.PhoneTextbox.Leave += new System.EventHandler(this.PhoneTextbox_Leave);
@@ -107,7 +107,7 @@
             this.FullNameTextbox.Location = new System.Drawing.Point(12, 15);
             this.FullNameTextbox.Name = "FullNameTextbox";
             this.FullNameTextbox.Size = new System.Drawing.Size(346, 28);
-            this.FullNameTextbox.TabIndex = 1;
+            this.FullNameTextbox.TabIndex = 2;
             this.FullNameTextbox.Text = "Full Name";
             this.FullNameTextbox.Enter += new System.EventHandler(this.FullNameTextbox_Enter);
             this.FullNameTextbox.Leave += new System.EventHandler(this.FullNameTextbox_Leave);
@@ -130,7 +130,7 @@
             this.PointTextbox.Location = new System.Drawing.Point(12, 14);
             this.PointTextbox.Name = "PointTextbox";
             this.PointTextbox.Size = new System.Drawing.Size(346, 28);
-            this.PointTextbox.TabIndex = 3;
+            this.PointTextbox.TabIndex = 7;
             this.PointTextbox.Text = "0";
             this.PointTextbox.Enter += new System.EventHandler(this.PointTextbox_Enter);
             this.PointTextbox.Leave += new System.EventHandler(this.PointTextbox_Leave);
@@ -176,7 +176,7 @@
             this.AddressTextbox.Location = new System.Drawing.Point(12, 15);
             this.AddressTextbox.Name = "AddressTextbox";
             this.AddressTextbox.Size = new System.Drawing.Size(346, 28);
-            this.AddressTextbox.TabIndex = 1;
+            this.AddressTextbox.TabIndex = 4;
             this.AddressTextbox.Text = "Address";
             this.AddressTextbox.Enter += new System.EventHandler(this.AddressTextbox_Enter);
             this.AddressTextbox.Leave += new System.EventHandler(this.AddressTextbox_Leave);
@@ -199,7 +199,7 @@
             this.IDPersonalTextbox.Location = new System.Drawing.Point(12, 14);
             this.IDPersonalTextbox.Name = "IDPersonalTextbox";
             this.IDPersonalTextbox.Size = new System.Drawing.Size(346, 28);
-            this.IDPersonalTextbox.TabIndex = 4;
+            this.IDPersonalTextbox.TabIndex = 6;
             this.IDPersonalTextbox.Text = "ID Personal";
             this.IDPersonalTextbox.Enter += new System.EventHandler(this.IDPersonalTextbox_Enter);
             this.IDPersonalTextbox.Leave += new System.EventHandler(this.IDPersonalTextbox_Leave);
@@ -254,7 +254,7 @@
             this.EditButton.Location = new System.Drawing.Point(416, 473);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(170, 46);
-            this.EditButton.TabIndex = 69;
+            this.EditButton.TabIndex = 8;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);

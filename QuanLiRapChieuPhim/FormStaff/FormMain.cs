@@ -20,7 +20,7 @@ namespace QuanLiRapChieuPhim
         {
             InitializeComponent();
             buttonBorder = new Panel();
-            buttonBorder.Size = new Size(10, 69);
+            buttonBorder.Size = new Size(10, 80);
             gradientPanelMenu.Controls.Add(buttonBorder);
             this.Text = string.Empty;
             this.ControlBox = false;

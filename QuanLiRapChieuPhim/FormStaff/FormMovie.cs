@@ -151,7 +151,7 @@ namespace QuanLiRapChieuPhim
 
         private void Booking_Click(object sender, EventArgs e)
         {
-            //FormSeat frm = new FormSeat();
+
         }
 
         void LoadMovieDetails()

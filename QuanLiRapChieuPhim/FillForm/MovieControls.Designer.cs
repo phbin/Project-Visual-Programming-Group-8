@@ -61,7 +61,6 @@ namespace QuanLiRapChieuPhim
             this.labelLine.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelLine.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLine.ForeColor = System.Drawing.Color.White;
-            this.labelLine.Image = global::QuanLiRapChieuPhim.Properties.Resources.movie;
             this.labelLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelLine.Location = new System.Drawing.Point(0, 0);
             this.labelLine.Name = "labelLine";
@@ -120,6 +119,7 @@ namespace QuanLiRapChieuPhim
             // 
             this.txtTime.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTime.Location = new System.Drawing.Point(261, 110);
+            this.txtTime.MaxLength = 3;
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(312, 34);
             this.txtTime.TabIndex = 19;
@@ -194,7 +194,7 @@ namespace QuanLiRapChieuPhim
             // picPoster
             // 
             this.picPoster.BackColor = System.Drawing.Color.White;
-            this.picPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPoster.Location = new System.Drawing.Point(737, 246);
             this.picPoster.Name = "picPoster";
             this.picPoster.Size = new System.Drawing.Size(307, 334);
@@ -277,6 +277,7 @@ namespace QuanLiRapChieuPhim
             this.txtYear.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYear.Location = new System.Drawing.Point(261, 435);
+            this.txtYear.MaxLength = 4;
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(312, 34);
             this.txtYear.TabIndex = 7;
@@ -306,6 +307,7 @@ namespace QuanLiRapChieuPhim
             this.dtpExpiry.Name = "dtpExpiry";
             this.dtpExpiry.Size = new System.Drawing.Size(312, 34);
             this.dtpExpiry.TabIndex = 3;
+            this.dtpExpiry.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
             // 
             // dtpRelease
             // 
@@ -316,6 +318,7 @@ namespace QuanLiRapChieuPhim
             this.dtpRelease.Name = "dtpRelease";
             this.dtpRelease.Size = new System.Drawing.Size(312, 34);
             this.dtpRelease.TabIndex = 2;
+            this.dtpRelease.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
             // 
             // labelInfo
             // 
@@ -334,16 +337,16 @@ namespace QuanLiRapChieuPhim
             this.clGenre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clGenre.FormattingEnabled = true;
             this.clGenre.Items.AddRange(new object[] {
-            "Gia đình",
-            "Hài kịch",
             "Hành động",
             "Hoạt hình",
+            "Hài kịch",
             "Khoa học viễn tưởng",
             "Phiêu lưu",
-            "Siêu nhiên",
-            "Tâm lý",
+            "Gia đình",
             "Tình cảm",
-            "Trinh thám"});
+            "Trinh thám",
+            "Tâm lý",
+            "Siêu nhiên"});
             this.clGenre.Location = new System.Drawing.Point(737, 110);
             this.clGenre.Name = "clGenre";
             this.clGenre.Size = new System.Drawing.Size(307, 104);

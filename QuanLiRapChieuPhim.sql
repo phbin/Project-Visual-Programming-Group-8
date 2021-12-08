@@ -23,8 +23,7 @@ create table InfoStaff  -- Nhân viên
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
 	Email nvarchar(100),
-	IDPersonal int not null unique, --cmnd/cccd
-	Avatar image
+	IDPersonal int not null unique --cmnd/cccd
 )
 go
 
@@ -100,7 +99,7 @@ create table ShowTime  -- Lịch chiếu
 	IDMovie varchar(50) not null,
 	shTime smalldatetime not null, --thời gian chiếu
 	IDRoom varchar(50) not null, -- phòng chiếu
-	TicketPrice money not null,
+	TicketPrice int not null,
 	constraint FK_ShowTime_IDRoom foreign key (IDRoom) references dbo.Room(ID),
 	constraint FK_ShowTime_IDMovie foreign key (IDMovie) references dbo.Movie(ID),
 )
@@ -130,6 +129,18 @@ create table Bill
 	DateBooking smalldatetime not null default getdate(),
 	stt int not null default 0 --1: Paid, 0: Unpaid
 )
+go
+
+alter table bill 
+add total int
+go
+
+alter table bill 
+add IDStaff varchar(50)
+go
+
+alter table Bill
+add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
 go
 
 create table BillInfo
@@ -319,6 +330,15 @@ SELECT distinct  ( SELECT  A.TypeName +', ' AS [text()]
 END
 GO
 
+CREATE PROC USP_GetGenre --thể loại theo từng phim
+@id VARCHAR(50)
+AS
+BEGIN
+	SELECT dbo.MovieKind.id, TypeName, dbo.MovieKind.Descript
+	FROM dbo. Classify, dbo.MovieKind
+	WHERE IDMovie = @id AND dbo.Classify.IDKind = dbo.MovieKind.ID
+END
+GO
 
 CREATE PROC USP_InsertMovie  -- Thêm phim
 @id VARCHAR(50), @name NVARCHAR(100), @des NVARCHAR(1000), @time int, @dpublic smalldatetime, @dout smalldatetime, @country NVARCHAR(50), @dir NVARCHAR(100), @year INT, @poster IMAGE
@@ -362,7 +382,7 @@ GO
 
 GO
 CREATE PROC USP_InsertShowtime -- thêm lịch chiếu
-@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe FLOAT 
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe int 
 AS
 BEGIN
 	INSERT dbo.ShowTime( id , idmovie, shTime  , IDRoom , TicketPrice  )
@@ -371,7 +391,7 @@ END
 GO
 
 CREATE PROC USP_UpdateShowtime -- cập nhật lịch chiếu
-@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe FLOAT 
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe int 
 AS
 BEGIN
 	UPDATE dbo.ShowTime 
@@ -729,3 +749,7 @@ set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTT
 
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)
+
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST06', N'4/12/2021 10:20:00',N'MV04', N'PC03', 110000)
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST08', N'27/11/2021 10:20:00',N'MV04', N'PC03', 110000)
+INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST10', N'23/12/2021 16:00:00',N'MV03', N'PC03', 110000)

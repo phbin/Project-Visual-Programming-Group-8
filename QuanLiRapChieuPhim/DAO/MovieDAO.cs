@@ -42,17 +42,15 @@ namespace QuanLiRapChieuPhim.DAO
 
             return movieList;
         }
-        public void InsertMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year, byte[] image)
+        public void InsertMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year)
         {
-            //int result = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertMovie @id , @name , @des , @time, @dpublic , @dout , @country , @dir , @year , @poster ", new object[] { id, name, desc, timelimit, startDate, endDate, country, director, year, image });
-            string query = "INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm],[Poster]) VALUES ('" + id + "','" + name + "','" + desc + "','" + timelimit + "','" + startDate + "','" + endDate + "','" + country + "','" + director + "','" + year + "','" + image + "')";
+            string query = "INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES ('" + id + "',N'" + name + "',N'" + desc + "','" + timelimit + "','" + startDate + "','" + endDate + "',N'" + country + "',N'" + director + "','" + year +  "')";
             int result = DataProvider.Instance.ExecuteNonQuery(query);
         }
 
-        public void UpdateMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year, byte[] image)
+        public void UpdateMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year)
         {
-            //int result = DataProvider.Instance.ExecuteNonQuery("EXEC USP_UpdateMovie @id , @name , @des , @time, @dpublic , @dout , @country , @dir , @year , @poster ", new object[] { id, name, desc, timelimit, startDate, endDate, country, director, year, image });
-            string query = "UPDATE dbo.Movie SET NameFilm='" + name + "', Descript='" + desc + "', TimeLimit='" + timelimit + "', DatePublic='" + startDate + "', DateOut='" + endDate + "', Country='" + country+ "', Director='" + director + "', YearFilm='" + year + "', Poster='" + image+"'WHERE ID='" + id + "'";
+            string query = "UPDATE dbo.Movie SET NameFilm=N'" + name + "', Descript=N'" + desc + "', TimeLimit='" + timelimit + "', DatePublic='" + startDate + "', DateOut='" + endDate + "', Country=N'" + country+ "', Director=N'" + director + "', YearFilm='" + year + "', Poster='" +"'WHERE ID='" + id + "'";
             DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -68,23 +66,10 @@ namespace QuanLiRapChieuPhim.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
         // image -> byte, insert image into database
-        public static byte[] imageToByteArray(Image img)
+        public void imageToByteArray(string path, string id)
         {
-            //FileStream fs;
-            //BinaryReader br;
-            //byte[] imgbyte;
-
-            //if (!File.Exists(path)) { return null; }
-            //fs = new FileStream(path, FileMode.Open);
-            //br = new BinaryReader(fs);
-            //imgbyte = new byte[fs.Length];
-            //imgbyte = br.ReadBytes(Convert.ToInt32((fs.Length)));
-            //br.Close(); fs.Close(); return imgbyte;
-            using (MemoryStream ms=new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                return ms.ToArray();
-            }    
+            string query = "update Movie set Poster = (select * from openrowset(bulk N'"+path+"', single_blob) as img) where ID = '"+id+"'"; 
+            DataProvider.Instance.ExecuteQuery(query);
         }
         // byte[] -> image, get image from database
         public static Image byteArrayToImage(byte[] byteArrayIn)
@@ -93,6 +78,5 @@ namespace QuanLiRapChieuPhim.DAO
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }
-
     }
 }

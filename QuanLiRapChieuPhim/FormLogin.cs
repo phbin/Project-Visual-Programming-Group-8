@@ -111,7 +111,6 @@ namespace QuanLiRapChieuPhim
         {
             string Username = UsernameTextbox.Text;
             string Password = PasswordTextbox.Text;
-
             if (Login(Username, Password) == 1)
             {
                 Thread thread = new Thread(new ThreadStart(ShowFormAdmin)); //Create new thread 
@@ -138,32 +137,6 @@ namespace QuanLiRapChieuPhim
                 PasswordTextbox.Text = "Password";
                 PasswordTextbox.UseSystemPasswordChar = true;
             }
-
-            //Lay id dua theo username va pass
-            //SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True");
-            //try
-            //{
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand("SELECT * FROM Account WHERE UserName ='" + Username + "' and Pass ='" + Password + "'", con);
-            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //    DataTable dt = new DataTable();
-            //    da.Fill(dt);
-            //    if (dt != null)
-            //    {
-            //        foreach (DataRow dr in dt.Rows)
-            //        {
-            //            ID_USER = dr["ID"].ToString();
-            //        }
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-            //}
-            //finally
-            //{
-            //    con.Close();
-            //}
         }
 
         private void HideButton_Click(object sender, EventArgs e)
@@ -199,13 +172,6 @@ namespace QuanLiRapChieuPhim
         private void ShowButton_MouseLeave(object sender, EventArgs e)
         {
             ShowButton.BackColor = Color.Transparent;
-        }
-
-        private void Wrong()
-        {
-            Form WrongForm = new Form();
-            WrongForm.StartPosition = FormStartPosition.CenterScreen;
-            WrongForm.Size = new Size(50, 20);
         }
     }
     

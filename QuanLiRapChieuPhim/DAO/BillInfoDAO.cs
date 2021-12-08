@@ -46,9 +46,9 @@ namespace QuanLiRapChieuPhim.DAO
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { iDBill, iDFD, count });
         }
 
-        public void RemoveAllBillInfoByBillID(int iDBill)
+        public void RemoveFoodDrinkByIDFoodDrink(int iDBill, int iDFD)
         {
-            string query = "DELETE FROM BillInfo WHERE IDBill = " + iDBill;
+            string query = "DELETE FROM BillInfo WHERE IDBill = " + iDBill + "AND IDFoodDrink = " + iDFD;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
