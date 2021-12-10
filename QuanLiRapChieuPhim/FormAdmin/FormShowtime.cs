@@ -91,13 +91,13 @@ namespace QuanLiRapChieuPhim
                     }
                 }
 
-                //if (listShowtimeGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
-                //{
-                //    ShowtimeControls frm = new ShowtimeControls(row.Cells["ID"].Value.ToString(), row.Cells["Movie Name"].Value.ToString(), Convert.ToDateTime(row.Cells["Showtime"].Value), Convert.ToString(row.Cells["IDRoom"].Value), row.Cells["Ticke tPrice"].Value.ToString());
-                //    frm.Owner = this;
-                //    frm.ShowDialog();
-                //    LoadShowtime();
-                //}
+                if (listShowtimeGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
+                {
+                    ShowtimeControls frm = new ShowtimeControls(row.Cells["ID"].Value.ToString(), row.Cells["Movie Name"].Value.ToString(), Convert.ToDateTime(row.Cells["Showtime"].Value), Convert.ToString(row.Cells["IDRoom"].Value), row.Cells["Ticke tPrice"].Value.ToString());
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    LoadShowtime();
+                }
             }
         }
     }

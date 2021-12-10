@@ -451,8 +451,6 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
 =======
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe.config
-C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.exe
-C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\QuanLiRapChieuPhim.pdb
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\Microsoft.ReportViewer.Design.dll
@@ -535,8 +533,6 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe.licenses
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CoreCompileInputs.cache
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
-<<<<<<< HEAD
-=======
 C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csprojAssemblyReference.cache
 C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 C:\Users\Lenovo\Downloads\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
@@ -711,4 +707,3 @@ D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\
 D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
 D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.exe
 D:\Project LTTQ\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.pdb
->>>>>>> 8d1be29239cf9d1ccdba9139a6f4739e4cecb09f
