@@ -21,12 +21,6 @@ namespace QuanLiRapChieuPhim
             LoadMovieIntoComboBox(cbIDMovie);
             buttonOK.BringToFront();
         }
-        public ShowtimeControls()
-        {
-            InitializeComponent();
-            LoadMovieIntoComboBox(cbIDMovie);
-            buttonOK.BringToFront();
-        }
         void LoadMovieIntoComboBox(ComboBox cbb)
         {
             dtpTime.Format = DateTimePickerFormat.Custom;

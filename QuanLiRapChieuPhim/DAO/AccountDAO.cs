@@ -46,7 +46,7 @@ namespace QuanLiRapChieuPhim.DAO
         }
         public int Login(string Username, string Password)
         {
-            Password = Encrypt(Password);
+           // Password = Encrypt(Password);
             string query = "SELECT * FROM dbo.Account WHERE Username='" + Username + "' AND Pass='" + Password + "'AND AccType='" + 1 + "'";
             DataTable result1 = DataProvider.Instance.ExecuteQuery(query);
             if (result1.Rows.Count > 0)

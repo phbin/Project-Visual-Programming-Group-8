@@ -1,15 +1,12 @@
-﻿using QuanLiRapChieuPhim.AddForms;
-using QuanLiRapChieuPhim.DAO;
+﻿using QuanLiRapChieuPhim.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 
 namespace QuanLiRapChieuPhim
@@ -21,34 +18,14 @@ namespace QuanLiRapChieuPhim
             InitializeComponent();
             LoadAccountList();
         }
-        public static string Decrypt(string toDecrypt)
+
+        void LoadAccountList()
         {
-            bool useHashing = true;
-            byte[] keyArray;
-            byte[] toEncryptArray = Convert.FromBase64String(toDecrypt);
+            string query = "SELECT * FROM dbo.Account";
 
-            if (useHashing)
-            {
-                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes("111"));
-            }
-            else
-                keyArray = UTF8Encoding.UTF8.GetBytes(toDecrypt);
-
-            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-            tdes.Key = keyArray;
-            tdes.Mode = CipherMode.ECB;
-            tdes.Padding = PaddingMode.PKCS7;
-
-            ICryptoTransform cTransform = tdes.CreateDecryptor();
-            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
-
-            return UTF8Encoding.UTF8.GetString(resultArray);
-        }
-        public void LoadAccountList()
-        {
-            string query = "SELECT Username, ID, AccType FROM dbo.Account";
             ListAccountGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
+
+            //ListAccountGrid.ClearSelection();
         }
 
         private void SearchTextbox_Enter(object sender, EventArgs e)
@@ -77,47 +54,88 @@ namespace QuanLiRapChieuPhim
             ListAccountGrid.DataSource = filtertable;
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            FormAddAccount frm = new FormAddAccount(ListAccountGrid);
-            frm.Owner = this;
-            frm.ShowDialog();
-            LoadAccountList();
-        }
-
         private void ListAccountGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = ListAccountGrid.Rows[e.RowIndex];
+                //gets a collection that contains all the rows
+                DataGridViewRow row = this.ListAccountGrid.Rows[e.RowIndex];
+                //populate the textbox from specific value of the coordinates of column and row.
+                UsernameTextbox.Text = row.Cells[0].Value.ToString();
+                PasswordTextbox.Text = row.Cells[1].Value.ToString();
+                IDTextbox.Text = row.Cells[2].Value.ToString();
 
-                if (ListAccountGrid.Columns[e.ColumnIndex].HeaderText == "Delete")
-                {
-                    if (MessageBox.Show("Do you really want to delete this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                    {
-                        AccountDAO.Instance.DeleteAccount(row.Cells["Username"].Value.ToString());
-                        LoadAccountList();
-                    }
-                }
-
-                if (ListAccountGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
-                {
-                    FormAddAccount frm = new FormAddAccount(row.Cells["Username"].Value.ToString()/*, row.Cells["Password"].Value.ToString()*/, row.Cells["ID"].Value.ToString(), Convert.ToInt32(ListAccountGrid.CurrentRow.Cells["AccType"].Value));
-                    frm.Owner = this;
-                    frm.ShowDialog();
-                    LoadAccountList();
-                }
+                if (row.Cells[3].Value.ToString() == "1")
+                    AdminCheckbox.Checked = true;
+                else
+                    AdminCheckbox.Checked = false;
             }
         }
 
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(199, 80, 87);
+            int admin = 0;
+            if (AdminCheckbox.Checked)
+                admin = 1;
+            if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
+            }
+            LoadAccountList();
         }
 
-        private void AddButton_MouseLeave(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(190, 62, 66);
+            int admin = 0;
+            if (AdminCheckbox.Checked)
+                admin = 1;
+
+            for (int i = 0; i < ListAccountGrid.Rows.Count; i++)
+            {
+                if (UsernameTextbox.Text == ListAccountGrid.Rows[i].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
+                    UsernameTextbox.Text = "";
+                    UsernameTextbox.Focus();
+                    return;
+                }
+            }
+
+            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "")
+            {
+                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
+                AdminCheckbox.Checked = false;
+            }
+            else
+                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
+            LoadAccountList();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                AccountDAO.Instance.DeleteAccount(UsernameTextbox.Text);
+                UsernameTextbox.Text = "";
+                PasswordTextbox.Text = "";
+                IDTextbox.Text = "";
+                AdminCheckbox.Checked = false;
+                LoadAccountList();
+            }
+        }
+
+        private void AccountLabel_Click(object sender, EventArgs e)
+        {
+            UsernameTextbox.Text = "";
+            PasswordTextbox.Text = "";
+            IDTextbox.Text = "";
+            AdminCheckbox.Checked = false;
         }
     }
 }
