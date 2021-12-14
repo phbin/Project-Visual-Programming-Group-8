@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ﻿--create database QuanLiRapChieuPhim
 --go
 --drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
 --go
+=======
+﻿create database QuanLiRapChieuPhim
+go
+--drop database QuanLiRapChieuPhim
+use QuanLiRapChieuPhim
+go
+>>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 
 set dateformat DMY
 go
@@ -13,6 +21,11 @@ go
 --Food&Drink
 --Bill
 
+<<<<<<< HEAD
+=======
+--select day(datebooking) as 'day', month(datebooking) as 'month', year(datebooking) as 'year' from bill 
+
+>>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 
 create table InfoStaff  -- Nhân viên
 (
@@ -139,17 +152,17 @@ create table Bill
 )
 go
 
-alter table bill 
-add total int
-go
+--alter table bill 
+--add total int
+--go
 
-alter table bill 
-add IDStaff varchar(50)
-go
+--alter table bill 
+--add IDStaff varchar(50)
+--go
 
-alter table Bill
-add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
-go
+--alter table Bill
+--add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
+--go
 
 create table TicketBill
 (
@@ -609,16 +622,11 @@ END
 GO
 -- BILL
 CREATE PROC USP_InsertBill
-@idTable INT
+@idBill INT, @idStaff VARCHAR
 AS
 BEGIN
-	INSERT dbo.Bill 
-	        ( DateBooking,
-	          stt
-	        )
-	VALUES  ( GETDATE() , 
-	          0
-	        )
+	INSERT dbo.Bill (DateBooking , stt, Total, IDStaff)
+	VALUES  (GETDATE(), 0, 0, @idStaff)
 END
 GO
 
@@ -629,28 +637,57 @@ BEGIN
 
 	DECLARE @isExitsBillInfo INT
 	DECLARE @foodCount INT = 1
-	
-	SELECT @isExitsBillInfo = id, @foodCount = b.num 
-	FROM dbo.BillInfo AS b 
+	DECLARE @price FLOAT
+	DECLARE @value INT	
+
+	SELECT @isExitsBillInfo = b.ID, @foodCount = b.num
+	FROM dbo.BillInfo AS b
 	WHERE idBill = @idBill AND IDFoodDrink = @idFD
+
+	SELECT @price = FD.Price
+	FROM dbo.FoodDrink FD
+	WHERE FD.ID = @idFD
+
+	SELECT @value = Total
+	FROM dbo.Bill
+	WHERE ID = @idBill
 
 	IF (@isExitsBillInfo > 0)
 	BEGIN
-		DECLARE @newCount INT = @foodCount + @count
-		IF (@newCount > 0)
-			UPDATE dbo.BillInfo	SET num = @foodCount + @count WHERE IDFoodDrink = @idFD
-		ELSE
-			DELETE dbo.BillInfo WHERE idBill = @idBill AND IDFoodDrink = @idFD
+		UPDATE dbo.BillInfo	SET num = @foodCount + @count WHERE IDFoodDrink = @idFD
 	END
 	ELSE
 	BEGIN
-		INSERT	dbo.BillInfo
-        ( idBill, IDFoodDrink, num )
-		VALUES  ( @idBill, -- idBill - int
-          @idFD, -- idFood - int
-          @count  -- count - int
-          )
+		INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (@idBill, @idFD, @count)
 	END
+
+	UPDATE dbo.Bill SET Total = @value + @price * @count WHERE ID = @idBill
+END
+GO
+
+CREATE PROC USP_DeleteBillInfo
+@idBill INT, @idFD INT
+AS
+BEGIN
+	DECLARE @count INT
+	DECLARE @price FLOAT
+	DECLARE @value INT	
+
+	SELECT @price = FD.Price
+	FROM dbo.FoodDrink FD
+	WHERE FD.ID = @idFD
+
+	SELECT @count = Num
+	FROM dbo.BillInfo
+	WHERE IDBill = @idBill
+
+	SELECT @value = Total
+	FROM dbo.Bill
+	WHERE ID = @idBill
+
+	DELETE FROM BillInfo WHERE IDBill = @idBill AND IDFoodDrink = @idFD
+
+	UPDATE dbo.Bill SET Total = @value - @price * @count WHERE ID = @idBill
 END
 GO
 
@@ -766,40 +803,6 @@ INSERT dbo.FoodDrink
 VALUES  ( N'1 PEPSI 1 HAMBURGER 1 KHOAI', 3, 73000)
 GO
 
--- thêm bill
-INSERT	dbo.Bill
-        ( DateBooking ,
-          stt
-        )
-VALUES  ( GETDATE() , -- date
-		  0 -- status - int
-        )
-
-INSERT	dbo.Bill
-        ( DateBooking ,
-          stt
-        )
-VALUES  ( GETDATE() , -- date
-		  1 -- status - int
-        )
-GO
-
--- thêm bill info
-INSERT	dbo.BillInfo
-        ( idBill, IDFoodDrink, num )
-VALUES  ( 2, -- idBill - int
-          1, -- idFood - int
-          1  -- num - int
-          )
-INSERT	dbo.BillInfo
-        ( idBill, IDFoodDrink, num )
-VALUES  ( 2, -- idBill - int
-          11, -- idFood - int
-          2  -- count - int
-          )
-GO
-
-
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL01', N'Hành động', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL02', N'Hoạt hình', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL03', N'Hài kịch', NULL)
@@ -827,9 +830,27 @@ INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal],
 INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
 GO
 
+<<<<<<< HEAD
 INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01')
 INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02')
 INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03')
+=======
+-- thêm bill
+INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 90000)
+INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 83000)
+GO
+
+-- thêm bill info
+INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 4, 1)
+INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 11, 2)
+INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 10, 1)
+INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 13, 1)
+GO
+
+INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', 180, 1, 12, 15)
+INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', 180, 1, 12, 15)
+INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', 180, 1, 12, 15)
+>>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 GO
 select * from Seat
 
@@ -857,16 +878,21 @@ INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (
 GO
 
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\HP.png', single_blob) as img) where ID='MV01'
+set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\HP.png', single_blob) as img) where ID='MV01'
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Conan.png', single_blob) as img) where ID='MV02'
+set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Conan.png', single_blob) as img) where ID='MV02'
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Venom.png', single_blob) as img) where ID='MV03'
+set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Venom.png', single_blob) as img) where ID='MV03'
 
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV04', N'HARRY POTTER',N'Chưa có', 133, N'2/11/2021', N'31/12/2021', N'Anh', N'JK', 2021)
 
 update Movie
+<<<<<<< HEAD
 set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Poster2.png', single_blob) as img) where ID='MV04'
+=======
+set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Poster2.png', single_blob) as img) where ID='MV04'
+
+>>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)
 

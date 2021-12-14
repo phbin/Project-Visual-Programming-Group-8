@@ -350,9 +350,13 @@
     <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="TicketBill.resx">
       <DependentUpon>TicketBill.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <EmbeddedResource Include="Report.rdlc" />
+>>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
