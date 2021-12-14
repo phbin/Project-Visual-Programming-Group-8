@@ -19,7 +19,6 @@ namespace QuanLiRapChieuPhim
         }
         public MovieControls(string id, string name, DateTime dpublic, DateTime dout, int timelimit, string director, string country)
         {
-           
             InitializeComponent();
             txtID.Text = id;
             txtID.ReadOnly = true;

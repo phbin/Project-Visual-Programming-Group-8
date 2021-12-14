@@ -28,25 +28,65 @@ namespace QuanLiRapChieuPhim.DAO
         public static List<Showtime> GetAllListShowTimes()
         {
             List<Showtime> listShowTimes = new List<Showtime>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetShowtime");
-            foreach (DataRow row in data.Rows)
+            string query = "SELECT * FROM Showtime";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
             {
-                Showtime showTimes = new Showtime(row);
-                listShowTimes.Add(showTimes);
+                Showtime st = new Showtime(item);
+                listShowTimes.Add(st);
             }
             return listShowTimes;
         }
-       
-
-        public void InsertShowtime(string id,  string idmovie, string time, string idroom, int ticketPrice)
+        public static List<Showtime> ShowtimeByID(string id)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("INSERT into dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'"+id+"','" + time + "',N'" + idmovie + "',N'" + idroom + "'," + ticketPrice + ")");
+            List<Showtime> listShowTimes = new List<Showtime>();
+            string query = "SELECT * FROM Showtime where IDMovie = N'" + id + "' order by shtime";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtime st = new Showtime(item);
+                listShowTimes.Add(st);
+            }
+            return listShowTimes;
+        }
+        public static List<Showtime> ShowtimeByIDST(string id)
+        {
+            List<Showtime> listShowTimes = new List<Showtime>();
+            string query = "SELECT * FROM Showtime where ID = N'" + id + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtime st = new Showtime(item);
+                listShowTimes.Add(st);
+            }
+            return listShowTimes;
+        }
+        public static List<Showtime> GetDate()
+        {
+            List<Showtime> listShowTimes = new List<Showtime>();
+            string query = "SELECT format(dd/mm/yyyy,shtime) FROM Showtime";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtime st = new Showtime(item, 1);
+                listShowTimes.Add(st);
+            }
+            return listShowTimes;
+        }
+        public void InsertShowtime(string id, string idmovie, string time, string idroom, int ticketPrice)
+        {
+            DataProvider.Instance.ExecuteNonQuery("INSERT into dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'" + id + "','" + time + "',N'" + idmovie + "',N'" + idroom + "'," + ticketPrice + ")");
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertSeat '"+id+"'");
         }
 
-        public void UpdateShowtime(string id, string cinemaID, string formatMovieID, DateTime time, int ticketPrice)
+        public void UpdateShowtime(string id, string idmovie, string time, string idroom)
         {
-            string command = string.Format("USP_UpdateShowtime @id , @idPhong , @idDinhDang , @thoiGianChieu , @giaVe ");
-            int result = DataProvider.Instance.ExecuteNonQuery(command, new object[] { id, cinemaID, formatMovieID, time, ticketPrice });
+            //DataProvider.Instance.ExecuteNonQuery("set dateformat dmy");
+            //string query = string.Format("EXEC USP_UpdateShowtime ");
+            //DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, idmovie, time, idroom });
+            DataProvider.Instance.ExecuteNonQuery("delete from seat where id='" + id + "'");
+            DataProvider.Instance.ExecuteNonQuery("update dbo.ShowTime set time='" + time + "' and idroom='" + idroom + "' where id='" + id + "'");
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertSeat '" + id + "'");
         }
 
         public void DeleteShowtime(string id)

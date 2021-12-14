@@ -26,56 +26,9 @@ namespace QuanLiRapChieuPhim
         }
         void LoadShowtimeByRoom(string id)
         {
-            string query = "EXEC USP_GetShowtimeByRoom '"+id+"'";
+            string query = "EXEC USP_GetShowtimeByRoom '" + id + "'";
             listShowtimeGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
-
-        private void buttonRoom1_Click(object sender, EventArgs e)
-        {
-            id = "PC01";
-            LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Gray;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Black;
-        }
-
-        private void buttonRoom2_Click(object sender, EventArgs e)
-        {
-            id = "PC02";
-            LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Gray;
-            buttonRoom3.BackColor = Color.Black;
-        }
-
-        private void buttonRoom3_Click(object sender, EventArgs e)
-        {
-            id = "PC03";
-            LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Gray;
-        }
-
-        private void buttonAll_Click(object sender, EventArgs e)
-        {
-            LoadShowtime();
-            buttonAll.BackColor = Color.Gray;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Black;
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            ShowtimeControls frm = new ShowtimeControls();
-            frm.Show();
-        }
-
         private void listShowtimeGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -93,13 +46,58 @@ namespace QuanLiRapChieuPhim
 
                 if (listShowtimeGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
-                    ShowtimeControls frm = new ShowtimeControls(row.Cells["ID"].Value.ToString(), row.Cells["Movie Name"].Value.ToString(), Convert.ToDateTime(row.Cells["Showtime"].Value), Convert.ToString(row.Cells["IDRoom"].Value), row.Cells["Ticke tPrice"].Value.ToString());
+                    ShowtimeControls frm = new ShowtimeControls(row.Cells["ID"].Value.ToString(), row.Cells["NameFilm"].Value.ToString(), row.Cells["shTime"].Value.ToString(), Convert.ToString(row.Cells["IDRoom"].Value));
                     frm.Owner = this;
                     frm.ShowDialog();
                     LoadShowtime();
                 }
             }
         }
-    }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ShowtimeControls frm = new ShowtimeControls();
+            frm.Show();
+        }
+
+        private void buttonAll_Click(object sender, EventArgs e)
+        {
+            LoadShowtime();
+            buttonAll.BackColor = Color.Gray;
+            buttonRoom1.BackColor = Color.Black;
+            buttonRoom2.BackColor = Color.Black;
+            buttonRoom3.BackColor = Color.Black;
+        }
+
+        private void buttonRoom1_Click(object sender, EventArgs e)
+        {
+            id = "PC01";
+            LoadShowtimeByRoom(id);
+            buttonAll.BackColor = Color.Black;
+            buttonRoom1.BackColor = Color.Gray;
+            buttonRoom2.BackColor = Color.Black;
+            buttonRoom3.BackColor = Color.Black;
+        }
+
+        private void buttonRoom2_Click(object sender, EventArgs e)
+        {
+
+            id = "PC02";
+            LoadShowtimeByRoom(id);
+            buttonAll.BackColor = Color.Black;
+            buttonRoom1.BackColor = Color.Black;
+            buttonRoom2.BackColor = Color.Gray;
+            buttonRoom3.BackColor = Color.Black;
+        }
+
+        private void buttonRoom3_Click(object sender, EventArgs e)
+        {
+            id = "PC03";
+            LoadShowtimeByRoom(id);
+            buttonAll.BackColor = Color.Black;
+            buttonRoom1.BackColor = Color.Black;
+            buttonRoom2.BackColor = Color.Black;
+            buttonRoom3.BackColor = Color.Gray;
+        }
+    }
 }

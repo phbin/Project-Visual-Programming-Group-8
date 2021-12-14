@@ -32,19 +32,19 @@ namespace QuanLiRapChieuPhim
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMovie));
             this.lbName = new System.Windows.Forms.Label();
             this.lbInfo = new System.Windows.Forms.Label();
-            this.picBoxPoster = new System.Windows.Forms.PictureBox();
             this.lbDesc = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.panelMovie = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonBooking = new System.Windows.Forms.Button();
             this.panelLine = new System.Windows.Forms.Panel();
             this.buttonStt1 = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.labelSTT = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.picBoxPoster = new System.Windows.Forms.PictureBox();
             this.flpMovie = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).BeginInit();
             this.panelMovie.SuspendLayout();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -71,15 +71,6 @@ namespace QuanLiRapChieuPhim
             this.lbInfo.TabIndex = 1;
             this.lbInfo.Text = "Genre: \r\n\r\nDirector: \r\n\r\nCountry:\r\n\r\nRelease Date: \r\n\r\nRunning Time:";
             // 
-            // picBoxPoster
-            // 
-            this.picBoxPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxPoster.Location = new System.Drawing.Point(103, 152);
-            this.picBoxPoster.Name = "picBoxPoster";
-            this.picBoxPoster.Size = new System.Drawing.Size(450, 475);
-            this.picBoxPoster.TabIndex = 2;
-            this.picBoxPoster.TabStop = false;
-            // 
             // lbDesc
             // 
             this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -93,24 +84,10 @@ namespace QuanLiRapChieuPhim
             this.lbDesc.TabIndex = 3;
             this.lbDesc.Text = "Description:\r\n";
             // 
-            // btnBack
-            // 
-            this.btnBack.AutoSize = true;
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(0, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 753);
-            this.btnBack.TabIndex = 12;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // panelMovie
             // 
             this.panelMovie.Controls.Add(this.lbName);
-            this.panelMovie.Controls.Add(this.button2);
+            this.panelMovie.Controls.Add(this.buttonBooking);
             this.panelMovie.Controls.Add(this.btnBack);
             this.panelMovie.Controls.Add(this.lbDesc);
             this.panelMovie.Controls.Add(this.picBoxPoster);
@@ -121,20 +98,21 @@ namespace QuanLiRapChieuPhim
             this.panelMovie.Size = new System.Drawing.Size(832, 753);
             this.panelMovie.TabIndex = 0;
             // 
-            // button2
+            // buttonBooking
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(596, 529);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 60);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Booking";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonBooking.AutoSize = true;
+            this.buttonBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonBooking.FlatAppearance.BorderSize = 0;
+            this.buttonBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBooking.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBooking.ForeColor = System.Drawing.Color.White;
+            this.buttonBooking.Location = new System.Drawing.Point(596, 529);
+            this.buttonBooking.Name = "buttonBooking";
+            this.buttonBooking.Size = new System.Drawing.Size(200, 60);
+            this.buttonBooking.TabIndex = 13;
+            this.buttonBooking.Text = "Booking";
+            this.buttonBooking.UseVisualStyleBackColor = false;
+            this.buttonBooking.Click += new System.EventHandler(this.buttonBooking_Click);
             // 
             // panelLine
             // 
@@ -149,6 +127,7 @@ namespace QuanLiRapChieuPhim
             // 
             this.buttonStt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStt1.AutoSize = true;
+            this.buttonStt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.buttonStt1.FlatAppearance.BorderSize = 0;
             this.buttonStt1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStt1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,7 +137,7 @@ namespace QuanLiRapChieuPhim
             this.buttonStt1.Size = new System.Drawing.Size(232, 48);
             this.buttonStt1.TabIndex = 1;
             this.buttonStt1.Text = "COMING SOON";
-            this.buttonStt1.UseVisualStyleBackColor = true;
+            this.buttonStt1.UseVisualStyleBackColor = false;
             this.buttonStt1.Click += new System.EventHandler(this.buttonStt1_Click);
             // 
             // panel
@@ -182,6 +161,29 @@ namespace QuanLiRapChieuPhim
             this.labelSTT.TabIndex = 2;
             this.labelSTT.Text = "Now Showing";
             // 
+            // btnBack
+            // 
+            this.btnBack.AutoSize = true;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 753);
+            this.btnBack.TabIndex = 12;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // picBoxPoster
+            // 
+            this.picBoxPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxPoster.Location = new System.Drawing.Point(103, 152);
+            this.picBoxPoster.Name = "picBoxPoster";
+            this.picBoxPoster.Size = new System.Drawing.Size(450, 475);
+            this.picBoxPoster.TabIndex = 2;
+            this.picBoxPoster.TabStop = false;
+            // 
             // flpMovie
             // 
             this.flpMovie.AutoScroll = true;
@@ -190,7 +192,7 @@ namespace QuanLiRapChieuPhim
             this.flpMovie.Location = new System.Drawing.Point(0, 79);
             this.flpMovie.Name = "flpMovie";
             this.flpMovie.Size = new System.Drawing.Size(832, 674);
-            this.flpMovie.TabIndex = 43;
+            this.flpMovie.TabIndex = 44;
             // 
             // FormMovie
             // 
@@ -205,11 +207,11 @@ namespace QuanLiRapChieuPhim
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMovie";
             this.Text = "FormMovie";
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).EndInit();
             this.panelMovie.ResumeLayout(false);
             this.panelMovie.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +227,7 @@ namespace QuanLiRapChieuPhim
         private System.Windows.Forms.Button buttonStt1;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label labelSTT;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonBooking;
         private System.Windows.Forms.FlowLayoutPanel flpMovie;
     }
 }

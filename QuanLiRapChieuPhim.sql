@@ -1,9 +1,9 @@
-﻿create database QuanLiRapChieuPhim
+﻿--create database QuanLiRapChieuPhim
 --go
 --drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
 --go
-select * from account
+
 set dateformat DMY
 go
 --Account
@@ -12,8 +12,6 @@ go
 --FDCategory
 --Food&Drink
 --Bill
-
-select day(datebooking) as 'day', month(datebooking) as 'month', year(datebooking) as 'year' from bill 
 
 
 create table InfoStaff  -- Nhân viên
@@ -28,6 +26,7 @@ create table InfoStaff  -- Nhân viên
 	IDPersonal int not null unique --cmnd/cccd
 )
 go
+
 
 create table Account  -- Tài khoản
 (
@@ -69,14 +68,9 @@ go
 create table Room  --Phòng chiếu
 (
 	ID varchar(50) primary key,
-	NameRoom nvarchar(100) not null,
-	NumOfSeat int not null,
-	Stt int not null default 1, -- 0: không hoạt động, 1: đang hoạt động
-	RowOfSeat int not null, --số hàng ghế 
-	SeatOfRow int not null, --số ghế của 1 hàng
+	NameRoom nvarchar(100) not null
 )
 go
-
 
 create table MovieKind  -- Thế loại/Genre
 (
@@ -85,6 +79,7 @@ create table MovieKind  -- Thế loại/Genre
 	Descript nvarchar(100)
 )
 go
+
 
 create table Classify -- Phân loại phim
 (
@@ -108,6 +103,16 @@ create table ShowTime  -- Lịch chiếu
 )
 go
 
+create table Seat  -- Ghế
+(
+	IDShowtime varchar(50),
+	SeatName varchar(50),
+	stt int default 0, --0: chưa đặt|1: đặt rồi|2: đang chọn
+	IDCustomer varchar(50) default null,
+	constraint FK_Seat_IDShowtime foreign key (IDShowtime) references dbo.ShowTime(ID),
+	constraint FK_Seat_IDCustomer foreign key (IDCustomer) references dbo.InfoCustomer(ID),
+)
+go
 create table FDCategory
 (
 	ID int identity primary key,
@@ -129,12 +134,8 @@ go
 create table Bill
 (
 	ID int identity primary key,
-	IDStaff varchar(50) not null,
 	DateBooking smalldatetime not null default getdate(),
-	stt int not null default 0, --1: Paid, 0: Unpaid
-	Total int
-	
-	constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
+	stt int not null default 0 --1: Paid, 0: Unpaid
 )
 go
 
@@ -150,6 +151,16 @@ alter table Bill
 add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
 go
 
+create table TicketBill
+(
+	ID int identity primary key,
+	IDStaff varchar(50),
+	DateBooking smalldatetime not null default getdate(),
+	price int,
+	constraint FK_TikcetBill_IDStaff foreign key (IDStaff) references InfoStaff(ID),
+)
+go
+
 create table BillInfo
 (
 	ID int identity primary key,
@@ -160,10 +171,6 @@ create table BillInfo
 	constraint FK_BillInfo_IDFoodDrink foreign key (IDFoodDrink) references FoodDrink(ID)
 )
 go
-
-
-
-
 
 ---------------------------------------------------------------------------------------------------------------------
 --auto id
@@ -202,6 +209,8 @@ BEGIN
 	WHERE info.ID = acc.ID
 END
 GO
+
+
 
 CREATE PROC USP_InsertAccount -- thêm tài khoản
 @username NVARCHAR(100), @type INT, @id VARCHAR(50)
@@ -393,20 +402,21 @@ GO
 
 GO
 CREATE PROC USP_InsertShowtime -- thêm lịch chiếu
-@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe int 
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @price int
 AS
 BEGIN
 	INSERT dbo.ShowTime( id , idmovie, shTime  , IDRoom , TicketPrice  )
-	VALUES  ( @id , @idmovie , @thoiGianChieu  ,@idPhong, @giaVe )
+	VALUES  ( @id , @idmovie , @thoiGianChieu  ,@idPhong, @price)
 END
 GO
 
+
 CREATE PROC USP_UpdateShowtime -- cập nhật lịch chiếu
-@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50), @giaVe int 
+@id VARCHAR(50),@idmovie varchar(50), @thoiGianChieu smalldatetime, @idPhong VARCHAR(50)
 AS
 BEGIN
 	UPDATE dbo.ShowTime 
-	SET IDRoom = @idPhong,shTime = @thoiGianChieu , TicketPrice = @giaVe
+	SET IDRoom = @idPhong,shTime = @thoiGianChieu, IDMovie=@idmovie
 	WHERE id = @id
 END
 GO
@@ -421,7 +431,108 @@ BEGIN
 END
 GO
 
-
+CREATE PROC USP_InsertSeat
+@id VARCHAR(50)
+AS
+BEGIN
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'A11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'B11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'C11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'D11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'E11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'F11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'G11')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H00')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H01')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H02')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H03')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H04')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H05')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H06')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H07')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H08')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H09')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H10')
+	insert dbo.Seat([idshowtime],[SeatName]) values (@id,'H11')
+END
+GO
 -- STAFF
 CREATE PROC USP_GetStaff
 AS
@@ -716,10 +827,11 @@ INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal],
 INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
 GO
 
-INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', 180, 1, 12, 15)
+INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01')
+INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02')
+INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03')
 GO
+select * from Seat
 
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, N'10/04/2021', N'31/05/2021', N'Anh', N'David Yates', 2021)
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, N'23/04/2021', N'01/06/2021', N'Nhật Bản', N'Tomoka Nagaoka', 2021)
@@ -742,9 +854,7 @@ GO
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST01', N'13/12/2021 15:20:00',N'MV03', N'PC01', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST02', N'12/12/2021 13:00:00',N'MV03', N'PC02', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST03', N'19/12/2021 16:00:00',N'MV03', N'PC02', 110000)
-
 GO
-
 
 update Movie
 set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\HP.png', single_blob) as img) where ID='MV01'
@@ -757,10 +867,26 @@ INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [Date
 
 update Movie
 set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Poster2.png', single_blob) as img) where ID='MV04'
-
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)
 
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST06', N'4/12/2021 10:20:00',N'MV04', N'PC03', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST08', N'27/11/2021 10:20:00',N'MV04', N'PC03', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST10', N'23/12/2021 16:00:00',N'MV03', N'PC03', 110000)
+
+exec USP_InsertShowtime N'ST1', N'MV04', N'27/12/2021 00:20:00','PC03',110000
+select *from ShowTime
+
+exec USP_InsertSeat 'ST01'
+exec USP_InsertSeat 'ST02'
+exec USP_InsertSeat 'ST03'
+exec USP_InsertSeat 'ST04'
+exec USP_InsertSeat 'ST05'
+exec USP_InsertSeat 'ST06'
+exec USP_InsertSeat 'ST08'
+exec USP_InsertSeat 'ST10'
+exec USP_InsertSeat 'ST1'
+
+update  Seat
+set stt=1 where SeatName in ('A01','C02','C03','H11')
+

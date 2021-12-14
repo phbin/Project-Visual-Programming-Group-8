@@ -32,11 +32,14 @@ namespace QuanLiRapChieuPhim.DTO
             this.idRoom = row["IDRoom"].ToString();
             this.TicketPrice = (int)row["TicketPrice"];
         }
-
+        public Showtime(DataRow row, int i)
+        {
+            this.time = (DateTime)row["shTime"];
+        }
         public string ID 
         {
-            get { return iDMovie; }
-            set { iDMovie = value; }
+            get { return iD; }
+            set { iD = value; }
         }
 
         public DateTime Time

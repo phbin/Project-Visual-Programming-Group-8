@@ -48,7 +48,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void RemoveFoodDrinkByIDFoodDrink(int iDBill, int iDFD)
         {
-            string query = "DELETE FROM BillInfo WHERE IDBill = " + iDBill + "AND IDFoodDrink = " + iDFD;
+            string query = "EXEC USP_DeleteBillInfo " + iDBill + ", " + iDFD;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

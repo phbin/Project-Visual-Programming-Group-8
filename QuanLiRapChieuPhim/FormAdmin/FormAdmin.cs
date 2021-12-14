@@ -135,13 +135,6 @@ namespace QuanLiRapChieuPhim
             labelHome.Text = "Movie Manage";
         }
 
-        private void buttonStatistics_Click(object sender, EventArgs e)
-        {
-            EnableButton(sender, Color.FromArgb(17, 17, 17));
-            pictureHome.Image = Properties.Resources.statistic;
-            OpenChildForm(new FormStatistic());
-            labelHome.Text = "Statistics";
-        }
 
         private void buttonShowtime_Click(object sender, EventArgs e)
         {
@@ -157,6 +150,14 @@ namespace QuanLiRapChieuPhim
             pictureHome.Image = Properties.Resources.customer;
             OpenChildForm(new FormAddFD());
             labelHome.Text = "Food Drink";
+        }
+
+        private void buttonStatistics_Click(object sender, EventArgs e)
+        {
+            EnableButton(sender, Color.FromArgb(17, 17, 17));
+            pictureHome.Image = Properties.Resources.statistic;
+            OpenChildForm(new FormStatistic());
+            labelHome.Text = "Statistics";
         }
     }
 }

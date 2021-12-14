@@ -64,7 +64,7 @@ namespace QuanLiRapChieuPhim
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit.Location = new System.Drawing.Point(174, 371);
+            this.buttonEdit.Location = new System.Drawing.Point(174, 406);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(148, 40);
             this.buttonEdit.TabIndex = 20;
@@ -105,7 +105,7 @@ namespace QuanLiRapChieuPhim
             this.buttonOK.TabIndex = 15;
             this.buttonOK.Text = "Confirm";
             this.buttonOK.UseVisualStyleBackColor = false;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click_1);
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // txtID
             // 
@@ -174,8 +174,10 @@ namespace QuanLiRapChieuPhim
             this.txtPrice.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(258, 306);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(354, 34);
             this.txtPrice.TabIndex = 23;
+            this.txtPrice.Text = "110000";
             // 
             // cbIDRoom
             // 

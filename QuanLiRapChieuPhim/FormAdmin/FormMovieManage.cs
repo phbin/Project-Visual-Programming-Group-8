@@ -83,7 +83,7 @@ namespace QuanLiRapChieuPhim
                 if (listMovieGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
                     MovieControls frm = new MovieControls(row.Cells["ID"].Value.ToString(), row.Cells["NameFilm"].Value.ToString(), Convert.ToDateTime(row.Cells["DatePublic"].Value), Convert.ToDateTime(row.Cells["DateOut"].Value), Convert.ToInt32(row.Cells["TimeLimit"].Value), row.Cells["Director"].Value.ToString(), row.Cells["Country"].Value.ToString());
-                    frm.Owner = this;
+                    frm.Owner = this; 
                     frm.ShowDialog();
                     LoadMovie();
                 }

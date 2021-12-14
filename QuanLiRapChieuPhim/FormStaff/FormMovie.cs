@@ -16,7 +16,6 @@ namespace QuanLiRapChieuPhim
     public partial class FormMovie : Form
     {
         Button curBtn = new Button();
-        string id;
 
         public FormMovie()
         {
@@ -137,8 +136,8 @@ namespace QuanLiRapChieuPhim
                         booking.FlatStyle = FlatStyle.Flat;
                         booking.FlatAppearance.BorderSize = 0;
                         booking.Dock = DockStyle.Bottom;
+                        booking.Tag = img.Tag;
                         booking.Click += Booking_Click;
-                        booking.Tag = (object)item;
                         flpMovie.Controls.Add(lb);
                         lb.Controls.Add(img);
                         lb.Controls.Add(name);
@@ -151,8 +150,11 @@ namespace QuanLiRapChieuPhim
 
         private void Booking_Click(object sender, EventArgs e)
         {
-
+            curBtn = (Button)sender;
+            ChooseShowtime frm = new ChooseShowtime((curBtn.Tag as Movie).ID);
+            frm.Show();
         }
+        string id;
 
         void LoadMovieDetails()
         {
@@ -210,6 +212,12 @@ namespace QuanLiRapChieuPhim
                 labelSTT.Text = "Now Showing";
                 LoadMovie();
             }
+        }
+
+        private void buttonBooking_Click(object sender, EventArgs e)
+        {
+            ChooseShowtime frm = new ChooseShowtime((curBtn.Tag as Movie).ID);
+            frm.Show();
         }
     }
 }

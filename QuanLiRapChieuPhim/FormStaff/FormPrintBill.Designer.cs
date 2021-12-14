@@ -44,7 +44,7 @@ namespace QuanLiRapChieuPhim
             // 
             this.reportViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "QuanLiRapChieuPhim.FormStaff.Report.rdlc";
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "QuanLiRapChieuPhim.Report.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(0, 32);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;

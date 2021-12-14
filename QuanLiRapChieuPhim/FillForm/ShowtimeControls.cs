@@ -21,11 +21,16 @@ namespace QuanLiRapChieuPhim
             LoadMovieIntoComboBox(cbIDMovie);
             buttonOK.BringToFront();
         }
-        public ShowtimeControls()
+        public ShowtimeControls(string id, string name, string showtime, string idroom)
         {
             InitializeComponent();
             LoadMovieIntoComboBox(cbIDMovie);
-            buttonOK.BringToFront();
+            txtID.Text = id;
+            txtID.ReadOnly = true;
+            cbIDMovie.Text = name;
+            //cbIDMovie.Enabled = false;
+            dtpTime.Text = showtime;
+            cbIDRoom.Text = idroom;
         }
         void LoadMovieIntoComboBox(ComboBox cbb)
         {
@@ -37,10 +42,22 @@ namespace QuanLiRapChieuPhim
         }
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            //update showtime
+            if (txtID.Text != "" && cbIDMovie.Text != "" && cbIDRoom.Text != "" && txtPrice.Text != "")
+            {
+                if (dtpTime.Value < DateTime.Now) MessageBox.Show("Showtime must not greater than now!");
+                //else if (dtpTime.Value > GetDate(cbIDMovie.Text)) MessageBox.Show("Showtime must not greater than Expiry Date");
+                else
+                {
+                    ShowtimeDAO.Instance.UpdateShowtime(txtID.Text, GetIDMovie(cbIDMovie.Text), dtpTime.Text, cbIDRoom.Text);
+                   // MessageBox.Show("" + GetIDMovie(cbIDMovie.Text));
 
+                    MessageBox.Show("Showtime updated!");
+                }
+            }
+            else MessageBox.Show("Please fill the information!");
         }
         string idmovie;
-        DateTime day;
         private string GetIDMovie(string name)
         {
             string query = "SELECT ID FROM dbo.Movie where namefilm = N'" + name + "'";
@@ -51,35 +68,24 @@ namespace QuanLiRapChieuPhim
             }
             return idmovie;
         }
-        private DateTime GetDate(string name)
-        {
-            string query = "SELECT DateOut FROM dbo.Movie where namefilm =N'" + name + "'";
-            DataTable table = DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow rows in table.Rows)
-            {
-                day = Convert.ToDateTime(rows["DateOut"].ToString());
-            }
-            return day;
-        }
        
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void buttonOK_Click_1(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
             if (txtID.Text != "" && cbIDMovie.Text != "" && cbIDRoom.Text != "" && txtPrice.Text != "")
             {
                 if (dtpTime.Value < DateTime.Now) MessageBox.Show("Showtime must not greater than now!");
                 //else if (dtpTime.Value > GetDate(cbIDMovie.Text)) MessageBox.Show("Showtime must not greater than Expiry Date");
                 else
-                {                    
-                    ShowtimeDAO.Instance.InsertShowtime(txtID.Text,GetIDMovie(cbIDMovie.Text), dtpTime.Text, cbIDRoom.Text, Convert.ToInt32(txtPrice.Text));
-                    MessageBox.Show(""+GetIDMovie(cbIDMovie.Text));
+                {
+                    ShowtimeDAO.Instance.InsertShowtime(txtID.Text, GetIDMovie(cbIDMovie.Text), dtpTime.Text, cbIDRoom.Text, Convert.ToInt32(txtPrice.Text));
+                    //MessageBox.Show("" + GetIDMovie(cbIDMovie.Text));
 
                     MessageBox.Show("Showtime added!");
-                    //this.Close();
                 }
             }
             else MessageBox.Show("Please fill the information!");

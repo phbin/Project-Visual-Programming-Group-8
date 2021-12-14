@@ -18,11 +18,19 @@ namespace QuanLiRapChieuPhim
         private Timer clickTimer;
         private bool inDoubleClick;
         private DateTime lastClick;
+        private int iDBill;
         public FormFD()
         {
             InitializeComponent();
 
             this.DoubleBuffered = true;
+            this.LoadFoodDrinkByCategoryID(1);
+
+            iDBill = BillDAO.Instance.GetLastIDBill();
+            ShowBill(iDBill);
+            lbIDBill.Text = "No. " + iDBill;
+            if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+                lbIDBill.ForeColor = Color.FromArgb(254, 71, 65);
 
             //Prepare for Double Click Event
             doubleClickMaxTime = TimeSpan.FromMilliseconds(SystemInformation.DoubleClickTime);
@@ -67,10 +75,9 @@ namespace QuanLiRapChieuPhim
                 BunifuImageButton btn = new BunifuImageButton();
                 Label name = new Label();
                 Label price = new Label();
-                Button add = new Button();
 
                 //Design button
-                btn.Width = 160;
+                btn.Width = 150;
                 btn.Height = 180;
                 btn.Margin = new Padding(5, 5, 5, 5);
 
@@ -81,7 +88,7 @@ namespace QuanLiRapChieuPhim
 
                 btn.BackgroundImageLayout = ImageLayout.Stretch;
                 btn.BackColor = Color.White;
-                btn.AllowZooming = false;
+                //btn.AllowZooming = false;
 
                 btn.Tag = (object)item;
 
@@ -90,16 +97,18 @@ namespace QuanLiRapChieuPhim
                 btn.MouseDown += btn_MouseDown;
 
                 //Design FoodDrink Name label
+                name.AutoSize = false;
+                name.Height = 22;
                 name.Text = item.Name;
                 name.TextAlign = ContentAlignment.MiddleCenter;
-                name.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
+                name.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
                 name.BackColor = Color.Transparent;
                 name.Dock = DockStyle.Top;
 
                 //Design FoodDrink Price label
                 price.Text = item.Price.ToString() + " VND";
                 price.TextAlign = ContentAlignment.MiddleCenter;
-                price.Font = new Font("Times New Roman", 12F);
+                price.Font = new Font("Segoe UI", 12F);
                 price.BackColor = Color.Transparent;
                 price.Dock = DockStyle.Bottom;
 
@@ -115,28 +124,31 @@ namespace QuanLiRapChieuPhim
         {
             datagridviewBill.Rows.Clear();
             List<FDMenu> menuList = MenuDAO.Instance.GetListMenuByBillID(iDBill);
-            float total = 0;
 
             foreach (FDMenu item in menuList)
-            {   
                 datagridviewBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
-                total += item.TotalPrice;
-            }
 
-            lbSubTotalDeTail.Text = total.ToString() + " VND";
-            lbTaxDeTail.Text = (total * 0.1).ToString() + " VND";
-            lbTotalDetail.Text = (total + total * 0.1).ToString();
+            Bill b = BillDAO.Instance.GetBillByID(iDBill);
+            //float total = b.Total;
+
+            //lbSubTotalDeTail.Text = total + " VND";
+            //lbTaxDeTail.Text = (total * 0.1).ToString() + " VND";
+            //lbTotalDetail.Text = (total + total * 0.1).ToString();
         }
 
         private void DoubleClickAction(object sender)
         {
-            int iDFD = ((sender as BunifuImageButton).Tag as FoodDrink).ID;
-            int iDBill = BillDAO.Instance.GetLastIDBill();
-            int count = 1;
+            if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+                MessageBox.Show("Bill checked out! Please make new bill!");
+            else
+            {
+                int iDFD = ((sender as BunifuImageButton).Tag as FoodDrink).ID;
+                int count = 1;
 
-            BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
 
-            ShowBill(iDBill);
+                ShowBill(iDBill);
+            }
         }
         #endregion
 
@@ -145,29 +157,32 @@ namespace QuanLiRapChieuPhim
         {
             try
             {
-                int iDBill = BillDAO.Instance.GetLastIDBill();
-
-                if (e.RowIndex >= 0)
-                {
-                    //Gets a collection that contains all the rows
-                    DataGridViewRow row = this.datagridviewBill.Rows[e.RowIndex];
-
-                    if (datagridviewBill.Columns[e.ColumnIndex].HeaderText == "")
-                    {
-                        //Populate the textbox from specific value of the coordinates of column and row.
-                        string nameFD = row.Cells[0].Value.ToString();
-                        int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
-                        BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
-                    }
-                }
-
+                if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+                    MessageBox.Show("Bill checked out! Please make new bill!");
                 else
-                    MessageBox.Show("You have not selected the FoodDrink to Remove!");
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        //Gets a collection that contains all the rows
+                        DataGridViewRow row = this.datagridviewBill.Rows[e.RowIndex];
 
-                ShowBill(iDBill);
-                //cbbCategorySelection.SelectedIndex = 0;
-                nmFDCount.Value = 1;
-                DisableButton();
+                        if (datagridviewBill.Columns[e.ColumnIndex].HeaderText == "")
+                        {
+                            //Populate the textbox from specific value of the coordinates of column and row.
+                            string nameFD = row.Cells[0].Value.ToString();
+                            int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
+                            BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
+                        }
+                    }
+
+                    else
+                        MessageBox.Show("You have not selected the FoodDrink to Remove!");
+
+                    ShowBill(iDBill);
+                    //cbbCategorySelection.SelectedIndex = 0;
+                    nmFDCount.Value = 1;
+                    DisableButton();
+                }
             }
             catch
             {
@@ -216,37 +231,41 @@ namespace QuanLiRapChieuPhim
                 DisableButton();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int index = datagridviewBill.CurrentRow.Index;
-                int iDBill = BillDAO.Instance.GetLastIDBill();
-            
-                if (index >= 0)
-                {
-                    //Gets a collection that contains all the rows
-                    DataGridViewRow row = this.datagridviewBill.Rows[index];
+        //private void btnRemove_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+        //            MessageBox.Show("Bill checked out! Please make new bill!");
+        //        else
+        //        {
+        //            int index = datagridviewBill.CurrentRow.Index;
 
-                    //Populate the textbox from specific value of the coordinates of column and row.
-                    string nameFD = row.Cells[0].Value.ToString();
-                    int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
-                    BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
-                }
+        //            if (index >= 0)
+        //            {
+        //                //Gets a collection that contains all the rows
+        //                DataGridViewRow row = this.datagridviewBill.Rows[index];
 
-                else
-                    MessageBox.Show("You have not selected the FoodDrink to Remove!");
+        //                //Populate the textbox from specific value of the coordinates of column and row.
+        //                string nameFD = row.Cells[0].Value.ToString();
+        //                int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
+        //                BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
+        //            }
 
-                ShowBill(iDBill);
-                //cbbCategorySelection.SelectedIndex = 0;
-                nmFDCount.Value = 1;
-                DisableButton();
-            }
-            catch
-            {
-                MessageBox.Show("Bill is null!");
-            }          
-        }
+        //            else
+        //                MessageBox.Show("You have not selected the FoodDrink to Remove!");
+
+        //            ShowBill(iDBill);
+        //            //cbbCategorySelection.SelectedIndex = 0;
+        //            nmFDCount.Value = 1;
+        //            DisableButton();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Bill is null!");
+        //    }          
+        //}
 
         private void bunifuButtonAdd_Click(object sender, EventArgs e)
         {
@@ -255,39 +274,42 @@ namespace QuanLiRapChieuPhim
                 MessageBox.Show("You have not selected the FoodDrink!");
                 return;
             }
+            if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+                MessageBox.Show("Bill checked out! Please make new bill!");
+            else
+            {
+                int iDFD = (curFDBtn.Tag as FoodDrink).ID;
+                int count = Convert.ToInt32(nmFDCount.Value);
 
-            int iDFD = (curFDBtn.Tag as FoodDrink).ID;
-            int iDBill = BillDAO.Instance.GetLastIDBill();
-            int count = Convert.ToInt32(nmFDCount.Value);
+                BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
 
-            BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
-
-            nmFDCount.Value = 1;
-            DisableButton();
-            ShowBill(iDBill);
+                nmFDCount.Value = 1;
+                DisableButton();
+                ShowBill(iDBill);
+            }
         }
-
 
         private void bunifuImageButtonNew_Click(object sender, EventArgs e)
         {
-            Bill bill = BillDAO.Instance.GetLastBill();
-
             //Insert a new bill when the last bill checked out
-            if (bill != null && bill.Status == 0)
+            if (iDBill != 0 && BillDAO.Instance.GetStatusBill(iDBill) == 0)
                 MessageBox.Show("Please complete the old bill first");
             else
             {
-                BillDAO.Instance.InsertBill(bill.ID + 1);
-                ShowBill(bill.ID + 1);
+                BillDAO.Instance.InsertBill(iDBill + 1);
+                iDBill += 1;
+                ShowBill(iDBill);
+                lbIDBill.Text = "No. " + iDBill;
+                lbIDBill.ForeColor = Color.White;
             }
         }
 
         private void bunifuImageButtonSave_Click(object sender, EventArgs e)
         {
-            Bill bill = BillDAO.Instance.GetLastBill();
-
-            FormPrintBill frm = new FormPrintBill(bill);
+            FormPrintBill frm = new FormPrintBill(iDBill);
             frm.ShowDialog();
+            if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
+                lbIDBill.ForeColor = Color.FromArgb(254, 71, 65);
         }
 
         private void bunifuButtonFood_Click(object sender, EventArgs e)
@@ -308,7 +330,5 @@ namespace QuanLiRapChieuPhim
             LoadFoodDrinkByCategoryID(3);
         }
         #endregion
-
-       
     }
 }

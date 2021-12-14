@@ -29,42 +29,29 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new System.Windows.Forms.Button();
             this.buttonAll = new System.Windows.Forms.Button();
             this.buttonRoom3 = new System.Windows.Forms.Button();
             this.buttonRoom2 = new System.Windows.Forms.Button();
             this.buttonRoom1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.listShowtimeGrid = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameFilm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatePublic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Director = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TicketPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listShowtimeGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.buttonAll);
-            this.panel1.Controls.Add(this.buttonRoom3);
-            this.panel1.Controls.Add(this.buttonRoom2);
-            this.panel1.Controls.Add(this.buttonRoom1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 52);
-            this.panel1.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -73,12 +60,12 @@ namespace QuanLiRapChieuPhim
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(740, 0);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAdd.Location = new System.Drawing.Point(658, 0);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(160, 52);
+            this.btnAdd.Size = new System.Drawing.Size(142, 42);
             this.btnAdd.TabIndex = 20;
             this.btnAdd.Text = "Add Movie";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -90,12 +77,12 @@ namespace QuanLiRapChieuPhim
             this.buttonAll.BackColor = System.Drawing.Color.Gray;
             this.buttonAll.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAll.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAll.Font = new System.Drawing.Font("Nirmala UI", 10.2F);
             this.buttonAll.ForeColor = System.Drawing.Color.White;
-            this.buttonAll.Location = new System.Drawing.Point(453, 0);
-            this.buttonAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonAll.Location = new System.Drawing.Point(402, 0);
             this.buttonAll.Name = "buttonAll";
-            this.buttonAll.Size = new System.Drawing.Size(177, 52);
+            this.buttonAll.Size = new System.Drawing.Size(157, 42);
             this.buttonAll.TabIndex = 3;
             this.buttonAll.Text = "All Showtime";
             this.buttonAll.UseVisualStyleBackColor = false;
@@ -107,12 +94,12 @@ namespace QuanLiRapChieuPhim
             this.buttonRoom3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRoom3.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonRoom3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRoom3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRoom3.Font = new System.Drawing.Font("Nirmala UI", 10.2F);
             this.buttonRoom3.ForeColor = System.Drawing.Color.White;
-            this.buttonRoom3.Location = new System.Drawing.Point(302, 0);
-            this.buttonRoom3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonRoom3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonRoom3.Location = new System.Drawing.Point(268, 0);
             this.buttonRoom3.Name = "buttonRoom3";
-            this.buttonRoom3.Size = new System.Drawing.Size(151, 52);
+            this.buttonRoom3.Size = new System.Drawing.Size(134, 42);
             this.buttonRoom3.TabIndex = 2;
             this.buttonRoom3.Text = "Cinema 03";
             this.buttonRoom3.UseVisualStyleBackColor = false;
@@ -124,12 +111,12 @@ namespace QuanLiRapChieuPhim
             this.buttonRoom2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRoom2.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonRoom2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRoom2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRoom2.Font = new System.Drawing.Font("Nirmala UI", 10.2F);
             this.buttonRoom2.ForeColor = System.Drawing.Color.White;
-            this.buttonRoom2.Location = new System.Drawing.Point(151, 0);
-            this.buttonRoom2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonRoom2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonRoom2.Location = new System.Drawing.Point(134, 0);
             this.buttonRoom2.Name = "buttonRoom2";
-            this.buttonRoom2.Size = new System.Drawing.Size(151, 52);
+            this.buttonRoom2.Size = new System.Drawing.Size(134, 42);
             this.buttonRoom2.TabIndex = 1;
             this.buttonRoom2.Text = "Cinema 02";
             this.buttonRoom2.UseVisualStyleBackColor = false;
@@ -141,16 +128,50 @@ namespace QuanLiRapChieuPhim
             this.buttonRoom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRoom1.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonRoom1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRoom1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRoom1.Font = new System.Drawing.Font("Nirmala UI", 10.2F);
             this.buttonRoom1.ForeColor = System.Drawing.Color.White;
+            this.buttonRoom1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.buttonRoom1.Location = new System.Drawing.Point(0, 0);
-            this.buttonRoom1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRoom1.Name = "buttonRoom1";
-            this.buttonRoom1.Size = new System.Drawing.Size(151, 52);
+            this.buttonRoom1.Size = new System.Drawing.Size(134, 42);
             this.buttonRoom1.TabIndex = 0;
             this.buttonRoom1.Text = "Cinema 01";
             this.buttonRoom1.UseVisualStyleBackColor = false;
             this.buttonRoom1.Click += new System.EventHandler(this.buttonRoom1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.buttonAll);
+            this.panel1.Controls.Add(this.buttonRoom3);
+            this.panel1.Controls.Add(this.buttonRoom2);
+            this.panel1.Controls.Add(this.buttonRoom1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 42);
+            this.panel1.TabIndex = 4;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 60F;
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = global::QuanLiRapChieuPhim.Properties.Resources.EditIcon_01;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 71;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.FillWeight = 60F;
+            this.dataGridViewImageColumn2.HeaderText = "Delete";
+            this.dataGridViewImageColumn2.Image = global::QuanLiRapChieuPhim.Properties.Resources.TrashIcon_01;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 70;
             // 
             // listShowtimeGrid
             // 
@@ -159,68 +180,56 @@ namespace QuanLiRapChieuPhim
             this.listShowtimeGrid.AllowUserToOrderColumns = true;
             this.listShowtimeGrid.AllowUserToResizeColumns = false;
             this.listShowtimeGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.listShowtimeGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.listShowtimeGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.listShowtimeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listShowtimeGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listShowtimeGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listShowtimeGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.listShowtimeGrid.ColumnHeadersHeight = 29;
             this.listShowtimeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.listShowtimeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.NameFilm,
-            this.DatePublic,
-            this.DateOut,
-            this.Director,
+            this.shTime,
+            this.IDRoom,
+            this.TicketPrice,
             this.Edit,
             this.Delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.listShowtimeGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listShowtimeGrid.DefaultCellStyle = dataGridViewCellStyle23;
             this.listShowtimeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listShowtimeGrid.Location = new System.Drawing.Point(0, 52);
-            this.listShowtimeGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listShowtimeGrid.Location = new System.Drawing.Point(0, 42);
             this.listShowtimeGrid.Name = "listShowtimeGrid";
-            this.listShowtimeGrid.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listShowtimeGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.listShowtimeGrid.RowHeadersVisible = false;
             this.listShowtimeGrid.RowHeadersWidth = 51;
             this.listShowtimeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.listShowtimeGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.listShowtimeGrid.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.listShowtimeGrid.RowTemplate.Height = 24;
             this.listShowtimeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listShowtimeGrid.Size = new System.Drawing.Size(900, 510);
-            this.listShowtimeGrid.TabIndex = 19;
+            this.listShowtimeGrid.Size = new System.Drawing.Size(800, 408);
+            this.listShowtimeGrid.TabIndex = 5;
             this.listShowtimeGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listShowtimeGrid_CellClick);
             // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 40F;
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
             // 
             // NameFilm
             // 
@@ -228,65 +237,54 @@ namespace QuanLiRapChieuPhim
             this.NameFilm.HeaderText = "Movie Name";
             this.NameFilm.MinimumWidth = 6;
             this.NameFilm.Name = "NameFilm";
-            this.NameFilm.ReadOnly = true;
             // 
-            // DatePublic
+            // shTime
             // 
-            this.DatePublic.DataPropertyName = "shTime";
-            this.DatePublic.HeaderText = "Showtime";
-            this.DatePublic.MinimumWidth = 6;
-            this.DatePublic.Name = "DatePublic";
-            this.DatePublic.ReadOnly = true;
+            this.shTime.DataPropertyName = "shTime";
+            this.shTime.HeaderText = "Showtime";
+            this.shTime.MinimumWidth = 6;
+            this.shTime.Name = "shTime";
             // 
-            // DateOut
+            // IDRoom
             // 
-            this.DateOut.DataPropertyName = "IDRoom";
-            this.DateOut.HeaderText = "IDRoom";
-            this.DateOut.MinimumWidth = 6;
-            this.DateOut.Name = "DateOut";
-            this.DateOut.ReadOnly = true;
+            this.IDRoom.DataPropertyName = "IDRoom";
+            this.IDRoom.HeaderText = "IDRoom";
+            this.IDRoom.MinimumWidth = 6;
+            this.IDRoom.Name = "IDRoom";
             // 
-            // Director
+            // TicketPrice
             // 
-            this.Director.DataPropertyName = "TicketPrice";
-            this.Director.HeaderText = "Ticket Price";
-            this.Director.MinimumWidth = 6;
-            this.Director.Name = "Director";
-            this.Director.ReadOnly = true;
+            this.TicketPrice.DataPropertyName = "TicketPrice";
+            this.TicketPrice.HeaderText = "Ticket Price";
+            this.TicketPrice.MinimumWidth = 6;
+            this.TicketPrice.Name = "TicketPrice";
             // 
             // Edit
             // 
-            this.Edit.FillWeight = 60F;
             this.Edit.HeaderText = "Edit";
             this.Edit.Image = global::QuanLiRapChieuPhim.Properties.Resources.EditIcon_01;
             this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Delete
             // 
-            this.Delete.FillWeight = 60F;
             this.Delete.HeaderText = "Delete";
             this.Delete.Image = global::QuanLiRapChieuPhim.Properties.Resources.TrashIcon_01;
             this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
             // 
-            // FormShowtime
+            // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listShowtimeGrid);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FormShowtime";
-            this.Text = "FormShowtime";
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listShowtimeGrid)).EndInit();
@@ -295,20 +293,21 @@ namespace QuanLiRapChieuPhim
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button buttonAll;
         private System.Windows.Forms.Button buttonRoom3;
         private System.Windows.Forms.Button buttonRoom2;
         private System.Windows.Forms.Button buttonRoom1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridView listShowtimeGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameFilm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatePublic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Director;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TicketPrice;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.Button buttonAll;
-        private System.Windows.Forms.Button btnAdd;
     }
 }

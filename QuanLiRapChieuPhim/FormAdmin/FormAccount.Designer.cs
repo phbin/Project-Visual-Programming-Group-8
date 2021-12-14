@@ -46,7 +46,6 @@
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.AccType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ListAccountGrid)).BeginInit();
             this.SearchPanel.SuspendLayout();
@@ -247,14 +246,7 @@
             this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Pass";
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 8;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
+            
             // 
             // Username
             // 
