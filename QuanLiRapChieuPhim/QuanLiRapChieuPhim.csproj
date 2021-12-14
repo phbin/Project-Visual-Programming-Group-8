@@ -92,14 +92,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChooseShowtime.cs">
+    <Compile Include="FormStaff\ChooseShowtime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChooseShowtime.Designer.cs">
+    <Compile Include="FormStaff\ChooseShowtime.Designer.cs">
       <DependentUpon>ChooseShowtime.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\SeatDAO.cs" />
-    <Compile Include="DAO\ShowtimeDAO.cs" />
     <Compile Include="DTO\Seat.cs" />
     <Compile Include="FillForm\FormAddAccount.cs">
       <SubType>Form</SubType>
@@ -142,6 +141,8 @@
     <Compile Include="DAO\MovieByGenreDAO.cs" />
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\ShowtimeDAO.cs" />
+    <Compile Include="DAO\TicketDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\FDCategory.cs" />
@@ -152,12 +153,7 @@
     <Compile Include="DTO\MovieByGenre.cs" />
     <Compile Include="DTO\Room.cs" />
     <Compile Include="DTO\Showtime.cs" />
-    <Compile Include="FormAdmin\FormShowtime.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAdmin\FormShowtime.Designer.cs">
-      <DependentUpon>FormShowtime.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DTO\Ticket.cs" />
     <Compile Include="FormAdmin\FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,17 +172,11 @@
     <Compile Include="FormAdmin\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBooking.cs">
+    <Compile Include="FormStaff\FormBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBooking.Designer.cs">
+    <Compile Include="FormStaff\FormBooking.Designer.cs">
       <DependentUpon>FormBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStaff\FormPrintBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormStaff\FormPrintBill.Designer.cs">
-      <DependentUpon>FormPrintBill.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStaff\FormFD.cs">
       <SubType>Form</SubType>
@@ -236,6 +226,18 @@
     <Compile Include="FormAdmin\FormMovieManage.Designer.cs">
       <DependentUpon>FormMovieManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdmin\FormShowtime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin\FormShowtime.Designer.cs">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff\FormPrintBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff\FormPrintBill.designer.cs">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStaff\FormStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,13 +267,7 @@
     <Compile Include="FillForm\ShowtimeControls.Designer.cs">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="TicketBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TicketBill.Designer.cs">
-      <DependentUpon>TicketBill.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ChooseShowtime.resx">
+    <EmbeddedResource Include="FormStaff\ChooseShowtime.resx">
       <DependentUpon>ChooseShowtime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FillForm\FormAddAccount.resx">
@@ -289,9 +285,6 @@
     <EmbeddedResource Include="FillForm\FormAddInfoStaff.resx">
       <DependentUpon>FormAddInfoStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmin\FormShowtime.resx">
-      <DependentUpon>FormShowtime.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,11 +294,8 @@
     <EmbeddedResource Include="FormAdmin\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBooking.resx">
+    <EmbeddedResource Include="FormStaff\FormBooking.resx">
       <DependentUpon>FormBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormStaff\FormPrintBill.resx">
-      <DependentUpon>FormPrintBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaff\FormFD.resx">
       <DependentUpon>FormFD.cs</DependentUpon>
@@ -332,6 +322,12 @@
       <DependentUpon>FormMovieManage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin\FormShowtime.resx">
+      <DependentUpon>FormShowtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff\FormPrintBill.resx">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStaff\FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,13 +346,6 @@
     <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="TicketBill.resx">
-      <DependentUpon>TicketBill.cs</DependentUpon>
-    </EmbeddedResource>
-=======
-    <EmbeddedResource Include="Report.rdlc" />
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
@@ -552,13 +541,13 @@
     <None Include="Resources\icon_new.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\screen.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\back-arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\next-arrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\screen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

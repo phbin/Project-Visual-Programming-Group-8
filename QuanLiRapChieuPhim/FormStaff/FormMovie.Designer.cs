@@ -32,19 +32,19 @@ namespace QuanLiRapChieuPhim
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMovie));
             this.lbName = new System.Windows.Forms.Label();
             this.lbInfo = new System.Windows.Forms.Label();
+            this.picBoxPoster = new System.Windows.Forms.PictureBox();
             this.lbDesc = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panelMovie = new System.Windows.Forms.Panel();
             this.buttonBooking = new System.Windows.Forms.Button();
             this.panelLine = new System.Windows.Forms.Panel();
             this.buttonStt1 = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.labelSTT = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.picBoxPoster = new System.Windows.Forms.PictureBox();
             this.flpMovie = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).BeginInit();
             this.panelMovie.SuspendLayout();
             this.panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -71,6 +71,15 @@ namespace QuanLiRapChieuPhim
             this.lbInfo.TabIndex = 1;
             this.lbInfo.Text = "Genre: \r\n\r\nDirector: \r\n\r\nCountry:\r\n\r\nRelease Date: \r\n\r\nRunning Time:";
             // 
+            // picBoxPoster
+            // 
+            this.picBoxPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxPoster.Location = new System.Drawing.Point(103, 152);
+            this.picBoxPoster.Name = "picBoxPoster";
+            this.picBoxPoster.Size = new System.Drawing.Size(450, 475);
+            this.picBoxPoster.TabIndex = 2;
+            this.picBoxPoster.TabStop = false;
+            // 
             // lbDesc
             // 
             this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -83,6 +92,20 @@ namespace QuanLiRapChieuPhim
             this.lbDesc.Size = new System.Drawing.Size(153, 33);
             this.lbDesc.TabIndex = 3;
             this.lbDesc.Text = "Description:\r\n";
+            // 
+            // btnBack
+            // 
+            this.btnBack.AutoSize = true;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 753);
+            this.btnBack.TabIndex = 12;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // panelMovie
             // 
@@ -127,7 +150,6 @@ namespace QuanLiRapChieuPhim
             // 
             this.buttonStt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStt1.AutoSize = true;
-            this.buttonStt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.buttonStt1.FlatAppearance.BorderSize = 0;
             this.buttonStt1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStt1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -137,7 +159,7 @@ namespace QuanLiRapChieuPhim
             this.buttonStt1.Size = new System.Drawing.Size(232, 48);
             this.buttonStt1.TabIndex = 1;
             this.buttonStt1.Text = "COMING SOON";
-            this.buttonStt1.UseVisualStyleBackColor = false;
+            this.buttonStt1.UseVisualStyleBackColor = true;
             this.buttonStt1.Click += new System.EventHandler(this.buttonStt1_Click);
             // 
             // panel
@@ -160,29 +182,6 @@ namespace QuanLiRapChieuPhim
             this.labelSTT.Size = new System.Drawing.Size(269, 54);
             this.labelSTT.TabIndex = 2;
             this.labelSTT.Text = "Now Showing";
-            // 
-            // btnBack
-            // 
-            this.btnBack.AutoSize = true;
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(0, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 753);
-            this.btnBack.TabIndex = 12;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // picBoxPoster
-            // 
-            this.picBoxPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxPoster.Location = new System.Drawing.Point(103, 152);
-            this.picBoxPoster.Name = "picBoxPoster";
-            this.picBoxPoster.Size = new System.Drawing.Size(450, 475);
-            this.picBoxPoster.TabIndex = 2;
-            this.picBoxPoster.TabStop = false;
             // 
             // flpMovie
             // 
@@ -207,11 +206,11 @@ namespace QuanLiRapChieuPhim
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMovie";
             this.Text = "FormMovie";
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).EndInit();
             this.panelMovie.ResumeLayout(false);
             this.panelMovie.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPoster)).EndInit();
             this.ResumeLayout(false);
 
         }

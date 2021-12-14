@@ -42,11 +42,11 @@
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDPersonal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.AddButton = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchTextbox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@
             this.InfoStaffGridView.EnableHeadersVisualStyles = false;
             this.InfoStaffGridView.GridColor = System.Drawing.SystemColors.HotTrack;
             this.InfoStaffGridView.Location = new System.Drawing.Point(14, 74);
-            this.InfoStaffGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.InfoStaffGridView.Margin = new System.Windows.Forms.Padding(4);
             this.InfoStaffGridView.MultiSelect = false;
             this.InfoStaffGridView.Name = "InfoStaffGridView";
             this.InfoStaffGridView.ReadOnly = true;
@@ -194,25 +194,25 @@
             this.IDPersonal.Name = "IDPersonal";
             this.IDPersonal.ReadOnly = true;
             // 
-            // Edit
+            // dataGridViewImageColumn1
             // 
-            this.Edit.FillWeight = 53.36853F;
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Edit.MinimumWidth = 8;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
+            this.dataGridViewImageColumn1.FillWeight = 97.11181F;
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 118;
             // 
-            // Delete
+            // dataGridViewImageColumn2
             // 
-            this.Delete.FillWeight = 53.36853F;
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
+            this.dataGridViewImageColumn2.FillWeight = 97.11181F;
+            this.dataGridViewImageColumn2.HeaderText = "Delete";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 8;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 119;
             // 
             // AddButton
             // 
@@ -236,25 +236,25 @@
             this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             this.AddButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddButton_MouseMove);
             // 
-            // dataGridViewImageColumn1
+            // Edit
             // 
-            this.dataGridViewImageColumn1.FillWeight = 97.11181F;
-            this.dataGridViewImageColumn1.HeaderText = "Edit";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 118;
+            this.Edit.FillWeight = 53.36853F;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Edit.MinimumWidth = 8;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
             // 
-            // dataGridViewImageColumn2
+            // Delete
             // 
-            this.dataGridViewImageColumn2.FillWeight = 97.11181F;
-            this.dataGridViewImageColumn2.HeaderText = "Delete";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 8;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 119;
+            this.Delete.FillWeight = 53.36853F;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             // 
             // SearchPanel
             // 
@@ -311,7 +311,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.InfoStaffGridView);
             this.Controls.Add(this.SearchPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRM";
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.InfoStaffGridView)).EndInit();
