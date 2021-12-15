@@ -130,23 +130,5 @@ namespace QuanLiRapChieuPhim
             frm.Owner = this;
             frm.ShowDialog();
         }
-
-        private void buttonAll_Click(object sender, EventArgs e)
-        {
-            CategoryDataGridView.BringToFront();
-            AddCategoryButton.BringToFront();
-            LoadCategory();
-            CategoryButton.BackColor = Color.Gray;
-            FDButton.BackColor = Color.Black;
-        }
-
-        private void buttonRoom3_Click(object sender, EventArgs e)
-        {
-            FDDataGridview.BringToFront();
-            AddFDButton.BringToFront();
-            LoadFD();
-            CategoryButton.BackColor = Color.Black;
-            FDButton.BackColor = Color.Gray;
-        }
     }
 }

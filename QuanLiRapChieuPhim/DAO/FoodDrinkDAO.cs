@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +49,19 @@ namespace QuanLiRapChieuPhim.DAO
             string query = "SELECT ID FROM FoodDrink WHERE NameFD = N'" + name + "'";
             int data = (int)DataProvider.Instance.ExecuteScalar(query);
             return data;
+        }
+        // image -> byte, insert image into database
+        public void imageToByteArray(string path, string id)
+        {
+            string query = "update FoodDrink set Picture = (select * from openrowset(bulk N'" + path + "', single_blob) as img) where ID = '" + id + "'";
+            DataProvider.Instance.ExecuteQuery(query);
+        }
+        // byte[] -> image, get image from database
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
     }
 }

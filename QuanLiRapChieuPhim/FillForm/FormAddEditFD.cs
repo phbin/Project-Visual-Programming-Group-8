@@ -22,13 +22,7 @@ namespace QuanLiRapChieuPhim.ChildForms
 
         string PicturePath = "";
 
-        private Image ConvertBytetoImage(byte[] data )
-        {
-            using (MemoryStream ms = new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }    
-        }
+        private byte[] pic;
 
         public FormAddEditFD(string ID, string IDCategory, string NameFD, int Price, byte[] Path)
         {
@@ -37,7 +31,15 @@ namespace QuanLiRapChieuPhim.ChildForms
             IDCategoryTextbox.Text = IDCategory;
             NameFDTextbox.Text = NameFD;
             PriceTextbox.Text = Price.ToString();
-            pictureBox1.BackgroundImage = ConvertBytetoImage((byte[])Path);
+            //load image
+            string query = "SELECT Poster FROM dbo.Movie where id ='" + ID + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                pic = (byte[])rows["Poster"];
+
+            }
+            pictureBox1.BackgroundImage = FoodDrinkDAO.byteArrayToImage(pic);
             IDTextbox.ForeColor = Color.White;
             IDCategoryTextbox.ForeColor = Color.White;
             PriceTextbox.ForeColor = Color.White;
@@ -78,6 +80,37 @@ namespace QuanLiRapChieuPhim.ChildForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            int count = 0;
+
+            if (IDCategoryTextbox.Text == "Category ID" || IDCategoryTextbox.Text == "")
+            {
+                errorProvider1.SetError(IDCategoryTextbox, "Please enter Category ID");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(IDCategoryTextbox, null);
+            }
+
+            if (NameFDTextbox.Text == "Name" || NameFDTextbox.Text == "")
+            {
+                errorProvider1.SetError(NameFDTextbox, "Please enter Name");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(NameFDTextbox, null);
+            }
+
+            if (PriceTextbox.Text == "Price" || PriceTextbox.Text == "")
+            {
+                errorProvider1.SetError(PriceTextbox, "Please enter Price");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PriceTextbox, null);
+            }
 
             for (int i = 0; i < DataGridView1.Rows.Count; i++)
             {
@@ -93,9 +126,10 @@ namespace QuanLiRapChieuPhim.ChildForms
                 }
             }
 
-            if (IDTextbox.Text != "" && IDCategoryTextbox.Text != "" && NameFDTextbox.Text != "" && PriceTextbox.Text !="")
+            if (count==0)
             {
-                string query = "INSERT dbo.FoodDrink (NameFD, IDCategory, Price, Picture) VALUES(N'" + NameFDTextbox.Text + "', '" + IDCategoryTextbox.Text + "', '" + PriceTextbox.Text + "', '" + PicturePath + "')";
+                string query = "INSERT dbo.FoodDrink (NameFD, IDCategory, Price) VALUES(N'" + NameFDTextbox.Text + "', '" + IDCategoryTextbox.Text + "', '" + PriceTextbox.Text + "')";
+                FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
                 DataProvider.Instance.ExecuteQuery(query);
                 IDTextbox.Text = "";
                 IDCategoryTextbox.Text = "";
@@ -104,26 +138,54 @@ namespace QuanLiRapChieuPhim.ChildForms
                 pictureBox1.Image = null;
                 MessageBox.Show("Added!");
             }
-            else
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (IDTextbox.Text != "" && IDCategoryTextbox.Text != "" && NameFDTextbox.Text != "" && PriceTextbox.Text != "")
+            int count = 0;
+
+            if(IDCategoryTextbox.Text == "Category ID" || IDCategoryTextbox.Text == "")
             {
-                PicturePath = pictureBox1.Image.ToString();
-                if (MessageBox.Show("Do you really want to change this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    string query = "UPDATE dbo.FoodDrink SET ID=N'" + IDTextbox.Text + "', IDCategory='" + IDCategoryTextbox.Text + "', NameFD='" + NameFDTextbox.Text + "', Price='" + PriceTextbox.Text + "', Picture='" + convertImagetoByte() + "' WHERE ID='" + IDTextbox.Text + "'";
-                    DataProvider.Instance.ExecuteQuery(query);
-                    this.Close();
-                }
+                errorProvider1.SetError(IDCategoryTextbox, "Please enter Category ID");
+                count++;
+            }    
+            else
+            {
+                errorProvider1.SetError(IDCategoryTextbox, null);
+            }
+
+            if(NameFDTextbox.Text == "Name" || NameFDTextbox.Text == "")
+            {
+                errorProvider1.SetError(NameFDTextbox, "Please enter Name");
+                count++;
             }
             else
             {
-                MessageBox.Show("Please enter full of infomation!", "Notificaiton", MessageBoxButtons.OK);
-            }    
+                errorProvider1.SetError(NameFDTextbox, null);
+            }
+
+            if (PriceTextbox.Text == "Price" || PriceTextbox.Text == "")
+            {
+                errorProvider1.SetError(PriceTextbox, "Please enter Price");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PriceTextbox, null);
+            }
+
+            if (count==0)
+            {
+                //PicturePath = pictureBox1.Image.ToString();
+                if (MessageBox.Show("Do you really want to change this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    string query = "UPDATE dbo.FoodDrink SET ID=N'" + IDTextbox.Text + "', IDCategory='" + IDCategoryTextbox.Text + "', NameFD='" + NameFDTextbox.Text + "', Price='" + PriceTextbox.Text  + "' WHERE ID='" + IDTextbox.Text + "'";
+                    DataProvider.Instance.ExecuteQuery(query);
+                    FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
+                    this.Close();
+                    MessageBox.Show("Food/Drink Added!", "Notification", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -201,16 +263,6 @@ namespace QuanLiRapChieuPhim.ChildForms
                 PriceTextbox.Text = "Price";
                 PriceTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
-        }
-
-        private byte[] convertImagetoByte()
-        {
-            FileStream fs;
-            fs = new FileStream(PicturePath, FileMode.Open, FileAccess.Read);
-            byte[] picbyte = new byte[fs.Length];
-            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
-            fs.Close();
-            return picbyte;
         }
     }
 }

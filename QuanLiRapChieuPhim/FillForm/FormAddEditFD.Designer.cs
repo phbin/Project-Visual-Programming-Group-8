@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.UploadButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.IDTextbox = new System.Windows.Forms.TextBox();
@@ -41,11 +42,13 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EditButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // UploadButton
@@ -76,7 +79,7 @@
             this.IDTextbox.Location = new System.Drawing.Point(12, 15);
             this.IDTextbox.Name = "IDTextbox";
             this.IDTextbox.ReadOnly = true;
-            this.IDTextbox.Size = new System.Drawing.Size(346, 28);
+            this.IDTextbox.Size = new System.Drawing.Size(304, 28);
             this.IDTextbox.TabIndex = 1;
             this.IDTextbox.Text = "ID";
             this.IDTextbox.Enter += new System.EventHandler(this.IDTextbox_Enter);
@@ -99,7 +102,7 @@
             this.IDCategoryTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.IDCategoryTextbox.Location = new System.Drawing.Point(12, 15);
             this.IDCategoryTextbox.Name = "IDCategoryTextbox";
-            this.IDCategoryTextbox.Size = new System.Drawing.Size(346, 28);
+            this.IDCategoryTextbox.Size = new System.Drawing.Size(304, 28);
             this.IDCategoryTextbox.TabIndex = 1;
             this.IDCategoryTextbox.Text = "Category ID";
             this.IDCategoryTextbox.Enter += new System.EventHandler(this.IDCategoryTextbox_Enter);
@@ -122,7 +125,7 @@
             this.NameFDTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.NameFDTextbox.Location = new System.Drawing.Point(12, 15);
             this.NameFDTextbox.Name = "NameFDTextbox";
-            this.NameFDTextbox.Size = new System.Drawing.Size(346, 28);
+            this.NameFDTextbox.Size = new System.Drawing.Size(304, 28);
             this.NameFDTextbox.TabIndex = 1;
             this.NameFDTextbox.Text = "Name";
             this.NameFDTextbox.Enter += new System.EventHandler(this.NameFDTextbox_Enter);
@@ -145,7 +148,7 @@
             this.PriceTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.PriceTextbox.Location = new System.Drawing.Point(12, 15);
             this.PriceTextbox.Name = "PriceTextbox";
-            this.PriceTextbox.Size = new System.Drawing.Size(346, 28);
+            this.PriceTextbox.Size = new System.Drawing.Size(304, 28);
             this.PriceTextbox.TabIndex = 1;
             this.PriceTextbox.Text = "Price";
             this.PriceTextbox.Enter += new System.EventHandler(this.PriceTextbox_Enter);
@@ -207,6 +210,10 @@
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormAddEditFD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -235,6 +242,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +262,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

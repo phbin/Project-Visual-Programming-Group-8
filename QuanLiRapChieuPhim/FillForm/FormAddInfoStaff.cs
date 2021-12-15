@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -209,6 +210,93 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            int count = 0;
+
+            if (FullNameTextbox.Text == "Full Name" || FullNameTextbox.Text == "")
+            {
+                errorProvider1.SetError(FullNameTextbox, "Please enter Full Name!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(FullNameTextbox, null);
+            }
+
+            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
+            {
+                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(DoBTextbox, null);
+            }
+
+            if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
+            {
+                errorProvider1.SetError(AddressTextbox, "Please enter Address!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(AddressTextbox, null);
+            }
+
+
+            if (IDPersonalTextbox.Text == "ID Personal" || IDPersonalTextbox.Text == "")
+            {
+                errorProvider1.SetError(IDPersonalTextbox, "Please enter ID Personal!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(IDPersonalTextbox, null);
+            }
+
+
+            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            {
+                foreach (char item in PhoneTextbox.Text)
+                {
+                    if (item >= '0' && item <= '9')
+                    {
+                        errorProvider1.SetError(PhoneTextbox, null);
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
+                        count++;
+                    }
+
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+            }
+
+            if ((MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false) || (MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true))
+            {
+                errorProvider1.SetError(FemaleCheckbox, "Please enter only one!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(FemaleCheckbox, null);
+            }
+
+
+            string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            if (Regex.IsMatch(EmailTextbox.Text, pattern))
+            {
+                errorProvider1.SetError(EmailTextbox, null);
+            }
+            else
+            {
+                errorProvider1.SetError(EmailTextbox, "Please enter email format!");
+                count++;
+            }
+
             for (int i = 0; i < InfoStaffGridView.Rows.Count; i++)
             {
                 if (IDTextbox.Text == InfoStaffGridView.Rows[i].Cells["ID"].Value.ToString())
@@ -221,7 +309,7 @@ namespace QuanLiRapChieuPhim.AddForms
             }
 
 
-            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text != "" && AddressTextbox.Text != "" && PhoneTextbox.Text != "" && IDPersonalTextbox.Text != "")
+            if (count==0)
             {
                 if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
                 {
@@ -246,15 +334,99 @@ namespace QuanLiRapChieuPhim.AddForms
                 MaleCheckbox.Checked = false;
                 FemaleCheckbox.Checked = false;
             }
-            else
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-
             LoadInfoStaff();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (IDTextbox.Text != "" && FullNameTextbox.Text != "" && DoBTextbox.Text != "" && AddressTextbox.Text != "" && PhoneTextbox.Text != "" && IDPersonalTextbox.Text != "")
+            int count = 0;
+
+            if (FullNameTextbox.Text == "Full Name" || FullNameTextbox.Text == "")
+            {
+                errorProvider1.SetError(FullNameTextbox, "Please enter Full Name!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(FullNameTextbox, null);
+            }
+
+            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
+            {
+                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(DoBTextbox, null);
+            }
+
+            if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
+            {
+                errorProvider1.SetError(AddressTextbox, "Please enter Address!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(AddressTextbox, null);
+            }
+
+
+            if (IDPersonalTextbox.Text == "ID Personal" || IDPersonalTextbox.Text == "")
+            {
+                errorProvider1.SetError(IDPersonalTextbox, "Please enter ID Personal!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(IDPersonalTextbox, null);
+            }
+
+
+            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            {
+                foreach (char item in PhoneTextbox.Text)
+                {
+                    if (item >= '0' && item <= '9')
+                    {
+                        errorProvider1.SetError(PhoneTextbox, null);
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
+                        count++;
+                    }
+
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+            }
+
+            if((MaleCheckbox.Checked ==false && FemaleCheckbox.Checked==false) || (MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true))
+            {
+                errorProvider1.SetError(FemaleCheckbox, "Please enter only one!");
+                count++;
+            }    
+            else
+            {
+                errorProvider1.SetError(FemaleCheckbox, null);
+            }
+
+
+            string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            if(Regex.IsMatch(EmailTextbox.Text,pattern))
+            {
+                errorProvider1.SetError(EmailTextbox, null);
+            }    
+            else
+            {
+                errorProvider1.SetError(EmailTextbox, "Please enter email format!");
+                count++;
+            }
+
+            if (count==0)
             {
                 if (MessageBox.Show("Do you really want to change this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {

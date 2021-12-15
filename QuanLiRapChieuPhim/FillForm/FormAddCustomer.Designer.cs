@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CustomerInfoLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.PhoneTextbox = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -53,6 +55,7 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CustomerInfoLabel
@@ -81,9 +84,9 @@
             this.PhoneTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PhoneTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.PhoneTextbox.Location = new System.Drawing.Point(12, 15);
+            this.PhoneTextbox.Location = new System.Drawing.Point(12, 27);
             this.PhoneTextbox.Name = "PhoneTextbox";
-            this.PhoneTextbox.Size = new System.Drawing.Size(346, 28);
+            this.PhoneTextbox.Size = new System.Drawing.Size(304, 28);
             this.PhoneTextbox.TabIndex = 5;
             this.PhoneTextbox.Text = "Phone Number";
             this.PhoneTextbox.Enter += new System.EventHandler(this.PhoneTextbox_Enter);
@@ -106,7 +109,7 @@
             this.FullNameTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.FullNameTextbox.Location = new System.Drawing.Point(12, 15);
             this.FullNameTextbox.Name = "FullNameTextbox";
-            this.FullNameTextbox.Size = new System.Drawing.Size(346, 28);
+            this.FullNameTextbox.Size = new System.Drawing.Size(304, 28);
             this.FullNameTextbox.TabIndex = 2;
             this.FullNameTextbox.Text = "Full Name";
             this.FullNameTextbox.Enter += new System.EventHandler(this.FullNameTextbox_Enter);
@@ -129,7 +132,7 @@
             this.PointTextbox.ForeColor = System.Drawing.Color.White;
             this.PointTextbox.Location = new System.Drawing.Point(12, 14);
             this.PointTextbox.Name = "PointTextbox";
-            this.PointTextbox.Size = new System.Drawing.Size(346, 28);
+            this.PointTextbox.Size = new System.Drawing.Size(281, 28);
             this.PointTextbox.TabIndex = 7;
             this.PointTextbox.Text = "0";
             this.PointTextbox.Enter += new System.EventHandler(this.PointTextbox_Enter);
@@ -152,7 +155,7 @@
             this.DoBTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.DoBTextbox.Location = new System.Drawing.Point(12, 14);
             this.DoBTextbox.Name = "DoBTextbox";
-            this.DoBTextbox.Size = new System.Drawing.Size(346, 28);
+            this.DoBTextbox.Size = new System.Drawing.Size(304, 28);
             this.DoBTextbox.TabIndex = 3;
             this.DoBTextbox.Text = "Birthday";
             this.DoBTextbox.Enter += new System.EventHandler(this.DoBTextbox_Enter);
@@ -175,7 +178,7 @@
             this.AddressTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.AddressTextbox.Location = new System.Drawing.Point(12, 15);
             this.AddressTextbox.Name = "AddressTextbox";
-            this.AddressTextbox.Size = new System.Drawing.Size(346, 28);
+            this.AddressTextbox.Size = new System.Drawing.Size(304, 28);
             this.AddressTextbox.TabIndex = 4;
             this.AddressTextbox.Text = "Address";
             this.AddressTextbox.Enter += new System.EventHandler(this.AddressTextbox_Enter);
@@ -198,9 +201,9 @@
             this.IDPersonalTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.IDPersonalTextbox.Location = new System.Drawing.Point(12, 14);
             this.IDPersonalTextbox.Name = "IDPersonalTextbox";
-            this.IDPersonalTextbox.Size = new System.Drawing.Size(346, 28);
+            this.IDPersonalTextbox.Size = new System.Drawing.Size(304, 28);
             this.IDPersonalTextbox.TabIndex = 6;
-            this.IDPersonalTextbox.Text = "ID Personal";
+            this.IDPersonalTextbox.Text = "Personal ID";
             this.IDPersonalTextbox.Enter += new System.EventHandler(this.IDPersonalTextbox_Enter);
             this.IDPersonalTextbox.Leave += new System.EventHandler(this.IDPersonalTextbox_Leave);
             // 
@@ -221,7 +224,7 @@
             this.IDTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.IDTextbox.Location = new System.Drawing.Point(12, 15);
             this.IDTextbox.Name = "IDTextbox";
-            this.IDTextbox.Size = new System.Drawing.Size(346, 28);
+            this.IDTextbox.Size = new System.Drawing.Size(304, 28);
             this.IDTextbox.TabIndex = 1;
             this.IDTextbox.Text = "ID";
             this.IDTextbox.Enter += new System.EventHandler(this.IDTextbox_Enter);
@@ -265,6 +268,7 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonClose.BackgroundImage = global::QuanLiRapChieuPhim.Properties.Resources.close;
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -275,6 +279,11 @@
             this.buttonClose.Size = new System.Drawing.Size(50, 50);
             this.buttonClose.TabIndex = 70;
             this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click_1);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormAddCustomer
             // 
@@ -310,6 +319,7 @@
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +344,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

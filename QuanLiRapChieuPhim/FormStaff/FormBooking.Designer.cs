@@ -30,13 +30,14 @@ namespace QuanLiRapChieuPhim
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flpSeat = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Unavailable = new System.Windows.Forms.Label();
             this.Checked = new System.Windows.Forms.Label();
-            this.Available = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Available = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbPriceInfo = new System.Windows.Forms.Label();
             this.lbInfo1 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@ namespace QuanLiRapChieuPhim
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.flpSeat = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,6 +64,13 @@ namespace QuanLiRapChieuPhim
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1540, 660);
             this.panel1.TabIndex = 0;
+            // 
+            // flpSeat
+            // 
+            this.flpSeat.Location = new System.Drawing.Point(402, 140);
+            this.flpSeat.Name = "flpSeat";
+            this.flpSeat.Size = new System.Drawing.Size(740, 454);
+            this.flpSeat.TabIndex = 2;
             // 
             // panel3
             // 
@@ -100,17 +107,6 @@ namespace QuanLiRapChieuPhim
             this.Checked.TabIndex = 4;
             this.Checked.Text = "Checked";
             // 
-            // Available
-            // 
-            this.Available.AutoSize = true;
-            this.Available.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Available.ForeColor = System.Drawing.Color.White;
-            this.Available.Location = new System.Drawing.Point(91, 16);
-            this.Available.Name = "Available";
-            this.Available.Size = new System.Drawing.Size(92, 24);
-            this.Available.TabIndex = 3;
-            this.Available.Text = "Available";
-            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(53)))), ((int)(((byte)(57)))));
@@ -143,6 +139,17 @@ namespace QuanLiRapChieuPhim
             this.label5.Size = new System.Drawing.Size(35, 35);
             this.label5.TabIndex = 0;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Available
+            // 
+            this.Available.AutoSize = true;
+            this.Available.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Available.ForeColor = System.Drawing.Color.White;
+            this.Available.Location = new System.Drawing.Point(91, 16);
+            this.Available.Name = "Available";
+            this.Available.Size = new System.Drawing.Size(92, 24);
+            this.Available.TabIndex = 3;
+            this.Available.Text = "Available";
             // 
             // panel2
             // 
@@ -253,13 +260,6 @@ namespace QuanLiRapChieuPhim
             this.btnBack.TabIndex = 0;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // flpSeat
-            // 
-            this.flpSeat.Location = new System.Drawing.Point(402, 140);
-            this.flpSeat.Name = "flpSeat";
-            this.flpSeat.Size = new System.Drawing.Size(740, 454);
-            this.flpSeat.TabIndex = 2;
             // 
             // FormBooking
             // 
