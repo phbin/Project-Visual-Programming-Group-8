@@ -1,5 +1,4 @@
-﻿using Bunifu.UI.WinForms;
-using QuanLiRapChieuPhim.DAO;
+﻿using QuanLiRapChieuPhim.DAO;
 using QuanLiRapChieuPhim.DTO;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,8 @@ namespace QuanLiRapChieuPhim
 {
     public partial class FormFD : Form
     {
-        private BunifuImageButton curFDBtn;
+        private Button curFDBtn;
+        private Button curCateBtn;
         private List<FoodDrink> fDList;
         private TimeSpan doubleClickMaxTime;
         private Timer clickTimer;
@@ -31,6 +31,7 @@ namespace QuanLiRapChieuPhim
             lbIDBill.Text = "No. " + iDBill;
             if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
                 lbIDBill.ForeColor = Color.FromArgb(254, 71, 65);
+            EnableCateButton(btnFood);
 
             //Prepare for Double Click Event
             doubleClickMaxTime = TimeSpan.FromMilliseconds(SystemInformation.DoubleClickTime);
@@ -39,19 +40,20 @@ namespace QuanLiRapChieuPhim
             clickTimer.Tick += ClickTimer_Tick;
         }
         #region Method
-        private void EnableButton(object sender)
+        //FoodDrink Button
+        private void EnableFDButton(object sender)
         {
             if (sender != null)
             {
-                DisableButton();
+                DisableFDButton();
 
-                curFDBtn = (BunifuImageButton)sender;
+                curFDBtn = (Button)sender;
                 curFDBtn.BackColor = Color.FromArgb(155, 39, 43);
                 curFDBtn.ForeColor = Color.White;
             }
         }
 
-        private void DisableButton()
+        private void DisableFDButton()
         {
             if (curFDBtn != null)
             {
@@ -59,6 +61,26 @@ namespace QuanLiRapChieuPhim
                 curFDBtn.ForeColor = Color.Black;
                 curFDBtn = null;
                 nmFDCount.Value = 1;
+            }
+        }
+        //Category Button (Food Button, Drink Button, Combo Button)
+        private void EnableCateButton(object sender)
+        {
+            if (sender != null)
+            {
+                DisableCateButton();
+
+                curCateBtn = (Button)sender;
+                curCateBtn.BackColor = Color.FromArgb(254, 71, 65);
+            }
+        }
+
+        private void DisableCateButton()
+        {
+            if (curCateBtn != null)
+            {
+                curCateBtn.BackColor = Color.FromArgb(38, 37, 55);
+                curCateBtn = null;
             }
         }
 
@@ -72,7 +94,7 @@ namespace QuanLiRapChieuPhim
 
             foreach (FoodDrink item in fDList)
             {
-                BunifuImageButton btn = new BunifuImageButton();
+                Button btn = new Button();
                 Label name = new Label();
                 Label price = new Label();
 
@@ -80,6 +102,9 @@ namespace QuanLiRapChieuPhim
                 btn.Width = 150;
                 btn.Height = 180;
                 btn.Margin = new Padding(5, 5, 5, 5);
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(247, 135, 125);
 
                 ////Insert image from resources file
                 string runningPath = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -88,7 +113,6 @@ namespace QuanLiRapChieuPhim
 
                 btn.BackgroundImageLayout = ImageLayout.Stretch;
                 btn.BackColor = Color.White;
-                //btn.AllowZooming = false;
 
                 btn.Tag = (object)item;
 
@@ -129,11 +153,11 @@ namespace QuanLiRapChieuPhim
                 datagridviewBill.Rows.Add(new object[] { item.Name, item.Quantity, item.Price, item.TotalPrice });
 
             Bill b = BillDAO.Instance.GetBillByID(iDBill);
-            //float total = b.Total;
+            float total = b.Total;
 
-            //lbSubTotalDeTail.Text = total + " VND";
-            //lbTaxDeTail.Text = (total * 0.1).ToString() + " VND";
-            //lbTotalDetail.Text = (total + total * 0.1).ToString();
+            lbSubTotalDeTail.Text = total + " VND";
+            lbTaxDeTail.Text = (total * 0.1).ToString() + " VND";
+            lbTotalDetail.Text = (total + total * 0.1).ToString();
         }
 
         private void DoubleClickAction(object sender)
@@ -142,7 +166,7 @@ namespace QuanLiRapChieuPhim
                 MessageBox.Show("Bill checked out! Please make new bill!");
             else
             {
-                int iDFD = ((sender as BunifuImageButton).Tag as FoodDrink).ID;
+                int iDFD = ((sender as Button).Tag as FoodDrink).ID;
                 int count = 1;
 
                 BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
@@ -181,7 +205,7 @@ namespace QuanLiRapChieuPhim
                     ShowBill(iDBill);
                     //cbbCategorySelection.SelectedIndex = 0;
                     nmFDCount.Value = 1;
-                    DisableButton();
+                    DisableFDButton();
                 }
             }
             catch
@@ -225,49 +249,13 @@ namespace QuanLiRapChieuPhim
         {
             //If button has not selected yet, highlight it, else unhighlight 
             nmFDCount.Value = 1;
-            if (curFDBtn != (BunifuImageButton)sender)
-                EnableButton(sender);
+            if (curFDBtn != (Button)sender)
+                EnableFDButton(sender);
             else
-                DisableButton();
+                DisableFDButton();
         }
 
-        //private void btnRemove_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
-        //            MessageBox.Show("Bill checked out! Please make new bill!");
-        //        else
-        //        {
-        //            int index = datagridviewBill.CurrentRow.Index;
-
-        //            if (index >= 0)
-        //            {
-        //                //Gets a collection that contains all the rows
-        //                DataGridViewRow row = this.datagridviewBill.Rows[index];
-
-        //                //Populate the textbox from specific value of the coordinates of column and row.
-        //                string nameFD = row.Cells[0].Value.ToString();
-        //                int iDFD = FoodDrinkDAO.Instance.GetIDFoodDrinkByName(nameFD);
-        //                BillInfoDAO.Instance.RemoveFoodDrinkByIDFoodDrink(iDBill, iDFD);
-        //            }
-
-        //            else
-        //                MessageBox.Show("You have not selected the FoodDrink to Remove!");
-
-        //            ShowBill(iDBill);
-        //            //cbbCategorySelection.SelectedIndex = 0;
-        //            nmFDCount.Value = 1;
-        //            DisableButton();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Bill is null!");
-        //    }          
-        //}
-
-        private void bunifuButtonAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (curFDBtn == null)
             {
@@ -284,12 +272,12 @@ namespace QuanLiRapChieuPhim
                 BillInfoDAO.Instance.InserttBillInfo(iDBill, iDFD, count);
 
                 nmFDCount.Value = 1;
-                DisableButton();
+                DisableFDButton();
                 ShowBill(iDBill);
             }
         }
 
-        private void bunifuImageButtonNew_Click(object sender, EventArgs e)
+        private void btnNew_Click(object sender, EventArgs e)
         {
             //Insert a new bill when the last bill checked out
             if (iDBill != 0 && BillDAO.Instance.GetStatusBill(iDBill) == 0)
@@ -304,31 +292,78 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void bunifuImageButtonSave_Click(object sender, EventArgs e)
+        private void btnSave_MouseMove(object sender, MouseEventArgs e)
         {
+            (sender as Button).Location = new Point(188, -5);
+        }
+
+        private void btnSave_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).Location = new Point(188, 0);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //PrintPreviewDialog p = new PrintPreviewDialog();
+            //p.Document = printDocument1;
+            //p.ShowDialog();
             FormPrintBill frm = new FormPrintBill(iDBill);
             frm.ShowDialog();
             if (BillDAO.Instance.GetStatusBill(iDBill) == 1)
                 lbIDBill.ForeColor = Color.FromArgb(254, 71, 65);
         }
 
-        private void bunifuButtonFood_Click(object sender, EventArgs e)
+        private void btnNew_MouseMove(object sender, MouseEventArgs e)
         {
-            curFDBtn = null;
-            LoadFoodDrinkByCategoryID(1);
+            (sender as Button).Location = new Point(140, -5);
         }
 
-        private void bunifuButtonDrink_Click(object sender, EventArgs e)
+        private void btnNew_MouseLeave(object sender, EventArgs e)
         {
-            curFDBtn = null;
-            LoadFoodDrinkByCategoryID(2);
+            (sender as Button).Location = new Point(140, 0);
         }
 
-        private void bunifuButtonCombo_Click(object sender, EventArgs e)
+        private void btnFood_Click(object sender, EventArgs e)
         {
-            curFDBtn = null;
-            LoadFoodDrinkByCategoryID(3);
+            if (curFDBtn != (Button)sender)
+            {
+                EnableCateButton(sender);
+                curFDBtn = null;
+                LoadFoodDrinkByCategoryID(1);
+            }
+        }
+
+        private void btnDrink_Click(object sender, EventArgs e)
+        {
+            if (curFDBtn != (Button)sender)
+            {
+                EnableCateButton(sender);
+                curFDBtn = null;
+                LoadFoodDrinkByCategoryID(2);
+            }
+        }
+
+        private void btnCombo_Click(object sender, EventArgs e)
+        {
+            if (curFDBtn != (Button)sender)
+            {
+                EnableCateButton(sender);
+                curFDBtn = null;
+                LoadFoodDrinkByCategoryID(3);
+            }
         }
         #endregion
+
+        //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        //{
+        //    Brush b = Brushes.Black;
+        //    e.Graphics.DrawString("GROUP 8 CINEMA", new Font("Arial", 14F, FontStyle.Bold), b, 10, 0);
+        //    e.Graphics.DrawString("Quarter 6, Linh Trung Ward, Thu Duc District, HCMC", new Font("Arial", 10F), b, 2, 20);
+        //    e.Graphics.DrawString("No. ", new Font("Arial", 10F), b, 2, 40);
+        //    e.Graphics.DrawString("Date: " , new Font("Arial", 10F), b, 2, 60);
+        //    e.Graphics.DrawString("************************************", new Font("Arial", 10F), b, 0, 70);
+        //    e.Graphics.DrawString("FOODDRINK BILL", new Font("Arial", 10F), b, 0, 90);
+        //    e.Graphics.DrawString("Quarter 6, Linh Trung Ward, Thu Duc District, HCMC", new Font("Arial", 10F), b, 0, 20);
+        //}
     }
 }

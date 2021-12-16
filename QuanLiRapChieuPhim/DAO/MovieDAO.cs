@@ -42,6 +42,15 @@ namespace QuanLiRapChieuPhim.DAO
 
             return movieList;
         }
+
+        public string GetNameMovieByID(string id)
+        {
+            string query = "SELECT NameFilm FROM Movie WHERE ID = '" + id + "'";
+            string data = (string)DataProvider.Instance.ExecuteScalar(query);
+
+            return data;
+        }
+
         public void InsertMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year)
         {
             string query = "INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES ('" + id + "',N'" + name + "',N'" + desc + "','" + timelimit + "','" + startDate + "','" + endDate + "',N'" + country + "',N'" + director + "','" + year +  "')";

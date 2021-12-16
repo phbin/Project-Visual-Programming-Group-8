@@ -14,6 +14,7 @@ namespace QuanLiRapChieuPhim
 {
     public partial class FormBooking : Form
     {
+        List<Seat> selectedSeat = new List<Seat>();
         public FormBooking(string ids)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace QuanLiRapChieuPhim
         private void LoadSeat()
         {
             flpSeat.Controls.Clear();
-            List<Seat> listSeat = SeatDAO.GetSeatByID(idshowtime);
+            List<Seat> listSeat = SeatDAO.Instance.GetSeatByID(idshowtime);
             foreach (Seat item in listSeat)
             {
                 Button seat = new Button();
@@ -38,14 +39,10 @@ namespace QuanLiRapChieuPhim
                 seat.Dock = DockStyle.Top;
                 seat.ForeColor = Color.White;
                 seat.FlatAppearance.BorderSize = 0;
-                if (item.stt == 0)
-                {
+                if (item.Stt == 0)
                     seat.BackColor = Color.FromArgb(32, 90, 167);
-                }
                 else
-                {
                     seat.BackColor = Color.FromArgb(227, 53, 57);
-                }
                 seat.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
                 seat.Text = item.SeatName.ToString();
                 seat.Click += Seat_Click;
@@ -57,26 +54,23 @@ namespace QuanLiRapChieuPhim
         {
             string query;
             DataTable table;
-            List<Showtime> listST = ShowtimeDAO.ShowtimeByIDST(idshowtime);
-            foreach (Showtime item in listST)
+            Showtime st = ShowtimeDAO.Instance.GetShowTimeByIDST(idshowtime);
+
+            //get name cinema
+            query = "SELECT NameRoom FROM dbo.Room where id ='" + st.IDRoom + "'";
+            table = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow rows in table.Rows)
+                lbInfo1.Text = st.Time.ToString() + "\n\n" + rows["NameRoom"].ToString();
+
+            //get name movie
+            query = "SELECT NameFilm, Poster FROM dbo.Movie where id ='" + st.IDMovie + "'";
+            table = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow rows in table.Rows)
             {
-                //get name cinema
-                query = "SELECT NameRoom FROM dbo.Room where id ='" + item.IDRoom + "'";
-                table = DataProvider.Instance.ExecuteQuery(query);
-
-                foreach (DataRow rows in table.Rows)
-                {
-                    lbInfo1.Text = item.Time.ToString() + "\n\n" + rows["NameRoom"].ToString();
-                }
-                //get name movie
-                query = "SELECT NameFilm, Poster FROM dbo.Movie where id ='" + item.IDMovie + "'";
-                table = DataProvider.Instance.ExecuteQuery(query);
-
-                foreach (DataRow rows in table.Rows)
-                {
-                    lbName.Text = rows["NameFilm"].ToString();
-                    pbPoster.BackgroundImage = MovieDAO.byteArrayToImage((byte[])rows["Poster"]);
-                }
+                lbName.Text = rows["NameFilm"].ToString();
+                pbPoster.BackgroundImage = MovieDAO.byteArrayToImage((byte[])rows["Poster"]);
             }
         }
         private void Seat_Click(object sender, EventArgs e)
@@ -93,7 +87,8 @@ namespace QuanLiRapChieuPhim
                 count++;
                 price += 110000;
                 lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 2;
+                (curBtn.Tag as Seat).Stt = 2;
+                selectedSeat.Add(curBtn.Tag as Seat);
             }
             else if (curBtn.BackColor == Color.FromArgb(238, 154, 0)) //orange
             {
@@ -101,7 +96,8 @@ namespace QuanLiRapChieuPhim
                 count--;
                 price -= 110000;
                 lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 0;
+                (curBtn.Tag as Seat).Stt = 0;
+                selectedSeat.Remove(curBtn.Tag as Seat);
             }
             else if (curBtn.BackColor == Color.FromArgb(227, 53, 57)) //red
             {
@@ -117,8 +113,8 @@ namespace QuanLiRapChieuPhim
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Close();
-            //TicketBill frm = new TicketBill();
-            //frm.Show();
+            FormTicketBill frm = new FormTicketBill(selectedSeat, idshowtime);
+            frm.ShowDialog();
         }
     }
 }

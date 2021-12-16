@@ -71,7 +71,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
@@ -142,7 +142,7 @@
     <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\ShowtimeDAO.cs" />
-    <Compile Include="DAO\TicketDAO.cs" />
+    <Compile Include="DAO\TicketBillDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\FDCategory.cs" />
@@ -153,7 +153,7 @@
     <Compile Include="DTO\MovieByGenre.cs" />
     <Compile Include="DTO\Room.cs" />
     <Compile Include="DTO\Showtime.cs" />
-    <Compile Include="DTO\Ticket.cs" />
+    <Compile Include="DTO\TicketBill.cs" />
     <Compile Include="FormAdmin\FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +250,12 @@
     <Compile Include="FormStaff\FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTicketBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTicketBill.Designer.cs">
+      <DependentUpon>FormTicketBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -267,6 +273,20 @@
     <Compile Include="FillForm\ShowtimeControls.Designer.cs">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="FormStaff\ChooseShowtime.resx">
       <DependentUpon>ChooseShowtime.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,6 +357,9 @@
     <EmbeddedResource Include="FillForm\MovieControls.resx">
       <DependentUpon>MovieControls.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTicketBill.resx">
+      <DependentUpon>FormTicketBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -346,6 +369,7 @@
     <EmbeddedResource Include="FillForm\ShowtimeControls.resx">
       <DependentUpon>ShowtimeControls.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\QuanLiRapChieuPhim.DTO.FDMenu.datasource" />
     <None Include="Properties\Settings.settings">
@@ -535,12 +559,6 @@
     <None Include="Resources\5269554541547546467.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_new.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\screen.png" />
   </ItemGroup>
   <ItemGroup>
@@ -548,6 +566,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\next-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
