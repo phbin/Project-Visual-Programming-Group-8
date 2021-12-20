@@ -29,75 +29,276 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelLine = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.txtTime = new System.Windows.Forms.TextBox();
+            this.UploadButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.MovieLabel = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonLoadImg = new System.Windows.Forms.Button();
-            this.picPoster = new System.Windows.Forms.PictureBox();
-            this.lbPoster = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.cbCountry = new System.Windows.Forms.ComboBox();
-            this.lbGenre = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.txtYear = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtDir = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.picPoster = new System.Windows.Forms.PictureBox();
             this.dtpExpiry = new System.Windows.Forms.DateTimePicker();
             this.dtpRelease = new System.Windows.Forms.DateTimePicker();
-            this.labelInfo = new System.Windows.Forms.Label();
             this.clGenre = new System.Windows.Forms.CheckedListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelLine
-            // 
-            this.labelLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelLine.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelLine.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLine.ForeColor = System.Drawing.Color.White;
-            this.labelLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelLine.Location = new System.Drawing.Point(0, 0);
-            this.labelLine.Name = "labelLine";
-            this.labelLine.Size = new System.Drawing.Size(1124, 68);
-            this.labelLine.TabIndex = 0;
-            this.labelLine.Text = "      Add Movie";
-            this.labelLine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.UploadButton);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.buttonClose);
+            this.panel1.Controls.Add(this.MovieLabel);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.buttonEdit);
-            this.panel1.Controls.Add(this.txtTime);
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.lbID);
-            this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonOK);
-            this.panel1.Controls.Add(this.buttonLoadImg);
             this.panel1.Controls.Add(this.picPoster);
-            this.panel1.Controls.Add(this.lbPoster);
-            this.panel1.Controls.Add(this.txtDesc);
-            this.panel1.Controls.Add(this.cbCountry);
-            this.panel1.Controls.Add(this.lbGenre);
-            this.panel1.Controls.Add(this.txtYear);
-            this.panel1.Controls.Add(this.txtDir);
-            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.dtpExpiry);
             this.panel1.Controls.Add(this.dtpRelease);
-            this.panel1.Controls.Add(this.labelInfo);
             this.panel1.Controls.Add(this.clGenre);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.panel1.Location = new System.Drawing.Point(0, 68);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1124, 783);
+            this.panel1.Size = new System.Drawing.Size(1124, 851);
             this.panel1.TabIndex = 2;
+            // 
+            // UploadButton
+            // 
+            this.UploadButton.Font = new System.Drawing.Font("Lato", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UploadButton.Location = new System.Drawing.Point(803, 733);
+            this.UploadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UploadButton.Name = "UploadButton";
+            this.UploadButton.Size = new System.Drawing.Size(135, 31);
+            this.UploadButton.TabIndex = 56;
+            this.UploadButton.Text = "Upload Image";
+            this.UploadButton.UseVisualStyleBackColor = true;
+            this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lato", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.label3.Location = new System.Drawing.Point(707, 386);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 18);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Country";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lato", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.label1.Location = new System.Drawing.Point(228, 327);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 18);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Expiry Time";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lato", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.label2.Location = new System.Drawing.Point(224, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 18);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Release Time";
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = global::QuanLiRapChieuPhim.Properties.Resources.close;
+            this.buttonClose.Location = new System.Drawing.Point(1076, 3);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Padding = new System.Windows.Forms.Padding(0, 0, 3, 1);
+            this.buttonClose.Size = new System.Drawing.Size(44, 40);
+            this.buttonClose.TabIndex = 49;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // MovieLabel
+            // 
+            this.MovieLabel.AutoSize = true;
+            this.MovieLabel.Font = new System.Drawing.Font("Lato", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MovieLabel.ForeColor = System.Drawing.Color.White;
+            this.MovieLabel.Location = new System.Drawing.Point(441, 25);
+            this.MovieLabel.Name = "MovieLabel";
+            this.MovieLabel.Size = new System.Drawing.Size(271, 45);
+            this.MovieLabel.TabIndex = 48;
+            this.MovieLabel.Text = "Movie Controls";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel8.Controls.Add(this.txtID);
+            this.panel8.Location = new System.Drawing.Point(705, 103);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(321, 46);
+            this.panel8.TabIndex = 41;
+            // 
+            // txtID
+            // 
+            this.txtID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtID.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtID.Location = new System.Drawing.Point(5, 14);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(270, 24);
+            this.txtID.TabIndex = 40;
+            this.txtID.Text = "ID";
+            this.txtID.Enter += new System.EventHandler(this.txtID_Enter);
+            this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel7.Controls.Add(this.txtDesc);
+            this.panel7.Location = new System.Drawing.Point(229, 574);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(321, 195);
+            this.panel7.TabIndex = 44;
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDesc.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtDesc.Location = new System.Drawing.Point(5, 14);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(313, 171);
+            this.txtDesc.TabIndex = 40;
+            this.txtDesc.Text = "Description";
+            this.txtDesc.Enter += new System.EventHandler(this.txtDesc_Enter);
+            this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel6.Controls.Add(this.txtYear);
+            this.panel6.Location = new System.Drawing.Point(229, 500);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(321, 46);
+            this.panel6.TabIndex = 43;
+            // 
+            // txtYear
+            // 
+            this.txtYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtYear.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtYear.Location = new System.Drawing.Point(5, 14);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(270, 24);
+            this.txtYear.TabIndex = 40;
+            this.txtYear.Text = "Year";
+            this.txtYear.Enter += new System.EventHandler(this.txtYear_Enter);
+            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYear_KeyPress);
+            this.txtYear.Leave += new System.EventHandler(this.txtYear_Leave);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel4.Controls.Add(this.txtDir);
+            this.panel4.Location = new System.Drawing.Point(230, 410);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(321, 46);
+            this.panel4.TabIndex = 42;
+            // 
+            // txtDir
+            // 
+            this.txtDir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtDir.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDir.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtDir.Location = new System.Drawing.Point(5, 14);
+            this.txtDir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDir.Name = "txtDir";
+            this.txtDir.Size = new System.Drawing.Size(270, 24);
+            this.txtDir.TabIndex = 40;
+            this.txtDir.Text = "Director";
+            this.txtDir.Enter += new System.EventHandler(this.txtDir_Enter);
+            this.txtDir.Leave += new System.EventHandler(this.txtDir_Leave);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.txtTime);
+            this.panel3.Location = new System.Drawing.Point(229, 175);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(321, 46);
+            this.panel3.TabIndex = 41;
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTime.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtTime.Location = new System.Drawing.Point(5, 14);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(270, 24);
+            this.txtTime.TabIndex = 40;
+            this.txtTime.Text = "Running Time";
+            this.txtTime.Enter += new System.EventHandler(this.txtTime_Enter);
+            this.txtTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTime_KeyPress);
+            this.txtTime.Leave += new System.EventHandler(this.txtTime_Leave);
             // 
             // buttonEdit
             // 
@@ -105,59 +306,15 @@ namespace QuanLiRapChieuPhim
             this.buttonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.buttonEdit.FlatAppearance.BorderSize = 0;
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEdit.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Font = new System.Drawing.Font("Lato", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit.Location = new System.Drawing.Point(396, 714);
+            this.buttonEdit.Location = new System.Drawing.Point(516, 788);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(148, 40);
+            this.buttonEdit.Size = new System.Drawing.Size(204, 42);
             this.buttonEdit.TabIndex = 20;
             this.buttonEdit.Text = "Update";
             this.buttonEdit.UseVisualStyleBackColor = false;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
-            // 
-            // txtTime
-            // 
-            this.txtTime.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTime.Location = new System.Drawing.Point(261, 110);
-            this.txtTime.MaxLength = 3;
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(312, 34);
-            this.txtTime.TabIndex = 19;
-            this.txtTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTime_KeyPress);
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(732, 43);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(312, 34);
-            this.txtID.TabIndex = 18;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(595, 38);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(50, 38);
-            this.lbID.TabIndex = 17;
-            this.lbID.Text = "ID:";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.AutoSize = true;
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(602, 714);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(148, 40);
-            this.buttonCancel.TabIndex = 16;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonOK
             // 
@@ -165,65 +322,102 @@ namespace QuanLiRapChieuPhim
             this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.buttonOK.FlatAppearance.BorderSize = 0;
             this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOK.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOK.Font = new System.Drawing.Font("Lato", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOK.ForeColor = System.Drawing.Color.White;
-            this.buttonOK.Location = new System.Drawing.Point(396, 714);
+            this.buttonOK.Location = new System.Drawing.Point(516, 788);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(148, 40);
+            this.buttonOK.Size = new System.Drawing.Size(204, 42);
             this.buttonOK.TabIndex = 15;
             this.buttonOK.Text = "Confirm";
             this.buttonOK.UseVisualStyleBackColor = false;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // buttonLoadImg
-            // 
-            this.buttonLoadImg.AutoSize = true;
-            this.buttonLoadImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.buttonLoadImg.FlatAppearance.BorderSize = 0;
-            this.buttonLoadImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLoadImg.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoadImg.ForeColor = System.Drawing.Color.White;
-            this.buttonLoadImg.Location = new System.Drawing.Point(822, 597);
-            this.buttonLoadImg.Name = "buttonLoadImg";
-            this.buttonLoadImg.Size = new System.Drawing.Size(150, 40);
-            this.buttonLoadImg.TabIndex = 14;
-            this.buttonLoadImg.Text = "Upload Image";
-            this.buttonLoadImg.UseVisualStyleBackColor = false;
-            this.buttonLoadImg.Click += new System.EventHandler(this.buttonLoadImg_Click);
-            // 
             // picPoster
             // 
-            this.picPoster.BackColor = System.Drawing.Color.White;
+            this.picPoster.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.picPoster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPoster.Location = new System.Drawing.Point(737, 246);
+            this.picPoster.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picPoster.Location = new System.Drawing.Point(758, 479);
             this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(307, 334);
+            this.picPoster.Size = new System.Drawing.Size(222, 227);
             this.picPoster.TabIndex = 13;
             this.picPoster.TabStop = false;
             // 
-            // lbPoster
+            // dtpExpiry
             // 
-            this.lbPoster.AutoSize = true;
-            this.lbPoster.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPoster.Location = new System.Drawing.Point(596, 243);
-            this.lbPoster.Name = "lbPoster";
-            this.lbPoster.Size = new System.Drawing.Size(86, 32);
-            this.lbPoster.TabIndex = 12;
-            this.lbPoster.Text = "Poster:";
+            this.dtpExpiry.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpExpiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpExpiry.Location = new System.Drawing.Point(229, 348);
+            this.dtpExpiry.Name = "dtpExpiry";
+            this.dtpExpiry.Size = new System.Drawing.Size(321, 31);
+            this.dtpExpiry.TabIndex = 3;
+            this.dtpExpiry.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
             // 
-            // txtDesc
+            // dtpRelease
             // 
-            this.txtDesc.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesc.Location = new System.Drawing.Point(261, 500);
-            this.txtDesc.Multiline = true;
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(312, 179);
-            this.txtDesc.TabIndex = 11;
+            this.dtpRelease.CalendarForeColor = System.Drawing.Color.Black;
+            this.dtpRelease.CalendarMonthBackground = System.Drawing.SystemColors.WindowFrame;
+            this.dtpRelease.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRelease.Location = new System.Drawing.Point(227, 269);
+            this.dtpRelease.Name = "dtpRelease";
+            this.dtpRelease.Size = new System.Drawing.Size(321, 31);
+            this.dtpRelease.TabIndex = 2;
+            this.dtpRelease.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
+            // 
+            // clGenre
+            // 
+            this.clGenre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.clGenre.CheckOnClick = true;
+            this.clGenre.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clGenre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.clGenre.FormattingEnabled = true;
+            this.clGenre.Location = new System.Drawing.Point(705, 175);
+            this.clGenre.Name = "clGenre";
+            this.clGenre.Size = new System.Drawing.Size(321, 186);
+            this.clGenre.TabIndex = 0;
+            this.clGenre.ThreeDCheckBoxes = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel2.Controls.Add(this.txtName);
+            this.panel2.Location = new System.Drawing.Point(229, 103);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(321, 46);
+            this.panel2.TabIndex = 39;
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtName.Location = new System.Drawing.Point(5, 14);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(270, 24);
+            this.txtName.TabIndex = 40;
+            this.txtName.Text = "Name";
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
+            this.panel5.Controls.Add(this.cbCountry);
+            this.panel5.Location = new System.Drawing.Point(705, 402);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(321, 46);
+            this.panel5.TabIndex = 43;
             // 
             // cbCountry
             // 
+            this.cbCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(55)))));
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountry.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.Items.AddRange(new object[] {
             "Ấn Độ",
@@ -256,111 +450,15 @@ namespace QuanLiRapChieuPhim
             "Ukraine",
             "Vatican",
             "Việt Nam"});
-            this.cbCountry.Location = new System.Drawing.Point(261, 368);
+            this.cbCountry.Location = new System.Drawing.Point(3, 8);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(312, 36);
+            this.cbCountry.Size = new System.Drawing.Size(312, 32);
             this.cbCountry.Sorted = true;
             this.cbCountry.TabIndex = 10;
             // 
-            // lbGenre
+            // errorProvider1
             // 
-            this.lbGenre.AutoSize = true;
-            this.lbGenre.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGenre.Location = new System.Drawing.Point(595, 110);
-            this.lbGenre.Name = "lbGenre";
-            this.lbGenre.Size = new System.Drawing.Size(98, 38);
-            this.lbGenre.TabIndex = 8;
-            this.lbGenre.Text = "Genre:";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(261, 435);
-            this.txtYear.MaxLength = 4;
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(312, 34);
-            this.txtYear.TabIndex = 7;
-            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYear_KeyPress);
-            // 
-            // txtDir
-            // 
-            this.txtDir.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDir.Location = new System.Drawing.Point(261, 303);
-            this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(312, 34);
-            this.txtDir.TabIndex = 5;
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(261, 43);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(312, 34);
-            this.txtName.TabIndex = 4;
-            // 
-            // dtpExpiry
-            // 
-            this.dtpExpiry.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpExpiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpExpiry.Location = new System.Drawing.Point(261, 238);
-            this.dtpExpiry.Name = "dtpExpiry";
-            this.dtpExpiry.Size = new System.Drawing.Size(312, 34);
-            this.dtpExpiry.TabIndex = 3;
-            this.dtpExpiry.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
-            // 
-            // dtpRelease
-            // 
-            this.dtpRelease.CalendarForeColor = System.Drawing.Color.Black;
-            this.dtpRelease.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRelease.Location = new System.Drawing.Point(261, 173);
-            this.dtpRelease.Name = "dtpRelease";
-            this.dtpRelease.Size = new System.Drawing.Size(312, 34);
-            this.dtpRelease.TabIndex = 2;
-            this.dtpRelease.Value = new System.DateTime(2021, 12, 5, 0, 0, 0, 0);
-            // 
-            // labelInfo
-            // 
-            this.labelInfo.AutoSize = true;
-            this.labelInfo.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfo.Location = new System.Drawing.Point(87, 43);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(170, 480);
-            this.labelInfo.TabIndex = 1;
-            this.labelInfo.Text = "Name: \r\n\r\nRunning Time:\r\n\r\nRelease Date:\r\n\r\nExpiry Date:\r\n\r\nDirector:\r\n\r\nCountry:" +
-    "\r\n\r\nYear:\r\n\r\nDescription:";
-            // 
-            // clGenre
-            // 
-            this.clGenre.CheckOnClick = true;
-            this.clGenre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clGenre.FormattingEnabled = true;
-            this.clGenre.Items.AddRange(new object[] {
-            "Hành động",
-            "Hoạt hình",
-            "Hài kịch",
-            "Khoa học viễn tưởng",
-            "Phiêu lưu",
-            "Gia đình",
-            "Tình cảm",
-            "Trinh thám",
-            "Tâm lý",
-            "Siêu nhiên"});
-            this.clGenre.Location = new System.Drawing.Point(737, 110);
-            this.clGenre.Name = "clGenre";
-            this.clGenre.Size = new System.Drawing.Size(307, 104);
-            this.clGenre.TabIndex = 0;
-            this.clGenre.ThreeDCheckBoxes = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 68);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1124, 8);
-            this.panel2.TabIndex = 3;
+            this.errorProvider1.ContainerControl = this;
             // 
             // MovieControls
             // 
@@ -368,43 +466,60 @@ namespace QuanLiRapChieuPhim
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1124, 851);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelLine);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MovieControls";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddMovie";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelLine;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.CheckedListBox clGenre;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Button buttonLoadImg;
         private System.Windows.Forms.PictureBox picPoster;
-        private System.Windows.Forms.Label lbPoster;
-        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.ComboBox cbCountry;
-        private System.Windows.Forms.Label lbGenre;
-        private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.TextBox txtDir;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.DateTimePicker dtpExpiry;
         private System.Windows.Forms.DateTimePicker dtpRelease;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtDir;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label MovieLabel;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button UploadButton;
     }
 }

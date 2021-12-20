@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace QuanLiRapChieuPhim
 {
@@ -27,6 +28,18 @@ namespace QuanLiRapChieuPhim
             this.ControlBox = false;
             this.DoubleBuffered = true;
             //this.WindowState = FormWindowState.Maximized;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd,int wMsg, int wParam, int lParam);
+
+        private void panelMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void OpenChildForm(Form childForm)
@@ -85,8 +98,6 @@ namespace QuanLiRapChieuPhim
             OpenChildForm(new FormHRM());
             labelHome.Text = "Human Resource Manager";
         }
-
-     
 
         private void buttonAccount_Click(object sender, EventArgs e)
         {
@@ -158,5 +169,6 @@ namespace QuanLiRapChieuPhim
             OpenChildForm(new FormAddFD());
             labelHome.Text = "Food Drink";
         }
+
     }
 }

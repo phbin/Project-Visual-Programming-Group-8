@@ -128,7 +128,6 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8-33418c87edeefe3a674190
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.AssemblyReference.cache
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddAccount.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddCustomer.resources
-C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditCategory.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.ChildForms.FormAddEditFD.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.AddForms.FormAddInfoStaff.resources
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormAccount.resources
@@ -207,3 +206,5 @@ C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.CopyComplete
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.FormTicketBill.resources
+C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\QuanLiRapChieuPhim\obj\Debug\QuanLiRapChieuPhim.csproj.ResolveComReference.cache

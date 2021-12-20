@@ -79,6 +79,7 @@ namespace QuanLiRapChieuPhim
             this.btn1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn1.AutoSize = true;
             this.btn1.FlatAppearance.BorderSize = 0;
+            this.btn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Image = global::QuanLiRapChieuPhim.Properties.Resources.new_moon;
             this.btn1.Location = new System.Drawing.Point(523, 688);
@@ -94,6 +95,7 @@ namespace QuanLiRapChieuPhim
             this.btn2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn2.AutoSize = true;
             this.btn2.FlatAppearance.BorderSize = 0;
+            this.btn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Image = ((System.Drawing.Image)(resources.GetObject("btn2.Image")));
             this.btn2.Location = new System.Drawing.Point(566, 688);
@@ -109,6 +111,7 @@ namespace QuanLiRapChieuPhim
             this.btn3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn3.AutoSize = true;
             this.btn3.FlatAppearance.BorderSize = 0;
+            this.btn3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Image = ((System.Drawing.Image)(resources.GetObject("btn3.Image")));
             this.btn3.Location = new System.Drawing.Point(608, 688);
@@ -124,6 +127,7 @@ namespace QuanLiRapChieuPhim
             this.btn4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn4.AutoSize = true;
             this.btn4.FlatAppearance.BorderSize = 0;
+            this.btn4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Image = ((System.Drawing.Image)(resources.GetObject("btn4.Image")));
             this.btn4.Location = new System.Drawing.Point(651, 688);
@@ -139,6 +143,7 @@ namespace QuanLiRapChieuPhim
             this.btn5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn5.AutoSize = true;
             this.btn5.FlatAppearance.BorderSize = 0;
+            this.btn5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Image = ((System.Drawing.Image)(resources.GetObject("btn5.Image")));
             this.btn5.Location = new System.Drawing.Point(693, 688);

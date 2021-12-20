@@ -42,6 +42,13 @@ namespace QuanLiRapChieuPhim.DAO
 
             return movieList;
         }
+        public string GetNameMovieByID(string id)
+        {
+            string query = "SELECT NameFilm FROM Movie WHERE ID = '" + id + "'";
+            string data = (string)DataProvider.Instance.ExecuteScalar(query);
+
+            return data;
+        }
         public void InsertMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year)
         {
             string query = "INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES ('" + id + "',N'" + name + "',N'" + desc + "','" + timelimit + "','" + startDate + "','" + endDate + "',N'" + country + "',N'" + director + "','" + year +  "')";
@@ -50,8 +57,9 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void UpdateMovie(string id, string name, string desc, int timelimit, DateTime startDate, DateTime endDate, string country, string director, int year)
         {
-            string query = "UPDATE dbo.Movie SET NameFilm=N'" + name + "', Descript=N'" + desc + "', TimeLimit='" + timelimit + "', DatePublic='" + startDate + "', DateOut='" + endDate + "', Country=N'" + country+ "', Director=N'" + director + "', YearFilm='" + year + "', Poster='" +"'WHERE ID='" + id + "'";
-            DataProvider.Instance.ExecuteQuery(query);
+            DataProvider.Instance.ExecuteNonQuery("DELETE dbo.movie WHERE idmovie = '" + id + "'");
+            string query = "INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES ('" + id + "',N'" + name + "',N'" + desc + "','" + timelimit + "','" + startDate + "','" + endDate + "',N'" + country + "',N'" + director + "','" + year + "')";
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
         }
 
         public void DeleteMovie(string id)

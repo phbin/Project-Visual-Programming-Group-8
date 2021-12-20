@@ -46,23 +46,23 @@ namespace QuanLiRapChieuPhim
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panelLine = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchTextbox = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listMovieGrid)).BeginInit();
-            this.panelLine.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInfo
             // 
             this.panelInfo.Controls.Add(this.listMovieGrid);
-            this.panelInfo.Controls.Add(this.panelLine);
+            this.panelInfo.Controls.Add(this.panel2);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInfo.Location = new System.Drawing.Point(0, 0);
             this.panelInfo.Name = "panelInfo";
@@ -80,15 +80,18 @@ namespace QuanLiRapChieuPhim
             this.listMovieGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.listMovieGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listMovieGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.listMovieGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listMovieGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listMovieGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(54)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lato Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(54)))), ((int)(((byte)(103)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.listMovieGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.listMovieGrid.ColumnHeadersHeight = 29;
+            this.listMovieGrid.ColumnHeadersHeight = 35;
             this.listMovieGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.listMovieGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -101,33 +104,37 @@ namespace QuanLiRapChieuPhim
             this.Edit,
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lato", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(110)))), ((int)(((byte)(180)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.listMovieGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.listMovieGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listMovieGrid.Location = new System.Drawing.Point(0, 82);
+            this.listMovieGrid.EnableHeadersVisualStyles = false;
+            this.listMovieGrid.GridColor = System.Drawing.SystemColors.HotTrack;
+            this.listMovieGrid.Location = new System.Drawing.Point(0, 59);
+            this.listMovieGrid.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.listMovieGrid.MultiSelect = false;
             this.listMovieGrid.Name = "listMovieGrid";
             this.listMovieGrid.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Lato", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(110)))), ((int)(((byte)(180)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.listMovieGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.listMovieGrid.RowHeadersVisible = false;
-            this.listMovieGrid.RowHeadersWidth = 51;
+            this.listMovieGrid.RowHeadersWidth = 62;
             this.listMovieGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.listMovieGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.listMovieGrid.RowTemplate.Height = 24;
+            this.listMovieGrid.RowTemplate.Height = 28;
             this.listMovieGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listMovieGrid.Size = new System.Drawing.Size(800, 368);
+            this.listMovieGrid.Size = new System.Drawing.Size(800, 391);
             this.listMovieGrid.TabIndex = 18;
             this.listMovieGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listMovieGrid_CellClick);
             // 
@@ -210,45 +217,29 @@ namespace QuanLiRapChieuPhim
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             // 
-            // panelLine
+            // panel2
             // 
-            this.panelLine.Controls.Add(this.btnAdd);
-            this.panelLine.Controls.Add(this.SearchButton);
-            this.panelLine.Controls.Add(this.SearchPanel);
-            this.panelLine.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLine.Location = new System.Drawing.Point(0, 0);
-            this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(800, 82);
-            this.panelLine.TabIndex = 1;
+            this.panel2.Controls.Add(this.btnAdd);
+            this.panel2.Controls.Add(this.SearchPanel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 59);
+            this.panel2.TabIndex = 31;
             // 
             // btnAdd
             // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.btnAdd.BackgroundImage = global::QuanLiRapChieuPhim.Properties.Resources.buttonAdd;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(484, 14);
+            this.btnAdd.Location = new System.Drawing.Point(741, 0);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(119, 50);
-            this.btnAdd.TabIndex = 19;
-            this.btnAdd.Text = "Add Movie";
-            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Size = new System.Drawing.Size(59, 59);
+            this.btnAdd.TabIndex = 21;
+            this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.SearchButton.FlatAppearance.BorderSize = 0;
-            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
-            this.SearchButton.Location = new System.Drawing.Point(411, 21);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(36, 34);
-            this.SearchButton.TabIndex = 7;
-            this.SearchButton.UseVisualStyleBackColor = false;
             // 
             // SearchPanel
             // 
@@ -256,28 +247,46 @@ namespace QuanLiRapChieuPhim
             this.SearchPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchPanel.BackgroundImage")));
             this.SearchPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SearchPanel.Controls.Add(this.SearchTextbox);
-            this.SearchPanel.Location = new System.Drawing.Point(3, 21);
+            this.SearchPanel.Controls.Add(this.SearchButton);
+            this.SearchPanel.Font = new System.Drawing.Font("Lato", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPanel.Location = new System.Drawing.Point(11, 9);
             this.SearchPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(429, 37);
-            this.SearchPanel.TabIndex = 8;
+            this.SearchPanel.Size = new System.Drawing.Size(599, 37);
+            this.SearchPanel.TabIndex = 20;
             // 
             // SearchTextbox
             // 
             this.SearchTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.SearchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextbox.Font = new System.Drawing.Font("Lato", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextbox.ForeColor = System.Drawing.Color.Gray;
-            this.SearchTextbox.Location = new System.Drawing.Point(19, 7);
+            this.SearchTextbox.Location = new System.Drawing.Point(20, 7);
             this.SearchTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchTextbox.Multiline = true;
             this.SearchTextbox.Name = "SearchTextbox";
-            this.SearchTextbox.Size = new System.Drawing.Size(372, 21);
+            this.SearchTextbox.Size = new System.Drawing.Size(533, 21);
             this.SearchTextbox.TabIndex = 15;
             this.SearchTextbox.Text = "Search";
             this.SearchTextbox.TextChanged += new System.EventHandler(this.SearchTextbox_TextChanged);
             this.SearchTextbox.Enter += new System.EventHandler(this.SearchTextbox_Enter);
             this.SearchTextbox.Leave += new System.EventHandler(this.SearchTextbox_Leave);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
+            this.SearchButton.Location = new System.Drawing.Point(563, 0);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(36, 37);
+            this.SearchButton.TabIndex = 5;
+            this.SearchButton.UseVisualStyleBackColor = false;
             // 
             // dataGridViewImageColumn1
             // 
@@ -304,12 +313,12 @@ namespace QuanLiRapChieuPhim
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMovieManage";
             this.Text = "FormMovieManage";
             this.panelInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listMovieGrid)).EndInit();
-            this.panelLine.ResumeLayout(false);
-            this.panelLine.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -319,11 +328,6 @@ namespace QuanLiRapChieuPhim
         #endregion
         private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.DataGridView listMovieGrid;
-        private System.Windows.Forms.Panel panelLine;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.Panel SearchPanel;
-        private System.Windows.Forms.TextBox SearchTextbox;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -335,5 +339,10 @@ namespace QuanLiRapChieuPhim
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel SearchPanel;
+        private System.Windows.Forms.TextBox SearchTextbox;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

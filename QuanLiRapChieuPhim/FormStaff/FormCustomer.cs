@@ -22,7 +22,7 @@ namespace QuanLiRapChieuPhim
 
         void LoadInfoCustomer()
         {
-            string query = "SELECT * FROM dbo.InfoCustomer";
+            string query = "SELECT ID, FullName, format(DoB,'dd/MM/yyyy') as DoB, Addr, Phone, IDPersonal, Points FROM dbo.InfoCustomer";
             ListCustomerGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -78,22 +78,11 @@ namespace QuanLiRapChieuPhim
                 }
             }
         }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             FormAddCustomer frm = new FormAddCustomer(ListCustomerGrid);
             frm.Owner = this;
             frm.ShowDialog();
-        }
-
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            AddButton.BackColor = Color.FromArgb(199, 80, 87);
-        }
-
-        private void AddButton_MouseLeave(object sender, EventArgs e)
-        {
-            AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
     }
 }

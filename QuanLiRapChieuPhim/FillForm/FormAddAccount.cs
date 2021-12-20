@@ -130,8 +130,37 @@ namespace QuanLiRapChieuPhim.AddForms
                     return;
                 }
             }
+            int count = 0;
+            if (UsernameTextbox.Text == "Username" || UsernameTextbox.Text == "")
+            {
+                errorProvider1.SetError(UsernameTextbox, "Please enter Username!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(UsernameTextbox, null);
+            }
 
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
+            if (PasswordTextbox.Text == "Password" || PasswordTextbox.Text == "")
+            {
+                errorProvider1.SetError(PasswordTextbox, "Please enter Password!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PasswordTextbox, null);
+            }
+
+            if (IDTextbox.Text == "ID" || IDTextbox.Text == "")
+            {
+                errorProvider1.SetError(IDTextbox, "Please enter ID!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(IDTextbox, null);
+            }
+            if (count == 0)
             {
                 AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
                 UsernameTextbox.Text = "";
@@ -140,15 +169,6 @@ namespace QuanLiRapChieuPhim.AddForms
                 AdminCheckbox.Checked = false;
                 MessageBox.Show("Account added!", "Notification", MessageBoxButtons.OK);
             }
-            else
-            {
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
-            }
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void AddButton_MouseMove(object sender, MouseEventArgs e)
@@ -163,7 +183,38 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "" && PasswordTextbox.Text != "Password")
+            int count = 0;
+
+            if (UsernameTextbox.Text == "Username" || UsernameTextbox.Text == "")
+            {
+                errorProvider1.SetError(UsernameTextbox, "Please enter Username!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(UsernameTextbox, null);
+            }
+
+            if (PasswordTextbox.Text == "Password" || PasswordTextbox.Text == "")
+            {
+                errorProvider1.SetError(PasswordTextbox, "Please enter Password!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PasswordTextbox, null);
+            }
+
+            if (IDTextbox.Text == "ID" || IDTextbox.Text == "")
+            {
+                errorProvider1.SetError(IDTextbox, "Please enter ID!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(IDTextbox, null);
+            }
+            if (count == 0)
             {
                 if (MessageBox.Show("Do you really want to change this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -174,10 +225,6 @@ namespace QuanLiRapChieuPhim.AddForms
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
         }
 

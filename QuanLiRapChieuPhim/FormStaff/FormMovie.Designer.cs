@@ -63,11 +63,11 @@ namespace QuanLiRapChieuPhim
             this.lbInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbInfo.AutoSize = true;
-            this.lbInfo.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo.Font = new System.Drawing.Font("Lato", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInfo.ForeColor = System.Drawing.Color.White;
             this.lbInfo.Location = new System.Drawing.Point(590, 152);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Size = new System.Drawing.Size(180, 297);
+            this.lbInfo.Size = new System.Drawing.Size(183, 297);
             this.lbInfo.TabIndex = 1;
             this.lbInfo.Text = "Genre: \r\n\r\nDirector: \r\n\r\nCountry:\r\n\r\nRelease Date: \r\n\r\nRunning Time:";
             // 
@@ -85,11 +85,11 @@ namespace QuanLiRapChieuPhim
             this.lbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lbDesc.AutoSize = true;
-            this.lbDesc.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDesc.Font = new System.Drawing.Font("Lato", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDesc.ForeColor = System.Drawing.Color.White;
             this.lbDesc.Location = new System.Drawing.Point(97, 654);
             this.lbDesc.Name = "lbDesc";
-            this.lbDesc.Size = new System.Drawing.Size(153, 33);
+            this.lbDesc.Size = new System.Drawing.Size(160, 33);
             this.lbDesc.TabIndex = 3;
             this.lbDesc.Text = "Description:\r\n";
             // 
@@ -127,7 +127,7 @@ namespace QuanLiRapChieuPhim
             this.buttonBooking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.buttonBooking.FlatAppearance.BorderSize = 0;
             this.buttonBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBooking.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBooking.Font = new System.Drawing.Font("Lato", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBooking.ForeColor = System.Drawing.Color.White;
             this.buttonBooking.Location = new System.Drawing.Point(596, 529);
             this.buttonBooking.Name = "buttonBooking";
@@ -152,7 +152,7 @@ namespace QuanLiRapChieuPhim
             this.buttonStt1.AutoSize = true;
             this.buttonStt1.FlatAppearance.BorderSize = 0;
             this.buttonStt1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStt1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStt1.Font = new System.Drawing.Font("Lato", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStt1.ForeColor = System.Drawing.Color.White;
             this.buttonStt1.Location = new System.Drawing.Point(600, 31);
             this.buttonStt1.Name = "buttonStt1";
@@ -175,11 +175,11 @@ namespace QuanLiRapChieuPhim
             // labelSTT
             // 
             this.labelSTT.AutoSize = true;
-            this.labelSTT.Font = new System.Drawing.Font("Nirmala UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSTT.Font = new System.Drawing.Font("Lato", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSTT.ForeColor = System.Drawing.Color.White;
             this.labelSTT.Location = new System.Drawing.Point(3, 4);
             this.labelSTT.Name = "labelSTT";
-            this.labelSTT.Size = new System.Drawing.Size(269, 54);
+            this.labelSTT.Size = new System.Drawing.Size(264, 48);
             this.labelSTT.TabIndex = 2;
             this.labelSTT.Text = "Now Showing";
             // 
@@ -191,7 +191,7 @@ namespace QuanLiRapChieuPhim
             this.flpMovie.Location = new System.Drawing.Point(0, 79);
             this.flpMovie.Name = "flpMovie";
             this.flpMovie.Size = new System.Drawing.Size(832, 674);
-            this.flpMovie.TabIndex = 44;
+            this.flpMovie.TabIndex = 45;
             // 
             // FormMovie
             // 

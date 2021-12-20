@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -109,7 +110,7 @@ namespace QuanLiRapChieuPhim
         {
             EnableButton(sender, Color.FromArgb(17, 17, 17));
             pictureHome.Image = Properties.Resources.statistic;
-            OpenChildForm(new FormStatistic());
+            OpenChildForm(new FormStatistic(FormLogin.ID_USER));
             labelHome.Text = "Statistic";
         }
 
@@ -171,6 +172,18 @@ namespace QuanLiRapChieuPhim
         private void buttonMinimize_MouseMove(object sender, MouseEventArgs e)
         {
             buttonMinimize.BackColor = Color.FromArgb(190, 62, 66);
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 ﻿--create database QuanLiRapChieuPhim
 --go
 --drop database QuanLiRapChieuPhim
 use QuanLiRapChieuPhim
 --go
-=======
-﻿create database QuanLiRapChieuPhim
-go
---drop database QuanLiRapChieuPhim
-use QuanLiRapChieuPhim
-go
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 
 set dateformat DMY
 go
@@ -21,12 +13,6 @@ go
 --Food&Drink
 --Bill
 
-<<<<<<< HEAD
-=======
---select day(datebooking) as 'day', month(datebooking) as 'month', year(datebooking) as 'year' from bill 
-
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
-
 create table InfoStaff  -- Nhân viên
 (
 	ID varchar(50) primary key,
@@ -36,6 +22,7 @@ create table InfoStaff  -- Nhân viên
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
 	Email nvarchar(100),
+	Avatar image,
 	IDPersonal int not null unique --cmnd/cccd
 )
 go
@@ -135,7 +122,7 @@ go
 
 create table FoodDrink
 (
-	ID int identity primary key,
+	ID int primary key,
 	NameFD nvarchar(1000) not null default N'No name',
 	IDCategory int not null,
 	Price float not null default 0,
@@ -152,17 +139,17 @@ create table Bill
 )
 go
 
---alter table bill 
---add total int
---go
+alter table bill 
+add total int
+go
 
---alter table bill 
---add IDStaff varchar(50)
---go
+alter table bill 
+add IDStaff varchar(50)
+go
 
---alter table Bill
---add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
---go
+alter table Bill
+add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
+go
 
 create table TicketBill
 (
@@ -397,7 +384,7 @@ GO
 CREATE PROC USP_GetShowtime
 AS
 BEGIN
-	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	SELECT LC.id, P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
 	FROM dbo.ShowTime AS LC, Movie AS P
 	where lc.idmovie=p.id
 END
@@ -407,7 +394,7 @@ CREATE PROC USP_GetShowtimeByRoom
 @idPC varchar(50)
 AS
 BEGIN
-	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	SELECT LC.id, P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
 	FROM dbo.ShowTime AS LC, Movie AS P
 	where lc.idmovie=p.id and lc.IDRoom=@idPC
 END
@@ -743,64 +730,64 @@ GO
 
 -- thêm món ăn
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG CARAMEL NHỎ', -- name - nvarchar(100)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 1,N'BỎNG CARAMEL NHỎ', -- name - nvarchar(100)
           1, -- idCategory - int
           35000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG CARAMEL LỚN', 1, 45000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 2,N'BỎNG CARAMEL LỚN', 1, 45000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG THƯỜNG NHỎ', 1, 30000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 3,N'BỎNG THƯỜNG NHỎ', 1, 30000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG THƯỜNG LỚN', 1, 40000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 4,N'BỎNG THƯỜNG LỚN', 1, 40000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG PHÔ MAI NHỎ', 1, 35000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 5,N'BỎNG PHÔ MAI NHỎ', 1, 35000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG PHÔ MAI LỚN', 1, 45000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 6,N'BỎNG PHÔ MAI LỚN', 1, 45000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'HAMBURGER GÀ', 1, 35000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 7,N'HAMBURGER GÀ', 1, 35000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'HAMBURGER BÒ', 1, 40000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 8,N'HAMBURGER BÒ', 1, 40000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'KHOAI TÂY CHIÊN', 1, 25000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 9,N'KHOAI TÂY CHIÊN', 1, 25000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'MÌ Ý BÒ BẰM', 1, 58000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 10,N'MÌ Ý BÒ BẰM', 1, 58000)
 -- thêm nước
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'PEPSI/MIRINDA/7UP', 2, 25000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 11,N'PEPSI/MIRINDA/7UP', 2, 25000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'MILO', 2, 30000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 12,N'MILO', 2, 30000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'NESTEA', 2, 25000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 13,N'NESTEA', 2, 25000)
 GO
 -- combo
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 49000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 14,N'1 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 49000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'2 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 69000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 15,N'2 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 69000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 MILO 1 BỎNG LỚN TÙY CHỌN', 3, 53000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 16,N'1 MILO 1 BỎNG LỚN TÙY CHỌN', 3, 53000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 KHOAI', 3, 39000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 17,N'1 PEPSI 1 KHOAI', 3, 39000)
 INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 HAMBURGER 1 KHOAI', 3, 73000)
+        ( ID, NameFD, idCategory, price )
+VALUES  ( 18,N'1 PEPSI 1 HAMBURGER 1 KHOAI', 3, 73000)
 GO
 
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL01', N'Hành động', NULL)
@@ -830,29 +817,10 @@ INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal],
 INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
 GO
 
-<<<<<<< HEAD
 INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01')
 INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02')
 INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03')
-=======
--- thêm bill
-INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 90000)
-INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 83000)
-GO
-
--- thêm bill info
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 4, 1)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 11, 2)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 10, 1)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 13, 1)
-GO
-
-INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', 180, 1, 12, 15)
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
-GO
-select * from Seat
+Go
 
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, N'10/04/2021', N'31/05/2021', N'Anh', N'David Yates', 2021)
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, N'23/04/2021', N'01/06/2021', N'Nhật Bản', N'Tomoka Nagaoka', 2021)
@@ -878,21 +846,17 @@ INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (
 GO
 
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\HP.png', single_blob) as img) where ID='MV01'
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\HP.png', single_blob) as img) where ID='MV01'
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Conan.png', single_blob) as img) where ID='MV02'
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Conan.png', single_blob) as img) where ID='MV02'
 update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Venom.png', single_blob) as img) where ID='MV03'
+set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Venom.png', single_blob) as img) where ID='MV03'
 
 INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV04', N'HARRY POTTER',N'Chưa có', 133, N'2/11/2021', N'31/12/2021', N'Anh', N'JK', 2021)
 
 update Movie
-<<<<<<< HEAD
 set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Poster2.png', single_blob) as img) where ID='MV04'
-=======
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Poster2.png', single_blob) as img) where ID='MV04'
 
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)
 
@@ -900,8 +864,6 @@ INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST08', N'27/11/2021 10:20:00',N'MV04', N'PC03', 110000)
 INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST10', N'23/12/2021 16:00:00',N'MV03', N'PC03', 110000)
 
-exec USP_InsertShowtime N'ST1', N'MV04', N'27/12/2021 00:20:00','PC03',110000
-select *from ShowTime
 
 exec USP_InsertSeat 'ST01'
 exec USP_InsertSeat 'ST02'
@@ -911,8 +873,57 @@ exec USP_InsertSeat 'ST05'
 exec USP_InsertSeat 'ST06'
 exec USP_InsertSeat 'ST08'
 exec USP_InsertSeat 'ST10'
-exec USP_InsertSeat 'ST1'
+
 
 update  Seat
 set stt=1 where SeatName in ('A01','C02','C03','H11')
+
+exec USP_DeleteBillInfo 9,3
+exec USP_DeleteBillInfo 9,13
+exec USP_DeleteBillInfo 9,4
+exec USP_DeleteBillInfo 9,2
+exec USP_DeleteBillInfo 9,8
+exec USP_DeleteBillInfo 9,7
+  
+
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_1.png', single_blob) as img) where ID='1'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_2.png', single_blob) as img) where ID='2'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_3.png', single_blob) as img) where ID='3'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_4.png', single_blob) as img) where ID='4'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_5.png', single_blob) as img) where ID='5'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_6.png', single_blob) as img) where ID='6'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_7.png', single_blob) as img) where ID='7'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_8.png', single_blob) as img) where ID='8'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_9.png', single_blob) as img) where ID='9'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\1_10.png', single_blob) as img) where ID='10'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\2_1.png', single_blob) as img) where ID='11'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\2_2.png', single_blob) as img) where ID='12'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\2_3.png', single_blob) as img) where ID='13'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\3_1.png', single_blob) as img) where ID='14'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\3_2.png', single_blob) as img) where ID='15'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\3_3.png', single_blob) as img) where ID='16'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\3_4.png', single_blob) as img) where ID='17'
+update FoodDrink
+set Picture=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Project-Visual-Programming-Group-8\FD\3_5.png', single_blob) as img) where ID='18'
+
+update InfoStaff
+set Avatar=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\avatar.png', single_blob) as img) 
+
 

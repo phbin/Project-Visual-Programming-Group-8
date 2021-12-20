@@ -93,7 +93,9 @@ namespace QuanLiRapChieuPhim
                 count++;
                 price += 110000;
                 lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 2;
+                string query = "UPDATE dbo.Seat SET stt=2 WHERE seatname='" + (curBtn.Tag as Seat).SeatName + "' and idshowtime='"+idshowtime+"'";
+                DataProvider.Instance.ExecuteQuery(query);
+                //(curBtn.Tag as Seat).stt = 2;
             }
             else if (curBtn.BackColor == Color.FromArgb(238, 154, 0)) //orange
             {
@@ -101,7 +103,8 @@ namespace QuanLiRapChieuPhim
                 count--;
                 price -= 110000;
                 lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 0;
+                string query = "UPDATE dbo.Seat SET stt=0'" + "'WHERE seatname='" + (curBtn.Tag as Seat).SeatName + "'";
+                //(curBtn.Tag as Seat).stt = 0;
             }
             else if (curBtn.BackColor == Color.FromArgb(227, 53, 57)) //red
             {
@@ -116,9 +119,9 @@ namespace QuanLiRapChieuPhim
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //TicketBill frm = new TicketBill();
-            //frm.Show();
+            FormTicketBill frm = new FormTicketBill(SeatDAO.GetSeatBooked(idshowtime),idshowtime);
+            frm.Show();
+            frm.BringToFront();
         }
     }
 }

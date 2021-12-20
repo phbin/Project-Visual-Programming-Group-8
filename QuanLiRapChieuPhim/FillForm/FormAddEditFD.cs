@@ -15,15 +15,26 @@ namespace QuanLiRapChieuPhim.ChildForms
 {
     public partial class FormAddEditFD : Form
     {
-        public FormAddEditFD()
-        {
-            InitializeComponent();
-        }
-
+    
         string PicturePath = "";
 
         private byte[] pic;
+        int CreateID()
+        {
+            int idf=0;
+            string query = "select * from FoodDrink";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
+            for (int i = 1; i <= table.Rows.Count + 1; i++)
+            {
+                idf = i;
+                foreach (DataRow rows in table.Rows)
+                {
+                    if ((int)rows["ID"] != idf) break;
+                }
+            }
+            return idf;
+        }
         public FormAddEditFD(string ID, string IDCategory, string NameFD, int Price, byte[] Path)
         {
             InitializeComponent();
@@ -32,11 +43,11 @@ namespace QuanLiRapChieuPhim.ChildForms
             NameFDTextbox.Text = NameFD;
             PriceTextbox.Text = Price.ToString();
             //load image
-            string query = "SELECT Poster FROM dbo.Movie where id ='" + ID + "'";
+            string query = "SELECT Picture FROM dbo.FoodDrink where id ='" + ID + "'";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow rows in table.Rows)
             {
-                pic = (byte[])rows["Poster"];
+                pic = (byte[])rows["Picture"];
 
             }
             pictureBox1.BackgroundImage = FoodDrinkDAO.byteArrayToImage(pic);
@@ -44,7 +55,6 @@ namespace QuanLiRapChieuPhim.ChildForms
             IDCategoryTextbox.ForeColor = Color.White;
             PriceTextbox.ForeColor = Color.White;
             NameFDTextbox.ForeColor = Color.White;
-            //pictureBox1.Image = Image.FromFile(ImagePath);
             EditButton.BringToFront();
         }
 
@@ -54,7 +64,7 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             InitializeComponent();
             DataGridView1 = data;
-            IDTextbox.Text = ""+(int.Parse(DataGridView1.Rows[DataGridView1.Rows.Count - 1 ].Cells["ID"].Value.ToString()) + 1);
+            IDTextbox.Text = CreateID().ToString();
             AddButton.BringToFront();
         }
 
@@ -125,17 +135,17 @@ namespace QuanLiRapChieuPhim.ChildForms
                     return;
                 }
             }
-
+            
             if (count==0)
             {
-                string query = "INSERT dbo.FoodDrink (NameFD, IDCategory, Price) VALUES(N'" + NameFDTextbox.Text + "', '" + IDCategoryTextbox.Text + "', '" + PriceTextbox.Text + "')";
-                FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
+                string query = "INSERT dbo.FoodDrink (id, NameFD, IDCategory, Price) VALUES(N'"+IDTextbox.Text+"', N'" + NameFDTextbox.Text + "', '" + IDCategoryTextbox.Text + "', '" + PriceTextbox.Text + "')";
                 DataProvider.Instance.ExecuteQuery(query);
+                FoodDrinkDAO.Instance.imageToByteArray(PicturePath, Convert.ToInt32(IDCategoryTextbox.Text), NameFDTextbox.Text, Convert.ToInt32(PriceTextbox.Text));
                 IDTextbox.Text = "";
                 IDCategoryTextbox.Text = "";
                 NameFDTextbox.Text = "";
                 PriceTextbox.Text = "";
-                pictureBox1.Image = null;
+                pictureBox1.BackgroundImage = null;
                 MessageBox.Show("Added!");
             }
         }
@@ -181,7 +191,7 @@ namespace QuanLiRapChieuPhim.ChildForms
                 {
                     string query = "UPDATE dbo.FoodDrink SET ID=N'" + IDTextbox.Text + "', IDCategory='" + IDCategoryTextbox.Text + "', NameFD='" + NameFDTextbox.Text + "', Price='" + PriceTextbox.Text  + "' WHERE ID='" + IDTextbox.Text + "'";
                     DataProvider.Instance.ExecuteQuery(query);
-                    FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
+                    FoodDrinkDAO.Instance.imageToByteArray(PicturePath, Convert.ToInt32(IDCategoryTextbox.Text), NameFDTextbox.Text, Convert.ToInt32(PriceTextbox.Text));
                     this.Close();
                     MessageBox.Show("Food/Drink Added!", "Notification", MessageBoxButtons.OK);
                 }

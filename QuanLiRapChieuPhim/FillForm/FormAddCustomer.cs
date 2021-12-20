@@ -17,6 +17,23 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             InitializeComponent();
         }
+        string CreateID()
+        {
+            string idc = "";
+            string query = "select * from InfoCustomer";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+
+            for (int i = 0; i <= table.Rows.Count + 1; i++)
+            {
+                if (i < 10) idc = "KH0" + i;
+                else idc = "KH" + i;
+                foreach (DataRow rows in table.Rows)
+                {
+                    if (rows["ID"].ToString() != idc) break;
+                }
+            }
+            return idc;
+        }
         DataGridView ListCustomerGrid = new DataGridView();
 
         public FormAddCustomer(DataGridView data)
@@ -24,7 +41,8 @@ namespace QuanLiRapChieuPhim.ChildForms
             InitializeComponent();
             ListCustomerGrid = data;
             AddButton.BringToFront();
-            IDTextbox.ReadOnly = false;
+            IDTextbox.Text = CreateID();
+            IDTextbox.ReadOnly = true;
         }
 
         public FormAddCustomer(string ID, string FullName, string DoB, string Address, string Phone, string IDPersonal, string Points)
@@ -123,7 +141,7 @@ namespace QuanLiRapChieuPhim.ChildForms
                 if (IDTextbox.Text == ListCustomerGrid.Rows[i].Cells["ID"].Value.ToString())
                 {
                     MessageBox.Show("This customer's infomation already exist", "Notification", MessageBoxButtons.OK);
-                    IDTextbox.Text = "ID";
+                    IDTextbox.Text = CreateID();
                     FullNameTextbox.Text = "Full Name";
                     DoBTextbox.Text = "Birthday";
                     AddressTextbox.Text = "Address";
@@ -166,11 +184,6 @@ namespace QuanLiRapChieuPhim.ChildForms
                 FormCustomer.ActiveForm.Activate();
             }
            
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void IDTextbox_Enter(object sender, EventArgs e)
@@ -240,7 +253,7 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             if (IDTextbox.Text == "")
             {
-                IDTextbox.Text = "ID";
+                IDTextbox.Text = CreateID();
                 IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
@@ -415,8 +428,9 @@ namespace QuanLiRapChieuPhim.ChildForms
             AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
 
-        private void buttonClose_Click_1(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
+            FormCustomer.ActiveForm.Activate();
             this.Close();
         }
     }

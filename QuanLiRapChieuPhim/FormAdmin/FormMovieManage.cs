@@ -25,46 +25,6 @@ namespace QuanLiRapChieuPhim
             listMovieGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
-        private void listMovieGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-             
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            MovieControls frm = new MovieControls();
-            frm.Show();
-        }
-
-        private void SearchTextbox_Enter(object sender, EventArgs e)
-        {
-            if (SearchTextbox.Text == "Search")
-            {
-                SearchTextbox.Text = "";
-                SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }
-        }
-
-        private void SearchTextbox_Leave(object sender, EventArgs e)
-        {
-            if (SearchTextbox.Text == "")
-            {
-                SearchTextbox.Text = "Search";
-                SearchTextbox.ForeColor = Color.Gray;
-                LoadMovie();
-            }
-        }
-
-        private void SearchTextbox_TextChanged(object sender, EventArgs e)
-        {
-            DataTable filtertable = new DataTable();
-            filtertable = MovieDAO.Instance.SearchMovie(SearchTextbox.Text);
-            listMovieGrid.DataSource = filtertable;
-        }
-
         private void listMovieGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -88,6 +48,38 @@ namespace QuanLiRapChieuPhim
                     LoadMovie();
                 }
             }
+        }
+
+        private void SearchTextbox_TextChanged(object sender, EventArgs e)
+        {
+            DataTable filtertable = new DataTable();
+            filtertable = MovieDAO.Instance.SearchMovie(SearchTextbox.Text);
+            listMovieGrid.DataSource = filtertable;
+        }
+
+        private void SearchTextbox_Enter(object sender, EventArgs e)
+        {
+            if (SearchTextbox.Text == "Search")
+            {
+                SearchTextbox.Text = "";
+                SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+            }
+        }
+
+        private void SearchTextbox_Leave(object sender, EventArgs e)
+        {
+            if (SearchTextbox.Text == "")
+            {
+                SearchTextbox.Text = "Search";
+                SearchTextbox.ForeColor = Color.Gray;
+                LoadMovie();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            MovieControls frm = new MovieControls();
+            frm.Show();
         }
     }
 }

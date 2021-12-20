@@ -83,7 +83,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public DataTable SearchAccount(string Username)
         {
-            string query = "SELECT * FROM dbo.Account WHERE Username LIKE '%" + Username + "%'";
+            string query = "SELECT Username, ID, Acctype FROM dbo.Account WHERE Username LIKE '%" + Username + "%'";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -110,7 +110,7 @@ namespace QuanLiRapChieuPhim.DAO
 
         public void EditInfoStaff(string ID, string Fullname, string DoB, string Address, string PhoneNum, string IDPersonal, string Email, string Sex)
         {
-            string query = "UPDATE dbo.InfoStaff SET FullName=N'" + Fullname + "', DoB='" + DoB + "', Addr='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "', Sex='" + Sex + "', Email='" + Email + "' WHERE ID='" + ID + "'";
+            string query = "UPDATE dbo.InfoStaff SET FullName=N'" + Fullname + "', DoB='" + DoB + "', Addr='" + Address + "', Phone='" + PhoneNum + "', IDPersonal='" + IDPersonal + "', Sex=N'" + Sex + "', Email='" + Email + "' WHERE ID='" + ID + "'";
             DataProvider.Instance.ExecuteQuery(query);
         }
     }

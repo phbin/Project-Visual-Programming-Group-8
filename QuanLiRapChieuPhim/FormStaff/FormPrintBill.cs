@@ -10,6 +10,8 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Security;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,109 +21,22 @@ namespace QuanLiRapChieuPhim
     public partial class FormPrintBill : Form
     {
         Bill bill;
+
         public FormPrintBill(int id)
         {
             InitializeComponent();
             bill = BillDAO.Instance.GetBillByID(id);
         }
-        #region Method
+
         private void FormPrintBill_Load(object sender, EventArgs e)
         {
-            //DataSource
-            string query = "SELECT FD.NameFD AS Name, BI.Num AS Quantity, FD.Price, FD.Price*BI.Num AS TotalPrice FROM BillInfo BI, FoodDrink FD WHERE BI.IDFoodDrink = FD.ID AND BI.IDBill = " + bill.ID;
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            this.reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsMenu", data));
-
-            //Parameters
-            float subTotal = bill.Total;
-            float tax = subTotal * (float)0.1;
-            float total = subTotal + tax;
-
+            BillDAO.Instance.CheckOut(bill.ID);
             BillDAO.Instance.UpdateDateBill(bill.ID);
-
-            Microsoft.Reporting.WinForms.ReportParameter[] para = new Microsoft.Reporting.WinForms.ReportParameter[]
-            {
-                new Microsoft.Reporting.WinForms.ReportParameter("rpID", bill.ID.ToString()),
-                new Microsoft.Reporting.WinForms.ReportParameter("rpDate", bill.Date),
-                new Microsoft.Reporting.WinForms.ReportParameter("rpSubTotal", subTotal.ToString()),
-                new Microsoft.Reporting.WinForms.ReportParameter("rpTax", tax.ToString()),
-                new Microsoft.Reporting.WinForms.ReportParameter("rpTotal", total.ToString())
-            };
-
-            //Add
-            this.reportViewer.LocalReport.SetParameters(para);
-
-            this.reportViewer.RefreshReport();
+            printPreviewControl1.Document = printDocument;
+            printDocument.DocumentName = "Bill" + bill.ID;
         }
-     
-        //public static void PrintToPrinter(LocalReport report)
-        //{
-        //    PageSettings pageSettings = new PageSettings();
-        //    pageSettings.PaperSize = report.GetDefaultPageSettings().PaperSize;
-        //    pageSettings.Landscape = report.GetDefaultPageSettings().IsLandscape;
-        //    pageSettings.Margins = report.GetDefaultPageSettings().Margins;
-        //    Print(report, pageSettings);
-        //}
 
-        //public static void Print(LocalReport report, PageSettings pageSettings)
-        //{
-        //    string deviceInfo =
-        //        $@"<DeviceInfo>
-        //            <OutputFormat>EMF</OutputFormat>
-        //            <PageWidth>{pageSettings.PaperSize.Width * 100}in</PageWidth>
-        //            <PageHeight>{pageSettings.PaperSize.Height * 100}in</PageHeight>
-        //            <MarginTop>{pageSettings.Margins.Top * 100}in</MarginTop>
-        //            <MarginLeft>{pageSettings.Margins.Left * 100}in</MarginLeft>
-        //            <MarginRight>{pageSettings.Margins.Right * 100}in</MarginRight>
-        //            <MarginBottom>{pageSettings.Margins.Bottom * 100}in</MarginBottom>
-        //        </DeviceInfo>";
-        //    Warning[] warnings;
-        //    var streams = new List<Stream>();
-        //    var pageIndex = 0;
-        //    report.Render("Image", deviceInfo,
-        //        (name, fileNameExtension, encoding, mimeType, willSeek) =>
-        //        {
-        //            MemoryStream stream = new MemoryStream();
-        //            streams.Add(stream);
-        //            return stream;
-        //        }, out warnings);
-        //    foreach (Stream stream in streams)
-        //        stream.Position = 0;
-        //    if (streams == null || streams.Count == 0)
-        //        throw new Exception("No stream to print.");
-        //    using (PrintDocument printDocument = new PrintDocument())
-        //    {
-        //        printDocument.DefaultPageSettings = pageSettings;
-        //        if (!printDocument.PrinterSettings.IsValid)
-        //            throw new Exception("Can't find the default printer.");
-        //        else
-        //        {
-        //            printDocument.PrintPage += (sender, e) =>
-        //            {
-        //                Metafile pageImage = new Metafile(streams[pageIndex]);
-        //                Rectangle adjustedRect = new Rectangle(e.PageBounds.Left - (int)e.PageSettings.HardMarginX, e.PageBounds.Top - (int)e.PageSettings.HardMarginY, e.PageBounds.Width, e.PageBounds.Height);
-        //                e.Graphics.FillRectangle(Brushes.White, adjustedRect);
-        //                e.Graphics.DrawImage(pageImage, adjustedRect);
-        //                pageIndex++;
-        //                e.HasMorePages = (pageIndex < streams.Count);
-        //                e.Graphics.DrawRectangle(Pens.Red, adjustedRect);
-        //            };
-        //            printDocument.EndPrint += (Sender, e) =>
-        //            {
-        //                if (streams != null)
-        //                {
-        //                    foreach (Stream stream in streams)
-        //                        stream.Close();
-        //                    streams = null;
-        //                }
-        //            };
-        //            printDocument.Print();
-        //        }
-        //    }
-        //}
-        #endregion
 
-        #region Events
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -134,16 +49,58 @@ namespace QuanLiRapChieuPhim
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            //PrintDialog printDlg = new PrintDialog();
-            //if (printDlg.ShowDialog() == DialogResult.OK)
-            //{
-            //    LocalReport localReport = new LocalReport();
-            //    localReport.ReportPath = Application.StartupPath + "\\Report1.rdlc";
-            //    PrintToPrinter(localReport);
-            //}
-
-            BillDAO.Instance.CheckOut(bill.ID);
+            PrintDialog printDlg = new PrintDialog();
+            printDlg.Document = printDocument;
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDocument.Print();
         }
-        #endregion
+
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            float subTotal = bill.Total;
+            float tax = subTotal * (float)0.1;
+            float total = subTotal + tax;
+
+            Brush b = Brushes.Black;
+            Font f = new Font("Arial", 10F);
+            int x = 0;
+            int y = 120;
+
+            SizeF s1 = e.Graphics.MeasureString(subTotal.ToString() + " VND", f);
+            SizeF s2 = e.Graphics.MeasureString(tax.ToString() + " VND", f);
+            SizeF s3 = e.Graphics.MeasureString(total.ToString() + " VND", new Font("Arial", 12F, FontStyle.Bold));
+
+            e.Graphics.DrawString("GROUP 8 CINEMA", new Font("Arial", 14F, FontStyle.Bold), b, 20, 0);
+            e.Graphics.DrawString("Quarter 6, Linh Trung Ward,", f, b, 25, 20);
+            e.Graphics.DrawString("Thu Duc District, HCMC", f, b, 35, 35);
+            e.Graphics.DrawString("No. " + bill.ID, f, b, 10, 50);
+            e.Graphics.DrawString("Date: " + bill.Date, f, b, 10, 65);
+            
+            e.Graphics.DrawString("===================================", new Font("Arial", 7F), b, 12, 85);
+            e.Graphics.DrawString("FOODDRINK BILL", new Font("Arial", 12F, FontStyle.Bold), b, 35, 100);
+            e.Graphics.DrawString("Q.", f, b, 5, 120);
+            e.Graphics.DrawString("Name", f, b, 25, 120);
+            e.Graphics.DrawString("Total", f, b, 165, 120);
+            
+            List<FDMenu> menuList = MenuDAO.Instance.GetListMenuByBillID(bill.ID);
+            foreach (FDMenu item in menuList) 
+            {
+                e.Graphics.DrawString(item.Quantity.ToString(), f, b, x + 5, y + 15);
+                e.Graphics.DrawString(item.Name, f, b, x + 25, y + 15);
+                SizeF s = e.Graphics.MeasureString(item.TotalPrice.ToString(), f);
+                e.Graphics.DrawString(item.TotalPrice.ToString(), f, b, 215 - s.Width, y + 15);
+                x = 0;
+                y = y + 15;
+            }
+           
+            e.Graphics.DrawString("===================================", new Font("Arial", 7F), b, 12, y + 20);
+            e.Graphics.DrawString("Sub total:", f, b, 10, y + 35);
+            e.Graphics.DrawString(subTotal.ToString() + " VND", f, b, 215 - s1.Width, y + 35);
+            e.Graphics.DrawString("Tax:", f, b, 10, y + 50);
+            e.Graphics.DrawString(tax.ToString() + " VND", f, b, 215 - s2.Width, y + 50);
+            e.Graphics.DrawString("Total:", new Font("Arial", 12F, FontStyle.Bold), b, 10, y + 65);
+            e.Graphics.DrawString(total.ToString() + " VND", new Font("Arial", 12F, FontStyle.Bold), b, 215 - (s3.Width + 1), y + 65);
+            e.Graphics.DrawString("**THANKS FOR YOUR PURCHASE**", new Font("Arial", 8F), b, 12, y + 85);
+        }
     }
 }
