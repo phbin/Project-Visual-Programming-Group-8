@@ -60,22 +60,23 @@
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(789, 426);
             this.LoginPanel.TabIndex = 4;
+            this.LoginPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginPanel_MouseDown);
             // 
             // WrongLabel
             // 
             this.WrongLabel.AutoSize = true;
             this.WrongLabel.BackColor = System.Drawing.Color.Transparent;
-            this.WrongLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WrongLabel.Font = new System.Drawing.Font("Lato", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WrongLabel.ForeColor = System.Drawing.Color.White;
-            this.WrongLabel.Location = new System.Drawing.Point(243, 278);
+            this.WrongLabel.Location = new System.Drawing.Point(194, 243);
             this.WrongLabel.Name = "WrongLabel";
-            this.WrongLabel.Size = new System.Drawing.Size(274, 17);
-            this.WrongLabel.TabIndex = 8;
-            this.WrongLabel.Text = "Sai tài khoản hoặc mật khẩu, vui lòng nhập lại";
+            this.WrongLabel.Size = new System.Drawing.Size(397, 18);
+            this.WrongLabel.TabIndex = 0;
+            this.WrongLabel.Text = "The username or password that you\'ve entered is incorrect.";
             // 
             // ShowButton
             // 
-            this.ShowButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShowButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
             this.ShowButton.FlatAppearance.BorderSize = 0;
             this.ShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShowButton.ForeColor = System.Drawing.Color.Transparent;
@@ -95,9 +96,9 @@
             this.LoginButton.BackColor = System.Drawing.Color.Transparent;
             this.LoginButton.FlatAppearance.BorderSize = 0;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButton.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ForeColor = System.Drawing.Color.White;
-            this.LoginButton.Location = new System.Drawing.Point(273, 309);
+            this.LoginButton.Location = new System.Drawing.Point(270, 309);
             this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(244, 42);
@@ -128,22 +129,21 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
             this.panel2.Controls.Add(this.PasswordTextbox);
-            this.panel2.Location = new System.Drawing.Point(301, 193);
+            this.panel2.Location = new System.Drawing.Point(298, 179);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(196, 23);
+            this.panel2.Size = new System.Drawing.Size(239, 45);
             this.panel2.TabIndex = 1;
             // 
             // PasswordTextbox
             // 
             this.PasswordTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
             this.PasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PasswordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextbox.Font = new System.Drawing.Font("Lato", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(70)))), ((int)(((byte)(91)))));
-            this.PasswordTextbox.Location = new System.Drawing.Point(0, 0);
+            this.PasswordTextbox.Location = new System.Drawing.Point(3, 10);
             this.PasswordTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PasswordTextbox.Multiline = true;
             this.PasswordTextbox.Name = "PasswordTextbox";
@@ -157,26 +157,25 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
             this.panel1.Controls.Add(this.UsernameTextbox);
-            this.panel1.Location = new System.Drawing.Point(301, 134);
+            this.panel1.Location = new System.Drawing.Point(298, 122);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 23);
+            this.panel1.Size = new System.Drawing.Size(239, 45);
             this.panel1.TabIndex = 0;
             // 
             // UsernameTextbox
             // 
             this.UsernameTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(121)))), ((int)(((byte)(129)))));
             this.UsernameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsernameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameTextbox.Font = new System.Drawing.Font("Lato", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(70)))), ((int)(((byte)(91)))));
-            this.UsernameTextbox.Location = new System.Drawing.Point(0, 0);
+            this.UsernameTextbox.Location = new System.Drawing.Point(3, 11);
             this.UsernameTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UsernameTextbox.Multiline = true;
             this.UsernameTextbox.Name = "UsernameTextbox";
-            this.UsernameTextbox.Size = new System.Drawing.Size(234, 23);
+            this.UsernameTextbox.Size = new System.Drawing.Size(233, 23);
             this.UsernameTextbox.TabIndex = 1;
             this.UsernameTextbox.Text = "Username";
             this.UsernameTextbox.Enter += new System.EventHandler(this.UsernameTextbox_Enter);

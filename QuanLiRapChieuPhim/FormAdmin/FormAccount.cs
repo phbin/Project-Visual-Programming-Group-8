@@ -79,14 +79,6 @@ namespace QuanLiRapChieuPhim
             ListAccountGrid.DataSource = filtertable;
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            FormAddAccount frm = new FormAddAccount(ListAccountGrid);
-            frm.Owner = this;
-            frm.ShowDialog();
-            LoadAccountList();
-        }
-
         private void ListAccountGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -112,14 +104,12 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(199, 80, 87);
-        }
-
-        private void AddButton_MouseLeave(object sender, EventArgs e)
-        {
-            AddButton.BackColor = Color.FromArgb(190, 62, 66);
+            FormAddAccount frm = new FormAddAccount(ListAccountGrid);
+            frm.Owner = this;
+            frm.ShowDialog();
+            LoadAccountList();
         }
     }
 }

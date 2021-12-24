@@ -17,6 +17,23 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             InitializeComponent();
         }
+        string CreateID()
+        {
+            string idc = "";
+            string query = "select * from InfoCustomer";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+
+            for (int i = 0; i <= table.Rows.Count + 1; i++)
+            {
+                if (i < 10) idc = "KH0" + i;
+                else idc = "KH" + i;
+                foreach (DataRow rows in table.Rows)
+                {
+                    if (rows["ID"].ToString() != idc) break;
+                }
+            }
+            return idc;
+        }
         DataGridView ListCustomerGrid = new DataGridView();
 
         public FormAddCustomer(DataGridView data)
@@ -24,15 +41,17 @@ namespace QuanLiRapChieuPhim.ChildForms
             InitializeComponent();
             ListCustomerGrid = data;
             AddButton.BringToFront();
-            IDTextbox.ReadOnly = false;
+            IDTextbox.Text = CreateID();
+            IDTextbox.ReadOnly = true;
+            IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
         }
 
-        public FormAddCustomer(string ID, string FullName, string DoB, string Address, string Phone, string IDPersonal, string Points)
+        public FormAddCustomer(string ID, string FullName, DateTime DoB, string Address, string Phone, string IDPersonal, string Points)
         {
             InitializeComponent();
             IDTextbox.Text = ID;
             FullNameTextbox.Text = FullName;
-            DoBTextbox.Text = DoB;
+            txtDOB.Value = DoB;
             AddressTextbox.Text = Address;
             PhoneTextbox.Text = Phone;
             IDPersonalTextbox.Text = IDPersonal;
@@ -40,7 +59,6 @@ namespace QuanLiRapChieuPhim.ChildForms
 
             IDTextbox.ForeColor = Color.White;
             FullNameTextbox.ForeColor = Color.White;
-            DoBTextbox.ForeColor = Color.White;
             AddressTextbox.ForeColor = Color.White;
             PhoneTextbox.ForeColor = Color.White;
             IDPersonalTextbox.ForeColor = Color.White;
@@ -64,16 +82,6 @@ namespace QuanLiRapChieuPhim.ChildForms
                 errorProvider1.SetError(FullNameTextbox, null);
             }
 
-            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
-            {
-                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
-                count++;
-            }
-            else
-            {
-                errorProvider1.SetError(DoBTextbox, null);
-            }
-
             if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
             {
                 errorProvider1.SetError(AddressTextbox, "Please enter Address!");
@@ -95,37 +103,28 @@ namespace QuanLiRapChieuPhim.ChildForms
                 errorProvider1.SetError(IDPersonalTextbox, null);
             }
 
-
-            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            if (PhoneTextbox.Text.Length != 10 )
             {
-                foreach (char item in PhoneTextbox.Text)
-                {
-                    if (item >= '0' && item <= '9')
-                    {
-                        errorProvider1.SetError(PhoneTextbox, null);
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
-                        count++;
-                        return;
-                    }
-
-                }
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number in the correct format!");
+                count++;
+            }
+            else if (PhoneTextbox.Text == "Phone Number")
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                count++;
             }
             else
             {
-                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                errorProvider1.SetError(PhoneTextbox, null);
             }
 
             for (int i = 0; i < ListCustomerGrid.Rows.Count; i++)
             {
                 if (IDTextbox.Text == ListCustomerGrid.Rows[i].Cells["ID"].Value.ToString())
                 {
-                    MessageBox.Show("This customer's infomation already exist", "Notification", MessageBoxButtons.OK);
-                    IDTextbox.Text = "ID";
+                    MessageBox.Show("This customer's infomation has already existed", "Notification", MessageBoxButtons.OK);
+                    IDTextbox.Text = CreateID();
                     FullNameTextbox.Text = "Full Name";
-                    DoBTextbox.Text = "Birthday";
                     AddressTextbox.Text = "Address";
                     PhoneTextbox.Text = "Phone Number";
                     IDPersonalTextbox.Text = "Personal ID";
@@ -133,12 +132,10 @@ namespace QuanLiRapChieuPhim.ChildForms
 
                     IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     FullNameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-                    DoBTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     AddressTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     PhoneTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     IDPersonalTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     PointTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-                    IDTextbox.Focus();
                     return;
                 }
             }
@@ -151,26 +148,26 @@ namespace QuanLiRapChieuPhim.ChildForms
 
             if (count == 0)
             {
-                DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
+                DateTime DayofBirth = txtDOB.Value;
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 string query = "INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES ('" + IDTextbox.Text + "',N'" + FullNameTextbox.Text + "','" + sqlFormattedDate + "',N'" + AddressTextbox.Text + "','" + PhoneTextbox.Text + "'," + int.Parse(IDPersonalTextbox.Text) + "," + int.Parse(PointTextbox.Text) +")";
                 DataProvider.Instance.ExecuteQuery(query);
-                IDTextbox.Text = "ID";
+                IDTextbox.Text = CreateID();
                 FullNameTextbox.Text = "Full Name";
-                DoBTextbox.Text = "Birthday";
                 AddressTextbox.Text = "Address";
                 PhoneTextbox.Text = "Phone Number";
                 IDPersonalTextbox.Text = "Personal ID";
                 PointTextbox.Text = "Point";
+                IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                FullNameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                AddressTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                PhoneTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                IDPersonalTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                PointTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                 MessageBox.Show("Customer's infomation added!");
                 FormCustomer.ActiveForm.Activate();
             }
            
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void IDTextbox_Enter(object sender, EventArgs e)
@@ -188,15 +185,6 @@ namespace QuanLiRapChieuPhim.ChildForms
             {
                 FullNameTextbox.Text = "";
                 FullNameTextbox.ForeColor = Color.White;
-            }
-        }
-
-        private void DoBTextbox_Enter(object sender, EventArgs e)
-        {
-            if (DoBTextbox.Text == "Birthday")
-            {
-                DoBTextbox.Text = "";
-                DoBTextbox.ForeColor = Color.White;
             }
         }
 
@@ -240,7 +228,7 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             if (IDTextbox.Text == "")
             {
-                IDTextbox.Text = "ID";
+                IDTextbox.Text = CreateID();
                 IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
@@ -251,15 +239,6 @@ namespace QuanLiRapChieuPhim.ChildForms
             {
                 FullNameTextbox.Text = "Full Name";
                 FullNameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }
-        }
-
-        private void DoBTextbox_Leave(object sender, EventArgs e)
-        {
-            if (DoBTextbox.Text == "")
-            {
-                DoBTextbox.Text = "Birthday";
-                DoBTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
 
@@ -313,16 +292,6 @@ namespace QuanLiRapChieuPhim.ChildForms
                 errorProvider1.SetError(FullNameTextbox, null);
             }
 
-            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
-            {
-                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
-                count++;
-            }
-            else
-            {
-                errorProvider1.SetError(DoBTextbox, null);
-            }
-
             if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
             {
                 errorProvider1.SetError(AddressTextbox, "Please enter Address!");
@@ -345,25 +314,19 @@ namespace QuanLiRapChieuPhim.ChildForms
             }
 
 
-            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            if (PhoneTextbox.Text.Length != 10)
             {
-                foreach (char item in PhoneTextbox.Text)
-                {
-                    if (item >= '0' && item <= '9')
-                    {
-                        errorProvider1.SetError(PhoneTextbox, null);
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
-                        count++;
-                    }
-
-                }
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number in the correct format!");
+                count++;
+            }
+            else if (PhoneTextbox.Text == "Phone Number")
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                count++;
             }
             else
             {
-                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                errorProvider1.SetError(PhoneTextbox, null);
             }
 
 
@@ -376,7 +339,7 @@ namespace QuanLiRapChieuPhim.ChildForms
             {
                 if (MessageBox.Show("Do you really want to change this information??", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
+                    DateTime DayofBirth = txtDOB.Value;
                     string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
                     string query = "UPDATE dbo.InfoCustomer SET FullName=N'" + FullNameTextbox.Text + "', DoB='" + sqlFormattedDate + "', Addr='" + AddressTextbox.Text + "', Phone='" + PhoneTextbox.Text + "', IDPersonal='" + IDPersonalTextbox.Text + "', Points=" + int.Parse(PointTextbox.Text) + " WHERE ID='" + IDTextbox.Text + "'";
                     DataProvider.Instance.ExecuteQuery(query);
@@ -415,9 +378,22 @@ namespace QuanLiRapChieuPhim.ChildForms
             AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
 
-        private void buttonClose_Click_1(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
+            FormCustomer.ActiveForm.Activate();
             this.Close();
+        }
+
+        private void PhoneTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void IDPersonalTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
     

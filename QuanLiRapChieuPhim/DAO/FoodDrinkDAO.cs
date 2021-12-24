@@ -51,9 +51,9 @@ namespace QuanLiRapChieuPhim.DAO
             return data;
         }
         // image -> byte, insert image into database
-        public void imageToByteArray(string path, string id)
+        public void imageToByteArray(string path, int idc,string name,float price)
         {
-            string query = "update FoodDrink set Picture = (select * from openrowset(bulk N'" + path + "', single_blob) as img) where ID = '" + id + "'";
+            string query = "update FoodDrink set Picture = (select * from openrowset(bulk N'" + path + "', single_blob) as img) where IDCategory = '" + idc + "' and NameFD=N'"+name+"' and price='"+price+"'";
             DataProvider.Instance.ExecuteQuery(query);
         }
         // byte[] -> image, get image from database

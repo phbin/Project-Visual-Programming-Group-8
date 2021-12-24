@@ -54,7 +54,7 @@ namespace QuanLiRapChieuPhim
             // 
             // panelLine
             // 
-            this.panelLine.BackColor = System.Drawing.Color.DimGray;
+            this.panelLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             this.panelLine.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLine.Location = new System.Drawing.Point(260, 58);
             this.panelLine.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -66,11 +66,11 @@ namespace QuanLiRapChieuPhim
             // 
             this.labelHome.AutoSize = true;
             this.labelHome.BackColor = System.Drawing.Color.Transparent;
-            this.labelHome.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHome.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHome.ForeColor = System.Drawing.Color.White;
             this.labelHome.Location = new System.Drawing.Point(68, 20);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(65, 28);
+            this.labelHome.Size = new System.Drawing.Size(63, 24);
             this.labelHome.TabIndex = 1;
             this.labelHome.Text = "Home";
             // 
@@ -89,12 +89,15 @@ namespace QuanLiRapChieuPhim
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1298, 58);
             this.panelMenu.TabIndex = 3;
+            this.panelMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseDown);
             // 
             // buttonMaximize
             // 
             this.buttonMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMaximize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMaximize.FlatAppearance.BorderSize = 0;
+            this.buttonMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMaximize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximize.Image")));
             this.buttonMaximize.Location = new System.Drawing.Point(1207, 7);
@@ -111,6 +114,8 @@ namespace QuanLiRapChieuPhim
             this.buttonRestoreDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRestoreDown.BackColor = System.Drawing.Color.Transparent;
             this.buttonRestoreDown.FlatAppearance.BorderSize = 0;
+            this.buttonRestoreDown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonRestoreDown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonRestoreDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestoreDown.Image = ((System.Drawing.Image)(resources.GetObject("buttonRestoreDown.Image")));
             this.buttonRestoreDown.Location = new System.Drawing.Point(1207, 7);
@@ -127,6 +132,8 @@ namespace QuanLiRapChieuPhim
             this.buttonMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
             this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimize.Image = global::QuanLiRapChieuPhim.Properties.Resources.minimize;
             this.buttonMinimize.Location = new System.Drawing.Point(1169, 9);
@@ -144,6 +151,8 @@ namespace QuanLiRapChieuPhim
             this.buttonClose.BackColor = System.Drawing.Color.Transparent;
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::QuanLiRapChieuPhim.Properties.Resources.close;
             this.buttonClose.Location = new System.Drawing.Point(1249, 7);
@@ -169,6 +178,8 @@ namespace QuanLiRapChieuPhim
             // 
             this.gradientPanelDesktop.Angle = 0F;
             this.gradientPanelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(46)))));
+            this.gradientPanelDesktop.BackgroundImage = global::QuanLiRapChieuPhim.Properties.Resources.CinemaPic;
+            this.gradientPanelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.gradientPanelDesktop.BottomColor = System.Drawing.Color.Empty;
             this.gradientPanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanelDesktop.Location = new System.Drawing.Point(260, 65);
@@ -182,10 +193,10 @@ namespace QuanLiRapChieuPhim
             this.gradientPanelMenu.Angle = 60F;
             this.gradientPanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.gradientPanelMenu.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.gradientPanelMenu.Controls.Add(this.ButtonFD);
             this.gradientPanelMenu.Controls.Add(this.buttonStatistics);
             this.gradientPanelMenu.Controls.Add(this.buttonShowtime);
             this.gradientPanelMenu.Controls.Add(this.Movie);
+            this.gradientPanelMenu.Controls.Add(this.ButtonFD);
             this.gradientPanelMenu.Controls.Add(this.buttonAccount);
             this.gradientPanelMenu.Controls.Add(this.buttonHRM);
             this.gradientPanelMenu.Controls.Add(this.panelHome);
@@ -202,12 +213,14 @@ namespace QuanLiRapChieuPhim
             this.ButtonFD.BackColor = System.Drawing.Color.Transparent;
             this.ButtonFD.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonFD.FlatAppearance.BorderSize = 0;
+            this.ButtonFD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.ButtonFD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.ButtonFD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonFD.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonFD.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonFD.ForeColor = System.Drawing.Color.White;
             this.ButtonFD.Image = global::QuanLiRapChieuPhim.Properties.Resources.fd;
             this.ButtonFD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonFD.Location = new System.Drawing.Point(0, 629);
+            this.ButtonFD.Location = new System.Drawing.Point(0, 329);
             this.ButtonFD.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.ButtonFD.Name = "ButtonFD";
             this.ButtonFD.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -223,12 +236,14 @@ namespace QuanLiRapChieuPhim
             this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
             this.buttonStatistics.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonStatistics.FlatAppearance.BorderSize = 0;
+            this.buttonStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonStatistics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStatistics.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatistics.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStatistics.ForeColor = System.Drawing.Color.White;
             this.buttonStatistics.Image = ((System.Drawing.Image)(resources.GetObject("buttonStatistics.Image")));
             this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistics.Location = new System.Drawing.Point(0, 529);
+            this.buttonStatistics.Location = new System.Drawing.Point(0, 629);
             this.buttonStatistics.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -244,12 +259,14 @@ namespace QuanLiRapChieuPhim
             this.buttonShowtime.BackColor = System.Drawing.Color.Transparent;
             this.buttonShowtime.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonShowtime.FlatAppearance.BorderSize = 0;
+            this.buttonShowtime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonShowtime.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonShowtime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShowtime.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowtime.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonShowtime.ForeColor = System.Drawing.Color.White;
             this.buttonShowtime.Image = global::QuanLiRapChieuPhim.Properties.Resources.deadline;
             this.buttonShowtime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonShowtime.Location = new System.Drawing.Point(0, 429);
+            this.buttonShowtime.Location = new System.Drawing.Point(0, 529);
             this.buttonShowtime.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.buttonShowtime.Name = "buttonShowtime";
             this.buttonShowtime.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -265,12 +282,14 @@ namespace QuanLiRapChieuPhim
             this.Movie.BackColor = System.Drawing.Color.Transparent;
             this.Movie.Dock = System.Windows.Forms.DockStyle.Top;
             this.Movie.FlatAppearance.BorderSize = 0;
+            this.Movie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.Movie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.Movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Movie.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Movie.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Movie.ForeColor = System.Drawing.Color.White;
             this.Movie.Image = global::QuanLiRapChieuPhim.Properties.Resources.movie;
             this.Movie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Movie.Location = new System.Drawing.Point(0, 329);
+            this.Movie.Location = new System.Drawing.Point(0, 429);
             this.Movie.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Movie.Name = "Movie";
             this.Movie.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -286,8 +305,10 @@ namespace QuanLiRapChieuPhim
             this.buttonAccount.BackColor = System.Drawing.Color.Transparent;
             this.buttonAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAccount.FlatAppearance.BorderSize = 0;
+            this.buttonAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAccount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAccount.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAccount.ForeColor = System.Drawing.Color.White;
             this.buttonAccount.Image = global::QuanLiRapChieuPhim.Properties.Resources.customer;
             this.buttonAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,8 +328,10 @@ namespace QuanLiRapChieuPhim
             this.buttonHRM.BackColor = System.Drawing.Color.Transparent;
             this.buttonHRM.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonHRM.FlatAppearance.BorderSize = 0;
+            this.buttonHRM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.buttonHRM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.buttonHRM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHRM.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHRM.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHRM.ForeColor = System.Drawing.Color.White;
             this.buttonHRM.Image = global::QuanLiRapChieuPhim.Properties.Resources.hr;
             this.buttonHRM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

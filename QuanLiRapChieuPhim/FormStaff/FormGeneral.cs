@@ -16,6 +16,7 @@ namespace QuanLiRapChieuPhim
         public FormGeneral()
         {
             InitializeComponent();
+            curBtn = btn1;
         }
         int count = 0;
         private void timerImage_Tick(object sender, EventArgs e)

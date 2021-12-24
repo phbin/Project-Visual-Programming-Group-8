@@ -40,6 +40,20 @@ namespace QuanLiRapChieuPhim.DAO
             return billInfoList;
         }
 
+        public int CountBillInfoByIDBill(int iDBill)
+        {
+            string query = "SELECT COUNT(*) FROM BILLINFO WHERE IDBILL = " + iDBill;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                int count = (int)data.Rows[0].ItemArray[0];
+                return count;
+            }
+
+            return 0;
+        }
+
         public void InserttBillInfo(int iDBill, int iDFD, int count)
         {
             string query = "EXEC USP_InsertBillInfo @idBill , @idFD , @count";

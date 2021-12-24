@@ -26,18 +26,29 @@ namespace QuanLiRapChieuPhim.AddForms
             InitializeComponent();
             ListAccountGrid = data;
             AddButton.BringToFront();
-            IDTextbox.ReadOnly = false;
+            LoadNameIntoComboBox(cbName);
         }
 
+        void LoadNameIntoComboBox(ComboBox cbb)
+        {
+            DataTable tb = DataProvider.Instance.ExecuteQuery("Select * from dbo.InfoStaff where stt=1");
+            cbb.DataSource = tb;
+            cbb.DisplayMember = "FullName";
+        }
         public FormAddAccount(string Username/*, string Password*/, string ID, int AccType)
         {
             InitializeComponent();
             UsernameTextbox.Text = Username;
             UsernameTextbox.ForeColor = Color.White;
+            LoadNameIntoComboBox(cbName);
+            string query = "select * from InfoStaff where id='" + ID + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow rows in table.Rows)
+            {
+                cbName.Text = rows["FullName"].ToString();
+            }
             //PasswordTextbox.Text = Password;
             //PasswordTextbox.ForeColor = Color.White;
-            IDTextbox.Text = ID;
-            IDTextbox.ForeColor = Color.White;
             if (AccType == 1)
             {
                 AdminCheckbox.Checked = true;
@@ -47,7 +58,6 @@ namespace QuanLiRapChieuPhim.AddForms
                 AdminCheckbox.Checked = false;
             }
             EditButton.BringToFront();
-            IDTextbox.ReadOnly = true;
         }
 
         private void UsernameTextbox_Enter(object sender, EventArgs e)
@@ -85,25 +95,17 @@ namespace QuanLiRapChieuPhim.AddForms
                 PasswordTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
-
-        private void IDTextbox_Enter_1(object sender, EventArgs e)
+        string idstaff;
+        private string GetID(string name)
         {
-            if (IDTextbox.Text == "ID")
+            string query = "SELECT ID FROM dbo.InfoStaff where FullName = N'" + name + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
             {
-                IDTextbox.Text = "";
-                IDTextbox.ForeColor = Color.White;
+                idstaff = rows["ID"].ToString();
             }
+            return idstaff;
         }
-
-        private void IDTextbox_Leave_1(object sender, EventArgs e)
-        {
-            if (IDTextbox.Text == "")
-            {
-                IDTextbox.Text = "ID";
-                IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }
-        }
-
         private void AddButton_Click_1(object sender, EventArgs e)
         {
             int admin = 0;
@@ -112,45 +114,101 @@ namespace QuanLiRapChieuPhim.AddForms
 
             for (int i = 0; i < ListAccountGrid.Rows.Count; i++)
             {
-                if (IDTextbox.Text == ListAccountGrid.Rows[i].Cells["ID"].Value.ToString())
+                if (GetID(cbName.Text) == ListAccountGrid.Rows[i].Cells["ID"].Value.ToString())
                 {
-                    MessageBox.Show("This staff account already exist", "Notification", MessageBoxButtons.OK);
-                    IDTextbox.Text = "";
-                    UsernameTextbox.Text = "";
-                    PasswordTextbox.Text = "";
+                    MessageBox.Show("This staff account has already existed", "Notification", MessageBoxButtons.OK);
+                    UsernameTextbox.Text = "Username";
+                    PasswordTextbox.Text = "Password";
+
+                    UsernameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                    PasswordTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     AdminCheckbox.Checked = false;
                     return;
                 }
 
                 if (UsernameTextbox.Text == ListAccountGrid.Rows[i].Cells["Username"].Value.ToString())
                 {
-                    MessageBox.Show("This account already exist", "Notification", MessageBoxButtons.OK);
-                    UsernameTextbox.Text = "";
+                    MessageBox.Show("This account already has already existed", "Notification", MessageBoxButtons.OK);
+                    UsernameTextbox.Text = "Username"; 
+                    PasswordTextbox.Text = "Password";
+
+                    UsernameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                    PasswordTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     UsernameTextbox.Focus();
                     return;
                 }
             }
-
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "")
+            int count = 0;
+            if (UsernameTextbox.Text == "Username" || UsernameTextbox.Text == "")
             {
-                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
-                UsernameTextbox.Text = "";
-                PasswordTextbox.Text = "";
-                IDTextbox.Text = "";
-                AdminCheckbox.Checked = false;
-                MessageBox.Show("Account added!", "Notification", MessageBoxButtons.OK);
+                errorProvider1.SetError(UsernameTextbox, "Please enter Username!");
+                count++;
             }
             else
             {
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
+                errorProvider1.SetError(UsernameTextbox, null);
+            }
+
+            if (PasswordTextbox.Text == "Password" || PasswordTextbox.Text == "")
+            {
+                errorProvider1.SetError(PasswordTextbox, "Please enter Password!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PasswordTextbox, null);
+            }
+
+            if (cbName.Text == "ID" || cbName.Text == "")
+            {
+                errorProvider1.SetError(cbName, "Please enter ID!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(cbName, null);
+            }
+            if (count == 0)
+            {
+                if (AdminCheckbox.Checked == true)
+                {
+                    string query = "update InfoStaff set ID='" + CreateID() + "' where FullName=N'" + cbName.Text + "'";
+                    DataTable table = DataProvider.Instance.ExecuteQuery(query);
+                } 
+                   
+                AccountDAO.Instance.AddAcount(UsernameTextbox.Text, PasswordTextbox.Text, GetID(cbName.Text), admin);
+                AdminCheckbox.Checked = false;
+                UsernameTextbox.Text = "Username";
+                PasswordTextbox.Text = "Password";
+                UsernameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                PasswordTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                MessageBox.Show("Account added!", "Notification", MessageBoxButtons.OK);
             }
         }
-
-        private void buttonClose_Click(object sender, EventArgs e)
+        string CreateID()
         {
-            this.Close();
-        }
+            string id = "";
+            string query = "select * from InfoStaff where id like 'AD%'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            int j = 0;
+            for (int i = 0; i <= table.Rows.Count ; i++)
+            {
+                if (i < 10) id = "AD0" + i;
+                else id = "AD" + i;
+                while (j < table.Rows.Count)
+                {
+                    DataRow rows = table.Rows[j];
+                    if (rows["ID"].ToString() != id) return id;
+                    else
+                    {
+                        j++;
+                        break;
+                    }
+                }
 
+            }
+            return id;
+        }
         private void AddButton_MouseMove(object sender, MouseEventArgs e)
         {
             AddButton.BackColor = Color.FromArgb(199, 80, 87);
@@ -163,21 +221,49 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextbox.Text != "" && PasswordTextbox.Text != "" && IDTextbox.Text != "" && PasswordTextbox.Text != "Password")
+            int count = 0;
+
+            if (UsernameTextbox.Text == "Username" || UsernameTextbox.Text == "")
+            {
+                errorProvider1.SetError(UsernameTextbox, "Please enter Username!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(UsernameTextbox, null);
+            }
+
+            if (PasswordTextbox.Text == "Password" || PasswordTextbox.Text == "")
+            {
+                errorProvider1.SetError(PasswordTextbox, "Please enter Password!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(PasswordTextbox, null);
+            }
+
+            if (cbName.Text == "Movie" || cbName.Text == "")
+            {
+                errorProvider1.SetError(cbName, "Please enter Movie!");
+                count++;
+            }
+            else
+            {
+                errorProvider1.SetError(cbName, null);
+            }
+
+            if (count == 0)
             {
                 if (MessageBox.Show("Do you really want to change this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     int admin = 0;
                     if (AdminCheckbox.Checked)
                         admin = 1;
-                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, IDTextbox.Text, admin);
+                    AccountDAO.Instance.EditAccount(UsernameTextbox.Text, PasswordTextbox.Text, GetID(cbName.Text), admin);
                     FormAccount.ActiveForm.Activate();
                     this.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please enter full of infomation!", "Notification", MessageBoxButtons.OK);
             }
         }
 

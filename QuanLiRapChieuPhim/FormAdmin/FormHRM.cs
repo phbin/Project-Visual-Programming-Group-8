@@ -22,7 +22,7 @@ namespace QuanLiRapChieuPhim
 
         void LoadInfoStaff()
         {
-            string query = "SELECT * FROM InfoStaff";
+            string query = "SELECT ID, FullName, format(DoB,'dd/MM/yyyy') as DoB , Sex, Addr, Phone, Email, IDPersonal FROM InfoStaff where stt=1";
             InfoStaffGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -62,24 +62,17 @@ namespace QuanLiRapChieuPhim
                 {
                     if (MessageBox.Show("Do you really want to delete this staff infomation?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        AccountDAO.Instance.DeleteInfoStaff(row.Cells["ID"].Value.ToString());
+                        DataProvider.Instance.ExecuteQuery("Delete from Account where id='" + row.Cells["ID"].Value.ToString() + "'");
+                        DataProvider.Instance.ExecuteQuery("update InfoStaff set stt=0 where id='" + row.Cells["ID"].Value.ToString() + "'");
+                        //AccountDAO.Instance.DeleteAccount(row.Cells["ID"].Value.ToString());
                         LoadInfoStaff();
                     }
                 }
 
-                string ID, FullName, DoB, Sex, Address, PhoneNum, Email, IDPersonal;
-                ID = row.Cells["ID"].Value.ToString();
-                FullName = row.Cells["FUllName"].Value.ToString();
-                DoB = row.Cells["DoB"].Value.ToString();
-                Sex = row.Cells["Sexx"].Value.ToString();
-                Address = row.Cells["Address"].Value.ToString();
-                PhoneNum = row.Cells["Phone"].Value.ToString();
-                Email = row.Cells["Email"].Value.ToString();
-                IDPersonal = row.Cells["IDPersonal"].Value.ToString();
-
                 if (InfoStaffGridView.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
-                    FormAddInfoStaff frm = new FormAddInfoStaff(ID, FullName, DoB, Sex, Address, PhoneNum, Email, IDPersonal);
+                    DateTime date = DateTime.ParseExact(row.Cells["DoB"].Value.ToString(), "dd/MM/yyyy", null);
+                    FormAddInfoStaff frm = new FormAddInfoStaff(row.Cells["ID"].Value.ToString(), row.Cells["FUllName"].Value.ToString(), date, row.Cells["Sexx"].Value.ToString(), row.Cells["Address"].Value.ToString(), row.Cells["Phone"].Value.ToString(), row.Cells["Email"].Value.ToString(), row.Cells["IDPersonal"].Value.ToString());
                     frm.Owner = this;
                     frm.ShowDialog();
                     LoadInfoStaff();
@@ -92,16 +85,13 @@ namespace QuanLiRapChieuPhim
             FormAddInfoStaff frm = new FormAddInfoStaff(InfoStaffGridView);
             frm.Owner = this;
             frm.ShowDialog();
+            LoadInfoStaff();
         }
 
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
+        private void InfoStaffGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(199, 80, 87);
-        }
+            e.Cancel = true;
 
-        private void AddButton_MouseLeave(object sender, EventArgs e)
-        {
-            AddButton.BackColor = Color.FromArgb(190, 62, 66);
         }
     }
 }

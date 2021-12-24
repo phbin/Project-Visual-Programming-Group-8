@@ -15,46 +15,93 @@ namespace QuanLiRapChieuPhim.ChildForms
 {
     public partial class FormAddEditFD : Form
     {
-        public FormAddEditFD()
-        {
-            InitializeComponent();
-        }
-
+    
         string PicturePath = "";
 
         private byte[] pic;
+        int CreateID()
+        {
+            int idf=0;
+            string query = "select * from FoodDrink";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            int j = 0;
+            for (int i = 1; i <= table.Rows.Count + 1; i++)
+            {
+                idf =  i;
+                while (j < table.Rows.Count)
+                {
+                    DataRow rows = table.Rows[j];
+                    if ((int)rows["ID"] != idf) return idf;
+                    else
+                    {
+                        j++;
+                        break;
+                    }
+                }
 
+            }
+            return idf;
+        }
         public FormAddEditFD(string ID, string IDCategory, string NameFD, int Price, byte[] Path)
         {
             InitializeComponent();
             IDTextbox.Text = ID;
-            IDCategoryTextbox.Text = IDCategory;
-            NameFDTextbox.Text = NameFD;
-            PriceTextbox.Text = Price.ToString();
-            //load image
-            string query = "SELECT Poster FROM dbo.Movie where id ='" + ID + "'";
+            LoadCategoryIntoComboBox(cbCategory);
+            string query = "select * from FDCategory where ID='" + ID + "'";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow rows in table.Rows)
             {
-                pic = (byte[])rows["Poster"];
+                cbCategory.Text = rows["NameCategory"].ToString();
+            }
+            query = "SELECT NameCategory FROM dbo.FDCategory where id ='" + IDCategory + "'";
+            table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                cbCategory.Text = rows["NameCategory"].ToString();
+
+            }
+            NameFDTextbox.Text = NameFD;
+            PriceTextbox.Text = Price.ToString();
+            //load image
+            query = "SELECT Picture FROM dbo.FoodDrink where id ='" + ID + "'";
+            table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                pic = (byte[])rows["Picture"];
 
             }
             pictureBox1.BackgroundImage = FoodDrinkDAO.byteArrayToImage(pic);
             IDTextbox.ForeColor = Color.White;
-            IDCategoryTextbox.ForeColor = Color.White;
             PriceTextbox.ForeColor = Color.White;
             NameFDTextbox.ForeColor = Color.White;
-            //pictureBox1.Image = Image.FromFile(ImagePath);
             EditButton.BringToFront();
         }
-
+        void LoadCategoryIntoComboBox(ComboBox cbb)
+        {
+            DataTable tb = DataProvider.Instance.ExecuteQuery("Select * from dbo.FDCategory");
+            cbb.DataSource = tb;
+            cbb.DisplayMember = "NameCategory";
+        }
+        private int GetID(string name)
+        {
+            int idc = 0;
+            string query = "SELECT ID FROM dbo.FDCategory where NameCategory = N'" + name + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                idc = (int)rows["ID"];
+            }
+            return idc;
+        }
         DataGridView DataGridView1 = new DataGridView();
 
         public FormAddEditFD(DataGridView data)
         {
             InitializeComponent();
+            LoadCategoryIntoComboBox(cbCategory);
             DataGridView1 = data;
-            IDTextbox.Text = ""+(int.Parse(DataGridView1.Rows[DataGridView1.Rows.Count - 1 ].Cells["ID"].Value.ToString()) + 1);
+            IDTextbox.Text = CreateID().ToString();
+            IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             AddButton.BringToFront();
         }
 
@@ -82,14 +129,14 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             int count = 0;
 
-            if (IDCategoryTextbox.Text == "Category ID" || IDCategoryTextbox.Text == "")
+            if (cbCategory.Text == null)
             {
-                errorProvider1.SetError(IDCategoryTextbox, "Please enter Category ID");
+                errorProvider1.SetError(cbCategory, "Please enter Category ID");
                 count++;
             }
             else
             {
-                errorProvider1.SetError(IDCategoryTextbox, null);
+                errorProvider1.SetError(cbCategory, null);
             }
 
             if (NameFDTextbox.Text == "Name" || NameFDTextbox.Text == "")
@@ -116,26 +163,36 @@ namespace QuanLiRapChieuPhim.ChildForms
             {
                 if (IDTextbox.Text == DataGridView1.Rows[i].Cells["ID"].Value.ToString())
                 {
-                    MessageBox.Show("This Food/Drink already exist", "Notification", MessageBoxButtons.OK);
-                    IDTextbox.Text = "";
-                    IDCategoryTextbox.Text = "";
-                    NameFDTextbox.Text = "";
-                    PriceTextbox.Text = "";
+                    MessageBox.Show("This Food/Drink has already existed", "Notification", MessageBoxButtons.OK);
+                    IDTextbox.Text = CreateID().ToString();
+                    cbCategory.Text = "";
+                    NameFDTextbox.Text = "Name";
+                    PriceTextbox.Text = "Price";
+                    NameFDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                    PriceTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                    IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                     IDTextbox.Focus();
                     return;
                 }
             }
-
+            
             if (count==0)
             {
-                string query = "INSERT dbo.FoodDrink (NameFD, IDCategory, Price) VALUES(N'" + NameFDTextbox.Text + "', '" + IDCategoryTextbox.Text + "', '" + PriceTextbox.Text + "')";
-                FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
+                if (PicturePath == "")
+                {
+                    MessageBox.Show("Please upload a picture!");
+                    return;
+                }
+                string query = "INSERT dbo.FoodDrink (id, NameFD, IDCategory, Price) VALUES(N'"+IDTextbox.Text+"', N'" + NameFDTextbox.Text + "', '" +GetID(cbCategory.Text) + "', '" + PriceTextbox.Text + "')";
                 DataProvider.Instance.ExecuteQuery(query);
-                IDTextbox.Text = "";
-                IDCategoryTextbox.Text = "";
-                NameFDTextbox.Text = "";
-                PriceTextbox.Text = "";
-                pictureBox1.Image = null;
+                FoodDrinkDAO.Instance.imageToByteArray(PicturePath, GetID(cbCategory.Text), NameFDTextbox.Text, Convert.ToInt32(PriceTextbox.Text));
+                IDTextbox.Text = CreateID().ToString();
+                cbCategory.Text = "";
+                NameFDTextbox.Text = "Name";
+                PriceTextbox.Text = "Price";
+                NameFDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                PriceTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                pictureBox1.BackgroundImage = null;
                 MessageBox.Show("Added!");
             }
         }
@@ -144,17 +201,17 @@ namespace QuanLiRapChieuPhim.ChildForms
         {
             int count = 0;
 
-            if(IDCategoryTextbox.Text == "Category ID" || IDCategoryTextbox.Text == "")
+            if (cbCategory.Text == null)
             {
-                errorProvider1.SetError(IDCategoryTextbox, "Please enter Category ID");
+                errorProvider1.SetError(cbCategory, "Please enter Category ID");
                 count++;
-            }    
+            }
             else
             {
-                errorProvider1.SetError(IDCategoryTextbox, null);
+                errorProvider1.SetError(cbCategory, null);
             }
 
-            if(NameFDTextbox.Text == "Name" || NameFDTextbox.Text == "")
+            if (NameFDTextbox.Text == "Name" || NameFDTextbox.Text == "")
             {
                 errorProvider1.SetError(NameFDTextbox, "Please enter Name");
                 count++;
@@ -176,12 +233,17 @@ namespace QuanLiRapChieuPhim.ChildForms
 
             if (count==0)
             {
+                if (PicturePath == "")
+                {
+                    MessageBox.Show("Please upload a picture!");
+                    return;
+                }
                 //PicturePath = pictureBox1.Image.ToString();
                 if (MessageBox.Show("Do you really want to change this information?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    string query = "UPDATE dbo.FoodDrink SET ID=N'" + IDTextbox.Text + "', IDCategory='" + IDCategoryTextbox.Text + "', NameFD='" + NameFDTextbox.Text + "', Price='" + PriceTextbox.Text  + "' WHERE ID='" + IDTextbox.Text + "'";
+                    string query = "UPDATE dbo.FoodDrink SET ID=N'" + IDTextbox.Text + "', IDCategory='" + GetID(cbCategory.Text) + "', NameFD='" + NameFDTextbox.Text + "', Price='" + PriceTextbox.Text  + "' WHERE ID='" + IDTextbox.Text + "'";
                     DataProvider.Instance.ExecuteQuery(query);
-                    FoodDrinkDAO.Instance.imageToByteArray(PicturePath, IDTextbox.Text);
+                    FoodDrinkDAO.Instance.imageToByteArray(PicturePath,GetID(cbCategory.Text), NameFDTextbox.Text, Convert.ToInt32(PriceTextbox.Text));
                     this.Close();
                     MessageBox.Show("Food/Drink Added!", "Notification", MessageBoxButtons.OK);
                 }
@@ -208,24 +270,6 @@ namespace QuanLiRapChieuPhim.ChildForms
             {
                 IDTextbox.Text = "ID";
                 IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }
-        }
-
-        private void IDCategoryTextbox_Enter(object sender, EventArgs e)
-        {
-            if (IDCategoryTextbox.Text == "Category ID")
-            {
-                IDCategoryTextbox.Text = "";
-                IDCategoryTextbox.ForeColor = Color.White;
-            }
-        }
-
-        private void IDCategoryTextbox_Leave(object sender, EventArgs e)
-        {
-            if (IDCategoryTextbox.Text == "")
-            {
-                IDCategoryTextbox.Text = "Category ID";
-                IDCategoryTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
 

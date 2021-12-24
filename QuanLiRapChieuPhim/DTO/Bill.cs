@@ -25,11 +25,11 @@ namespace QuanLiRapChieuPhim
 
         public Bill(DataRow row)
         {
-            this.iD = (int)row[0];
-            this.staff = row[1].ToString();
-            this.date = row[2].ToString();
-            this.status = (int)row[3];
-            this.total = float.Parse(row[4].ToString());
+            this.iD = (int)row["ID"];
+            this.staff = row["IDStaff"].ToString();
+            this.date = row["DateBooking"].ToString();
+            this.status = (int)row["stt"];
+            this.total = float.Parse(row["Total"].ToString());
         }
 
         public int ID

@@ -29,6 +29,7 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseShowtime));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flpDay = new System.Windows.Forms.FlowLayoutPanel();
             this.pnLine = new System.Windows.Forms.Panel();
@@ -104,7 +105,9 @@ namespace QuanLiRapChieuPhim
             this.Controls.Add(this.flpDay);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBack);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChooseShowtime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChooseShowtime";

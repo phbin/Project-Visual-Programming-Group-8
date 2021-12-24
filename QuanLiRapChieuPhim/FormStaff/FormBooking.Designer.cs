@@ -29,6 +29,7 @@ namespace QuanLiRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBooking));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flpSeat = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -184,7 +185,7 @@ namespace QuanLiRapChieuPhim
             this.lbInfo1.AutoSize = true;
             this.lbInfo1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInfo1.ForeColor = System.Drawing.Color.White;
-            this.lbInfo1.Location = new System.Drawing.Point(800, 50);
+            this.lbInfo1.Location = new System.Drawing.Point(790, 50);
             this.lbInfo1.Name = "lbInfo1";
             this.lbInfo1.Size = new System.Drawing.Size(45, 72);
             this.lbInfo1.TabIndex = 6;
@@ -206,7 +207,7 @@ namespace QuanLiRapChieuPhim
             this.lbInfo.AutoSize = true;
             this.lbInfo.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInfo.ForeColor = System.Drawing.Color.White;
-            this.lbInfo.Location = new System.Drawing.Point(672, 50);
+            this.lbInfo.Location = new System.Drawing.Point(662, 50);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(98, 72);
             this.lbInfo.TabIndex = 4;
@@ -269,8 +270,10 @@ namespace QuanLiRapChieuPhim
             this.ClientSize = new System.Drawing.Size(1540, 833);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBooking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBooking";

@@ -65,9 +65,5 @@ namespace QuanLiRapChieuPhim.DAO
                 DataProvider.Instance.ExecuteNonQuery(command);
             }
         }
-        public static void DeleteMovie_GenreByMovieID(string movieID)
-        {
-            DataProvider.Instance.ExecuteNonQuery("DELETE dbo.Classify WHERE IDMovie = '" + movieID + "'");
-        }
     }
 }

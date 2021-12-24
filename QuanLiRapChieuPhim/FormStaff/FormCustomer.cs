@@ -22,36 +22,11 @@ namespace QuanLiRapChieuPhim
 
         void LoadInfoCustomer()
         {
-            string query = "SELECT * FROM dbo.InfoCustomer";
+            string query = "SELECT ID, FullName, format(DoB,'dd/MM/yyyy') as DoB, Addr, Phone, IDPersonal, Points FROM dbo.InfoCustomer";
             ListCustomerGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
-        private void SearchTextbox_Enter(object sender, EventArgs e)
-        {
-            if (SearchTextbox.Text == "Search")
-            {
-                SearchTextbox.Text = "";
-                SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
-            }
-        }
 
-        private void SearchTextbox_Leave(object sender, EventArgs e)
-        {
-            if (SearchTextbox.Text == "")
-            {
-                SearchTextbox.Text = "Search";
-                SearchTextbox.ForeColor = Color.Gray;
-                LoadInfoCustomer();
-            }
-        }
-
-        private void SearchTextbox_TextChanged(object sender, EventArgs e)
-        {
-            DataTable filtertable = new DataTable();
-            string query = "SELECT * FROM dbo.InfoCustomer WHERE FullName LIKE '%" + SearchTextbox.Text + "%'";
-            filtertable = DataProvider.Instance.ExecuteQuery(query);
-            ListCustomerGrid.DataSource = filtertable;
-        }
 
         private void ListCustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -71,29 +46,50 @@ namespace QuanLiRapChieuPhim
 
                 if (ListCustomerGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
-                    FormAddCustomer frm = new FormAddCustomer(row.Cells["ID"].Value.ToString(), row.Cells["FullName"].Value.ToString(), row.Cells["DoB"].Value.ToString(), row.Cells["Address"].Value.ToString(), row.Cells["Phone"].Value.ToString(), row.Cells["IDPersonal"].Value.ToString(), row.Cells["Points"].Value.ToString());
+                    DateTime date= DateTime.ParseExact(row.Cells["DoB"].Value.ToString(), "dd/MM/yyyy", null);
+                    FormAddCustomer frm = new FormAddCustomer(row.Cells["ID"].Value.ToString(), row.Cells["FullName"].Value.ToString(), date, row.Cells["Address"].Value.ToString(), row.Cells["Phone"].Value.ToString(), row.Cells["IDPersonal"].Value.ToString(), row.Cells["Points"].Value.ToString());
                     frm.Owner = this;
                     frm.ShowDialog();
                     LoadInfoCustomer();
                 }
             }
         }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             FormAddCustomer frm = new FormAddCustomer(ListCustomerGrid);
             frm.Owner = this;
             frm.ShowDialog();
+            LoadInfoCustomer();
         }
 
-        private void AddButton_MouseMove(object sender, MouseEventArgs e)
+        private void SearchTextbox_TextChanged(object sender, EventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(199, 80, 87);
+            DataTable filtertable = new DataTable();
+            string query = "SELECT ID, FullName, format(DoB,'dd/MM/yyyy') as DoB, Addr, Phone, IDPersonal, Points FROM dbo.InfoCustomer WHERE FullName LIKE '%" + SearchTextbox.Text + "%'";
+            filtertable = DataProvider.Instance.ExecuteQuery(query);
+            ListCustomerGrid.DataSource = filtertable;
         }
 
-        private void AddButton_MouseLeave(object sender, EventArgs e)
+        private void SearchTextbox_Enter(object sender, EventArgs e)
         {
-            AddButton.BackColor = Color.FromArgb(190, 62, 66);
+
+            if (SearchTextbox.Text == "Search")
+            {
+                SearchTextbox.Text = "";
+                SearchTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+            }
+
+        }
+
+        private void SearchTextbox_Leave(object sender, EventArgs e)
+        {
+
+            if (SearchTextbox.Text == "")
+            {
+                SearchTextbox.Text = "Search";
+                SearchTextbox.ForeColor = Color.Gray;
+                LoadInfoCustomer();
+            }
         }
     }
 }

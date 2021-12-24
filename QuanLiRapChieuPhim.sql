@@ -1,31 +1,11 @@
-<<<<<<< HEAD
-﻿--create database QuanLiRapChieuPhim
---go
---drop database QuanLiRapChieuPhim
-use QuanLiRapChieuPhim
---go
-=======
-﻿create database QuanLiRapChieuPhim
+﻿create database RapChieuPhim
 go
---drop database QuanLiRapChieuPhim
-use QuanLiRapChieuPhim
+--drop database RapChieuPhim
+use RapChieuPhim
 go
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 
 set dateformat DMY
 go
---Account
---Movie
---Ticket
---FDCategory
---Food&Drink
---Bill
-
-<<<<<<< HEAD
-=======
---select day(datebooking) as 'day', month(datebooking) as 'month', year(datebooking) as 'year' from bill 
-
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
 
 create table InfoStaff  -- Nhân viên
 (
@@ -36,10 +16,12 @@ create table InfoStaff  -- Nhân viên
 	Addr nvarchar(100),
 	Phone VARCHAR(100),
 	Email nvarchar(100),
-	IDPersonal int not null unique --cmnd/cccd
+	Avatar image,
+	IDPersonal int not null unique, --cmnd/cccd
+	stt int default 1
+
 )
 go
-
 
 create table Account  -- Tài khoản
 (
@@ -78,6 +60,7 @@ create table Movie  --Phim
 )
 go
 
+
 create table Room  --Phòng chiếu
 (
 	ID varchar(50) primary key,
@@ -93,7 +76,6 @@ create table MovieKind  -- Thế loại/Genre
 )
 go
 
-
 create table Classify -- Phân loại phim
 (
 	IDMovie varchar(50) not null,
@@ -103,6 +85,7 @@ create table Classify -- Phân loại phim
 	constraint PK_Classify primary key(IDMovie,IDKind)
 )
 go
+
 
 create table ShowTime  -- Lịch chiếu
 (
@@ -135,7 +118,7 @@ go
 
 create table FoodDrink
 (
-	ID int identity primary key,
+	ID int primary key,
 	NameFD nvarchar(1000) not null default N'No name',
 	IDCategory int not null,
 	Price float not null default 0,
@@ -146,23 +129,24 @@ go
 
 create table Bill
 (
-	ID int identity primary key,
+	ID int primary key,
 	DateBooking smalldatetime not null default getdate(),
 	stt int not null default 0 --1: Paid, 0: Unpaid
 )
 go
 
---alter table bill 
---add total int
---go
+alter table bill 
+add total int
+go
 
---alter table bill 
---add IDStaff varchar(50)
---go
+alter table bill 
+add IDStaff varchar(50)
+go
 
---alter table Bill
---add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
---go
+alter table Bill with nocheck
+add constraint FK_BillInfo_IDStaff foreign key (IDStaff) references InfoStaff(ID)
+on delete cascade
+go
 
 create table TicketBill
 (
@@ -170,10 +154,13 @@ create table TicketBill
 	IDStaff varchar(50),
 	DateBooking smalldatetime not null default getdate(),
 	price int,
-	constraint FK_TikcetBill_IDStaff foreign key (IDStaff) references InfoStaff(ID),
 )
 go
 
+alter table TicketBill with nocheck
+add constraint FK_TikcetBill_IDStaff foreign key (IDStaff) references InfoStaff(ID)
+on delete cascade
+go
 create table BillInfo
 (
 	ID int identity primary key,
@@ -392,12 +379,10 @@ GO
 
 
 --LỊCH CHIẾU
-
-
 CREATE PROC USP_GetShowtime
 AS
 BEGIN
-	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	SELECT LC.id, P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
 	FROM dbo.ShowTime AS LC, Movie AS P
 	where lc.idmovie=p.id
 END
@@ -407,7 +392,7 @@ CREATE PROC USP_GetShowtimeByRoom
 @idPC varchar(50)
 AS
 BEGIN
-	SELECT LC.id , P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
+	SELECT LC.id, P.NameFilm ,  LC.shTime ,  LC.IDRoom ,LC.TicketPrice 
 	FROM dbo.ShowTime AS LC, Movie AS P
 	where lc.idmovie=p.id and lc.IDRoom=@idPC
 END
@@ -672,22 +657,25 @@ BEGIN
 	DECLARE @count INT
 	DECLARE @price FLOAT
 	DECLARE @value INT	
+	DECLARE @isExitsFD INT = 0
+
+	SELECT @isExitsFD = b.IDFoodDrink, @count = b.num
+	FROM dbo.BillInfo AS b
+	WHERE idBill = @idBill AND IDFoodDrink = @idFD
 
 	SELECT @price = FD.Price
 	FROM dbo.FoodDrink FD
 	WHERE FD.ID = @idFD
 
-	SELECT @count = Num
-	FROM dbo.BillInfo
-	WHERE IDBill = @idBill
-
 	SELECT @value = Total
 	FROM dbo.Bill
 	WHERE ID = @idBill
 
+	IF (@isExitsFD > 0)
+	BEGIN
 	DELETE FROM BillInfo WHERE IDBill = @idBill AND IDFoodDrink = @idFD
-
 	UPDATE dbo.Bill SET Total = @value - @price * @count WHERE ID = @idBill
+	END
 END
 GO
 
@@ -741,67 +729,6 @@ INSERT dbo.FDCategory
 VALUES  ( N'Combo' )
 GO
 
--- thêm món ăn
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG CARAMEL NHỎ', -- name - nvarchar(100)
-          1, -- idCategory - int
-          35000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG CARAMEL LỚN', 1, 45000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG THƯỜNG NHỎ', 1, 30000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG THƯỜNG LỚN', 1, 40000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG PHÔ MAI NHỎ', 1, 35000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'BỎNG PHÔ MAI LỚN', 1, 45000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'HAMBURGER GÀ', 1, 35000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'HAMBURGER BÒ', 1, 40000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'KHOAI TÂY CHIÊN', 1, 25000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'MÌ Ý BÒ BẰM', 1, 58000)
--- thêm nước
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'PEPSI/MIRINDA/7UP', 2, 25000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'MILO', 2, 30000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'NESTEA', 2, 25000)
-GO
--- combo
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 49000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'2 PEPSI 1 BỎNG LỚN TÙY CHỌN', 3, 69000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 MILO 1 BỎNG LỚN TÙY CHỌN', 3, 53000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 KHOAI', 3, 39000)
-INSERT dbo.FoodDrink
-        ( NameFD, idCategory, price )
-VALUES  ( N'1 PEPSI 1 HAMBURGER 1 KHOAI', 3, 73000)
-GO
 
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL01', N'Hành động', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL02', N'Hoạt hình', NULL)
@@ -813,106 +740,21 @@ INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL07', N'Tình c�
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL08', N'Trinh thám', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL09', N'Tâm lý', NULL)
 INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL10', N'Siêu nhiên', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL11', N'Tài liệu', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL12', N'Kinh dị', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL13', N'Thể thao', NULL)
+INSERT dbo.MovieKind ([id], [TypeName], [Descript]) VALUES (N'TL14', N'Âm nhạc và nhạc kịch', NULL)
 GO
 
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'AD00', N'Admin', N'03/02/2002',N'Nữ', N'Q3, HCM', N'039375140',N'admin@gmail.com', 23232323)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV00', N'Staff 1', N'12/09/1999',N'Nam', N'Q3, HCM', N'0393751111',N'staff1@gmail.com', 11111111)
-INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'NV01', N'Staff 2', N'11/04/2000', N'Nữ',N'Đồng Nai', N'097971210',N'staff2@gmail.com', 22222222)
+INSERT dbo.InfoStaff ([id], [FullName], [DoB], [Sex], [Addr], [Phone], [Email], [IDPersonal]) VALUES (N'AD00', N'Admin', N'03/02/2002',N'Nữ', N'Q3, HCM', N'0393751403',N'renyuiko.hamyana@gmail.com', 272907024)
 GO
 
-INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('admin', '123456', 'AD00', 1)
-INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('bin', '1', 'NV00', 0)
-INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('neyu', '1', 'NV01', 0)
+INSERT dbo.Account ([UserName], [Pass], [id], [AccType]) VALUES ('admin', 'CnGLPo9sFdg=', 'AD00', 1)
 GO
 
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH01', N'Huỳnh Thế Vĩ', N'23/03/2002',N'HCM', N'0922135412', 123456789, 10)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH02', N'Nguyễn Minh', N'11/05/1999',N'HCM', N'0210521423',987654321, 0)
-INSERT dbo.InfoCustomer ([id], [FullName], [DoB], [Addr], [Phone], [IDPersonal], [Points]) VALUES (N'KH03', N'Lê Đặng Phương Uyên', N'03/02/2002',N'HCM', N'0379345121',101245789, 0)
-GO
 
-<<<<<<< HEAD
+
 INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01')
 INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02')
 INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03')
-=======
--- thêm bill
-INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 90000)
-INSERT	dbo.Bill (IDStaff, DateBooking , stt, Total) VALUES  ('NV00', GETDATE(), 1, 83000)
-GO
-
--- thêm bill info
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 4, 1)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (1, 11, 2)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 10, 1)
-INSERT	dbo.BillInfo (idBill, IDFoodDrink, num) VALUES  (2, 13, 1)
-GO
-
-INSERT dbo.Room VALUES (N'PC01', N'CINEMA 01', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC02', N'CINEMA 02', 180, 1, 12, 15)
-INSERT dbo.Room VALUES (N'PC03', N'CINEMA 03', 180, 1, 12, 15)
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
-GO
-select * from Seat
-
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV01', N'HARRY POTTER VÀ BẢO BỐI TỬ THẦN',N'Chưa có', 133, N'10/04/2021', N'31/05/2021', N'Anh', N'David Yates', 2021)
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV02', N'THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ', N'Chưa có', 111, N'23/04/2021', N'01/06/2021', N'Nhật Bản', N'Tomoka Nagaoka', 2021)
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV03', N'VENOM: ĐỐI MẶT TỬ THÙ', N'Chưa có', 120, N'12/12/2021', N'31/12/2021', N'Mỹ', N'Andy Serkis', 2021)
-GO
-
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL01')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL04')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL05')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV01', N'TL06')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV02', N'TL01')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV02', N'TL02')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV02', N'TL07')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV02', N'TL08')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV03', N'TL01')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV03', N'TL04')
-INSERT dbo.Classify ([IDMovie], [IDKind]) VALUES (N'MV03', N'TL05')
-GO
-
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST01', N'13/12/2021 15:20:00',N'MV03', N'PC01', 110000)
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST02', N'12/12/2021 13:00:00',N'MV03', N'PC02', 110000)
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST03', N'19/12/2021 16:00:00',N'MV03', N'PC02', 110000)
-GO
-
-update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\HP.png', single_blob) as img) where ID='MV01'
-update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Conan.png', single_blob) as img) where ID='MV02'
-update Movie
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Venom.png', single_blob) as img) where ID='MV03'
-
-INSERT dbo.Movie ([id], [NameFilm], [Descript], [TimeLimit], [DatePublic], [DateOut], [Country], [Director], [YearFilm]) VALUES (N'MV04', N'HARRY POTTER',N'Chưa có', 133, N'2/11/2021', N'31/12/2021', N'Anh', N'JK', 2021)
-
-update Movie
-<<<<<<< HEAD
-set Poster=(select * from openrowset(bulk N'C:\Users\renyu\Desktop\Resources LTTQ\Poster2.png', single_blob) as img) where ID='MV04'
-=======
-set Poster=(select * from openrowset(bulk N'C:\Users\Admin\Desktop\pic\Poster2.png', single_blob) as img) where ID='MV04'
-
->>>>>>> 33418c87edeefe3a674190e665c143ba006fdc0b
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST04', N'13/12/2021 10:20:00',N'MV03', N'PC01', 110000)
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST05', N'4/12/2021 10:20:00',N'MV04', N'PC01', 110000)
-
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST06', N'4/12/2021 10:20:00',N'MV04', N'PC03', 110000)
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST08', N'27/11/2021 10:20:00',N'MV04', N'PC03', 110000)
-INSERT dbo.ShowTime([id], [shTime], [IDMovie], [IDRoom], [TicketPrice]) VALUES (N'ST10', N'23/12/2021 16:00:00',N'MV03', N'PC03', 110000)
-
-exec USP_InsertShowtime N'ST1', N'MV04', N'27/12/2021 00:20:00','PC03',110000
-select *from ShowTime
-
-exec USP_InsertSeat 'ST01'
-exec USP_InsertSeat 'ST02'
-exec USP_InsertSeat 'ST03'
-exec USP_InsertSeat 'ST04'
-exec USP_InsertSeat 'ST05'
-exec USP_InsertSeat 'ST06'
-exec USP_InsertSeat 'ST08'
-exec USP_InsertSeat 'ST10'
-exec USP_InsertSeat 'ST1'
-
-update  Seat
-set stt=1 where SeatName in ('A01','C02','C03','H11')
-
+Go

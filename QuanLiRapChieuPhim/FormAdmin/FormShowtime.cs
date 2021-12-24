@@ -54,50 +54,50 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            ShowtimeControls frm = new ShowtimeControls();
-            frm.Show();
-        }
-
         private void buttonAll_Click(object sender, EventArgs e)
         {
             LoadShowtime();
-            buttonAll.BackColor = Color.Gray;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Black;
+            buttonAll.BackColor = Color.FromArgb(32, 90, 167);
+            buttonRoom1.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom2.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom3.BackColor = Color.FromArgb(191, 202, 230);
         }
 
         private void buttonRoom1_Click(object sender, EventArgs e)
         {
             id = "PC01";
             LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Gray;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Black;
+            buttonAll.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom1.BackColor = Color.FromArgb(32, 90, 167);
+            buttonRoom2.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom3.BackColor = Color.FromArgb(191, 202, 230);
         }
 
         private void buttonRoom2_Click(object sender, EventArgs e)
         {
-
             id = "PC02";
             LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Gray;
-            buttonRoom3.BackColor = Color.Black;
+            buttonAll.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom1.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom2.BackColor = Color.FromArgb(32, 90, 167);
+            buttonRoom3.BackColor = Color.FromArgb(191, 202, 230);
         }
 
         private void buttonRoom3_Click(object sender, EventArgs e)
         {
             id = "PC03";
             LoadShowtimeByRoom(id);
-            buttonAll.BackColor = Color.Black;
-            buttonRoom1.BackColor = Color.Black;
-            buttonRoom2.BackColor = Color.Black;
-            buttonRoom3.BackColor = Color.Gray;
+            buttonAll.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom1.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom2.BackColor = Color.FromArgb(191, 202, 230);
+            buttonRoom3.BackColor = Color.FromArgb(32, 90, 167);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ShowtimeControls frm = new ShowtimeControls();
+            frm.ShowDialog();
+            LoadShowtime();
         }
     }
 }

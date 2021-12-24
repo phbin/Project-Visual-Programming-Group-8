@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace QuanLiRapChieuPhim.DAO
 {
@@ -20,8 +21,8 @@ namespace QuanLiRapChieuPhim.DAO
 
         private DataProvider() { }
 
-
-        private string connectionSTR = @"Data Source=BIN;Initial Catalog=QuanLiRapChieuPhim;Integrated Security=True";
+     
+        private string connectionSTR = @"Data Source=" + ConfigurationManager.AppSettings["ServerName"].ToString() + ";Initial Catalog=RapChieuPhim;Integrated Security=True";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();

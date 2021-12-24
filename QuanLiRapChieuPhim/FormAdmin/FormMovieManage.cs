@@ -25,18 +25,36 @@ namespace QuanLiRapChieuPhim
             listMovieGrid.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
-        private void listMovieGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void listMovieGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-             
+                DataGridViewRow row = listMovieGrid.Rows[e.RowIndex];
+
+                if (listMovieGrid.Columns[e.ColumnIndex].HeaderText == "Delete")
+                {
+                    if (MessageBox.Show("Do you really want to delete this movie?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        MovieDAO.Instance.DeleteMovie(row.Cells["ID"].Value.ToString());
+                        LoadMovie();
+                    }
+                }
+
+                if (listMovieGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
+                {
+                    MovieControls frm = new MovieControls(row.Cells["ID"].Value.ToString(), row.Cells["NameFilm"].Value.ToString(), Convert.ToDateTime(row.Cells["DatePublic"].Value), Convert.ToDateTime(row.Cells["DateOut"].Value), Convert.ToInt32(row.Cells["TimeLimit"].Value), row.Cells["Director"].Value.ToString(), row.Cells["Country"].Value.ToString());
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    LoadMovie();
+                }
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void SearchTextbox_TextChanged(object sender, EventArgs e)
         {
-            MovieControls frm = new MovieControls();
-            frm.Show();
+            DataTable filtertable = new DataTable();
+            filtertable = MovieDAO.Instance.SearchMovie(SearchTextbox.Text);
+            listMovieGrid.DataSource = filtertable;
         }
 
         private void SearchTextbox_Enter(object sender, EventArgs e)
@@ -58,36 +76,11 @@ namespace QuanLiRapChieuPhim
             }
         }
 
-        private void SearchTextbox_TextChanged(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            DataTable filtertable = new DataTable();
-            filtertable = MovieDAO.Instance.SearchMovie(SearchTextbox.Text);
-            listMovieGrid.DataSource = filtertable;
-        }
-
-        private void listMovieGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = listMovieGrid.Rows[e.RowIndex];
-
-                if (listMovieGrid.Columns[e.ColumnIndex].HeaderText == "Delete")
-                {
-                    if (MessageBox.Show("Do you really want to delete this account?", "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                    {
-                        MovieDAO.Instance.DeleteMovie(row.Cells["ID"].Value.ToString());
-                        LoadMovie();
-                    }
-                }
-
-                if (listMovieGrid.Columns[e.ColumnIndex].HeaderText == "Edit")
-                {
-                    MovieControls frm = new MovieControls(row.Cells["ID"].Value.ToString(), row.Cells["NameFilm"].Value.ToString(), Convert.ToDateTime(row.Cells["DatePublic"].Value), Convert.ToDateTime(row.Cells["DateOut"].Value), Convert.ToInt32(row.Cells["TimeLimit"].Value), row.Cells["Director"].Value.ToString(), row.Cells["Country"].Value.ToString());
-                    frm.Owner = this;
-                    frm.ShowDialog();
-                    LoadMovie();
-                }
-            }
+            MovieControls frm = new MovieControls();
+            frm.ShowDialog();
+            LoadMovie();
         }
     }
 }

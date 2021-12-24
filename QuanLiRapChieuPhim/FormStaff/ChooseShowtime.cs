@@ -21,7 +21,7 @@ namespace QuanLiRapChieuPhim
             LoadDay();
         }
         Button curBtn = new Button();
-        string idmovie;
+        string idmovie="";
         string getday;
         string gettime;
         List<string> nameButton = new List<string>();
@@ -64,14 +64,14 @@ namespace QuanLiRapChieuPhim
         {
             int temp = 0;
             flpTime.Controls.Clear();
-            string query = "SELECT count(format(shtime,'hh:mm tt')) as temp from showtime where format(shtime,'dd/MM/yyyy') ='" + getday + "'";
+            string query = "SELECT count(format(shtime,'hh:mm tt')) as temp from showtime where format(shtime,'dd/MM/yyyy') ='" + getday + "' and idmovie='"+idmovie+"'";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow rows in table.Rows)
             {
                 temp = (int)rows["temp"];
             }
             timeButton = new List<string>(temp);
-            query = "SELECT format(shtime,'hh:mm tt') as ST from showtime where format(shtime,'dd/MM/yyyy') ='" + getday + "' order by ST";
+            query = "SELECT format(shtime,'hh:mm tt') as ST from showtime where format(shtime,'dd/MM/yyyy') ='" + getday + "' and idmovie='" + idmovie + "' order by ST";
             table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow rows in table.Rows)
             {

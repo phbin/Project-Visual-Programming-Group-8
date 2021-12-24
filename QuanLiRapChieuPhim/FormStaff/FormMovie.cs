@@ -45,7 +45,8 @@ namespace QuanLiRapChieuPhim
 
                         img.Width = 200;
                         img.Height = 210;
-                        img.Image = MovieDAO.byteArrayToImage(item.Poster);
+                        img.BackgroundImage = MovieDAO.byteArrayToImage(item.Poster);
+                        img.BackgroundImageLayout = ImageLayout.Zoom;
                         img.ImageAlign = ContentAlignment.MiddleCenter;
                         img.FlatStyle = FlatStyle.Flat;
                         img.FlatAppearance.BorderSize = 0;
@@ -62,7 +63,7 @@ namespace QuanLiRapChieuPhim
                         name.Text = item.Name;
                         name.TextAlign = ContentAlignment.MiddleCenter;
 
-                        name.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
+                        name.Font = new Font("Lato", 10F, FontStyle.Bold);
                         name.ForeColor = Color.White;
                         name.BackColor = Color.Transparent;
                         name.Dock = DockStyle.Bottom;
@@ -71,7 +72,7 @@ namespace QuanLiRapChieuPhim
                         booking.Width = 80;
                         booking.Height = 40;
                         booking.Text = "Booking";
-                        booking.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
+                        booking.Font = new Font("Lato", 10F, FontStyle.Bold);
                         booking.ForeColor = Color.White;
                         booking.BackColor = Color.FromArgb(190, 62, 66);
                         booking.FlatStyle = FlatStyle.Flat;
@@ -91,7 +92,7 @@ namespace QuanLiRapChieuPhim
             {
                 foreach (Movie item in movieList)
                 {
-                    if (item.Datepublic <= DateTime.Now)
+                    if ((item.Datepublic <= DateTime.Now)&&(item.Dateout>=DateTime.Now))
                     {
                         Button booking = new Button();
                         Button img = new Button();
@@ -131,7 +132,7 @@ namespace QuanLiRapChieuPhim
                         booking.Width = 80;
                         booking.Height = 40;
                         booking.Text = "Booking";
-                        booking.Font = new Font("Times New Roman", 10F, FontStyle.Bold);
+                        booking.Font = new Font("Lato", 10F, FontStyle.Bold);
                         booking.ForeColor = Color.White;
                         booking.BackColor = Color.FromArgb(190, 62, 66);
                         booking.FlatStyle = FlatStyle.Flat;

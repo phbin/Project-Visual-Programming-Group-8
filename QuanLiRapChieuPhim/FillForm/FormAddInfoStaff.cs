@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,30 +20,79 @@ namespace QuanLiRapChieuPhim.AddForms
         {
             InitializeComponent();
         }
+        string CreateID()
+        {
+            string idc = "";
+            string query = "select * from InfoStaff where id like 'NV%' ";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
+            int j = 0;
+            for (int i = 0; i <= table.Rows.Count ; i++)
+            {
+                if (i < 10) idc = "NV0" + i;
+                else idc = "NV" + i;
+                while (j < table.Rows.Count)
+                {
+                    DataRow rows = table.Rows[j];
+                    if (rows["ID"].ToString() != idc) return idc;
+                    else
+                    {
+                        j++;
+                        break;
+                    }
+                }
+
+            }
+            IDTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+            return idc;
+        }
         public FormAddInfoStaff(DataGridView Grid)
         {
             InitializeComponent();
             InfoStaffGridView = Grid;
             AddButton.BringToFront();
-            IDTextbox.ReadOnly = false;
+            IDTextbox.Text = CreateID();
+            IDTextbox.ReadOnly = true;
         }
+        byte[] pic;
 
-        public FormAddInfoStaff(string ID, string FullName, string DoB, string Sex, string Address, string PhoneNum, string Email, string IDPersonal)
+        // image -> byte, insert image into database
+        public void imageToByteArray(string path, string id)
+        {
+            string query = "update InfoStaff set Avatar = (select * from openrowset(bulk N'" + path + "', single_blob) as img) where ID = '" + id + "'";
+            DataProvider.Instance.ExecuteQuery(query);
+        }
+        // byte[] -> image, get image from database
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+        public FormAddInfoStaff(string ID, string FullName, DateTime DoB, string Sex, string Address, string PhoneNum, string Email, string IDPersonal)
         {
             InitializeComponent();
 
             IDTextbox.Text = ID;
             FullNameTextbox.Text = FullName;
-            DoBTextbox.Text = DoB;
+            txtDOB.Value = DoB;
             AddressTextbox.Text = Address;
             PhoneTextbox.Text = PhoneNum;
             EmailTextbox.Text = Email;
             IDPersonalTextbox.Text = IDPersonal;
-
+            string query = "SELECT Avatar FROM dbo.InfoStaff where id ='" + ID + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            string gethead = ID.Substring(0,2);
+            if(gethead!="AD")
+            {
+                foreach (DataRow rows in table.Rows)
+                {
+                    pic = (byte[])rows["Avatar"];
+                }
+                pictureBox1.BackgroundImage = byteArrayToImage(pic);
+            }
             IDTextbox.ForeColor = Color.White;
             FullNameTextbox.ForeColor = Color.White;
-            DoBTextbox.ForeColor = Color.White;
             AddressTextbox.ForeColor = Color.White;
             PhoneTextbox.ForeColor = Color.White;
             EmailTextbox.ForeColor = Color.White;
@@ -51,7 +102,7 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 MaleCheckbox.Checked = true;
             }
-            else
+            else if((Sex == "Nữ"))
             {
                 FemaleCheckbox.Checked = true;
             }
@@ -62,20 +113,6 @@ namespace QuanLiRapChieuPhim.AddForms
         string Sex;
         DataGridView InfoStaffGridView = new DataGridView();
 
-        void LoadInfoStaff()
-        {
-            string query = "SELECT * FROM InfoStaff";
-            InfoStaffGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
-        }
-
-        private void IDTextbox_Enter(object sender, EventArgs e)
-        {
-            if (IDTextbox.Text == "ID")
-            {
-                IDTextbox.Text = "";
-                IDTextbox.ForeColor = Color.White;
-            }
-        }
 
         private void FullNameTextbox_Enter(object sender, EventArgs e)
         {
@@ -86,14 +123,6 @@ namespace QuanLiRapChieuPhim.AddForms
             }
         }
 
-        private void DoBTextbox_Enter(object sender, EventArgs e)
-        {
-            if (DoBTextbox.Text == "Birthday")
-            {
-                DoBTextbox.Text = "";
-                DoBTextbox.ForeColor = Color.White;
-            }
-        }
 
         private void AddressTextbox_Enter(object sender, EventArgs e)
         {
@@ -124,7 +153,7 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void IDPersonalTextbox_Enter(object sender, EventArgs e)
         {
-            if (IDPersonalTextbox.Text == "ID Personal")
+            if (IDPersonalTextbox.Text == "Personal ID")
             {
                 IDPersonalTextbox.Text = "";
                 IDPersonalTextbox.ForeColor = Color.White;
@@ -151,10 +180,10 @@ namespace QuanLiRapChieuPhim.AddForms
 
         private void DoBTextbox_Leave(object sender, EventArgs e)
         {
-            if (DoBTextbox.Text == "")
+            if (txtDOB.Text == "")
             {
-                DoBTextbox.Text = "Birthday";
-                DoBTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                txtDOB.Text = "Birthday";
+                txtDOB.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
 
@@ -189,7 +218,7 @@ namespace QuanLiRapChieuPhim.AddForms
         {
             if (IDPersonalTextbox.Text == "")
             {
-                IDPersonalTextbox.Text = "ID Personal";
+                IDPersonalTextbox.Text = "Personal ID";
                 IDPersonalTextbox.ForeColor = Color.FromArgb(190, 62, 66);
             }
         }
@@ -222,14 +251,14 @@ namespace QuanLiRapChieuPhim.AddForms
                 errorProvider1.SetError(FullNameTextbox, null);
             }
 
-            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
+            if (txtDOB.Text == "Birthday" || txtDOB.Text == "")
             {
-                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
+                errorProvider1.SetError(txtDOB, "Please enter Birthday!");
                 count++;
             }
             else
             {
-                errorProvider1.SetError(DoBTextbox, null);
+                errorProvider1.SetError(txtDOB, null);
             }
 
             if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
@@ -243,9 +272,9 @@ namespace QuanLiRapChieuPhim.AddForms
             }
 
 
-            if (IDPersonalTextbox.Text == "ID Personal" || IDPersonalTextbox.Text == "")
+            if (IDPersonalTextbox.Text == "Personal ID" || IDPersonalTextbox.Text == "")
             {
-                errorProvider1.SetError(IDPersonalTextbox, "Please enter ID Personal!");
+                errorProvider1.SetError(IDPersonalTextbox, "Please enter Personal ID!");
                 count++;
             }
             else
@@ -253,26 +282,19 @@ namespace QuanLiRapChieuPhim.AddForms
                 errorProvider1.SetError(IDPersonalTextbox, null);
             }
 
-
-            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            if (PhoneTextbox.Text.Length != 10 )
             {
-                foreach (char item in PhoneTextbox.Text)
-                {
-                    if (item >= '0' && item <= '9')
-                    {
-                        errorProvider1.SetError(PhoneTextbox, null);
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
-                        count++;
-                    }
-
-                }
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number in the correct format!");
+                count++;
+            }
+            else if (PhoneTextbox.Text == "Phone Number")
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                count++;
             }
             else
             {
-                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                errorProvider1.SetError(PhoneTextbox, null);
             }
 
             if ((MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false) || (MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true))
@@ -284,7 +306,6 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 errorProvider1.SetError(FemaleCheckbox, null);
             }
-
 
             string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
             if (Regex.IsMatch(EmailTextbox.Text, pattern))
@@ -301,9 +322,8 @@ namespace QuanLiRapChieuPhim.AddForms
             {
                 if (IDTextbox.Text == InfoStaffGridView.Rows[i].Cells["ID"].Value.ToString())
                 {
-                    MessageBox.Show("This staff already exist", "Notification", MessageBoxButtons.OK);
+                    MessageBox.Show("This staff has already existed", "Notification", MessageBoxButtons.OK);
                     IDTextbox.Text = "";
-                    IDTextbox.Focus();
                     return;
                 }
             }
@@ -311,6 +331,11 @@ namespace QuanLiRapChieuPhim.AddForms
 
             if (count==0)
             {
+                if (PicturePath == "")
+                {
+                    MessageBox.Show("Please upload a picture!");
+                    return;
+                }
                 if ((MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true) || (MaleCheckbox.Checked == false && FemaleCheckbox.Checked == false))
                 {
                     MessageBox.Show("Wrong sex!", "Notification", MessageBoxButtons.OK);
@@ -321,26 +346,30 @@ namespace QuanLiRapChieuPhim.AddForms
                 else
                     Sex = "Nữ";
 
-                DateTime DayofBirth = DateTime.Parse(DoBTextbox.Text);
+                DateTime DayofBirth = txtDOB.Value;
                 string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 AccountDAO.Instance.AddInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-                IDTextbox.Text = "";
-                FullNameTextbox.Text = "";
-                DoBTextbox.Text = "";
-                AddressTextbox.Text = "";
-                PhoneTextbox.Text = "";
-                IDPersonalTextbox.Text = "";
-                EmailTextbox.Text = "";
+                imageToByteArray(PicturePath, IDTextbox.Text);
+                pictureBox1.BackgroundImage = null;
+                IDTextbox.Text = CreateID();
+                FullNameTextbox.Text = "FullName";
+                AddressTextbox.Text = "Address";
+                PhoneTextbox.Text = "Phone Number";
+                IDPersonalTextbox.Text = "Personal ID";
+                EmailTextbox.Text = "Email";
+                FullNameTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                AddressTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                PhoneTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                IDPersonalTextbox.ForeColor = Color.FromArgb(190, 62, 66);
+                EmailTextbox.ForeColor = Color.FromArgb(190, 62, 66);
                 MaleCheckbox.Checked = false;
                 FemaleCheckbox.Checked = false;
             }
-            LoadInfoStaff();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
             int count = 0;
-
             if (FullNameTextbox.Text == "Full Name" || FullNameTextbox.Text == "")
             {
                 errorProvider1.SetError(FullNameTextbox, "Please enter Full Name!");
@@ -349,16 +378,6 @@ namespace QuanLiRapChieuPhim.AddForms
             else
             {
                 errorProvider1.SetError(FullNameTextbox, null);
-            }
-
-            if (DoBTextbox.Text == "Birthday" || DoBTextbox.Text == "")
-            {
-                errorProvider1.SetError(DoBTextbox, "Please enter Birthday!");
-                count++;
-            }
-            else
-            {
-                errorProvider1.SetError(DoBTextbox, null);
             }
 
             if (AddressTextbox.Text == "Address" || AddressTextbox.Text == "")
@@ -371,7 +390,6 @@ namespace QuanLiRapChieuPhim.AddForms
                 errorProvider1.SetError(AddressTextbox, null);
             }
 
-
             if (IDPersonalTextbox.Text == "ID Personal" || IDPersonalTextbox.Text == "")
             {
                 errorProvider1.SetError(IDPersonalTextbox, "Please enter ID Personal!");
@@ -383,28 +401,22 @@ namespace QuanLiRapChieuPhim.AddForms
             }
 
 
-            if (PhoneTextbox.Text.Length > 0 && PhoneTextbox.Text != "Phone Number")
+            if (PhoneTextbox.Text.Length != 10)
             {
-                foreach (char item in PhoneTextbox.Text)
-                {
-                    if (item >= '0' && item <= '9')
-                    {
-                        errorProvider1.SetError(PhoneTextbox, null);
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PhoneTextbox, "Only accept number!");
-                        count++;
-                    }
-
-                }
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number in the correct format!");
+                count++;
+            }
+            else if (PhoneTextbox.Text == "Phone Number")
+            {
+                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                count++;
             }
             else
             {
-                errorProvider1.SetError(PhoneTextbox, "Please enter phone number!");
+                errorProvider1.SetError(PhoneTextbox, null);
             }
 
-            if((MaleCheckbox.Checked ==false && FemaleCheckbox.Checked==false) || (MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true))
+            if ((MaleCheckbox.Checked ==false && FemaleCheckbox.Checked==false) || (MaleCheckbox.Checked == true && FemaleCheckbox.Checked == true))
             {
                 errorProvider1.SetError(FemaleCheckbox, "Please enter only one!");
                 count++;
@@ -432,7 +444,7 @@ namespace QuanLiRapChieuPhim.AddForms
                 {
                     string Sex;
 
-                    DateTime DayofBirth = Convert.ToDateTime(DoBTextbox.Text);
+                    DateTime DayofBirth = txtDOB.Value;
                     string sqlFormattedDate = DayofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
                     if (MaleCheckbox.Checked == FemaleCheckbox.Checked)
@@ -451,10 +463,45 @@ namespace QuanLiRapChieuPhim.AddForms
                     }
 
                     AccountDAO.Instance.EditInfoStaff(IDTextbox.Text, FullNameTextbox.Text, sqlFormattedDate, AddressTextbox.Text, PhoneTextbox.Text, IDPersonalTextbox.Text, EmailTextbox.Text, Sex);
-
+                    if (PicturePath != "")
+                    {
+                        imageToByteArray(PicturePath, IDTextbox.Text);
+                    }
                     this.Close();
                 }
             }
+        }
+        string PicturePath = "";
+        private void UploadButton_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread((ThreadStart)(() => {
+                OpenFileDialog openfiledialog = new OpenFileDialog();
+
+                openfiledialog.Filter = "Image files | *.png; *.jpg";
+                openfiledialog.FilterIndex = 1;
+                openfiledialog.RestoreDirectory = true;
+
+                if (openfiledialog.ShowDialog() == DialogResult.OK)
+                {
+                    PicturePath = openfiledialog.FileName;
+                    pictureBox1.BackgroundImage = Image.FromFile(PicturePath);
+                }
+            }));
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+            t.Join();
+        }
+
+        private void PhoneTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void IDPersonalTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

@@ -20,6 +20,12 @@ namespace QuanLiRapChieuPhim
             idshowtime = ids;
             LoadInfo();
             LoadSeat();
+            string query = "SELECT ticketprice FROM dbo.showtime where id ='" + idshowtime + "'";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow rows in table.Rows)
+            {
+                price = (int)rows["ticketprice"];
+            }
         }
         Button curBtn = new Button();
         string idshowtime = "";
@@ -46,7 +52,7 @@ namespace QuanLiRapChieuPhim
                 {
                     seat.BackColor = Color.FromArgb(227, 53, 57);
                 }
-                seat.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+                seat.Font = new Font("Lato", 9F, FontStyle.Bold);
                 seat.Text = item.SeatName.ToString();
                 seat.Click += Seat_Click;
                 seat.Tag = (object)item;
@@ -84,24 +90,27 @@ namespace QuanLiRapChieuPhim
             curBtn = (Button)(sender);
             btnClick();
         }
-
+        int total = 0;
         private void btnClick()
         {
             if (curBtn.BackColor == Color.FromArgb(32, 90, 167)) //blue
             {
                 curBtn.BackColor = Color.FromArgb(238, 154, 0); //orange
                 count++;
-                price += 110000;
-                lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 2;
+                total += price;
+                lbPriceInfo.Text = count + "\n\n" + total + " VND";
+                string query = "UPDATE dbo.Seat SET stt=2 WHERE seatname='" + (curBtn.Tag as Seat).SeatName + "' and idshowtime='"+idshowtime+"'";
+                DataProvider.Instance.ExecuteQuery(query);
+                //(curBtn.Tag as Seat).stt = 2;
             }
             else if (curBtn.BackColor == Color.FromArgb(238, 154, 0)) //orange
             {
                 curBtn.BackColor = Color.FromArgb(32, 90, 167); //blue
                 count--;
-                price -= 110000;
-                lbPriceInfo.Text = count + "\n\n" + price + " VND";
-                (curBtn.Tag as Seat).stt = 0;
+                total -= price;
+                lbPriceInfo.Text = count + "\n\n" + total + " VND";
+                string query = "UPDATE dbo.Seat SET stt=0'" + "'WHERE seatname='" + (curBtn.Tag as Seat).SeatName + "'";
+                //(curBtn.Tag as Seat).stt = 0;
             }
             else if (curBtn.BackColor == Color.FromArgb(227, 53, 57)) //red
             {
@@ -116,9 +125,10 @@ namespace QuanLiRapChieuPhim
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //TicketBill frm = new TicketBill();
-            //frm.Show();
+            FormTicketBill frm = new FormTicketBill(SeatDAO.GetSeatBooked(idshowtime), idshowtime);
+            frm.Owner = this;
+            frm.ShowDialog();
+            LoadSeat();
         }
     }
 }

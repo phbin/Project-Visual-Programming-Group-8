@@ -17,13 +17,15 @@ namespace QuanLiRapChieuPhim
         private string name;
         private int category;
         private float price;
+        byte[] picture;
 
-        public FoodDrink(int id, string name, int category, float price)
+        public FoodDrink(int id, string name, int category, float price,byte[] picture)
         {
             this.iD = id;
             this.name = name;
             this.category = category;
             this.price = price;
+            this.picture = picture;
         }
 
         public FoodDrink(DataRow row)
@@ -32,6 +34,10 @@ namespace QuanLiRapChieuPhim
             this.name = row["NameFD"].ToString();
             this.category = (int)row["IDCategory"];
             this.price = float.Parse(row["Price"].ToString());
+            if (row["Picture"].ToString() == "")
+                this.picture = null;
+            else
+                this.picture = (byte[])row["Picture"];
         }
 
         public int ID
@@ -56,6 +62,11 @@ namespace QuanLiRapChieuPhim
         {
             get { return price; }
             set { price = value; }
+        }
+        public byte[] Picture
+        {
+            get { return picture; }
+            set { picture = value; }
         }
     }
 }
