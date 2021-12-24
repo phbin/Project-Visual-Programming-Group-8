@@ -11,7 +11,7 @@ namespace QuanLiRapChieuPhim.DTO
     {
         public string IDShowtime { get; set; }
         public string SeatName { get; set; }
-        public int stt { get; set; }
+        public int Stt { get; set; }
         public string IDCustomer { get; set; }
 
 
@@ -19,7 +19,7 @@ namespace QuanLiRapChieuPhim.DTO
         {
             IDShowtime = shtime;
             SeatName = seat;
-            stt = status;
+            Stt = status;
             IDCustomer = idcus;
         }
 
@@ -27,7 +27,7 @@ namespace QuanLiRapChieuPhim.DTO
         {
             IDShowtime = row["IDShowtime"].ToString(); 
             SeatName = row["SeatName"].ToString();
-            stt = (int)row["stt"];
+            Stt = (int)row["stt"];
             IDCustomer = row["IDCustomer"].ToString();
         }
     }
